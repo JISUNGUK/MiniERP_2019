@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Control\DBConnection.cs" />
+    <Compile Include="Model\DBConnection.cs" />
     <Compile Include="View\LogisticsManagement\Frm_ProductionPlanList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,7 +208,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Control\" />
     <Folder Include="View\AccountingManagement\" />
     <Folder Include="View\ProductionManagement\" />
   </ItemGroup>
