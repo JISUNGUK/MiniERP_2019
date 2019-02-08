@@ -19,6 +19,10 @@ namespace MiniERP.View
         private Panel panel_mdi;
         private bool tabChk = true;
 
+        private Point imageLocation = new Point(10, 5);
+        private Point imageHitArea = new Point(10, 5);
+        Image CloseIcon;
+
         public Form1()
         {
             InitializeComponent();      
@@ -111,9 +115,6 @@ namespace MiniERP.View
                         tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
                         tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
                         tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
-
-
-
                         #endregion
 
                         #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
@@ -176,7 +177,29 @@ namespace MiniERP.View
 
                     tabChk = true; // 중복확인용 bool 타입
                     break;
-                
+                case "생산계획서 조회":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+
+                    Frm_ProductionPlanList productionPlanList = new Frm_ProductionPlanList();
+                    productionPlanList.ControlBox = false; // 컨트롤 상자 없애기
+                    productionPlanList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    productionPlanList.MdiParent = this; // MDI 설정
+                    productionPlanList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(productionPlanList); // 판넬에 설정한 폼 넣기
+                    productionPlanList.Show();  // 폼 실행
+                    #endregion
+
+                    tabChk = true; // 중복확인용 bool 타입
+                    break;
                 default:
                     MessageBox.Show("해당 폼이 없습니다.");
                     tabControl1.SelectedTab = tabControl1.TabPages[0];
@@ -184,7 +207,9 @@ namespace MiniERP.View
 
             }
             tabChk = false;
-        } 
+        }
+
+       
 
         private void CloseForm(object test)
         {
@@ -227,6 +252,29 @@ namespace MiniERP.View
         }
 
         private void bOM조회ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region 탭페이지 닫기 버튼 추가 이벤트
+        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        #endregion
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Frm_MaxSizeGrp frm_MaxSizeGrp = new Frm_MaxSizeGrp();
+            frm_MaxSizeGrp.Show();
+        }
+
+        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

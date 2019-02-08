@@ -47,17 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DBConnection.cs" />
+    <Compile Include="View\Frm_MaxSizeGrp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_MaxSizeGrp.Designer.cs">
+      <DependentUpon>Frm_MaxSizeGrp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VO\DBConnection.cs" />
+    <Compile Include="View\LogisticsManagement\Frm_BomInesrt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_BomInesrt.Designer.cs">
+      <DependentUpon>Frm_BomInesrt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_BomList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_BomList.designer.cs">
+      <DependentUpon>Frm_BomList.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LogisticsManagement\Frm_ProductionPlanList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\LogisticsManagement\Frm_ProductionPlanList.Designer.cs">
       <DependentUpon>Frm_ProductionPlanList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Frm_SellInsert.cs">
+    <Compile Include="View\SalesPurchaseManagement\Frm_SellInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Frm_SellInsert.Designer.cs">
+    <Compile Include="View\SalesPurchaseManagement\Frm_SellInsert.Designer.cs">
       <DependentUpon>Frm_SellInsert.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form1.cs">
@@ -102,10 +120,10 @@
     <Compile Include="View\Frm_ItemSelect.Designer.cs">
       <DependentUpon>Frm_ItemSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Frm_EstimateInsert.cs">
+    <Compile Include="View\LogisticsManagement\Frm_EstimateInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Frm_EstimateInsert.Designer.cs">
+    <Compile Include="View\LogisticsManagement\Frm_EstimateInsert.Designer.cs">
       <DependentUpon>Frm_EstimateInsert.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LogisticsManagement\Frm_EstimateList.cs">
@@ -114,10 +132,10 @@
     <Compile Include="View\LogisticsManagement\Frm_EstimateList.Designer.cs">
       <DependentUpon>Frm_EstimateList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Frm_OrderInsert.cs">
+    <Compile Include="View\BusinessManagement\Frm_OrderInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Frm_OrderInsert.Designer.cs">
+    <Compile Include="View\BusinessManagement\Frm_OrderInsert.Designer.cs">
       <DependentUpon>Frm_OrderInsert.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BusinessManagement\Frm_OrderList.cs">
@@ -140,10 +158,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\Frm_MaxSizeGrp.resx">
+      <DependentUpon>Frm_MaxSizeGrp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_BomInesrt.resx">
+      <DependentUpon>Frm_BomInesrt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_BomList.resx">
+      <DependentUpon>Frm_BomList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LogisticsManagement\Frm_ProductionPlanList.resx">
       <DependentUpon>Frm_ProductionPlanList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Frm_SellInsert.resx">
+    <EmbeddedResource Include="View\SalesPurchaseManagement\Frm_SellInsert.resx">
       <DependentUpon>Frm_SellInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
@@ -167,13 +194,13 @@
     <EmbeddedResource Include="View\Frm_ItemSelect.resx">
       <DependentUpon>Frm_ItemSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Frm_EstimateInsert.resx">
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_EstimateInsert.resx">
       <DependentUpon>Frm_EstimateInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LogisticsManagement\Frm_EstimateList.resx">
       <DependentUpon>Frm_EstimateList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Frm_OrderInsert.resx">
+    <EmbeddedResource Include="View\BusinessManagement\Frm_OrderInsert.resx">
       <DependentUpon>Frm_OrderInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BusinessManagement\Frm_OrderList.resx">
@@ -208,9 +235,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Model\DAO\" />
     <Folder Include="View\AccountingManagement\" />
     <Folder Include="View\ProductionManagement\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\닫기버튼.jpg" />
+    <Content Include="Image\최대화 버튼.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
