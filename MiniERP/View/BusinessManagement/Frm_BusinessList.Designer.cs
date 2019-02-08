@@ -1,4 +1,4 @@
-﻿namespace MiniERP
+﻿namespace MiniERP.View.BusinessManagement
 {
     partial class Frm_BusinessList
     {

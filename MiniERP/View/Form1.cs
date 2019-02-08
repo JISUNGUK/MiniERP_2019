@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MiniERP.View.BusinessManagement;
+using MiniERP.View.LogisticsManagement;
+using MiniERP.View.SalesPurchaseManagement;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP
+namespace MiniERP.View
 {
     public partial class Form1 : Form
     {
@@ -221,6 +224,11 @@ namespace MiniERP
         private void 생산계획서조회ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenForm(sender);
+        }
+
+        private void bOM조회ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP
+namespace MiniERP.View.LogisticsManagement
 {
     public partial class Frm_EstimateList : Form
     {

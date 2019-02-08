@@ -1,4 +1,4 @@
-﻿namespace MiniERP
+﻿namespace MiniERP.View
 {
     partial class Frm_OrderInsert
     {

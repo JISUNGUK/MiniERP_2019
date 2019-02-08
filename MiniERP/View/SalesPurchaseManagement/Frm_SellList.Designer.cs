@@ -1,4 +1,4 @@
-﻿namespace MiniERP
+﻿namespace MiniERP.View.SalesPurchaseManagement
 {
     partial class Frm_SellList
     {

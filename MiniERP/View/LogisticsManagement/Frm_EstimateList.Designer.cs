@@ -1,4 +1,4 @@
-﻿namespace MiniERP
+﻿namespace MiniERP.View.LogisticsManagement
 {
     partial class Frm_EstimateList
     {

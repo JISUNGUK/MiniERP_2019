@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP
+namespace MiniERP.View
 {
     public partial class Frm_ClerkSelect : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace MiniERP.View
+﻿namespace MiniERP.View.LogisticsManagement
 {
     partial class Frm_ProductionPlanList
     {
