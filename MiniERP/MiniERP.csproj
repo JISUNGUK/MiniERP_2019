@@ -53,7 +53,7 @@
     <Compile Include="View\Frm_MaxSizeGrp.Designer.cs">
       <DependentUpon>Frm_MaxSizeGrp.cs</DependentUpon>
     </Compile>
-    <Compile Include="VO\DBConnection.cs" />
+    <Compile Include="Model\DBConnection.cs" />
     <Compile Include="View\LogisticsManagement\Frm_BomInesrt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +237,7 @@
   <ItemGroup>
     <Folder Include="Interface\" />
     <Folder Include="Model\DAO\" />
+    <Folder Include="VO\" />
     <Folder Include="View\AccountingManagement\" />
     <Folder Include="View\ProductionManagement\" />
   </ItemGroup>
