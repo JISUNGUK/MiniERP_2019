@@ -69,7 +69,11 @@
             this.매입관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lbx_Onlin = new System.Windows.Forms.ListBox();
+            this.lbx_ChatRead = new System.Windows.Forms.ListBox();
+            this.txt_ChatWrite = new System.Windows.Forms.TextBox();
+            this.btn_ChatSend = new System.Windows.Forms.Button();
+            this.cbx_ChatType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -183,14 +187,14 @@
             // tsm_OrdM_inquiry
             // 
             this.tsm_OrdM_inquiry.Name = "tsm_OrdM_inquiry";
-            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(180, 22);
+            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(138, 22);
             this.tsm_OrdM_inquiry.Text = "주문 조회";
             this.tsm_OrdM_inquiry.Click += new System.EventHandler(this.tsm_OrdM_inquiry_Click_1);
             // 
             // tsm_Accountregistration
             // 
             this.tsm_Accountregistration.Name = "tsm_Accountregistration";
-            this.tsm_Accountregistration.Size = new System.Drawing.Size(180, 22);
+            this.tsm_Accountregistration.Size = new System.Drawing.Size(138, 22);
             this.tsm_Accountregistration.Text = "거래처 조회";
             this.tsm_Accountregistration.Click += new System.EventHandler(this.tsm_Accountregistration_Click);
             // 
@@ -418,20 +422,63 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.button1);
+            this.splitContainer2.Panel2.Controls.Add(this.cbx_ChatType);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_ChatSend);
+            this.splitContainer2.Panel2.Controls.Add(this.txt_ChatWrite);
+            this.splitContainer2.Panel2.Controls.Add(this.lbx_ChatRead);
+            this.splitContainer2.Panel2.Controls.Add(this.lbx_Onlin);
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel2_Paint);
             this.splitContainer2.Size = new System.Drawing.Size(1461, 681);
             this.splitContainer2.SplitterDistance = 1116;
             this.splitContainer2.TabIndex = 3;
             // 
-            // button1
+            // lbx_Onlin
             // 
-            this.button1.Location = new System.Drawing.Point(59, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "메신저 기능 공간";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lbx_Onlin.FormattingEnabled = true;
+            this.lbx_Onlin.ItemHeight = 12;
+            this.lbx_Onlin.Location = new System.Drawing.Point(2, 3);
+            this.lbx_Onlin.Name = "lbx_Onlin";
+            this.lbx_Onlin.Size = new System.Drawing.Size(335, 88);
+            this.lbx_Onlin.TabIndex = 0;
+            // 
+            // lbx_ChatRead
+            // 
+            this.lbx_ChatRead.FormattingEnabled = true;
+            this.lbx_ChatRead.ItemHeight = 12;
+            this.lbx_ChatRead.Location = new System.Drawing.Point(3, 97);
+            this.lbx_ChatRead.Name = "lbx_ChatRead";
+            this.lbx_ChatRead.Size = new System.Drawing.Size(335, 496);
+            this.lbx_ChatRead.TabIndex = 1;
+            // 
+            // txt_ChatWrite
+            // 
+            this.txt_ChatWrite.Location = new System.Drawing.Point(4, 599);
+            this.txt_ChatWrite.Multiline = true;
+            this.txt_ChatWrite.Name = "txt_ChatWrite";
+            this.txt_ChatWrite.Size = new System.Drawing.Size(334, 53);
+            this.txt_ChatWrite.TabIndex = 3;
+            this.txt_ChatWrite.Text = "메신저 UI 수정중";
+            this.txt_ChatWrite.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btn_ChatSend
+            // 
+            this.btn_ChatSend.Location = new System.Drawing.Point(209, 655);
+            this.btn_ChatSend.Name = "btn_ChatSend";
+            this.btn_ChatSend.Size = new System.Drawing.Size(128, 23);
+            this.btn_ChatSend.TabIndex = 4;
+            this.btn_ChatSend.Text = "전송";
+            this.btn_ChatSend.UseVisualStyleBackColor = true;
+            // 
+            // cbx_ChatType
+            // 
+            this.cbx_ChatType.FormattingEnabled = true;
+            this.cbx_ChatType.Items.AddRange(new object[] {
+            "공지사항",
+            "공용\t"});
+            this.cbx_ChatType.Location = new System.Drawing.Point(4, 658);
+            this.cbx_ChatType.Name = "cbx_ChatType";
+            this.cbx_ChatType.Size = new System.Drawing.Size(199, 20);
+            this.cbx_ChatType.TabIndex = 5;
             // 
             // Form1
             // 
@@ -459,6 +506,7 @@
             this.menuStrip1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -507,7 +555,11 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_ChatWrite;
+        private System.Windows.Forms.ListBox lbx_ChatRead;
+        private System.Windows.Forms.ListBox lbx_Onlin;
+        private System.Windows.Forms.ComboBox cbx_ChatType;
+        private System.Windows.Forms.Button btn_ChatSend;
     }
 }
 
