@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\Frm_MakeRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_MakeRoom.Designer.cs">
+      <DependentUpon>Frm_MakeRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Frm_MaxSizeGrp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\Frm_MakeRoom.resx">
+      <DependentUpon>Frm_MakeRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MaxSizeGrp.resx">
       <DependentUpon>Frm_MaxSizeGrp.cs</DependentUpon>
     </EmbeddedResource>

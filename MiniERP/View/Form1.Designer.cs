@@ -69,11 +69,22 @@
             this.매입관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.lbx_Onlin = new System.Windows.Forms.ListBox();
-            this.lbx_ChatRead = new System.Windows.Forms.ListBox();
-            this.txt_ChatWrite = new System.Windows.Forms.TextBox();
-            this.btn_ChatSend = new System.Windows.Forms.Button();
-            this.cbx_ChatType = new System.Windows.Forms.ComboBox();
+            this.roomName = new System.Windows.Forms.Label();
+            this.memberList = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.roomList = new System.Windows.Forms.ComboBox();
+            this.mkRoom = new System.Windows.Forms.Button();
+            this.rmRoom = new System.Windows.Forms.Button();
+            this.ChatContent = new System.Windows.Forms.RichTextBox();
+            this.message = new System.Windows.Forms.TextBox();
+            this.sendMsg = new System.Windows.Forms.Button();
+            this.imageButton = new System.Windows.Forms.Button();
+            this.imageLabel = new System.Windows.Forms.Label();
+            this.nicname = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.access = new System.Windows.Forms.Button();
+            this.particiRoom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -422,63 +433,174 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.cbx_ChatType);
-            this.splitContainer2.Panel2.Controls.Add(this.btn_ChatSend);
-            this.splitContainer2.Panel2.Controls.Add(this.txt_ChatWrite);
-            this.splitContainer2.Panel2.Controls.Add(this.lbx_ChatRead);
-            this.splitContainer2.Panel2.Controls.Add(this.lbx_Onlin);
+            this.splitContainer2.Panel2.Controls.Add(this.particiRoom);
+            this.splitContainer2.Panel2.Controls.Add(this.access);
+            this.splitContainer2.Panel2.Controls.Add(this.label3);
+            this.splitContainer2.Panel2.Controls.Add(this.nicname);
+            this.splitContainer2.Panel2.Controls.Add(this.imageLabel);
+            this.splitContainer2.Panel2.Controls.Add(this.imageButton);
+            this.splitContainer2.Panel2.Controls.Add(this.sendMsg);
+            this.splitContainer2.Panel2.Controls.Add(this.message);
+            this.splitContainer2.Panel2.Controls.Add(this.ChatContent);
+            this.splitContainer2.Panel2.Controls.Add(this.rmRoom);
+            this.splitContainer2.Panel2.Controls.Add(this.mkRoom);
+            this.splitContainer2.Panel2.Controls.Add(this.roomList);
+            this.splitContainer2.Panel2.Controls.Add(this.label2);
+            this.splitContainer2.Panel2.Controls.Add(this.label1);
+            this.splitContainer2.Panel2.Controls.Add(this.memberList);
+            this.splitContainer2.Panel2.Controls.Add(this.roomName);
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel2_Paint);
             this.splitContainer2.Size = new System.Drawing.Size(1461, 681);
             this.splitContainer2.SplitterDistance = 1116;
             this.splitContainer2.TabIndex = 3;
             // 
-            // lbx_Onlin
+            // roomName
             // 
-            this.lbx_Onlin.FormattingEnabled = true;
-            this.lbx_Onlin.ItemHeight = 12;
-            this.lbx_Onlin.Location = new System.Drawing.Point(2, 3);
-            this.lbx_Onlin.Name = "lbx_Onlin";
-            this.lbx_Onlin.Size = new System.Drawing.Size(335, 88);
-            this.lbx_Onlin.TabIndex = 0;
+            this.roomName.AutoSize = true;
+            this.roomName.Location = new System.Drawing.Point(11, 142);
+            this.roomName.Name = "roomName";
+            this.roomName.Size = new System.Drawing.Size(49, 12);
+            this.roomName.TabIndex = 0;
+            this.roomName.Text = "방 이름:";
             // 
-            // lbx_ChatRead
+            // memberList
             // 
-            this.lbx_ChatRead.FormattingEnabled = true;
-            this.lbx_ChatRead.ItemHeight = 12;
-            this.lbx_ChatRead.Location = new System.Drawing.Point(3, 97);
-            this.lbx_ChatRead.Name = "lbx_ChatRead";
-            this.lbx_ChatRead.Size = new System.Drawing.Size(335, 496);
-            this.lbx_ChatRead.TabIndex = 1;
+            this.memberList.FormattingEnabled = true;
+            this.memberList.ItemHeight = 12;
+            this.memberList.Location = new System.Drawing.Point(101, 37);
+            this.memberList.Name = "memberList";
+            this.memberList.ScrollAlwaysVisible = true;
+            this.memberList.Size = new System.Drawing.Size(237, 76);
+            this.memberList.TabIndex = 1;
             // 
-            // txt_ChatWrite
+            // label1
             // 
-            this.txt_ChatWrite.Location = new System.Drawing.Point(4, 599);
-            this.txt_ChatWrite.Multiline = true;
-            this.txt_ChatWrite.Name = "txt_ChatWrite";
-            this.txt_ChatWrite.Size = new System.Drawing.Size(334, 53);
-            this.txt_ChatWrite.TabIndex = 3;
-            this.txt_ChatWrite.Text = "메신저 UI 수정중";
-            this.txt_ChatWrite.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "사용자목록";
             // 
-            // btn_ChatSend
+            // label2
             // 
-            this.btn_ChatSend.Location = new System.Drawing.Point(209, 655);
-            this.btn_ChatSend.Name = "btn_ChatSend";
-            this.btn_ChatSend.Size = new System.Drawing.Size(128, 23);
-            this.btn_ChatSend.TabIndex = 4;
-            this.btn_ChatSend.Text = "전송";
-            this.btn_ChatSend.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "방목록";
             // 
-            // cbx_ChatType
+            // roomList
             // 
-            this.cbx_ChatType.FormattingEnabled = true;
-            this.cbx_ChatType.Items.AddRange(new object[] {
-            "공지사항",
-            "공용\t"});
-            this.cbx_ChatType.Location = new System.Drawing.Point(4, 658);
-            this.cbx_ChatType.Name = "cbx_ChatType";
-            this.cbx_ChatType.Size = new System.Drawing.Size(199, 20);
-            this.cbx_ChatType.TabIndex = 5;
+            this.roomList.FormattingEnabled = true;
+            this.roomList.Location = new System.Drawing.Point(101, 119);
+            this.roomList.Name = "roomList";
+            this.roomList.Size = new System.Drawing.Size(237, 20);
+            this.roomList.TabIndex = 4;
+            // 
+            // mkRoom
+            // 
+            this.mkRoom.Location = new System.Drawing.Point(13, 169);
+            this.mkRoom.Name = "mkRoom";
+            this.mkRoom.Size = new System.Drawing.Size(63, 23);
+            this.mkRoom.TabIndex = 5;
+            this.mkRoom.Text = "방생성";
+            this.mkRoom.UseVisualStyleBackColor = true;
+            this.mkRoom.Click += new System.EventHandler(this.mkRoom_Click);
+            // 
+            // rmRoom
+            // 
+            this.rmRoom.Enabled = false;
+            this.rmRoom.Location = new System.Drawing.Point(264, 169);
+            this.rmRoom.Name = "rmRoom";
+            this.rmRoom.Size = new System.Drawing.Size(65, 23);
+            this.rmRoom.TabIndex = 6;
+            this.rmRoom.Text = "방제거";
+            this.rmRoom.UseVisualStyleBackColor = true;
+            this.rmRoom.Visible = false;
+            // 
+            // ChatContent
+            // 
+            this.ChatContent.Location = new System.Drawing.Point(13, 198);
+            this.ChatContent.Name = "ChatContent";
+            this.ChatContent.Size = new System.Drawing.Size(316, 365);
+            this.ChatContent.TabIndex = 7;
+            this.ChatContent.Text = "";
+            // 
+            // message
+            // 
+            this.message.Location = new System.Drawing.Point(13, 584);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(231, 21);
+            this.message.TabIndex = 8;
+            this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp);
+            // 
+            // sendMsg
+            // 
+            this.sendMsg.Location = new System.Drawing.Point(250, 582);
+            this.sendMsg.Name = "sendMsg";
+            this.sendMsg.Size = new System.Drawing.Size(87, 23);
+            this.sendMsg.TabIndex = 9;
+            this.sendMsg.Text = "전송";
+            this.sendMsg.UseVisualStyleBackColor = true;
+            this.sendMsg.Click += new System.EventHandler(this.sendMsg_Click);
+            // 
+            // imageButton
+            // 
+            this.imageButton.Location = new System.Drawing.Point(250, 625);
+            this.imageButton.Name = "imageButton";
+            this.imageButton.Size = new System.Drawing.Size(87, 23);
+            this.imageButton.TabIndex = 10;
+            this.imageButton.Text = "이미지 첨부";
+            this.imageButton.UseVisualStyleBackColor = true;
+            this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
+            // 
+            // imageLabel
+            // 
+            this.imageLabel.AutoSize = true;
+            this.imageLabel.Location = new System.Drawing.Point(11, 625);
+            this.imageLabel.Name = "imageLabel";
+            this.imageLabel.Size = new System.Drawing.Size(73, 12);
+            this.imageLabel.TabIndex = 11;
+            this.imageLabel.Text = "첨부 이미지:";
+            this.imageLabel.Click += new System.EventHandler(this.imageLabel_Click);
+            // 
+            // nicname
+            // 
+            this.nicname.Location = new System.Drawing.Point(101, 4);
+            this.nicname.Name = "nicname";
+            this.nicname.Size = new System.Drawing.Size(148, 21);
+            this.nicname.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "사용자이름";
+            // 
+            // access
+            // 
+            this.access.Location = new System.Drawing.Point(274, 2);
+            this.access.Name = "access";
+            this.access.Size = new System.Drawing.Size(63, 23);
+            this.access.TabIndex = 14;
+            this.access.Text = "접속";
+            this.access.UseVisualStyleBackColor = true;
+            this.access.Click += new System.EventHandler(this.access_Click);
+            // 
+            // particiRoom
+            // 
+            this.particiRoom.Location = new System.Drawing.Point(264, 142);
+            this.particiRoom.Name = "particiRoom";
+            this.particiRoom.Size = new System.Drawing.Size(63, 23);
+            this.particiRoom.TabIndex = 15;
+            this.particiRoom.Text = "방참가";
+            this.particiRoom.UseVisualStyleBackColor = true;
+            this.particiRoom.Click += new System.EventHandler(this.particiRoom_Click);
             // 
             // Form1
             // 
@@ -491,6 +613,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -555,11 +678,22 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.TextBox txt_ChatWrite;
-        private System.Windows.Forms.ListBox lbx_ChatRead;
-        private System.Windows.Forms.ListBox lbx_Onlin;
-        private System.Windows.Forms.ComboBox cbx_ChatType;
-        private System.Windows.Forms.Button btn_ChatSend;
+        private System.Windows.Forms.Label imageLabel;
+        private System.Windows.Forms.Button imageButton;
+        private System.Windows.Forms.Button sendMsg;
+        private System.Windows.Forms.TextBox message;
+        private System.Windows.Forms.RichTextBox ChatContent;
+        private System.Windows.Forms.Button rmRoom;
+        private System.Windows.Forms.Button mkRoom;
+        private System.Windows.Forms.ComboBox roomList;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox memberList;
+        private System.Windows.Forms.Label roomName;
+        private System.Windows.Forms.Button access;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox nicname;
+        private System.Windows.Forms.Button particiRoom;
     }
 }
 
