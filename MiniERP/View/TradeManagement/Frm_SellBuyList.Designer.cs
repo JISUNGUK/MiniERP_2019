@@ -1,6 +1,6 @@
 ﻿namespace MiniERP.View.SalesPurchaseManagement
 {
-    partial class Frm_SellList
+    partial class Frm_SellBuyList
     {
         /// <summary>
         /// Required designer variable.
@@ -336,7 +336,7 @@
             this.radioButton1.Text = "거래";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // Frm_SellList
+            // Frm_SellBuyList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -372,8 +372,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Frm_SellList";
-            this.Text = "판매조회";
+            this.Name = "Frm_SellBuyList";
+            this.Text = "판매/구매조회";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

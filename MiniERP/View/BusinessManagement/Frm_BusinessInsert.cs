@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View
+namespace MiniERP.View.BusinessManagement
 {
-    public partial class Frm_ItemSelect : Form
+    public partial class Frm_BusinessInsert : Form
     {
-        public Frm_ItemSelect()
+        public Frm_BusinessInsert()
         {
             InitializeComponent();
-        }
-
-        private void toolStripLabel3_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
