@@ -111,7 +111,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.roomName);
             this.Name = "Frm_MakeRoom";
-            this.Text = "방 생성";
+            this.Text = "                                            ";
             this.Load += new System.EventHandler(this.Frm_MakeRoom_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

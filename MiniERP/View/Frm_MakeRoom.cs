@@ -15,7 +15,7 @@ namespace MiniERP.View
         private string[] roomArr;
         private string[] memberArr;
 
-       
+
 
         public Frm_MakeRoom()
         {
@@ -33,8 +33,39 @@ namespace MiniERP.View
             }
             foreach (var item in MemberArr)
             {
-               memberList.Items.Add(item);
+                memberList.Items.Add(item);
             }
+
+
+        }
+
+        private void makeRoom_Click(object sender, EventArgs e)
+        {
+            Form1 form = (Form1)this.Owner;
+            if (!String.IsNullOrEmpty(room.Text) && memberList.CheckedItems.Count > 0)
+            {
+                string members = "";
+                int count = 0;
+                foreach (var item in memberList.CheckedItems)
+                {
+                    if (count != 0)
+                        members += "," + item;
+                    else
+                        members += item;
+                    count++;
+                }
+                try
+                {
+                    form.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
+                    this.Close();
+                }
+                catch (Exception ee)
+                {
+
+                    MessageBox.Show("방을 만들지 못했습니다");
+                }
+            }
+
 
 
         }

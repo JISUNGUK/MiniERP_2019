@@ -20,12 +20,13 @@ namespace MiniERP.View
 {
     public partial class Form1 : Form
     {
-     //메시지 구현 필요 변수 부분  
-        string[] bannWord = { "//", "[", "]", "접속종료합니다", "접속인원:", "만든 방명:", "$$$$", "방에 참가했습니다", "방정보:", "방에 메시지를 보냅니다" };
+        //메시지 구현 필요 변수 부분  
+        public string[] bannWord = { "//", "[", "]", "접속종료합니다", "접속인원:", "만든 방명:", "$$$$", "방에 참가했습니다", "방정보:", "방에 메시지를 보냅니다", ":방의 주인은?", "방을 삭제합니다", "인원:" };
         TcpClient client = new TcpClient();
         private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
-        string readData = null;     
+        string readData = null;
+        Frm_MakeRoom makeRoom;//방속성 정하는 창
         //메시지 구현부분 by 종완
 
 
@@ -42,24 +43,16 @@ namespace MiniERP.View
 
         public Form1()
         {
-            InitializeComponent();      
+            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
 
         }
-        /// <summary>
-        /// 원하는 닉네임으로 서버에 접속
-        /// </summary>
-        /// <param name="text"></param>
-        private void DisplayText(string text)
-        {
-            Byte[] outStream = Encoding.UTF8.GetBytes(text);
-            network.Write(outStream, 0, outStream.Length);
-            network.Flush();//스트림에 쓴후에 flush를 해야한다
-        }
+
+
 
         /// <summary>
         /// 서버에서 받고 전송한 메시지를 받아옴
@@ -82,9 +75,9 @@ namespace MiniERP.View
             }
         }
 
-/// <summary>
-/// 방목록과 방에 들어온 접속자들을 폼에 추가
-/// </summary>
+        /// <summary>
+        /// 방목록과 방에 들어온 접속자들을 폼에 추가
+        /// </summary>
         private void DisplayMember()
         {
             if (this.InvokeRequired)//현재 getMsg()를 실행하는 스레드가 ui를 담당하는(Main()에서만들어진 스레드라면 다른 스레드로 getMsge가 호출되도록 함(대리자 이용)
@@ -159,7 +152,7 @@ namespace MiniERP.View
         }
 
 
-        private void SendMessage(string message)
+        public void SendMessage(string message)
         {
             try
             {
@@ -205,7 +198,7 @@ namespace MiniERP.View
                 {
                     // 최초생성
                     FormSwich(menuName);
-                } 
+                }
             }
             else
             {
@@ -231,8 +224,8 @@ namespace MiniERP.View
                         tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
                         tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
 
-                        
-                        
+
+
                         #endregion
 
                         #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
@@ -247,7 +240,7 @@ namespace MiniERP.View
                         tabChk = true; // 중복확인용 bool 타입
                         break;
                     }
-              
+
                 case "견적서 조회":
                     {
                         #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
@@ -293,7 +286,7 @@ namespace MiniERP.View
                     panel_mdi.Controls.Add(selllist); // 판넬에 설정한 폼 넣기
                     selllist.Show();  // 폼 실행
                     #endregion
-                   tabChk = true; // 중복확인용 bool 타입
+                    tabChk = true; // 중복확인용 bool 타입
                     break;
 
                 case "거래처 조회":
@@ -351,7 +344,7 @@ namespace MiniERP.View
             tabChk = false;
         }
 
-       
+
 
         private void CloseForm(object test)
         {
@@ -360,7 +353,7 @@ namespace MiniERP.View
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void 견적서조회ToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -401,13 +394,13 @@ namespace MiniERP.View
         #region 탭페이지 닫기 버튼 추가 이벤트
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
         #endregion
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -429,8 +422,8 @@ namespace MiniERP.View
         private void imageButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openfile1 = new OpenFileDialog();
-           DialogResult dr=openfile1.ShowDialog();
-            if(dr==DialogResult.OK)
+            DialogResult dr = openfile1.ShowDialog();
+            if (dr == DialogResult.OK)
             {
                 imageLabel.Text += openfile1.FileName;
             }
@@ -443,7 +436,7 @@ namespace MiniERP.View
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DisplayText(nicname.Text + "접속종료합니다" + "$$$$");
+            SendMessage(nicname.Text + "접속종료합니다" + "$$$$");
             client.Close();
         }
 
@@ -455,7 +448,7 @@ namespace MiniERP.View
             Msg();
             network = client.GetStream();
 
-            DisplayText(nicname.Text);
+            SendMessage(nicname.Text);
 
             Thread thread = new Thread(getMsg);
             thread.Start();
@@ -485,8 +478,10 @@ namespace MiniERP.View
                 else
                     MessageBox.Show("금지된 단어로 메시지를 보낼수 없습니다");
             }
-            else
-                MessageBox.Show("대화 방을 선택해주세요");
+            if (roomList.SelectedIndex == -1)
+            {
+                SendMessage(message.Text + "$$$$");
+            }
         }
         private bool checkmessage(string message)
         {
@@ -499,28 +494,64 @@ namespace MiniERP.View
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
-        {            
+        {
+            if (roomList.SelectedIndex != -1)
+            {
                 string message = roomList.SelectedItem.ToString() + "방에 참가했습니다";
                 SendMessage(message);
-           
+            }
+
         }
 
         private void mkRoom_Click(object sender, EventArgs e)
-        {          
-            
-             Frm_MakeRoom makeRoom = new Frm_MakeRoom();
+        {
+
+            makeRoom = new Frm_MakeRoom();
+
+            makeRoom.Owner = this;
             makeRoom.RoomArr = new string[roomList.Items.Count];
             makeRoom.MemberArr = new string[memberList.Items.Count];
-            for (int i=0;i<roomList.Items.Count;i++)
+            DisplayMemberRoom();
+            makeRoom.Show();
+
+        }
+
+        private void DisplayMemberRoom()
+        {
+            for (int i = 0; i < roomList.Items.Count; i++)
             {
                 makeRoom.RoomArr[i] = roomList.Items[i].ToString();
             }
-            
+
             for (int i = 0; i < memberList.Items.Count; i++)
             {
                 makeRoom.MemberArr[i] = memberList.Items[i].ToString();
             }
-            makeRoom.Show();
         }
+
+        private void roomList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string message = roomList.SelectedItem.ToString() + ":방의 주인은?";
+            SendMessage(message);
+
+        }
+
+        private void rmRoom_Click(object sender, EventArgs e)
+        {
+            if (roomList.SelectedIndex != -1 && roomList.SelectedItem != "전체")
+            {
+                DialogResult result = MessageBox.Show("제거하시겠습니까?", "방제거창", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    string message = roomList.SelectedItem.ToString() + "방을 삭제합니다";
+                    SendMessage(message);
+                }
+            }
+        }
+
+        //private void synchronize_Tick(object sender, EventArgs e)
+        //{
+        //DisplayMemberRoom();
+        // }
     }
 }
