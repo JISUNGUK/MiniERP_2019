@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View.SalesPurchaseManagement
+namespace MiniERP.View.StockManagement
 {
-    public partial class Frm_SellBuyList : Form
+    public partial class Frm_StockList : Form
     {
         private bool boxchk = true;
-
-        public Frm_SellBuyList()
+        public Frm_StockList()
         {
             InitializeComponent();
         }
@@ -24,21 +23,7 @@ namespace MiniERP.View.SalesPurchaseManagement
             
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-                    }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_serch_Click(object sender, EventArgs e)
         {
             if (boxchk)
             {
@@ -50,21 +35,13 @@ namespace MiniERP.View.SalesPurchaseManagement
                 pnl_serchbox.Visible = false;
                 boxchk = true;
             }
-        }
-
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox1.Text = "";
-        }
-
-        private void Serch_Event(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            Frm_StockInsert stockInsert = new Frm_StockInsert();
+            stockInsert.Show();
         }
     }
 }

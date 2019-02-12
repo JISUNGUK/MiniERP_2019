@@ -1,6 +1,7 @@
 ﻿using MiniERP.View.BusinessManagement;
 using MiniERP.View.LogisticsManagement;
 using MiniERP.View.SalesPurchaseManagement;
+using MiniERP.View.StockManagement;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,12 +26,12 @@ namespace MiniERP.View
 
         public Form1()
         {
-            InitializeComponent();      
+            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void OpenForm(object menuName)
@@ -63,7 +64,7 @@ namespace MiniERP.View
                 {
                     // 최초생성
                     FormSwich(menuName);
-                } 
+                }
             }
             else
             {
@@ -80,59 +81,73 @@ namespace MiniERP.View
             switch (menuName.ToString())
             {
                 case "주문 조회":
-                    {
-                        #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
-                        panel_mdi = new Panel();
-                        panel_mdi.Name = "testno1";
-                        tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
-                        tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
-                        tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
-                        tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                {
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
 
-                        
-                        
-                        #endregion
-
-                        #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
-                        Frm_OrderList orderList = new Frm_OrderList();
-                        orderList.ControlBox = false; // 컨트롤 상자 없애기
-                        orderList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
-                        orderList.MdiParent = this; // MDI 설정
-                        orderList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
-                        panel_mdi.Controls.Add(orderList); // 판넬에 설정한 폼 넣기
-                        orderList.Show();  // 폼 실행
-                        #endregion
-                        tabChk = true; // 중복확인용 bool 타입
-                        break;
-                    }
-              
-                case "견적서 조회":
-                    {
-                        #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
-                        panel_mdi = new Panel();
-                        panel_mdi.Name = "testno1";
-                        tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
-                        tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
-                        tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
-                        tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
-                        #endregion
-
-                        #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
-                        Frm_EstimateList estimateList = new Frm_EstimateList();
-                        estimateList.ControlBox = false; // 컨트롤 상자 없애기
-                        estimateList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
-                        estimateList.MdiParent = this; // MDI 설정
-                        estimateList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
-                        panel_mdi.Controls.Add(estimateList); // 판넬에 설정한 폼 넣기
-                        estimateList.Show();  // 폼 실행
-                        #endregion
-                        tabChk = true; // 중복확인용 bool 타입
-                        break;
-                    }
-                case "품목등록":
-
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_OrderList orderList = new Frm_OrderList();
+                    orderList.ControlBox = false; // 컨트롤 상자 없애기
+                    orderList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    orderList.MdiParent = this; // MDI 설정
+                    orderList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(orderList); // 판넬에 설정한 폼 넣기
+                    orderList.Show();  // 폼 실행
+                    #endregion
+                    tabChk = true; // 중복확인용 bool 타입
                     break;
-                case "판매조회":
+                }
+
+                case "견적서 조회":
+                {
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_EstimateList estimateList = new Frm_EstimateList();
+                    estimateList.ControlBox = false; // 컨트롤 상자 없애기
+                    estimateList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    estimateList.MdiParent = this; // MDI 설정
+                    estimateList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(estimateList); // 판넬에 설정한 폼 넣기
+                    estimateList.Show();  // 폼 실행
+                    #endregion
+                    tabChk = true; // 중복확인용 bool 타입
+                    break;
+                }
+
+                case "품목 등록":
+                {
+                    Frm_ItemInsert itemInsert = new Frm_ItemInsert();
+                    itemInsert.Show();  // 폼 실행
+                    break;
+                }
+                case "창고 등록":
+                {
+                    Frm_StockInsert stockInsert = new Frm_StockInsert();
+
+                    stockInsert.Show();  // 폼 실행
+                    break;
+                }
+                case "거래처 등록":
+                {
+                        Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
+                        businessInsert.Show();
+                    break;
+                }
+                case "판매/구매 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
                     panel_mdi.Name = "testno1";
@@ -151,7 +166,7 @@ namespace MiniERP.View
                     panel_mdi.Controls.Add(selllist); // 판넬에 설정한 폼 넣기
                     selllist.Show();  // 폼 실행
                     #endregion
-                   tabChk = true; // 중복확인용 bool 타입
+                    tabChk = true; // 중복확인용 bool 타입
                     break;
 
                 case "거래처 조회":
@@ -189,17 +204,37 @@ namespace MiniERP.View
 
                     #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
 
-                    Frm_ProductionPlanList productionPlanList = new Frm_ProductionPlanList();
-                    productionPlanList.ControlBox = false; // 컨트롤 상자 없애기
-                    productionPlanList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
-                    productionPlanList.MdiParent = this; // MDI 설정
-                    productionPlanList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
-                    panel_mdi.Controls.Add(productionPlanList); // 판넬에 설정한 폼 넣기
-                    productionPlanList.Show();  // 폼 실행
+                    Frm_productionList productionList  = new Frm_productionList();
+                    productionList.ControlBox = false; // 컨트롤 상자 없애기
+                    productionList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    productionList.MdiParent = this; // MDI 설정
+                    productionList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(productionList); // 판넬에 설정한 폼 넣기
+                    productionList.Show();  // 폼 실행
                     #endregion
 
                     tabChk = true; // 중복확인용 bool 타입
                     break;
+                case "창고 조회":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_StockList stockList = new Frm_StockList();
+                    stockList.ControlBox = false; // 컨트롤 상자 없애기
+                    stockList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    stockList.MdiParent = this; // MDI 설정
+                    stockList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(stockList); // 판넬에 설정한 폼 넣기
+                    stockList.Show();  // 폼 실행
+                    break;
+                    #endregion
                 default:
                     MessageBox.Show("해당 폼이 없습니다.");
                     tabControl1.SelectedTab = tabControl1.TabPages[0];
@@ -212,7 +247,7 @@ namespace MiniERP.View
         #region 탭페이지 닫기 버튼 추가 이벤트
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
         #endregion
 

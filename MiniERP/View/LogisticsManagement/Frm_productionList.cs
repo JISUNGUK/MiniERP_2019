@@ -10,20 +10,21 @@ using System.Windows.Forms;
 
 namespace MiniERP.View.LogisticsManagement
 {
-    public partial class Frm_EstimateList : Form
+    public partial class Frm_productionList : Form
     {
         private bool chkbox = false;
-        public Frm_EstimateList()
+
+        public Frm_productionList()
         {
             InitializeComponent();
         }
 
-        private void btn_serch_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             if (chkbox)
             {
                 pnl_serchbox.Visible = true;
-                chkbox = false; 
+                chkbox = false;
             }
             else
             {
