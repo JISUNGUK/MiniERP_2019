@@ -69,10 +69,5 @@ namespace MiniERP.View
 
 
         }
-
-        private void makeRoom_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

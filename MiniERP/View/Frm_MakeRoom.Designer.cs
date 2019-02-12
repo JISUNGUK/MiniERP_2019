@@ -89,7 +89,7 @@
             this.makeRoom.TabIndex = 6;
             this.makeRoom.Text = "방 만들기";
             this.makeRoom.UseVisualStyleBackColor = true;
-            this.makeRoom.Click += new System.EventHandler(this.makeRoom_Click_1);
+            this.makeRoom.Click += new System.EventHandler(this.makeRoom_Click);
             // 
             // memberList
             // 
