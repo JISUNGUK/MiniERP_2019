@@ -53,6 +53,12 @@
     <Compile Include="View\BusinessManagement\Frm_BusinessInsert.Designer.cs">
       <DependentUpon>Frm_BusinessInsert.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmDashBoard.Designer.cs">
+      <DependentUpon>FrmDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_StockSelect.Designer.cs">
       <DependentUpon>Frm_StockSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ToDoList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ToDoList.Designer.cs">
+      <DependentUpon>ToDoList.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TradeManagement\Frm_SellBuylInsert.cs">
       <SubType>Form</SubType>
@@ -185,6 +197,9 @@
     <EmbeddedResource Include="View\BusinessManagement\Frm_BusinessInsert.resx">
       <DependentUpon>Frm_BusinessInsert.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmDashBoard.resx">
+      <DependentUpon>FrmDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_ItemInsert.resx">
       <DependentUpon>Frm_ItemInsert.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_StockSelect.resx">
       <DependentUpon>Frm_StockSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ToDoList.resx">
+      <DependentUpon>ToDoList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_SellBuylInsert.resx">
       <DependentUpon>Frm_SellBuylInsert.cs</DependentUpon>
