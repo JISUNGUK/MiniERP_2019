@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MiniERP.View
 {
-    public partial class Frm_ItemSelect : Form
+    public partial class Frm_ItemInsert : Form
     {
-        public Frm_ItemSelect()
+        public Frm_ItemInsert()
         {
             InitializeComponent();
-        }
-
-        private void toolStripLabel3_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

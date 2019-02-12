@@ -1,6 +1,6 @@
 ﻿namespace MiniERP.View.SalesPurchaseManagement
 {
-    partial class Frm_SellInsert
+    partial class Frm_SellBuyInsert
     {
         /// <summary>
         /// Required designer variable.
@@ -57,13 +57,13 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(361, 9);
+            this.label1.Location = new System.Drawing.Point(333, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 20);
+            this.label1.Size = new System.Drawing.Size(153, 20);
             this.label1.TabIndex = 98;
-            this.label1.Text = "판매 등록";
+            this.label1.Text = "판매/구매 등록";
             // 
-            // Frm_SellInsert
+            // Frm_SellBuyInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,8 +71,8 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label1);
-            this.Name = "Frm_SellInsert";
-            this.Text = "Frm_SellInsert";
+            this.Name = "Frm_SellBuyInsert";
+            this.Text = "판매/구매 등록";
             this.ResumeLayout(false);
             this.PerformLayout();
 

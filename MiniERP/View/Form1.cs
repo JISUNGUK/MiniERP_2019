@@ -129,7 +129,7 @@ namespace MiniERP.View
                         tabChk = true; // 중복확인용 bool 타입
                         break;
                     }
-                case "구매조회":
+                case "품목등록":
 
                     break;
                 case "판매조회":
@@ -143,7 +143,7 @@ namespace MiniERP.View
                     #endregion
 
                     #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
-                    Frm_SellList selllist = new Frm_SellList();
+                    Frm_SellBuyList selllist = new Frm_SellBuyList();
                     selllist.ControlBox = false; // 컨트롤 상자 없애기
                     selllist.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
                     selllist.MdiParent = this; // MDI 설정
@@ -209,53 +209,6 @@ namespace MiniERP.View
             tabChk = false;
         }
 
-       
-
-        private void CloseForm(object test)
-        {
-
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void 견적서조회ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void tsm_OrdM_inquiry_Click_1(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void 견적서조회ToolStripMenuItem1_Click_1(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void tsm_Accountregistration_Click(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void 판매조회ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void 생산계획서조회ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void bOM조회ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         #region 탭페이지 닫기 버튼 추가 이벤트
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
         {
@@ -265,9 +218,10 @@ namespace MiniERP.View
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            
+            // 미완   
         }
 
+        // 왼쪽 실시간 확인창 최대화 폼 호출하는 메서드
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Frm_MaxSizeGrp frm_MaxSizeGrp = new Frm_MaxSizeGrp();
@@ -282,6 +236,11 @@ namespace MiniERP.View
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void MenuClickEvnet(object sender, EventArgs e)
+        {
+            OpenForm(sender);
         }
     }
 }

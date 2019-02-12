@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View.StockManagement
+namespace MiniERP.View.SalesPurchaseManagement
 {
-    public partial class Frm_BusinessInsert : Form
+    public partial class Frm_SellBuyInsert : Form
     {
-        public Frm_BusinessInsert()
+        public Frm_SellBuyInsert()
         {
             InitializeComponent();
         }

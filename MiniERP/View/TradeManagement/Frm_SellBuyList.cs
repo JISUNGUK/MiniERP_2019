@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace MiniERP.View.SalesPurchaseManagement
 {
-    public partial class Frm_SellInsert : Form
+    public partial class Frm_SellBuyList : Form
     {
-        public Frm_SellInsert()
+        public Frm_SellBuyList()
         {
             InitializeComponent();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
