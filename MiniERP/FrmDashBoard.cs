@@ -8,23 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View.SalesPurchaseManagement
+namespace MiniERP.View
 {
-    public partial class Frm_SellBuyList : Form
+    public partial class FrmDashBoard : Form
     {
-        public Frm_SellBuyList()
+        public FrmDashBoard()
         {
             InitializeComponent();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void FrmDashBoard_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
+            panel1.AutoScroll = true;
         }
     }
 }

@@ -12,24 +12,39 @@ namespace MiniERP.View.LogisticsManagement
 {
     public partial class Frm_EstimateList : Form
     {
-        private bool chkbox = false;
         public Frm_EstimateList()
         {
             InitializeComponent();
         }
 
-        private void btn_serch_Click(object sender, EventArgs e)
+        private void btn_BusinessSelect_Click(object sender, EventArgs e)
         {
-            if (chkbox)
-            {
-                pnl_serchbox.Visible = true;
-                chkbox = false; 
-            }
-            else
-            {
-                pnl_serchbox.Visible = false;
-                chkbox = true;
-            }
+            Frm_BusinessSelect businessSelect = new Frm_BusinessSelect();
+            businessSelect.ShowDialog();
+        }
+
+        private void btn_WarehouseSelect_Click(object sender, EventArgs e)
+        {
+            Frm_WarehouseSelect warehouseSelect = new Frm_WarehouseSelect();
+            warehouseSelect.ShowDialog();
+        }
+
+        private void btn_EstimateSelect_Click(object sender, EventArgs e)
+        {
+            Frm_EstimateSelect estimateSelect = new Frm_EstimateSelect();
+            estimateSelect.ShowDialog();
+        }
+
+        private void btn_ItemSelect_Click(object sender, EventArgs e)
+        {
+            Frm_ItemSelect itemSelect = new Frm_ItemSelect();
+            itemSelect.ShowDialog();
+        }
+
+        private void btn_ClerkSelect_Click(object sender, EventArgs e)
+        {
+            Frm_ClerkSelect clerkSelect = new Frm_ClerkSelect();
+            clerkSelect.ShowDialog();
         }
     }
 }

@@ -50,14 +50,15 @@
             this.거래처등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOM조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.창고관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.창고조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.창고이동ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.구매관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.구매조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.구매조회ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.구매입력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.판매ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.구매현황ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.거래조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.판매조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.판매입력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.회계관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.장부조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.전표관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.전표조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.전표인새ㅗToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,7 @@
             this.txt_ChatWrite = new System.Windows.Forms.TextBox();
             this.lbx_ChatRead = new System.Windows.Forms.ListBox();
             this.lbx_Onlin = new System.Windows.Forms.ListBox();
-            this.구매현황ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.대쉬보드ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -163,6 +164,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.대쉬보드ToolStripMenuItem,
             this.영업ToolStripMenuItem,
             this.물류관리ToolStripMenuItem,
             this.재고관리ToolStripMenuItem,
@@ -187,14 +189,14 @@
             // tsm_OrdM_inquiry
             // 
             this.tsm_OrdM_inquiry.Name = "tsm_OrdM_inquiry";
-            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(138, 22);
+            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(180, 22);
             this.tsm_OrdM_inquiry.Text = "주문 조회";
             this.tsm_OrdM_inquiry.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // tsm_Accountregistration
             // 
             this.tsm_Accountregistration.Name = "tsm_Accountregistration";
-            this.tsm_Accountregistration.Size = new System.Drawing.Size(138, 22);
+            this.tsm_Accountregistration.Size = new System.Drawing.Size(180, 22);
             this.tsm_Accountregistration.Text = "거래처 조회";
             this.tsm_Accountregistration.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -218,7 +220,7 @@
             // 생산계획서조회ToolStripMenuItem
             // 
             this.생산계획서조회ToolStripMenuItem.Name = "생산계획서조회ToolStripMenuItem";
-            this.생산계획서조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.생산계획서조회ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.생산계획서조회ToolStripMenuItem.Text = "생산계획서 조회";
             this.생산계획서조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -233,8 +235,7 @@
             // 
             this.재고관리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.기초등록ToolStripMenuItem,
-            this.bOMToolStripMenuItem,
-            this.창고관리ToolStripMenuItem});
+            this.bOMToolStripMenuItem});
             this.재고관리ToolStripMenuItem.Name = "재고관리ToolStripMenuItem";
             this.재고관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.재고관리ToolStripMenuItem.Text = "재고관리";
@@ -246,27 +247,27 @@
             this.창고등록ToolStripMenuItem,
             this.거래처등록ToolStripMenuItem});
             this.기초등록ToolStripMenuItem.Name = "기초등록ToolStripMenuItem";
-            this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.기초등록ToolStripMenuItem.Text = "기초 등록";
             // 
             // 품목등록ToolStripMenuItem
             // 
             this.품목등록ToolStripMenuItem.Name = "품목등록ToolStripMenuItem";
-            this.품목등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.품목등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.품목등록ToolStripMenuItem.Text = "품목 등록";
             this.품목등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 창고등록ToolStripMenuItem
             // 
             this.창고등록ToolStripMenuItem.Name = "창고등록ToolStripMenuItem";
-            this.창고등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.창고등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.창고등록ToolStripMenuItem.Text = "창고 등록";
             this.창고등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 거래처등록ToolStripMenuItem
             // 
             this.거래처등록ToolStripMenuItem.Name = "거래처등록ToolStripMenuItem";
-            this.거래처등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.거래처등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.거래처등록ToolStripMenuItem.Text = "거래처 등록";
             this.거래처등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -275,7 +276,7 @@
             this.bOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bOM조회ToolStripMenuItem});
             this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
-            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.bOMToolStripMenuItem.Text = "BOM";
             // 
             // bOM조회ToolStripMenuItem
@@ -285,67 +286,77 @@
             this.bOM조회ToolStripMenuItem.Text = "BOM 조회";
             this.bOM조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
-            // 창고관리ToolStripMenuItem
-            // 
-            this.창고관리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.창고조회ToolStripMenuItem,
-            this.창고이동ToolStripMenuItem});
-            this.창고관리ToolStripMenuItem.Name = "창고관리ToolStripMenuItem";
-            this.창고관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.창고관리ToolStripMenuItem.Text = "창고 관리";
-            // 
-            // 창고조회ToolStripMenuItem
-            // 
-            this.창고조회ToolStripMenuItem.Name = "창고조회ToolStripMenuItem";
-            this.창고조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.창고조회ToolStripMenuItem.Text = "창고 조회";
-            this.창고조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
-            // 
-            // 창고이동ToolStripMenuItem
-            // 
-            this.창고이동ToolStripMenuItem.Name = "창고이동ToolStripMenuItem";
-            this.창고이동ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.창고이동ToolStripMenuItem.Text = "창고 이동";
-            // 
             // 구매관리ToolStripMenuItem
             // 
             this.구매관리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.판매ToolStripMenuItem,
-            this.거래조회ToolStripMenuItem});
+            this.구매조회ToolStripMenuItem,
+            this.판매ToolStripMenuItem});
             this.구매관리ToolStripMenuItem.Name = "구매관리ToolStripMenuItem";
             this.구매관리ToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.구매관리ToolStripMenuItem.Text = "판매/구매관리";
             // 
+            // 구매조회ToolStripMenuItem
+            // 
+            this.구매조회ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.구매조회ToolStripMenuItem1,
+            this.구매입력ToolStripMenuItem});
+            this.구매조회ToolStripMenuItem.Name = "구매조회ToolStripMenuItem";
+            this.구매조회ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.구매조회ToolStripMenuItem.Text = "구매";
+            // 
+            // 구매조회ToolStripMenuItem1
+            // 
+            this.구매조회ToolStripMenuItem1.Name = "구매조회ToolStripMenuItem1";
+            this.구매조회ToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.구매조회ToolStripMenuItem1.Text = "구매조회";
+            this.구매조회ToolStripMenuItem1.Click += new System.EventHandler(this.MenuClickEvnet);
+            // 
+            // 구매입력ToolStripMenuItem
+            // 
+            this.구매입력ToolStripMenuItem.Name = "구매입력ToolStripMenuItem";
+            this.구매입력ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.구매입력ToolStripMenuItem.Text = "구매등록";
+            this.구매입력ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
+            // 
             // 판매ToolStripMenuItem
             // 
             this.판매ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.구매현황ToolStripMenuItem,
-            this.구매현황ToolStripMenuItem1});
+            this.판매조회ToolStripMenuItem,
+            this.판매입력ToolStripMenuItem});
             this.판매ToolStripMenuItem.Name = "판매ToolStripMenuItem";
-            this.판매ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.판매ToolStripMenuItem.Text = "판매/구매";
+            this.판매ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.판매ToolStripMenuItem.Text = "판매";
             // 
-            // 구매현황ToolStripMenuItem
+            // 판매조회ToolStripMenuItem
             // 
-            this.구매현황ToolStripMenuItem.Name = "구매현황ToolStripMenuItem";
-            this.구매현황ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.구매현황ToolStripMenuItem.Text = "판매/구매 조회";
-            this.구매현황ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
+            this.판매조회ToolStripMenuItem.Name = "판매조회ToolStripMenuItem";
+            this.판매조회ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.판매조회ToolStripMenuItem.Text = "판매조회";
+            this.판매조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
-            // 거래조회ToolStripMenuItem
+            // 판매입력ToolStripMenuItem
             // 
-            this.거래조회ToolStripMenuItem.Name = "거래조회ToolStripMenuItem";
-            this.거래조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.거래조회ToolStripMenuItem.Text = "거래 조회";
+            this.판매입력ToolStripMenuItem.Name = "판매입력ToolStripMenuItem";
+            this.판매입력ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.판매입력ToolStripMenuItem.Text = "판매등록";
+            this.판매입력ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 회계관리ToolStripMenuItem
             // 
             this.회계관리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.장부조회ToolStripMenuItem,
             this.전표관리ToolStripMenuItem,
             this.장부관리ToolStripMenuItem});
             this.회계관리ToolStripMenuItem.Name = "회계관리ToolStripMenuItem";
             this.회계관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.회계관리ToolStripMenuItem.Text = "회계관리";
+            // 
+            // 장부조회ToolStripMenuItem
+            // 
+            this.장부조회ToolStripMenuItem.Name = "장부조회ToolStripMenuItem";
+            this.장부조회ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.장부조회ToolStripMenuItem.Text = "매입매출거래";
+            this.장부조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 전표관리ToolStripMenuItem
             // 
@@ -353,21 +364,21 @@
             this.전표조회ToolStripMenuItem,
             this.전표인새ㅗToolStripMenuItem});
             this.전표관리ToolStripMenuItem.Name = "전표관리ToolStripMenuItem";
-            this.전표관리ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.전표관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.전표관리ToolStripMenuItem.Text = "전표 관리";
             // 
             // 전표조회ToolStripMenuItem
             // 
             this.전표조회ToolStripMenuItem.Name = "전표조회ToolStripMenuItem";
-            this.전표조회ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.전표조회ToolStripMenuItem.Text = "전표 조회";
+            this.전표조회ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.전표조회ToolStripMenuItem.Text = "전표조회";
             this.전표조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 전표인새ㅗToolStripMenuItem
             // 
             this.전표인새ㅗToolStripMenuItem.Name = "전표인새ㅗToolStripMenuItem";
-            this.전표인새ㅗToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.전표인새ㅗToolStripMenuItem.Text = "전표 인쇄";
+            this.전표인새ㅗToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.전표인새ㅗToolStripMenuItem.Text = "전표인쇄";
             this.전표인새ㅗToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 장부관리ToolStripMenuItem
@@ -376,7 +387,7 @@
             this.매출관리ToolStripMenuItem,
             this.매입관리ToolStripMenuItem});
             this.장부관리ToolStripMenuItem.Name = "장부관리ToolStripMenuItem";
-            this.장부관리ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.장부관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.장부관리ToolStripMenuItem.Text = "장부 관리";
             // 
             // 매출관리ToolStripMenuItem
@@ -404,8 +415,8 @@
             // 견적서분석ToolStripMenuItem
             // 
             this.견적서분석ToolStripMenuItem.Name = "견적서분석ToolStripMenuItem";
-            this.견적서분석ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.견적서분석ToolStripMenuItem.Text = "견적 조회";
+            this.견적서분석ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.견적서분석ToolStripMenuItem.Text = "견적서 분석";
             // 
             // splitContainer2
             // 
@@ -483,11 +494,12 @@
             this.lbx_Onlin.Size = new System.Drawing.Size(335, 88);
             this.lbx_Onlin.TabIndex = 0;
             // 
-            // 구매현황ToolStripMenuItem1
+            // 대쉬보드ToolStripMenuItem
             // 
-            this.구매현황ToolStripMenuItem1.Name = "구매현황ToolStripMenuItem1";
-            this.구매현황ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.구매현황ToolStripMenuItem1.Text = "구매 현황";
+            this.대쉬보드ToolStripMenuItem.Name = "대쉬보드ToolStripMenuItem";
+            this.대쉬보드ToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.대쉬보드ToolStripMenuItem.Text = "MainPage";
+            this.대쉬보드ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // Form1
             // 
@@ -539,7 +551,9 @@
         private System.Windows.Forms.ToolStripMenuItem 품목등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 창고등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 구매관리ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 구매조회ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 회계관리ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 장부조회ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 전표관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 전표조회ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 전표인새ㅗToolStripMenuItem;
@@ -549,7 +563,11 @@
         private System.Windows.Forms.ToolStripMenuItem 생산관리ToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem bOMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 구매조회ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 구매입력ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 판매ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 판매조회ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 판매입력ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 거래처등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bOM조회ToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -561,12 +579,7 @@
         private System.Windows.Forms.ComboBox cbx_ChatType;
         private System.Windows.Forms.Button btn_ChatSend;
         private System.Windows.Forms.ToolStripMenuItem 견적서분석ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 창고관리ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 창고조회ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 창고이동ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 거래조회ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 구매현황ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 구매현황ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 대쉬보드ToolStripMenuItem;
     }
 }
 
