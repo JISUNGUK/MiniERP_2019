@@ -73,6 +73,7 @@
             this.txt_ChatWrite = new System.Windows.Forms.TextBox();
             this.lbx_ChatRead = new System.Windows.Forms.ListBox();
             this.lbx_Onlin = new System.Windows.Forms.ListBox();
+            this.대쉬보드ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -163,6 +164,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.대쉬보드ToolStripMenuItem,
             this.영업ToolStripMenuItem,
             this.물류관리ToolStripMenuItem,
             this.재고관리ToolStripMenuItem,
@@ -299,20 +301,20 @@
             this.구매조회ToolStripMenuItem1,
             this.구매입력ToolStripMenuItem});
             this.구매조회ToolStripMenuItem.Name = "구매조회ToolStripMenuItem";
-            this.구매조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.구매조회ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.구매조회ToolStripMenuItem.Text = "구매";
             // 
             // 구매조회ToolStripMenuItem1
             // 
             this.구매조회ToolStripMenuItem1.Name = "구매조회ToolStripMenuItem1";
-            this.구매조회ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.구매조회ToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
             this.구매조회ToolStripMenuItem1.Text = "구매조회";
             this.구매조회ToolStripMenuItem1.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 구매입력ToolStripMenuItem
             // 
             this.구매입력ToolStripMenuItem.Name = "구매입력ToolStripMenuItem";
-            this.구매입력ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.구매입력ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.구매입력ToolStripMenuItem.Text = "구매등록";
             this.구매입력ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -322,7 +324,7 @@
             this.판매조회ToolStripMenuItem,
             this.판매입력ToolStripMenuItem});
             this.판매ToolStripMenuItem.Name = "판매ToolStripMenuItem";
-            this.판매ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.판매ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.판매ToolStripMenuItem.Text = "판매";
             // 
             // 판매조회ToolStripMenuItem
@@ -492,6 +494,13 @@
             this.lbx_Onlin.Size = new System.Drawing.Size(335, 88);
             this.lbx_Onlin.TabIndex = 0;
             // 
+            // 대쉬보드ToolStripMenuItem
+            // 
+            this.대쉬보드ToolStripMenuItem.Name = "대쉬보드ToolStripMenuItem";
+            this.대쉬보드ToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.대쉬보드ToolStripMenuItem.Text = "MainPage";
+            this.대쉬보드ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -570,6 +579,7 @@
         private System.Windows.Forms.ComboBox cbx_ChatType;
         private System.Windows.Forms.Button btn_ChatSend;
         private System.Windows.Forms.ToolStripMenuItem 견적서분석ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 대쉬보드ToolStripMenuItem;
     }
 }
 
