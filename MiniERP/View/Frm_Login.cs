@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP
+namespace MiniERP.View
 {
-    public partial class Frm_BomList : Form
+    public partial class Frm_Login : Form
     {
-        public Frm_BomList()
+        public Frm_Login()
         {
             InitializeComponent();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

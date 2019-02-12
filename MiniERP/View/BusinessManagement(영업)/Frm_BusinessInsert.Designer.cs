@@ -47,7 +47,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(129, 31);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(237, 21);
+            this.textBox3.Size = new System.Drawing.Size(202, 21);
             this.textBox3.TabIndex = 115;
             // 
             // label4
@@ -174,7 +174,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_BusinessInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "거래처 등록";

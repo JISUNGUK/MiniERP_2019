@@ -18,11 +18,10 @@ namespace MiniERP.View
     public partial class Form1 : Form
     {
         private Panel panel_mdi;
-        private bool tabChk = true;
+        private bool tabChk = true; // 탭페이지 중복검사용 - true 중복 , false 중복 X
 
         private Point imageLocation = new Point(10, 5);
         private Point imageHitArea = new Point(10, 5);
-        Image CloseIcon;
 
         public Form1()
         {
@@ -44,17 +43,17 @@ namespace MiniERP.View
                     for (int i = 0; i < tabControl1.TabCount; i++)
                     {
                         // 폼 생성 중복검사
-                        if (tabControl1.TabPages[i].Name == menuName.ToString())
+                        if (tabControl1.TabPages[i].Name == menuName.ToString()) // 생선된 탭 페이지중 선택한 탭페이지 이름이 있다면 실행
                         {
-                            tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()];
-                            test = false;
+                            tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()]; // 중복된 탭 활성화
+                            test = false; // 중복검사용 bool 문 false로 전환
                             break;
                         }
                     }
                     if (test)
                     {
-                        // 2번째이상부턴 여기서 폼 생성
-                        tabChk = true;
+                        // 2. 중복된 폼이 있을때 아래 메서드를 실행하여 폼 생성
+                        tabChk = true; // 중복검사용 bool 문 true로 전환
                         tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()];
                         OpenForm(menuName);
                     }
@@ -62,7 +61,7 @@ namespace MiniERP.View
                 }
                 else
                 {
-                    // 최초생성
+                    // 1. 중복된 폼 없이 최초생성시 실행
                     FormSwich(menuName);
                 }
             }
@@ -89,21 +88,18 @@ namespace MiniERP.View
                         tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
                         tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
                         tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
-
-
-
                         #endregion
 
                         #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
-                        //FrmDashBoard dashBoard = new FrmDashBoard();
-                        //dashBoard.ControlBox = false; // 컨트롤 상자 없애기
-                        //dashBoard.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
-                        //dashBoard.MdiParent = this; // MDI 설정
-                        //dashBoard.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
-                        //panel_mdi.Controls.Add(dashBoard); // 판넬에 설정한 폼 넣기
-                        //dashBoard.Show();  // 폼 실행
-                        //#endregion
-                        //tabChk = true; // 중복확인용 bool 타입
+                        FrmDashBoard dashBoard = new FrmDashBoard();
+                        dashBoard.ControlBox = false; // 컨트롤 상자 없애기
+                        dashBoard.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                        dashBoard.MdiParent = this; // MDI 설정
+                        dashBoard.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                        panel_mdi.Controls.Add(dashBoard); // 판넬에 설정한 폼 넣기
+                        dashBoard.Show();  // 폼 실행
+                        #endregion
+                        tabChk = true; // 중복확인용 bool 타입
                         break;
                     }
                 case "주문 조회":
@@ -218,6 +214,7 @@ namespace MiniERP.View
 
                     tabChk = true; // 중복확인용 bool 타입
                     break;
+                
                 case "생산계획서 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
@@ -259,8 +256,52 @@ namespace MiniERP.View
                     stockList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
                     panel_mdi.Controls.Add(stockList); // 판넬에 설정한 폼 넣기
                     stockList.Show();  // 폼 실행
+                    #endregion
+                    tabChk = true;
                     break;
-                #endregion
+              
+                case "BOM 조회":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_BomList bomList = new Frm_BomList();
+                    bomList.ControlBox = false; // 컨트롤 상자 없애기
+                    bomList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    bomList.MdiParent = this; // MDI 설정
+                    bomList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(bomList); // 판넬에 설정한 폼 넣기
+                    bomList.Show();  // 폼 실행
+                    #endregion
+                    tabChk = true;
+                    break;
+                case "사원등록":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_clerkInsert clerkInsert = new Frm_clerkInsert();
+                    clerkInsert.ControlBox = false; // 컨트롤 상자 없애기
+                    clerkInsert.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    clerkInsert.MdiParent = this; // MDI 설정
+                    clerkInsert.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(clerkInsert); // 판넬에 설정한 폼 넣기
+                    clerkInsert.Show();  // 폼 실행
+                    #endregion
+                    tabChk = true;
+                    break;
                 default:
                     MessageBox.Show("해당 폼이 없습니다.");
                     tabControl1.SelectedTab = tabControl1.TabPages[0];
@@ -269,7 +310,7 @@ namespace MiniERP.View
             }
             tabChk = false;
         }
-
+        
         #region 탭페이지 닫기 버튼 추가 이벤트
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
         {
@@ -303,6 +344,5 @@ namespace MiniERP.View
         {
             OpenForm(sender);
         }
-    }
-    #endregion
+    }   
 }

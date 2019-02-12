@@ -50,7 +50,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -166,7 +165,6 @@
             this.pnl_serchbox.Controls.Add(this.button8);
             this.pnl_serchbox.Controls.Add(this.label1);
             this.pnl_serchbox.Controls.Add(this.label5);
-            this.pnl_serchbox.Controls.Add(this.label7);
             this.pnl_serchbox.Location = new System.Drawing.Point(13, 41);
             this.pnl_serchbox.Name = "pnl_serchbox";
             this.pnl_serchbox.Size = new System.Drawing.Size(799, 118);
@@ -278,15 +276,6 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "거래처 코드";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 12);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "검색 기능";
-            // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -371,7 +360,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;

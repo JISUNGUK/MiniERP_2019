@@ -1,6 +1,6 @@
 ﻿namespace MiniERP.View.SalesPurchaseManagement
 {
-    partial class Frm_SellBuyInsert
+    partial class Frm_SellInsert
     {
         /// <summary>
         /// Required designer variable.
@@ -77,6 +77,7 @@
             // 
             // label4
             // 
+<<<<<<< HEAD:MiniERP/View/TradeManagement/Frm_SellBuylInsert.Designer.cs
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(26, -63);
@@ -260,8 +261,18 @@
             this.button3.Size = new System.Drawing.Size(25, 25);
             this.button3.TabIndex = 126;
             this.button3.UseVisualStyleBackColor = true;
+=======
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(361, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 20);
+            this.label1.TabIndex = 98;
+            this.label1.Text = "판매 등록";
+>>>>>>> MiniERP_Master/김태우:MiniERP/View/SalesPurchaseManagement/Frm_SellInsert.Designer.cs
             // 
-            // Frm_SellBuyInsert
+            // Frm_SellInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -283,9 +294,15 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
+<<<<<<< HEAD:MiniERP/View/TradeManagement/Frm_SellBuylInsert.Designer.cs
             this.Name = "Frm_SellBuyInsert";
             this.Text = "판매/구매 등록";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+=======
+            this.Controls.Add(this.label1);
+            this.Name = "Frm_SellInsert";
+            this.Text = "Frm_SellInsert";
+>>>>>>> MiniERP_Master/김태우:MiniERP/View/SalesPurchaseManagement/Frm_SellInsert.Designer.cs
             this.ResumeLayout(false);
             this.PerformLayout();
 

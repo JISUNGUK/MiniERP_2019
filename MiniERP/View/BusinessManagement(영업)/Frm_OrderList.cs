@@ -37,5 +37,11 @@ namespace MiniERP.View.BusinessManagement
                 boxchk = true;
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Frm_OrderInsert orderInsert = new Frm_OrderInsert();
+            orderInsert.Show();
+        }
     }
 }

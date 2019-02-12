@@ -195,9 +195,9 @@
             // 
             this.button3.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(438, 123);
+            this.button3.Location = new System.Drawing.Point(436, 121);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(20, 20);
+            this.button3.Size = new System.Drawing.Size(25, 25);
             this.button3.TabIndex = 17;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -233,9 +233,9 @@
             // 
             this.button4.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(436, 8);
+            this.button4.Location = new System.Drawing.Point(436, 6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 20);
+            this.button4.Size = new System.Drawing.Size(25, 25);
             this.button4.TabIndex = 22;
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -277,6 +277,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_ItemInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "품목등록";
