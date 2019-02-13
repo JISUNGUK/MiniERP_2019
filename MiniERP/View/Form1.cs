@@ -27,11 +27,6 @@ namespace MiniERP.View
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void OpenForm(object menuName)
         {
             if (tabControl1.TabCount <= 10)
@@ -349,8 +344,14 @@ namespace MiniERP.View
         {
             tabSelcted_Index = tabControl1.SelectedIndex;
             tabControl1.TabPages.Remove(tabControl1.TabPages[tabSelcted_Index]);// 탭컨트롤에서 해당 페이지 삭제
-        } 
+        }
         #endregion
+
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            OpenForm("MainPage");
+        }
     }   
 }
