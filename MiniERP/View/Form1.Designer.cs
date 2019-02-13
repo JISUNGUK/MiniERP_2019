@@ -90,6 +90,7 @@ namespace MiniERP.View
             this.memberList = new System.Windows.Forms.ListBox();
             this.roomName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbl_RoomName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -451,6 +452,7 @@ namespace MiniERP.View
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.lbl_RoomName);
             this.splitContainer2.Panel2.Controls.Add(this.particiRoom);
             this.splitContainer2.Panel2.Controls.Add(this.access);
             this.splitContainer2.Panel2.Controls.Add(this.label3);
@@ -474,7 +476,7 @@ namespace MiniERP.View
             // 
             // particiRoom
             // 
-            this.particiRoom.Location = new System.Drawing.Point(264, 142);
+            this.particiRoom.Location = new System.Drawing.Point(264, 57);
             this.particiRoom.Name = "particiRoom";
             this.particiRoom.Size = new System.Drawing.Size(63, 23);
             this.particiRoom.TabIndex = 15;
@@ -484,7 +486,7 @@ namespace MiniERP.View
             // 
             // access
             // 
-            this.access.Location = new System.Drawing.Point(274, 2);
+            this.access.Location = new System.Drawing.Point(264, 2);
             this.access.Name = "access";
             this.access.Size = new System.Drawing.Size(63, 23);
             this.access.TabIndex = 14;
@@ -503,9 +505,9 @@ namespace MiniERP.View
             // 
             // nicname
             // 
-            this.nicname.Location = new System.Drawing.Point(101, 4);
+            this.nicname.Location = new System.Drawing.Point(90, 4);
             this.nicname.Name = "nicname";
-            this.nicname.Size = new System.Drawing.Size(148, 21);
+            this.nicname.Size = new System.Drawing.Size(168, 21);
             this.nicname.TabIndex = 12;
             // 
             // imageLabel
@@ -529,9 +531,9 @@ namespace MiniERP.View
             // 
             // sendMsg
             // 
-            this.sendMsg.Location = new System.Drawing.Point(250, 582);
+            this.sendMsg.Location = new System.Drawing.Point(250, 571);
             this.sendMsg.Name = "sendMsg";
-            this.sendMsg.Size = new System.Drawing.Size(87, 23);
+            this.sendMsg.Size = new System.Drawing.Size(77, 23);
             this.sendMsg.TabIndex = 9;
             this.sendMsg.Text = "전송";
             this.sendMsg.UseVisualStyleBackColor = true;
@@ -539,7 +541,7 @@ namespace MiniERP.View
             // 
             // message
             // 
-            this.message.Location = new System.Drawing.Point(13, 584);
+            this.message.Location = new System.Drawing.Point(13, 573);
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(231, 21);
             this.message.TabIndex = 8;
@@ -556,7 +558,7 @@ namespace MiniERP.View
             // rmRoom
             // 
             this.rmRoom.Enabled = false;
-            this.rmRoom.Location = new System.Drawing.Point(264, 169);
+            this.rmRoom.Location = new System.Drawing.Point(181, 57);
             this.rmRoom.Name = "rmRoom";
             this.rmRoom.Size = new System.Drawing.Size(65, 23);
             this.rmRoom.TabIndex = 6;
@@ -567,7 +569,7 @@ namespace MiniERP.View
             // 
             // mkRoom
             // 
-            this.mkRoom.Location = new System.Drawing.Point(13, 169);
+            this.mkRoom.Location = new System.Drawing.Point(90, 57);
             this.mkRoom.Name = "mkRoom";
             this.mkRoom.Size = new System.Drawing.Size(63, 23);
             this.mkRoom.TabIndex = 5;
@@ -578,7 +580,7 @@ namespace MiniERP.View
             // roomList
             // 
             this.roomList.FormattingEnabled = true;
-            this.roomList.Location = new System.Drawing.Point(101, 119);
+            this.roomList.Location = new System.Drawing.Point(90, 31);
             this.roomList.Name = "roomList";
             this.roomList.Size = new System.Drawing.Size(237, 20);
             this.roomList.TabIndex = 4;
@@ -587,16 +589,16 @@ namespace MiniERP.View
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 119);
+            this.label2.Location = new System.Drawing.Point(31, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(45, 12);
             this.label2.TabIndex = 3;
-            this.label2.Text = "방목록";
+            this.label2.Text = "방 목록";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 37);
+            this.label1.Location = new System.Drawing.Point(11, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 2;
@@ -606,7 +608,7 @@ namespace MiniERP.View
             // 
             this.memberList.FormattingEnabled = true;
             this.memberList.ItemHeight = 12;
-            this.memberList.Location = new System.Drawing.Point(101, 37);
+            this.memberList.Location = new System.Drawing.Point(90, 116);
             this.memberList.Name = "memberList";
             this.memberList.ScrollAlwaysVisible = true;
             this.memberList.Size = new System.Drawing.Size(237, 76);
@@ -615,23 +617,33 @@ namespace MiniERP.View
             // roomName
             // 
             this.roomName.AutoSize = true;
-            this.roomName.Location = new System.Drawing.Point(11, 142);
+            this.roomName.Font = new System.Drawing.Font("굴림", 12F);
+            this.roomName.Location = new System.Drawing.Point(15, 86);
             this.roomName.Name = "roomName";
-            this.roomName.Size = new System.Drawing.Size(49, 12);
+            this.roomName.Size = new System.Drawing.Size(61, 16);
             this.roomName.TabIndex = 0;
-            this.roomName.Text = "방 이름:";
+            this.roomName.Text = "방 이름";
             // 
             // timer1
             // 
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lbl_RoomName
+            // 
+            this.lbl_RoomName.AutoSize = true;
+            this.lbl_RoomName.Font = new System.Drawing.Font("굴림", 12F);
+            this.lbl_RoomName.Location = new System.Drawing.Point(87, 86);
+            this.lbl_RoomName.Name = "lbl_RoomName";
+            this.lbl_RoomName.Size = new System.Drawing.Size(130, 16);
+            this.lbl_RoomName.TabIndex = 16;
+            this.lbl_RoomName.Text = "방이름 여기 출력";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1435, 606);
             this.Controls.Add(this.splitContainer2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -726,6 +738,7 @@ namespace MiniERP.View
         private System.Windows.Forms.TextBox nicname;
         private System.Windows.Forms.Button particiRoom;
         private System.Windows.Forms.Timer timer1;
+        private Label lbl_RoomName;
     }
 }
 

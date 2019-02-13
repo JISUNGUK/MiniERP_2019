@@ -74,10 +74,10 @@
     <Compile Include="View\StockManagement%28재고%29\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-  <Compile Include="View\StockManagement%28재고%29\Frm_ItemInsert.Designer.cs">
-    <DependentUpon>Frm_ItemInsert.cs</DependentUpon>
-  </Compile>
-      <Compile Include="View\Frm_Login.cs">
+    <Compile Include="View\StockManagement%28재고%29\Frm_ItemInsert.Designer.cs">
+      <DependentUpon>Frm_ItemInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Frm_Login.Designer.cs">
