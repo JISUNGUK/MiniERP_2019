@@ -28,48 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
+            this.rdoFactory = new System.Windows.Forms.RadioButton();
+            this.rdoWarehouse = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button4
+            // btnCancel
             // 
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(240, 127);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(84, 23);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "닫기";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCancel.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnCancel.Location = new System.Drawing.Point(240, 127);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(84, 23);
+            this.btnCancel.TabIndex = 21;
+            this.btnCancel.Text = "닫기";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnReset
             // 
-            this.button3.Font = new System.Drawing.Font("굴림", 10F);
-            this.button3.Location = new System.Drawing.Point(126, 127);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "다시작성";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnReset.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnReset.Location = new System.Drawing.Point(126, 127);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(84, 23);
+            this.btnReset.TabIndex = 20;
+            this.btnReset.Text = "다시작성";
+            this.btnReset.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSave
             // 
-            this.button2.Font = new System.Drawing.Font("굴림", 10F);
-            this.button2.Location = new System.Drawing.Point(12, 127);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "저장";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSave.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnSave.Location = new System.Drawing.Point(12, 127);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(84, 23);
+            this.btnSave.TabIndex = 19;
+            this.btnSave.Text = "저장";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // button1
             // 
@@ -81,45 +82,45 @@
             this.button1.Text = "코드생성";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox2.Location = new System.Drawing.Point(99, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(406, 23);
-            this.textBox2.TabIndex = 17;
+            this.txtName.Font = new System.Drawing.Font("굴림", 10F);
+            this.txtName.Location = new System.Drawing.Point(99, 46);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(406, 23);
+            this.txtName.TabIndex = 17;
             // 
-            // textBox1
+            // txtCode
             // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox1.Location = new System.Drawing.Point(99, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(317, 23);
-            this.textBox1.TabIndex = 16;
+            this.txtCode.Font = new System.Drawing.Font("굴림", 10F);
+            this.txtCode.Location = new System.Drawing.Point(99, 5);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(317, 23);
+            this.txtCode.TabIndex = 16;
             // 
-            // radioButton2
+            // rdoFactory
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("굴림", 10F);
-            this.radioButton2.Location = new System.Drawing.Point(241, 90);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(53, 18);
-            this.radioButton2.TabIndex = 15;
-            this.radioButton2.Text = "공장";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdoFactory.AutoSize = true;
+            this.rdoFactory.Font = new System.Drawing.Font("굴림", 10F);
+            this.rdoFactory.Location = new System.Drawing.Point(241, 90);
+            this.rdoFactory.Name = "rdoFactory";
+            this.rdoFactory.Size = new System.Drawing.Size(53, 18);
+            this.rdoFactory.TabIndex = 15;
+            this.rdoFactory.Text = "공장";
+            this.rdoFactory.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdoWarehouse
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("굴림", 10F);
-            this.radioButton1.Location = new System.Drawing.Point(99, 90);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(53, 18);
-            this.radioButton1.TabIndex = 14;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "창고";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdoWarehouse.AutoSize = true;
+            this.rdoWarehouse.Checked = true;
+            this.rdoWarehouse.Font = new System.Drawing.Font("굴림", 10F);
+            this.rdoWarehouse.Location = new System.Drawing.Point(99, 90);
+            this.rdoWarehouse.Name = "rdoWarehouse";
+            this.rdoWarehouse.Size = new System.Drawing.Size(53, 18);
+            this.rdoWarehouse.TabIndex = 14;
+            this.rdoWarehouse.TabStop = true;
+            this.rdoWarehouse.Text = "창고";
+            this.rdoWarehouse.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -157,14 +158,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(519, 161);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtCode);
+            this.Controls.Add(this.rdoFactory);
+            this.Controls.Add(this.rdoWarehouse);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -181,14 +182,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.RadioButton rdoFactory;
+        private System.Windows.Forms.RadioButton rdoWarehouse;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

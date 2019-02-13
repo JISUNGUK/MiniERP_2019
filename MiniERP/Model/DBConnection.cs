@@ -65,7 +65,7 @@ namespace MiniERP.Model
         /// </summary>
         /// <param name="storeProcedureName">수행할 저장프로시저의 이름입니다.</param>
         /// <returns>Table의 모든 내용을 SqlDataReader객체로 반환합니다.</returns>
-        private SqlDataReader ExecuteSelect(string storeProcedureName)
+        public SqlDataReader ExecuteSelect(string storeProcedureName)
         {
             SqlConnection sqlConnection = OpenSqlConnection();
             SqlCommand sqlCommand = new SqlCommand();
@@ -89,7 +89,7 @@ namespace MiniERP.Model
         /// <param name="storedProcedureName">수행될 저장프로시저의 이름입니다.</param>
         /// <param name="sqlParameters">수행될 저장프로시저에 필요한 파라메터입니다.</param>
         /// <returns>Insert작업이 성공하면 true, 그렇지 않으면 false를 반환합니다.</returns>
-        private bool ExcuteInsert(string storedProcedureName, SqlParameter[] sqlParameters)
+        public bool ExcuteInsert(string storedProcedureName, SqlParameter[] sqlParameters)
         {
             bool result = false;
 
@@ -121,7 +121,7 @@ namespace MiniERP.Model
         /// <param name="storeProcedureName">수행될 저장프로시저의 이름입니다.</param>
         /// <param name="sqlParameters">수행될 저장프로시저에 필요한 파라메터입니다.</param>
         /// <returns>Update 또는 Delete가 정상적으로 수행되면 true, 그렇지 않으면 false를 반환합니다.</returns>
-        private bool ExecuteUpdateOrDelete(string storeProcedureName, SqlParameter[] sqlParameters)
+        public bool ExecuteUpdateOrDelete(string storeProcedureName, SqlParameter[] sqlParameters)
         {
             bool result = false;
 

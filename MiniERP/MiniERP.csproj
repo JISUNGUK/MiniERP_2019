@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\DAO\IWarehouseDAO.cs" />
+    <Compile Include="Model\DAO\WarehouseDAO.cs" />
     <Compile Include="ToDoList_Detail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,6 +215,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VO\Barcode_Module.cs" />
+    <Compile Include="VO\Warehouse.cs" />
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,7 +317,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
-    <Folder Include="Model\DAO\" />
     <Folder Include="View\AccountingManagement%28회계%29\" />
     <Folder Include="View\ProductionManagement%28생산%29\" />
   </ItemGroup>
