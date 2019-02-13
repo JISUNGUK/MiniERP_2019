@@ -533,7 +533,7 @@ namespace MiniERP.View
         private void Add_CloseBtn(Form formtest) // !! 주의 조회 폼에서만 사용할것
         {
             Button closebtn = new Button(); // 버튼 생성
-            closebtn.Location = new Point(753, 12); // 위치고정 ( 변경하지말 것 )
+            closebtn.Location = new Point(740, 12); // 위치고정 ( 변경하지말 것 )
             closebtn.Anchor = AnchorStyles.Right; // 이거 쓸모 없음 ㅡㅡ
             closebtn.Image = Properties.Resources.CloseIcon; // 리소스 폴더내 이미지 파일을 사용
             closebtn.ImageAlign = ContentAlignment.MiddleCenter;
