@@ -73,6 +73,7 @@ namespace MiniERP.View
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서분석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.lbl_RoomName = new System.Windows.Forms.Label();
             this.particiRoom = new System.Windows.Forms.Button();
             this.access = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@ namespace MiniERP.View
             this.memberList = new System.Windows.Forms.ListBox();
             this.roomName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbl_RoomName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -474,6 +474,16 @@ namespace MiniERP.View
             this.splitContainer2.SplitterDistance = 1095;
             this.splitContainer2.TabIndex = 3;
             // 
+            // lbl_RoomName
+            // 
+            this.lbl_RoomName.AutoSize = true;
+            this.lbl_RoomName.Font = new System.Drawing.Font("굴림", 12F);
+            this.lbl_RoomName.Location = new System.Drawing.Point(87, 86);
+            this.lbl_RoomName.Name = "lbl_RoomName";
+            this.lbl_RoomName.Size = new System.Drawing.Size(130, 16);
+            this.lbl_RoomName.TabIndex = 16;
+            this.lbl_RoomName.Text = "방이름 여기 출력";
+            // 
             // particiRoom
             // 
             this.particiRoom.Location = new System.Drawing.Point(264, 57);
@@ -628,16 +638,6 @@ namespace MiniERP.View
             // 
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lbl_RoomName
-            // 
-            this.lbl_RoomName.AutoSize = true;
-            this.lbl_RoomName.Font = new System.Drawing.Font("굴림", 12F);
-            this.lbl_RoomName.Location = new System.Drawing.Point(87, 86);
-            this.lbl_RoomName.Name = "lbl_RoomName";
-            this.lbl_RoomName.Size = new System.Drawing.Size(130, 16);
-            this.lbl_RoomName.TabIndex = 16;
-            this.lbl_RoomName.Text = "방이름 여기 출력";
             // 
             // Form1
             // 

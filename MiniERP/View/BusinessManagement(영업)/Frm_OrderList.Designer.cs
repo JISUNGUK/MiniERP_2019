@@ -154,7 +154,7 @@
             this.pnl_serchbox.Controls.Add(this.label4);
             this.pnl_serchbox.Controls.Add(this.dateTimePicker2);
             this.pnl_serchbox.Controls.Add(this.label7);
-            this.pnl_serchbox.Location = new System.Drawing.Point(12, 45);
+            this.pnl_serchbox.Location = new System.Drawing.Point(12, 41);
             this.pnl_serchbox.Name = "pnl_serchbox";
             this.pnl_serchbox.Size = new System.Drawing.Size(799, 119);
             this.pnl_serchbox.TabIndex = 90;
