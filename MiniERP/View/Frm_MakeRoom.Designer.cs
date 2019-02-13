@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.roomName = new System.Windows.Forms.Label();
-
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.room = new System.Windows.Forms.TextBox();
             this.roomList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,12 +46,6 @@
             this.roomName.TabIndex = 0;
             this.roomName.Text = "방 이름";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(65, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 21);
-            this.textBox1.TabIndex = 1;
             // room
             // 
             this.room.Location = new System.Drawing.Point(65, 31);
@@ -98,7 +90,6 @@
             this.makeRoom.Text = "방 만들기";
             this.makeRoom.UseVisualStyleBackColor = true;
             this.makeRoom.Click += new System.EventHandler(this.makeRoom_Click);
-
             // 
             // memberList
             // 
@@ -118,7 +109,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.roomList);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.room);
             this.Controls.Add(this.roomName);
             this.Name = "Frm_MakeRoom";
@@ -132,8 +122,6 @@
         #endregion
 
         private System.Windows.Forms.Label roomName;
-
-        private System.Windows.Forms.TextBox textBox1;
 
         private System.Windows.Forms.TextBox room;
 

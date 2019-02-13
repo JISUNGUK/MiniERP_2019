@@ -634,11 +634,6 @@ namespace MiniERP.View
             this.roomName.TabIndex = 0;
             this.roomName.Text = "방 이름";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
