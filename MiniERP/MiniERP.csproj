@@ -71,6 +71,12 @@
     <Compile Include="View\Frm_LoginBox.Designer.cs">
       <DependentUpon>Frm_LoginBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Frm_MPDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_MPDetails.Designer.cs">
+      <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StockManagement%28재고%29\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_LoginBox.resx">
       <DependentUpon>Frm_LoginBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_MPDetails.resx">
+      <DependentUpon>Frm_MPDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement%28재고%29\Frm_ItemInsert.resx">
       <DependentUpon>Frm_ItemInsert.cs</DependentUpon>
