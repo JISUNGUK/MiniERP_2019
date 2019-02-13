@@ -251,9 +251,8 @@
             // 
             // button9
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button9.Font = new System.Drawing.Font("굴림", 10F);
-            this.button9.Location = new System.Drawing.Point(729, 11);
+            this.button9.Location = new System.Drawing.Point(423, 12);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(82, 23);
             this.button9.TabIndex = 105;
@@ -263,9 +262,8 @@
             // 
             // textBox10
             // 
-            this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox10.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox10.Location = new System.Drawing.Point(318, 11);
+            this.textBox10.Location = new System.Drawing.Point(12, 12);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(405, 23);
             this.textBox10.TabIndex = 104;

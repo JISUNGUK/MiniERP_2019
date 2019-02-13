@@ -20,8 +20,7 @@ namespace MiniERP.View
         private Panel panel_mdi;
         private bool tabChk = true; // 탭페이지 중복검사용 - true 중복 , false 중복 X
 
-        private Point imageLocation = new Point(10, 5);
-        private Point imageHitArea = new Point(10, 5);
+        private int tabSelcted_Index; // 선택한 탭의 인덱스 값을 저장합니다.
 
         public Form1()
         {
@@ -122,6 +121,7 @@ namespace MiniERP.View
                         panel_mdi.Controls.Add(orderList); // 판넬에 설정한 폼 넣기
                         orderList.Show();  // 폼 실행
                         #endregion
+                        Add_CloseBtn(orderList); // 폼에 닫기 버튼 생성
                         tabChk = true; // 중복확인용 bool 타입
                         break;
                     }
@@ -146,27 +146,8 @@ namespace MiniERP.View
                         panel_mdi.Controls.Add(estimateList); // 판넬에 설정한 폼 넣기
                         estimateList.Show();  // 폼 실행
                         #endregion
+                        Add_CloseBtn(estimateList); // 폼에 닫기 버튼 생성
                         tabChk = true; // 중복확인용 bool 타입
-                        break;
-                    }
-
-                case "품목 등록":
-                    {
-                        Frm_ItemInsert itemInsert = new Frm_ItemInsert();
-                        itemInsert.Show();  // 폼 실행
-                        break;
-                    }
-                case "창고 등록":
-                    {
-                        Frm_StockInsert stockInsert = new Frm_StockInsert();
-
-                        stockInsert.Show();  // 폼 실행
-                        break;
-                    }
-                case "거래처 등록":
-                    {
-                        Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
-                        businessInsert.Show();
                         break;
                     }
                 case "판매/구매 조회":
@@ -188,9 +169,9 @@ namespace MiniERP.View
                     panel_mdi.Controls.Add(selllist); // 판넬에 설정한 폼 넣기
                     selllist.Show();  // 폼 실행
                     #endregion
+                    Add_CloseBtn(selllist); // 폼에 닫기 버튼 생성
                     tabChk = true; // 중복확인용 bool 타입
                     break;
-
                 case "거래처 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
@@ -211,10 +192,10 @@ namespace MiniERP.View
                     panel_mdi.Controls.Add(businessList); // 판넬에 설정한 폼 넣기
                     businessList.Show();  // 폼 실행
                     #endregion
-
+                    Add_CloseBtn(businessList); // 폼에 닫기 버튼 생성
                     tabChk = true; // 중복확인용 bool 타입
                     break;
-                
+
                 case "생산계획서 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
@@ -226,7 +207,6 @@ namespace MiniERP.View
                     #endregion
 
                     #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
-
                     Frm_productionList productionList = new Frm_productionList();
                     productionList.ControlBox = false; // 컨트롤 상자 없애기
                     productionList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
@@ -235,7 +215,7 @@ namespace MiniERP.View
                     panel_mdi.Controls.Add(productionList); // 판넬에 설정한 폼 넣기
                     productionList.Show();  // 폼 실행
                     #endregion
-
+                    Add_CloseBtn(productionList); // 폼에 닫기 버튼 생성
                     tabChk = true; // 중복확인용 bool 타입
                     break;
                 case "창고 조회":
@@ -257,9 +237,10 @@ namespace MiniERP.View
                     panel_mdi.Controls.Add(stockList); // 판넬에 설정한 폼 넣기
                     stockList.Show();  // 폼 실행
                     #endregion
+                    Add_CloseBtn(stockList); // 폼에 닫기 버튼 생성
                     tabChk = true;
                     break;
-              
+
                 case "BOM 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
@@ -280,7 +261,29 @@ namespace MiniERP.View
                     bomList.Show();  // 폼 실행
                     #endregion
                     tabChk = true;
+                    Add_CloseBtn(bomList); // 폼에 닫기 버튼 생성
                     break;
+
+                case "품목 등록":
+                    {
+                        Frm_ItemInsert itemInsert = new Frm_ItemInsert();
+                        itemInsert.Show();  // 폼 실행
+                        break;
+                    }
+                case "창고 등록":
+                    {
+                        Frm_StockInsert stockInsert = new Frm_StockInsert();
+
+                        stockInsert.Show();  // 폼 실행
+                        break;
+                    }
+                case "거래처 등록":
+                    {
+                        Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
+                        businessInsert.Show();
+                        break;
+                    }
+                
                 case "사원등록":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
@@ -310,18 +313,6 @@ namespace MiniERP.View
             }
             tabChk = false;
         }
-        
-        #region 탭페이지 닫기 버튼 추가 이벤트
-        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
-
-        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            // 미완   
-        }
 
         // 왼쪽 실시간 확인창 최대화 폼 호출하는 메서드
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -332,17 +323,34 @@ namespace MiniERP.View
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
         {
-
+            // 뭐야 이거 삭제해야하는데 콘테이너를 못 찾겟다
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void MenuClickEvnet(object sender, EventArgs e)
         {
             OpenForm(sender);
         }
+
+        #region 탭페이지 닫기버튼 생성 메서드
+        private void Add_CloseBtn(Form formtest) // !! 주의 조회 폼에서만 사용할것
+        {
+            Button closebtn = new Button(); // 버튼 생성
+            closebtn.Location = new Point(753, 12); // 위치고정 ( 변경하지말 것 )
+            closebtn.Anchor = AnchorStyles.Right; // 이거 쓸모 없음 ㅡㅡ
+            closebtn.Image = Properties.Resources.CloseIcon; // 리소스 폴더내 이미지 파일을 사용
+            closebtn.ImageAlign = ContentAlignment.MiddleCenter;
+            closebtn.Height = 23;
+            closebtn.Width = 23;
+            closebtn.MouseClick += Closebtn_MouseClick; // 버튼 이벤트 생성
+            formtest.Controls.Add(closebtn); // 생성된 탭컨트롤 안에 버튼 넣음
+        }
+
+        #region 닫기버튼 클릭 이벤트
+        private void Closebtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            tabSelcted_Index = tabControl1.SelectedIndex;
+            tabControl1.TabPages.Remove(tabControl1.TabPages[tabSelcted_Index]);// 탭컨트롤에서 해당 페이지 삭제
+        } 
+        #endregion
+        #endregion
     }   
 }

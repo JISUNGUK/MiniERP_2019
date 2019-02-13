@@ -36,6 +36,7 @@
             this.Panal_Main = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.영업ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_OrdM_inquiry = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_Accountregistration = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +48,7 @@
             this.품목등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.창고등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.거래처등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.사원등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOM조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.창고관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,12 +69,6 @@
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서분석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.cbx_ChatType = new System.Windows.Forms.ComboBox();
-            this.btn_ChatSend = new System.Windows.Forms.Button();
-            this.txt_ChatWrite = new System.Windows.Forms.TextBox();
-            this.lbx_ChatRead = new System.Windows.Forms.ListBox();
-            this.lbx_Onlin = new System.Windows.Forms.ListBox();
-            this.사원등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -83,7 +79,6 @@
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,12 +152,11 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(793, 657);
             this.tabControl1.TabIndex = 4;
-            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
-            this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainToolStripMenuItem,
             this.영업ToolStripMenuItem,
             this.물류관리ToolStripMenuItem,
             this.재고관리ToolStripMenuItem,
@@ -174,6 +168,13 @@
             this.menuStrip1.Size = new System.Drawing.Size(793, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mainToolStripMenuItem
+            // 
+            this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.mainToolStripMenuItem.Text = "MainPage";
+            this.mainToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 영업ToolStripMenuItem
             // 
@@ -187,14 +188,14 @@
             // tsm_OrdM_inquiry
             // 
             this.tsm_OrdM_inquiry.Name = "tsm_OrdM_inquiry";
-            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(180, 22);
+            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(138, 22);
             this.tsm_OrdM_inquiry.Text = "주문 조회";
             this.tsm_OrdM_inquiry.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // tsm_Accountregistration
             // 
             this.tsm_Accountregistration.Name = "tsm_Accountregistration";
-            this.tsm_Accountregistration.Size = new System.Drawing.Size(180, 22);
+            this.tsm_Accountregistration.Size = new System.Drawing.Size(138, 22);
             this.tsm_Accountregistration.Text = "거래처 조회";
             this.tsm_Accountregistration.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -210,14 +211,14 @@
             // 견적서조회ToolStripMenuItem1
             // 
             this.견적서조회ToolStripMenuItem1.Name = "견적서조회ToolStripMenuItem1";
-            this.견적서조회ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.견적서조회ToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.견적서조회ToolStripMenuItem1.Text = "견적서 조회";
             this.견적서조회ToolStripMenuItem1.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 생산계획서조회ToolStripMenuItem
             // 
             this.생산계획서조회ToolStripMenuItem.Name = "생산계획서조회ToolStripMenuItem";
-            this.생산계획서조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.생산계획서조회ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.생산계획서조회ToolStripMenuItem.Text = "생산계획서 조회";
             this.생산계획서조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -239,36 +240,43 @@
             this.거래처등록ToolStripMenuItem,
             this.사원등록ToolStripMenuItem});
             this.기초등록ToolStripMenuItem.Name = "기초등록ToolStripMenuItem";
-            this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.기초등록ToolStripMenuItem.Text = "기초 등록";
             // 
             // 품목등록ToolStripMenuItem
             // 
             this.품목등록ToolStripMenuItem.Name = "품목등록ToolStripMenuItem";
-            this.품목등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.품목등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.품목등록ToolStripMenuItem.Text = "품목 등록";
             this.품목등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 창고등록ToolStripMenuItem
             // 
             this.창고등록ToolStripMenuItem.Name = "창고등록ToolStripMenuItem";
-            this.창고등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.창고등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.창고등록ToolStripMenuItem.Text = "창고 등록";
             this.창고등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 거래처등록ToolStripMenuItem
             // 
             this.거래처등록ToolStripMenuItem.Name = "거래처등록ToolStripMenuItem";
-            this.거래처등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.거래처등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.거래처등록ToolStripMenuItem.Text = "거래처 등록";
             this.거래처등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
+            // 
+            // 사원등록ToolStripMenuItem
+            // 
+            this.사원등록ToolStripMenuItem.Name = "사원등록ToolStripMenuItem";
+            this.사원등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.사원등록ToolStripMenuItem.Text = "사원 등록";
+            this.사원등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // bOMToolStripMenuItem
             // 
             this.bOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bOM조회ToolStripMenuItem});
             this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
-            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.bOMToolStripMenuItem.Text = "BOM";
             // 
             // bOM조회ToolStripMenuItem
@@ -284,7 +292,7 @@
             this.창고조회ToolStripMenuItem,
             this.창고이동ToolStripMenuItem});
             this.창고관리ToolStripMenuItem.Name = "창고관리ToolStripMenuItem";
-            this.창고관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.창고관리ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.창고관리ToolStripMenuItem.Text = "창고 관리";
             // 
             // 창고조회ToolStripMenuItem
@@ -315,7 +323,7 @@
             this.구매현황ToolStripMenuItem,
             this.구매현황ToolStripMenuItem1});
             this.판매ToolStripMenuItem.Name = "판매ToolStripMenuItem";
-            this.판매ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.판매ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.판매ToolStripMenuItem.Text = "판매/구매";
             // 
             // 구매현황ToolStripMenuItem
@@ -334,7 +342,7 @@
             // 거래조회ToolStripMenuItem
             // 
             this.거래조회ToolStripMenuItem.Name = "거래조회ToolStripMenuItem";
-            this.거래조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.거래조회ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.거래조회ToolStripMenuItem.Text = "거래 조회";
             // 
             // 회계관리ToolStripMenuItem
@@ -352,7 +360,7 @@
             this.전표조회ToolStripMenuItem,
             this.전표인새ㅗToolStripMenuItem});
             this.전표관리ToolStripMenuItem.Name = "전표관리ToolStripMenuItem";
-            this.전표관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.전표관리ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.전표관리ToolStripMenuItem.Text = "전표 관리";
             // 
             // 전표조회ToolStripMenuItem
@@ -375,7 +383,7 @@
             this.매출관리ToolStripMenuItem,
             this.매입관리ToolStripMenuItem});
             this.장부관리ToolStripMenuItem.Name = "장부관리ToolStripMenuItem";
-            this.장부관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.장부관리ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.장부관리ToolStripMenuItem.Text = "장부 관리";
             // 
             // 매출관리ToolStripMenuItem
@@ -403,7 +411,7 @@
             // 견적서분석ToolStripMenuItem
             // 
             this.견적서분석ToolStripMenuItem.Name = "견적서분석ToolStripMenuItem";
-            this.견적서분석ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.견적서분석ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.견적서분석ToolStripMenuItem.Text = "견적 조회";
             // 
             // splitContainer2
@@ -419,75 +427,10 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.cbx_ChatType);
-            this.splitContainer2.Panel2.Controls.Add(this.btn_ChatSend);
-            this.splitContainer2.Panel2.Controls.Add(this.txt_ChatWrite);
-            this.splitContainer2.Panel2.Controls.Add(this.lbx_ChatRead);
-            this.splitContainer2.Panel2.Controls.Add(this.lbx_Onlin);
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel2_Paint);
             this.splitContainer2.Size = new System.Drawing.Size(1461, 681);
             this.splitContainer2.SplitterDistance = 1116;
             this.splitContainer2.TabIndex = 3;
-            // 
-            // cbx_ChatType
-            // 
-            this.cbx_ChatType.FormattingEnabled = true;
-            this.cbx_ChatType.Items.AddRange(new object[] {
-            "공지사항",
-            "공용\t"});
-            this.cbx_ChatType.Location = new System.Drawing.Point(4, 658);
-            this.cbx_ChatType.Name = "cbx_ChatType";
-            this.cbx_ChatType.Size = new System.Drawing.Size(199, 20);
-            this.cbx_ChatType.TabIndex = 5;
-            // 
-            // btn_ChatSend
-            // 
-            this.btn_ChatSend.Location = new System.Drawing.Point(209, 655);
-            this.btn_ChatSend.Name = "btn_ChatSend";
-            this.btn_ChatSend.Size = new System.Drawing.Size(128, 23);
-            this.btn_ChatSend.TabIndex = 4;
-            this.btn_ChatSend.Text = "전송";
-            this.btn_ChatSend.UseVisualStyleBackColor = true;
-            // 
-            // txt_ChatWrite
-            // 
-            this.txt_ChatWrite.Location = new System.Drawing.Point(4, 599);
-            this.txt_ChatWrite.Multiline = true;
-            this.txt_ChatWrite.Name = "txt_ChatWrite";
-            this.txt_ChatWrite.Size = new System.Drawing.Size(334, 53);
-            this.txt_ChatWrite.TabIndex = 3;
-            this.txt_ChatWrite.Text = "메신저 UI 수정중";
-            this.txt_ChatWrite.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // lbx_ChatRead
-            // 
-            this.lbx_ChatRead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbx_ChatRead.DataSource = this.lbx_Onlin.CustomTabOffsets;
-            this.lbx_ChatRead.FormattingEnabled = true;
-            this.lbx_ChatRead.ItemHeight = 12;
-            this.lbx_ChatRead.Location = new System.Drawing.Point(3, 97);
-            this.lbx_ChatRead.Name = "lbx_ChatRead";
-            this.lbx_ChatRead.Size = new System.Drawing.Size(335, 496);
-            this.lbx_ChatRead.TabIndex = 1;
-            // 
-            // lbx_Onlin
-            // 
-            this.lbx_Onlin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbx_Onlin.FormattingEnabled = true;
-            this.lbx_Onlin.ItemHeight = 12;
-            this.lbx_Onlin.Location = new System.Drawing.Point(2, 3);
-            this.lbx_Onlin.Name = "lbx_Onlin";
-            this.lbx_Onlin.Size = new System.Drawing.Size(335, 88);
-            this.lbx_Onlin.TabIndex = 0;
-            // 
-            // 사원등록ToolStripMenuItem
-            // 
-            this.사원등록ToolStripMenuItem.Name = "사원등록ToolStripMenuItem";
-            this.사원등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.사원등록ToolStripMenuItem.Text = "사원 등록";
-            this.사원등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // Form1
             // 
@@ -516,8 +459,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -557,11 +498,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.TextBox txt_ChatWrite;
-        private System.Windows.Forms.ListBox lbx_ChatRead;
-        private System.Windows.Forms.ListBox lbx_Onlin;
-        private System.Windows.Forms.ComboBox cbx_ChatType;
-        private System.Windows.Forms.Button btn_ChatSend;
         private System.Windows.Forms.ToolStripMenuItem 견적서분석ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 창고관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 창고조회ToolStripMenuItem;
@@ -570,6 +506,7 @@
         private System.Windows.Forms.ToolStripMenuItem 구매현황ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 구매현황ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 사원등록ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
     }
 }
 

@@ -117,9 +117,8 @@
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("굴림", 10F);
-            this.button2.Location = new System.Drawing.Point(729, 12);
+            this.button2.Location = new System.Drawing.Point(424, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 23);
             this.button2.TabIndex = 68;
@@ -129,9 +128,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox1.Location = new System.Drawing.Point(318, 12);
+            this.textBox1.Location = new System.Drawing.Point(13, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(405, 23);
             this.textBox1.TabIndex = 67;

@@ -38,6 +38,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -46,8 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_serchbox.SuspendLayout();
             this.SuspendLayout();
@@ -84,9 +84,8 @@
             // 
             // btn_serch
             // 
-            this.btn_serch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_serch.Font = new System.Drawing.Font("굴림", 10F);
-            this.btn_serch.Location = new System.Drawing.Point(729, 7);
+            this.btn_serch.Location = new System.Drawing.Point(423, 7);
             this.btn_serch.Name = "btn_serch";
             this.btn_serch.Size = new System.Drawing.Size(82, 23);
             this.btn_serch.TabIndex = 9;
@@ -96,9 +95,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox1.Location = new System.Drawing.Point(318, 7);
+            this.textBox1.Location = new System.Drawing.Point(12, 7);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(405, 23);
             this.textBox1.TabIndex = 8;
@@ -157,6 +155,26 @@
             this.pnl_serchbox.Size = new System.Drawing.Size(799, 102);
             this.pnl_serchbox.TabIndex = 14;
             this.pnl_serchbox.Visible = false;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(183, 61);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(48, 16);
+            this.checkBox2.TabIndex = 11;
+            this.checkBox2.Text = "공장";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(91, 61);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(48, 16);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "창고";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -230,26 +248,6 @@
             this.label1.Size = new System.Drawing.Size(57, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "검색 기능";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(91, 61);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 16);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "창고";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(183, 61);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "공장";
-            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // Frm_StockList
             // 

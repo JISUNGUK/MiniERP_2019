@@ -47,17 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmDashBoard.cs">
+    <Compile Include="View\FrmDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDashBoard.designer.cs">
+    <Compile Include="View\FrmDashBoard.designer.cs">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_ProductionPlanList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_ProductionPlanList.designer.cs">
-      <DependentUpon>Frm_ProductionPlanList.cs</DependentUpon>
     </Compile>
     <Compile Include="ToDoList.cs">
       <SubType>UserControl</SubType>
@@ -206,11 +200,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmDashBoard.resx">
+    <EmbeddedResource Include="View\FrmDashBoard.resx">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_ProductionPlanList.resx">
-      <DependentUpon>Frm_ProductionPlanList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToDoList.resx">
       <DependentUpon>ToDoList.cs</DependentUpon>
