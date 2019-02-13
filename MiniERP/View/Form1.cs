@@ -27,6 +27,8 @@ namespace MiniERP.View
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
         string readData = null;
         Frm_MakeRoom makeRoom;//방속성 정하는 창
+
+        Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
         //메시지 구현부분 by 종완
 
 
@@ -68,6 +70,7 @@ namespace MiniERP.View
                 readData = Encoding.UTF8.GetString(byteFrom).Replace("\0", "");
                 if (readData.Contains("해당 방은 있습니다"))
                     MessageBox.Show("같은 이름의 방은 만들수 없습니다");
+                
                 Msg();
                 DisplayMember();
 
@@ -86,17 +89,18 @@ namespace MiniERP.View
             }
             else
             {
+               
+
                 if (readData.Contains("접속 인원:"))
                 {
                     memberList.Items.Clear();
                     var seperators = new char[1];
                     seperators[0] = ',';
                     int lastIndex = readData.IndexOf("::");
+                    string accessmember = readData.Remove(lastIndex);
                     int accessMemberIndex = readData.IndexOf("접속 인원:") + 6;
-                    string accessMember = readData.Remove(lastIndex);
-
-                    string memberlist = accessMember.Substring(accessMemberIndex);
-                    string[] members = memberlist.Split(seperators[0]);
+                    accessmember = accessmember.Substring(accessMemberIndex);                 
+                    string[] members = accessmember.Split(seperators[0]);
                     string memberNamelist = "";
                     foreach (var v in members)
                     {
@@ -104,6 +108,12 @@ namespace MiniERP.View
                             memberList.Items.Add(v);
                         memberNamelist += v;
                     }
+                }
+
+                if(readData.Contains("방 주인 맞으시네요~~"))
+                {
+                    rmRoom.Enabled = true;
+                    rmRoom.Visible = true;
                 }
 
 
@@ -123,7 +133,14 @@ namespace MiniERP.View
                         foreach (var v in rooms)
                         {
                             if (!roomNamelist.Contains(v))
+                            {
+                                
                                 roomList.Items.Add(v);
+                            }
+                            if(!roomtable.Contains(v))
+                            {
+                                roomtable.Add(v, "");//로컬프로그램에 저장될 채팅방 이름과 메시지내용들
+                            }
                             roomNamelist += v;
                         }
                     }
@@ -144,10 +161,45 @@ namespace MiniERP.View
             {
                 if (!readData.Contains("서버 메시지:"))
                 {
-                    ChatContent.Text += Environment.NewLine;
-                    ChatContent.Text = ChatContent.Text + Environment.NewLine + ">>" + readData;
-                    ChatContent.ScrollToCaret();
+                    string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + "\n";
+                    if (readData.Contains(">>>>"))
+                    {
+                        int indexOfseprate = readData.IndexOf(">>>>");
+                        string roomname = readData.Remove(indexOfseprate);
+                        string message = readData.Substring(indexOfseprate+4);
+                        roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
+                        roomtable[roomname] += date + Environment.NewLine + ">>" + message + "\n";
+                       
+                    if(roomList.SelectedIndex!=-1)
+                        {
+                            if(roomList.SelectedItem.ToString()==roomname)
+                            {
+                                ChatContent.Text = ChatContent.Text + date + Environment.NewLine + ">>" + message + "\n";
+                                ChatContent.SelectionStart = ChatContent.TextLength;
+                                ChatContent.ScrollToCaret();
+
+                            }
+                        }
+
+
+
+                    }
+                    else
+                    {
+                        if (roomList.SelectedItem==null|| roomList.SelectedItem.ToString()=="전체")
+                        {
+                            ChatContent.Text = ChatContent.Text + date + Environment.NewLine + ">>" + readData;
+                            ChatContent.SelectionStart = ChatContent.TextLength;
+                            ChatContent.ScrollToCaret();
+                        }
+                        roomtable["전체"] += date + Environment.NewLine + ">>" + readData+"\n" ; 
+                    }
+
+
                 }
+
+                
+
             }
         }
 
@@ -351,10 +403,7 @@ namespace MiniERP.View
 
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void 견적서조회ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -409,15 +458,7 @@ namespace MiniERP.View
             frm_MaxSizeGrp.Show();
         }
 
-        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void imageButton_Click(object sender, EventArgs e)
         {
@@ -429,10 +470,7 @@ namespace MiniERP.View
             }
         }
 
-        private void imageLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -442,16 +480,29 @@ namespace MiniERP.View
 
         private void access_Click(object sender, EventArgs e)
         {
+
             //메시지 서버에 접속
-            readData = "채팅 서버 연결중...";
-            client.Connect("192.168.0.6", 3333);//서버 접속
-            Msg();
-            network = client.GetStream();
+            try
+            {
+                readData = "채팅 서버 연결중...";
+                client.Connect("192.168.0.6", 3333);//서버 접속
+                roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
+                roomtable.Add("전체", "");
+                //Msg();
+                network = client.GetStream();
 
-            SendMessage(nicname.Text);
+                SendMessage(nicname.Text);
 
-            Thread thread = new Thread(getMsg);
-            thread.Start();
+                Thread thread = new Thread(getMsg);
+                thread.Start();
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message+"오류가 발생했습니다");
+            }
+            access.Enabled = false;
+            nicname.Enabled = false;
             //메시지 서버에 접속
         }
 
@@ -531,8 +582,8 @@ namespace MiniERP.View
 
         private void roomList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string message = roomList.SelectedItem.ToString() + ":방의 주인은?";
-            SendMessage(message);
+            timer1.Enabled = true;
+            ChatContent.Text = roomtable[roomList.SelectedItem].ToString();
 
         }
 
@@ -546,12 +597,21 @@ namespace MiniERP.View
                     string message = roomList.SelectedItem.ToString() + "방을 삭제합니다";
                     SendMessage(message);
                 }
+                roomtable.Remove(roomList.SelectedItem);
             }
         }
 
-        //private void synchronize_Tick(object sender, EventArgs e)
-        //{
-        //DisplayMemberRoom();
-        // }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+        if(roomList.SelectedIndex!=-1)
+            { 
+            if(roomList.SelectedItem.ToString()!="전체")
+                { 
+                string message = roomList.SelectedItem.ToString() + ":방의 주인은?";
+                SendMessage(message);
+                timer1.Enabled = false;
+                }
+            }
+        }
     }
 }
