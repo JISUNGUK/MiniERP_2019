@@ -19,11 +19,14 @@ namespace MiniERP.View
     {
         private Panel panel_mdi;
         private bool tabChk = true; // 탭페이지 중복검사용 - true 중복 , false 중복 X
+        private bool mboxchk = true; // 메세지 박스 실행 방지용
 
         private int tabSelcted_Index; // 선택한 탭의 인덱스 값을 저장합니다.
 
         public Form1()
         {
+            Frm_LoginBox loginbox = new Frm_LoginBox();
+            loginbox.ShowDialog();
             InitializeComponent();
         }
 
@@ -352,6 +355,28 @@ namespace MiniERP.View
         private void Form1_Load(object sender, EventArgs e)
         {
             OpenForm("MainPage");
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           // 폼이 닫히기 전에 메세지 박스로 재확인
+            if (mboxchk) // 중복방지용 변수 true 면 mbox 실행
+            {
+                mboxchk = false; 
+                if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    e.Cancel = false;
+                }
+                else // No 선택시 닫기 취소
+                {
+                    e.Cancel = true;
+                }
+                mboxchk = true;
+            }
+            else
+            {
+                mboxchk = true;
+            }
         }
     }   
 }
