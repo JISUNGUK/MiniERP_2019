@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.split = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.toDoList1 = new MiniERP.View.ToDoList();
-            this.toDoList2 = new MiniERP.View.ToDoList();
-            this.toDoList3 = new MiniERP.View.ToDoList();
-            this.toDoList4 = new MiniERP.View.ToDoList();
-            this.toDoList5 = new MiniERP.View.ToDoList();
-            this.toDoList6 = new MiniERP.View.ToDoList();
-            this.toDoList7 = new MiniERP.View.ToDoList();
-            this.toDoList8 = new MiniERP.View.ToDoList();
-            this.toDoList9 = new MiniERP.View.ToDoList();
             this.toDoList10 = new MiniERP.View.ToDoList();
             this.toDoList11 = new MiniERP.View.ToDoList();
             this.toDoList12 = new MiniERP.View.ToDoList();
@@ -49,24 +40,33 @@
             this.toDoList16 = new MiniERP.View.ToDoList();
             this.toDoList17 = new MiniERP.View.ToDoList();
             this.toDoList18 = new MiniERP.View.ToDoList();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.toDoList9 = new MiniERP.View.ToDoList();
+            this.toDoList8 = new MiniERP.View.ToDoList();
+            this.toDoList7 = new MiniERP.View.ToDoList();
+            this.toDoList6 = new MiniERP.View.ToDoList();
+            this.toDoList5 = new MiniERP.View.ToDoList();
+            this.toDoList4 = new MiniERP.View.ToDoList();
+            this.toDoList3 = new MiniERP.View.ToDoList();
+            this.toDoList2 = new MiniERP.View.ToDoList();
+            this.toDoList1 = new MiniERP.View.ToDoList();
+            ((System.ComponentModel.ISupportInitialize)(this.split)).BeginInit();
+            this.split.Panel1.SuspendLayout();
+            this.split.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // split
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
+            this.split.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split.Location = new System.Drawing.Point(0, 0);
+            this.split.Name = "split";
             // 
-            // splitContainer1.Panel1
+            // split.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(837, 473);
-            this.splitContainer1.SplitterDistance = 436;
-            this.splitContainer1.TabIndex = 0;
+            this.split.Panel1.Controls.Add(this.panel1);
+            this.split.Size = new System.Drawing.Size(687, 386);
+            this.split.SplitterDistance = 357;
+            this.split.TabIndex = 0;
             // 
             // panel1
             // 
@@ -92,7 +92,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(436, 473);
+            this.panel1.Size = new System.Drawing.Size(357, 386);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -104,78 +104,6 @@
             this.label1.Size = new System.Drawing.Size(232, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "오늘날자는 2019/2/12";
-            // 
-            // toDoList1
-            // 
-            this.toDoList1.BackColor = System.Drawing.Color.White;
-            this.toDoList1.Location = new System.Drawing.Point(12, 81);
-            this.toDoList1.Name = "toDoList1";
-            this.toDoList1.Size = new System.Drawing.Size(332, 46);
-            this.toDoList1.TabIndex = 1;
-            // 
-            // toDoList2
-            // 
-            this.toDoList2.BackColor = System.Drawing.Color.White;
-            this.toDoList2.Location = new System.Drawing.Point(12, 139);
-            this.toDoList2.Name = "toDoList2";
-            this.toDoList2.Size = new System.Drawing.Size(332, 46);
-            this.toDoList2.TabIndex = 2;
-            // 
-            // toDoList3
-            // 
-            this.toDoList3.BackColor = System.Drawing.Color.White;
-            this.toDoList3.Location = new System.Drawing.Point(12, 197);
-            this.toDoList3.Name = "toDoList3";
-            this.toDoList3.Size = new System.Drawing.Size(332, 46);
-            this.toDoList3.TabIndex = 3;
-            // 
-            // toDoList4
-            // 
-            this.toDoList4.BackColor = System.Drawing.Color.White;
-            this.toDoList4.Location = new System.Drawing.Point(12, 255);
-            this.toDoList4.Name = "toDoList4";
-            this.toDoList4.Size = new System.Drawing.Size(332, 46);
-            this.toDoList4.TabIndex = 4;
-            // 
-            // toDoList5
-            // 
-            this.toDoList5.BackColor = System.Drawing.Color.White;
-            this.toDoList5.Location = new System.Drawing.Point(12, 313);
-            this.toDoList5.Name = "toDoList5";
-            this.toDoList5.Size = new System.Drawing.Size(332, 46);
-            this.toDoList5.TabIndex = 5;
-            // 
-            // toDoList6
-            // 
-            this.toDoList6.BackColor = System.Drawing.Color.White;
-            this.toDoList6.Location = new System.Drawing.Point(12, 371);
-            this.toDoList6.Name = "toDoList6";
-            this.toDoList6.Size = new System.Drawing.Size(332, 46);
-            this.toDoList6.TabIndex = 6;
-            // 
-            // toDoList7
-            // 
-            this.toDoList7.BackColor = System.Drawing.Color.White;
-            this.toDoList7.Location = new System.Drawing.Point(12, 429);
-            this.toDoList7.Name = "toDoList7";
-            this.toDoList7.Size = new System.Drawing.Size(332, 46);
-            this.toDoList7.TabIndex = 7;
-            // 
-            // toDoList8
-            // 
-            this.toDoList8.BackColor = System.Drawing.Color.White;
-            this.toDoList8.Location = new System.Drawing.Point(12, 487);
-            this.toDoList8.Name = "toDoList8";
-            this.toDoList8.Size = new System.Drawing.Size(332, 46);
-            this.toDoList8.TabIndex = 8;
-            // 
-            // toDoList9
-            // 
-            this.toDoList9.BackColor = System.Drawing.Color.White;
-            this.toDoList9.Location = new System.Drawing.Point(12, 545);
-            this.toDoList9.Name = "toDoList9";
-            this.toDoList9.Size = new System.Drawing.Size(332, 46);
-            this.toDoList9.TabIndex = 9;
             // 
             // toDoList10
             // 
@@ -249,18 +177,90 @@
             this.toDoList18.Size = new System.Drawing.Size(332, 46);
             this.toDoList18.TabIndex = 10;
             // 
+            // toDoList9
+            // 
+            this.toDoList9.BackColor = System.Drawing.Color.White;
+            this.toDoList9.Location = new System.Drawing.Point(12, 545);
+            this.toDoList9.Name = "toDoList9";
+            this.toDoList9.Size = new System.Drawing.Size(332, 46);
+            this.toDoList9.TabIndex = 9;
+            // 
+            // toDoList8
+            // 
+            this.toDoList8.BackColor = System.Drawing.Color.White;
+            this.toDoList8.Location = new System.Drawing.Point(12, 487);
+            this.toDoList8.Name = "toDoList8";
+            this.toDoList8.Size = new System.Drawing.Size(332, 46);
+            this.toDoList8.TabIndex = 8;
+            // 
+            // toDoList7
+            // 
+            this.toDoList7.BackColor = System.Drawing.Color.White;
+            this.toDoList7.Location = new System.Drawing.Point(12, 429);
+            this.toDoList7.Name = "toDoList7";
+            this.toDoList7.Size = new System.Drawing.Size(332, 46);
+            this.toDoList7.TabIndex = 7;
+            // 
+            // toDoList6
+            // 
+            this.toDoList6.BackColor = System.Drawing.Color.White;
+            this.toDoList6.Location = new System.Drawing.Point(12, 371);
+            this.toDoList6.Name = "toDoList6";
+            this.toDoList6.Size = new System.Drawing.Size(332, 46);
+            this.toDoList6.TabIndex = 6;
+            // 
+            // toDoList5
+            // 
+            this.toDoList5.BackColor = System.Drawing.Color.White;
+            this.toDoList5.Location = new System.Drawing.Point(12, 313);
+            this.toDoList5.Name = "toDoList5";
+            this.toDoList5.Size = new System.Drawing.Size(332, 46);
+            this.toDoList5.TabIndex = 5;
+            // 
+            // toDoList4
+            // 
+            this.toDoList4.BackColor = System.Drawing.Color.White;
+            this.toDoList4.Location = new System.Drawing.Point(12, 255);
+            this.toDoList4.Name = "toDoList4";
+            this.toDoList4.Size = new System.Drawing.Size(332, 46);
+            this.toDoList4.TabIndex = 4;
+            // 
+            // toDoList3
+            // 
+            this.toDoList3.BackColor = System.Drawing.Color.White;
+            this.toDoList3.Location = new System.Drawing.Point(12, 197);
+            this.toDoList3.Name = "toDoList3";
+            this.toDoList3.Size = new System.Drawing.Size(332, 46);
+            this.toDoList3.TabIndex = 3;
+            // 
+            // toDoList2
+            // 
+            this.toDoList2.BackColor = System.Drawing.Color.White;
+            this.toDoList2.Location = new System.Drawing.Point(12, 139);
+            this.toDoList2.Name = "toDoList2";
+            this.toDoList2.Size = new System.Drawing.Size(332, 46);
+            this.toDoList2.TabIndex = 2;
+            // 
+            // toDoList1
+            // 
+            this.toDoList1.BackColor = System.Drawing.Color.White;
+            this.toDoList1.Location = new System.Drawing.Point(12, 81);
+            this.toDoList1.Name = "toDoList1";
+            this.toDoList1.Size = new System.Drawing.Size(332, 46);
+            this.toDoList1.TabIndex = 1;
+            // 
             // FrmDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 473);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(687, 386);
+            this.Controls.Add(this.split);
             this.Name = "FrmDashBoard";
             this.Text = "FrmDashBoard";
             this.Load += new System.EventHandler(this.FrmDashBoard_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.split.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.split)).EndInit();
+            this.split.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -269,7 +269,7 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer split;
         private System.Windows.Forms.Panel panel1;
         private ToDoList toDoList1;
         private System.Windows.Forms.Label label1;
