@@ -330,6 +330,7 @@
             this.textBox1.Size = new System.Drawing.Size(405, 23);
             this.textBox1.TabIndex = 93;
             this.textBox1.Text = "견적서 코드를 입력하세요.";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label2
             // 

@@ -38,5 +38,10 @@ namespace MiniERP.View.BusinessManagement_영업_
             Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert();
             clerkInsert.ShowDialog();
         }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
     }
 }

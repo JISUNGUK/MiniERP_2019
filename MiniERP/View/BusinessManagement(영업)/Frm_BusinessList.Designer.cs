@@ -136,6 +136,7 @@
             this.textBox1.Size = new System.Drawing.Size(405, 23);
             this.textBox1.TabIndex = 67;
             this.textBox1.Text = "거래처 또는 품목을 입력하세요.";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label2
             // 

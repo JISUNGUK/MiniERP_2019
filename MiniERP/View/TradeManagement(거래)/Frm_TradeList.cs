@@ -37,5 +37,10 @@ namespace MiniERP.View.TradeManagement_거래_
                 serchbox = true;
             }
         }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
     }
 }

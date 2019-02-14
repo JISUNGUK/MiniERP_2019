@@ -43,5 +43,10 @@ namespace MiniERP.View.BusinessManagement
             Frm_OrderInsert orderInsert = new Frm_OrderInsert();
             orderInsert.Show();
         }
+
+        private void textBox10_Click(object sender, EventArgs e)
+        {
+            textBox10.Clear();
+        }
     }
 }

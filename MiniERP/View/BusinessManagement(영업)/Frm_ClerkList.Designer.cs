@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnl_serchbox = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.ClerkCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClerkName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClierkJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +73,15 @@
             this.pnl_serchbox.Size = new System.Drawing.Size(799, 62);
             this.pnl_serchbox.TabIndex = 119;
             this.pnl_serchbox.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(462, 21);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(229, 20);
+            this.comboBox1.TabIndex = 98;
             // 
             // button7
             // 
@@ -237,7 +246,8 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(405, 23);
             this.textBox10.TabIndex = 117;
-            this.textBox10.Text = "BOM 번호 및 품목명을 입력하세요.";
+            this.textBox10.Text = "사원 번호 및 이름을 입력하세요.";
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // label8
             // 
@@ -265,15 +275,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(799, 506);
             this.dataGridView1.TabIndex = 116;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(462, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 20);
-            this.comboBox1.TabIndex = 98;
             // 
             // ClerkCode
             // 

@@ -271,6 +271,7 @@
             this.textBox10.Size = new System.Drawing.Size(405, 23);
             this.textBox10.TabIndex = 104;
             this.textBox10.Text = "BOM 번호 및 품목명을 입력하세요.";
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // label8
             // 
@@ -333,6 +334,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Frm_BomList";
             this.Text = "BOM 조회";
+            this.Click += new System.EventHandler(this.Frm_BomList_Click);
             this.pnl_serchbox.ResumeLayout(false);
             this.pnl_serchbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

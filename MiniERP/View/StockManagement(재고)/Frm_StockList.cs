@@ -88,5 +88,15 @@ namespace MiniERP.View.StockManagement
                 ReflashData();
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
     }
 }

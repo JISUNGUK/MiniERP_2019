@@ -81,6 +81,7 @@
             this.textBox1.Size = new System.Drawing.Size(405, 23);
             this.textBox1.TabIndex = 8;
             this.textBox1.Text = "창고코드 또는 창고명을 입력하세요.";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // button4
             // 

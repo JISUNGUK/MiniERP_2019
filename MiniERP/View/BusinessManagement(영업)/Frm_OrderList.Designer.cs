@@ -132,6 +132,7 @@
             this.textBox10.Size = new System.Drawing.Size(405, 23);
             this.textBox10.TabIndex = 83;
             this.textBox10.Text = "거래처 또는 품목을 입력하세요.";
+            this.textBox10.Click += new System.EventHandler(this.textBox10_Click);
             // 
             // pnl_serchbox
             // 

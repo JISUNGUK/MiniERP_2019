@@ -44,5 +44,10 @@ namespace MiniERP.View.BusinessManagement
             Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
             businessInsert.Show();
         }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
     }
 }

@@ -30,6 +30,10 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,10 +46,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +83,42 @@
             this.pnl_serchbox.TabIndex = 49;
             this.pnl_serchbox.Visible = false;
             this.pnl_serchbox.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_serchbox_Paint);
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.Font = new System.Drawing.Font("굴림", 10F);
+            this.button7.Location = new System.Drawing.Point(691, 8);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(82, 23);
+            this.button7.TabIndex = 50;
+            this.button7.Text = "검색";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(207, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(14, 12);
+            this.label1.TabIndex = 129;
+            this.label1.Text = "~";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(227, 8);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(100, 21);
+            this.dateTimePicker2.TabIndex = 128;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(101, 8);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 21);
+            this.dateTimePicker1.TabIndex = 127;
             // 
             // button5
             // 
@@ -151,6 +187,7 @@
             this.textBox1.Size = new System.Drawing.Size(405, 23);
             this.textBox1.TabIndex = 42;
             this.textBox1.Text = "거래처 또는 품목을 입력하세요.";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label2
             // 
@@ -216,42 +253,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(788, 503);
             this.dataGridView1.TabIndex = 37;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(101, 8);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 21);
-            this.dateTimePicker1.TabIndex = 127;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(227, 8);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(100, 21);
-            this.dateTimePicker2.TabIndex = 128;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(207, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 12);
-            this.label1.TabIndex = 129;
-            this.label1.Text = "~";
-            // 
-            // button7
-            // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Font = new System.Drawing.Font("굴림", 10F);
-            this.button7.Location = new System.Drawing.Point(691, 8);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(82, 23);
-            this.button7.TabIndex = 50;
-            this.button7.Text = "검색";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // Column1
             // 

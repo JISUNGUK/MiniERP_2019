@@ -336,6 +336,7 @@
             this.textBox1.Size = new System.Drawing.Size(405, 23);
             this.textBox1.TabIndex = 80;
             this.textBox1.Text = "생산계획 코드를 입력하세요.";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label2
             // 

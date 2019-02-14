@@ -158,10 +158,10 @@
     <Compile Include="View\StockManagement%28재고%29\Frm_StockList.Designer.cs">
       <DependentUpon>Frm_StockList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\StockManagement%28재고%29\Frm_StockSelect.cs">
+    <Compile Include="View\Frm_StockSelect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\StockManagement%28재고%29\Frm_StockSelect.Designer.cs">
+    <Compile Include="View\Frm_StockSelect.Designer.cs">
       <DependentUpon>Frm_StockSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TradeManagement%28거래%29\Frm_SellBuylInsert.cs">
@@ -303,7 +303,7 @@
     <EmbeddedResource Include="View\StockManagement%28재고%29\Frm_StockList.resx">
       <DependentUpon>Frm_StockList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\StockManagement%28재고%29\Frm_StockSelect.resx">
+    <EmbeddedResource Include="View\Frm_StockSelect.resx">
       <DependentUpon>Frm_StockSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement%28거래%29\Frm_SellBuylInsert.resx">

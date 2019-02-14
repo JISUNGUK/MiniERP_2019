@@ -44,5 +44,15 @@ namespace MiniERP
             Frm_BomInesrt bomInesrt = new Frm_BomInesrt();
             bomInesrt.Show();
         }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void Frm_BomList_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
     }
 }
