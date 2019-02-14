@@ -45,7 +45,7 @@ namespace MiniERP.View
         private bool tabChk = true; // 탭페이지 중복검사용 - true 중복 , false 중복 X
         private bool mboxchk = true; // 메세지 박스 실행 방지용
 
-        private int tabSelcted_Index; // 선택한 탭의 인덱스 값을 저장합니다.
+        private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
 
         public string OwnedRoom { get => ownedRoom; set => ownedRoom = value; }
 
@@ -230,23 +230,23 @@ namespace MiniERP.View
             {
                 if (!tabChk) // 최초실행시 탭생성 실행
                 {
-                    bool test = true;
+                    bool mdichk = true;
                     for (int i = 0; i < tabControl1.TabCount; i++)
                     {
                         // 폼 생성 중복검사
                         if (tabControl1.TabPages[i].Name == menuName.ToString()) // 생선된 탭 페이지중 선택한 탭페이지 이름이 있다면 실행
                         {
                             tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()]; // 중복된 탭 활성화
-                            test = false; // 중복검사용 bool 문 false로 전환
+                            mdichk = false; // 중복검사용 bool 문 false로 전환
                             break;
                         }
                     }
-                    if (test)
+                    if (mdichk)
                     {
                         // 2. 중복된 폼이 있을때 아래 메서드를 실행하여 폼 생성
                         tabChk = true; // 중복검사용 bool 문 true로 전환
-                        tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()]; // 중복된 탭이 있으면 중복탭 선택
                         OpenForm(menuName);
+                        tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()]; // 중복된 탭이 있으면 중복탭 선택
                     }
 
                 }
@@ -565,6 +565,7 @@ namespace MiniERP.View
         private void MenuClickEvnet(object sender, EventArgs e)
         {
             OpenForm(sender);
+            tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
         }
 
         #region 탭페이지 닫기버튼 생성 메서드
@@ -732,7 +733,6 @@ namespace MiniERP.View
             makeRoom.MemberArr = new string[memberList.Items.Count];
             DisplayMemberRoom();
             makeRoom.Show();
-
         }
 
         private void DisplayMemberRoom()
@@ -783,6 +783,16 @@ namespace MiniERP.View
             }
         }
 
-       
+
+        #region 탭페이지 선택 이벤트
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedIndex != -1 )
+            {
+                tabSelcted_Index = tabControl1.SelectedIndex;
+            }
+            
+        } 
+        #endregion
     }   
 }
