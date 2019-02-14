@@ -30,17 +30,17 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_serch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodeOrName = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkFactory = new System.Windows.Forms.CheckBox();
+            this.chkWarehouse = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,14 +73,16 @@
             this.btn_serch.UseVisualStyleBackColor = true;
             this.btn_serch.Click += new System.EventHandler(this.btn_serch_Click);
             // 
-            // textBox1
+            // txtCodeOrName
             // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox1.Location = new System.Drawing.Point(12, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(405, 23);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "창고코드 또는 창고명을 입력하세요.";
+            this.txtCodeOrName.Font = new System.Drawing.Font("굴림", 10F);
+            this.txtCodeOrName.Location = new System.Drawing.Point(12, 7);
+            this.txtCodeOrName.Name = "txtCodeOrName";
+            this.txtCodeOrName.Size = new System.Drawing.Size(405, 23);
+            this.txtCodeOrName.TabIndex = 8;
+            this.txtCodeOrName.Text = "창고코드 또는 창고명을 입력하세요.";
+            this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
+            this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
             // 
             // button4
             // 
@@ -121,12 +123,12 @@
             // 
             this.pnl_serchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_serchbox.Controls.Add(this.checkBox2);
-            this.pnl_serchbox.Controls.Add(this.checkBox1);
+            this.pnl_serchbox.Controls.Add(this.chkFactory);
+            this.pnl_serchbox.Controls.Add(this.chkWarehouse);
             this.pnl_serchbox.Controls.Add(this.button6);
-            this.pnl_serchbox.Controls.Add(this.textBox3);
-            this.pnl_serchbox.Controls.Add(this.textBox2);
-            this.pnl_serchbox.Controls.Add(this.button5);
+            this.pnl_serchbox.Controls.Add(this.txtName);
+            this.pnl_serchbox.Controls.Add(this.txtCode);
+            this.pnl_serchbox.Controls.Add(this.btnSelect);
             this.pnl_serchbox.Controls.Add(this.label4);
             this.pnl_serchbox.Controls.Add(this.label3);
             this.pnl_serchbox.Controls.Add(this.label2);
@@ -137,25 +139,25 @@
             this.pnl_serchbox.TabIndex = 14;
             this.pnl_serchbox.Visible = false;
             // 
-            // checkBox2
+            // chkFactory
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(183, 61);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "공장";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkFactory.AutoSize = true;
+            this.chkFactory.Location = new System.Drawing.Point(183, 61);
+            this.chkFactory.Name = "chkFactory";
+            this.chkFactory.Size = new System.Drawing.Size(48, 16);
+            this.chkFactory.TabIndex = 11;
+            this.chkFactory.Text = "공장";
+            this.chkFactory.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkWarehouse
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(91, 61);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 16);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "창고";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkWarehouse.AutoSize = true;
+            this.chkWarehouse.Location = new System.Drawing.Point(91, 61);
+            this.chkWarehouse.Name = "chkWarehouse";
+            this.chkWarehouse.Size = new System.Drawing.Size(48, 16);
+            this.chkWarehouse.TabIndex = 10;
+            this.chkWarehouse.Text = "창고";
+            this.chkWarehouse.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -168,30 +170,31 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // textBox3
+            // txtName
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(433, 26);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(218, 21);
-            this.textBox3.TabIndex = 8;
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Location = new System.Drawing.Point(455, 26);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(218, 21);
+            this.txtName.TabIndex = 8;
             // 
-            // textBox2
+            // txtCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(218, 21);
-            this.textBox2.TabIndex = 7;
+            this.txtCode.Location = new System.Drawing.Point(91, 26);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(218, 21);
+            this.txtCode.TabIndex = 7;
             // 
-            // button5
+            // btnSelect
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(721, 76);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "검색";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.Location = new System.Drawing.Point(721, 76);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 6;
+            this.btnSelect.Text = "검색";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // label4
             // 
@@ -206,7 +209,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(386, 29);
+            this.label3.Location = new System.Drawing.Point(408, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 2;
@@ -238,7 +241,7 @@
             this.Controls.Add(this.pnl_serchbox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_serch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCodeOrName);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
@@ -257,20 +260,20 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_serch;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCodeOrName;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Panel pnl_serchbox;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkFactory;
+        private System.Windows.Forms.CheckBox chkWarehouse;
     }
 }

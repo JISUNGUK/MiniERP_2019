@@ -50,7 +50,6 @@ namespace MiniERP.View
             this.재고관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.기초등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.품목등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.창고등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.거래처등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.사원등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -261,38 +260,30 @@ namespace MiniERP.View
             // 
             this.기초등록ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.품목등록ToolStripMenuItem,
-            this.창고등록ToolStripMenuItem,
             this.거래처등록ToolStripMenuItem,
             this.사원등록ToolStripMenuItem});
             this.기초등록ToolStripMenuItem.Name = "기초등록ToolStripMenuItem";
-            this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.기초등록ToolStripMenuItem.Text = "기초 등록";
             // 
             // 품목등록ToolStripMenuItem
             // 
             this.품목등록ToolStripMenuItem.Name = "품목등록ToolStripMenuItem";
-            this.품목등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.품목등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.품목등록ToolStripMenuItem.Text = "품목 등록";
             this.품목등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
-            // 
-            // 창고등록ToolStripMenuItem
-            // 
-            this.창고등록ToolStripMenuItem.Name = "창고등록ToolStripMenuItem";
-            this.창고등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.창고등록ToolStripMenuItem.Text = "창고 등록";
-            this.창고등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 거래처등록ToolStripMenuItem
             // 
             this.거래처등록ToolStripMenuItem.Name = "거래처등록ToolStripMenuItem";
-            this.거래처등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.거래처등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.거래처등록ToolStripMenuItem.Text = "거래처 등록";
             this.거래처등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 사원등록ToolStripMenuItem
             // 
             this.사원등록ToolStripMenuItem.Name = "사원등록ToolStripMenuItem";
-            this.사원등록ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.사원등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.사원등록ToolStripMenuItem.Text = "사원 등록";
             this.사원등록ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -301,7 +292,7 @@ namespace MiniERP.View
             this.bOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bOM조회ToolStripMenuItem});
             this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
-            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bOMToolStripMenuItem.Text = "BOM";
             // 
             // bOM조회ToolStripMenuItem
@@ -317,7 +308,7 @@ namespace MiniERP.View
             this.창고조회ToolStripMenuItem,
             this.창고이동ToolStripMenuItem});
             this.창고관리ToolStripMenuItem.Name = "창고관리ToolStripMenuItem";
-            this.창고관리ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.창고관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.창고관리ToolStripMenuItem.Text = "창고 관리";
             // 
             // 창고조회ToolStripMenuItem
@@ -689,7 +680,6 @@ namespace MiniERP.View
         private System.Windows.Forms.ToolStripMenuItem 재고관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 기초등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 품목등록ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 창고등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 구매관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 회계관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 전표관리ToolStripMenuItem;
