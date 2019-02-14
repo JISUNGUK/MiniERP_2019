@@ -49,10 +49,15 @@ namespace MiniERP.View
 
         public string OwnedRoom { get => ownedRoom; set => ownedRoom = value; }
 
+        internal DialogResult logIn;          //  로그인 체커부
         public Form1()
         {
-            Frm_LoginBox loginbox = new Frm_LoginBox();
+            Frm_LoginBox loginbox = new Frm_LoginBox(this);
             loginbox.ShowDialog();
+            if (logIn != DialogResult.OK) 
+            {
+                this.Close();
+            }
             InitializeComponent();
         }
 

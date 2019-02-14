@@ -13,7 +13,8 @@ namespace MiniERP.View.StockManagement
 {
     public partial class Frm_StockList : Form
     {
-        List<Warehouse> warehouses;
+        List<Warehouse> warehouses; // 모든 창고(공장)이 저장되어있는 리스트입니다.
+        List<Warehouse> selectWarehouses; // 검색 조건에 맞는 창고(공장)이 저장되어있는 리스트입니다.
 
         private bool boxchk = true;
 
@@ -88,15 +89,67 @@ namespace MiniERP.View.StockManagement
                 ReflashData();
             }
         }
+        
+        //private void textBox1_TextChanged(object sender, EventArgs e)
+        //{
+        //    textBox1.Clear();
+        //}
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        //private void textBox1_Click(object sender, EventArgs e)
+        //{
+        //    textBox1.Clear();
+        //}
+        private void btnSelect_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            selectWarehouses = new List<Warehouse>();
+
+            foreach (var item in warehouses)
+            {
+                if ((chkWarehouse.Checked == true) && (chkFactory.Checked == false))
+                {
+                    if (item.Warehouse_code.Contains(txtCode.Text) && item.Warehouse_name.Contains(txtName.Text) && item.Warehouse_standard.Contains(chkWarehouse.Text))
+                    {
+                        selectWarehouses.Add(item);
+                    }
+                }
+                else if ((chkWarehouse.Checked == false) && (chkFactory.Checked == true))
+                {
+                    if (item.Warehouse_code.Contains(txtCode.Text) && item.Warehouse_name.Contains(txtName.Text) && item.Warehouse_standard.Contains(chkFactory.Text))
+                    {
+                        selectWarehouses.Add(item);
+                    }
+                }
+                else if((chkWarehouse.Checked == true) && (chkFactory.Checked == true))
+                {
+                    if (item.Warehouse_code.Contains(txtCode.Text) && item.Warehouse_name.Contains(txtName.Text) && (item.Warehouse_standard.Contains(chkWarehouse.Text) || item.Warehouse_standard.Contains(chkFactory.Text)))
+                    {
+                        selectWarehouses.Add(item);
+                    }
+                }
+            }
+            pnl_serchbox.Visible = false;
+            dataGridView1.DataSource = selectWarehouses;
         }
 
-        private void textBox1_Click(object sender, EventArgs e)
+        private void txtCodeOrName_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            txtCodeOrName.Text = "";
+        }
+
+        private void txtCodeOrName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode== Keys.Enter)
+            {
+                selectWarehouses = new List<Warehouse>();
+                foreach (var item in warehouses)
+                {
+                    if (item.Warehouse_code.Contains(txtCodeOrName.Text) || item.Warehouse_name.Contains(txtCodeOrName.Text))
+                    {
+                        selectWarehouses.Add(item);
+                    }
+                }
+            }
+            dataGridView1.DataSource = selectWarehouses;
         }
     }
 }
