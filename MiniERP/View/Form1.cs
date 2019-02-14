@@ -1,5 +1,4 @@
-﻿using MiniERP.Model.DAO;
-using MiniERP.View.BusinessManagement;
+﻿using MiniERP.View.BusinessManagement;
 using MiniERP.View.BusinessManagement_영업_;
 using MiniERP.View.LogisticsManagement;
 using MiniERP.View.SalesPurchaseManagement;
@@ -36,8 +35,6 @@ namespace MiniERP.View
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
 
         private string ownedRoom = "";
-
-       private MessageDAO messagedao;
         //메시지 구현부분 by 종완
 
 
@@ -52,7 +49,6 @@ namespace MiniERP.View
         private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
 
         public string OwnedRoom { get => ownedRoom; set => ownedRoom = value; }
-        public MessageDAO Messagedao { get => messagedao; set => messagedao = value; }
 
         internal DialogResult logIn;          //  로그인 체커부
         public Form1()
@@ -109,8 +105,55 @@ namespace MiniERP.View
             }
             else
             {
-                Messagedao.DisplayContent(readData, memberList, roomList, roomtable);   
-            
+
+
+                if (readData.Contains("접속 인원:"))
+                {
+                    memberList.Items.Clear();
+                    var seperators = new char[1];
+                    seperators[0] = ',';
+                    int lastIndex = readData.IndexOf("::");
+                    string accessmember = readData.Remove(lastIndex);
+                    int accessMemberIndex = readData.IndexOf("접속 인원:") + 6;
+                    accessmember = accessmember.Substring(accessMemberIndex);
+                    string[] members = accessmember.Split(seperators[0]);
+                    string memberNamelist = "";
+                    foreach (var v in members)
+                    {
+                        if (!memberNamelist.Contains(v))
+                            memberList.Items.Add(v);
+                        memberNamelist += v;
+                    }
+                }
+               
+                if (readData.Contains("방 목록:"))
+                {
+                    roomList.Items.Clear();
+                    var seperators = new char[1];
+                    seperators[0] = ',';
+                    int lastIndex = readData.IndexOf(";;");
+                    int accessRoomIndex = readData.IndexOf("방 목록:") + 5;
+                    string accessRoom = readData.Remove(lastIndex);
+                    string roomlist = accessRoom.Substring(accessRoomIndex);
+                    if (roomlist != "")
+                    {
+                        string[] rooms = roomlist.Split(seperators[0]);
+                        string roomNamelist = "";
+                        foreach (var v in rooms)
+                        {
+                            if (!roomNamelist.Contains(v))
+                            {
+
+                                roomList.Items.Add(v);
+                            }
+                            if (!roomtable.Contains(v))
+                            {
+                                roomtable.Add(v, "");//로컬프로그램에 저장될 채팅방 이름과 메시지내용들
+                            }
+                            roomNamelist += v;
+                        }
+                    }
+                }
             }
         }
 
@@ -125,14 +168,49 @@ namespace MiniERP.View
             }
             else
             {
-                Messagedao.GetMsg(readData, roomtable, roomList, ChatContent);
-              
+                if (!readData.Contains("서버 메시지:"))
+                {
+                    string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + "\n";
+                    if (readData.Contains(">>>>"))
+                    {
+                        int indexOfseprate = readData.IndexOf(">>>>");
+                        string roomname = readData.Remove(indexOfseprate);
+                        string message = readData.Substring(indexOfseprate + 4);
+                        roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
+                        roomtable[roomname] += date + Environment.NewLine + ">>" + message + "\n";
+                       
+                    if(roomList.SelectedIndex!=-1)
+                        {
+                            if(roomList.SelectedItem.ToString()==roomname)
+                            {
+                                ChatContent.Text = ChatContent.Text + "\n"+ date + Environment.NewLine + ">>" + message + "\n";
+                                ChatContent.SelectionStart = ChatContent.TextLength;
+                                ChatContent.ScrollToCaret();
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (roomList.SelectedItem == null || roomList.SelectedItem.ToString() == "전체")
+                        {
+                            ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;
+                            ChatContent.SelectionStart = ChatContent.TextLength;
+                            ChatContent.ScrollToCaret();
+                        }
+                        roomtable["전체"] += date + Environment.NewLine + ">>" + readData+"\n" ; 
+                    }
+
+
+                }
+
+                
 
             }
         }
 
 
-     /*   public void SendMessage(string message)
+        public void SendMessage(string message)
         {
             try
             {
@@ -149,7 +227,7 @@ namespace MiniERP.View
 
                 MessageBox.Show(ee.Message);
             }
-        }*/
+        }
 
         #region MDI 패널에 폼 불러오기 메서드
         private void OpenForm(object menuName)
@@ -559,8 +637,7 @@ namespace MiniERP.View
                 {
                     if (network != null)
                     {
-                        Messagedao.SendMessage(nicname.Text + "접속종료합니다");
-                        //SendMessage(nicname.Text + "접속종료합니다");
+                        SendMessage(nicname.Text + "접속종료합니다");
                         client.Close();
                         network.Close();
                     }
@@ -601,15 +678,15 @@ namespace MiniERP.View
             //메시지 서버에 접속
             try
             {
-                Messagedao = new MessageDAO();
                 readData = "채팅 서버 연결중...";
-                client.Connect("192.168.0.8", 3333);//서버 접속
-                Messagedao.Client = client;
+                client.Connect("192.168.0.6", 3333);//서버 접속
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
                 //Msg();
-                network = client.GetStream();              
-                Messagedao.SendMessage(nicname.Text);
+                network = client.GetStream();
+
+                SendMessage(nicname.Text);
+
                 Thread thread = new Thread(getMsg);
                 thread.Start();
             }
@@ -633,8 +710,36 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-
-            Messagedao.SendChatMessage(message.Text, roomList);
+        if(message.Text!="")
+            { 
+            if (roomList.SelectedIndex != -1)
+            {
+                if (checkmessage(message.Text))
+                {
+                    if (roomList.SelectedItem.ToString() == "전체")
+                        SendMessage(message.Text + "$$$$");
+                    else
+                        SendMessage(roomList.SelectedItem.ToString() + "방에 메시지를 보냅니다" + message.Text + "//");
+                   
+                }
+                else
+                    MessageBox.Show("금지된 단어로 메시지를 보낼수 없습니다");
+            }
+            if (roomList.SelectedIndex == -1)
+            {
+                SendMessage(message.Text + "$$$$");
+            }
+            message.Text = "";
+            }
+        }
+        private bool checkmessage(string message)
+        {
+            foreach (var v in bannWord)
+            {
+                if (message.Contains(v))
+                    return false;
+            }
+            return true;
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
@@ -642,7 +747,7 @@ namespace MiniERP.View
             if (roomList.SelectedIndex != -1)
             {
                 string message = roomList.SelectedItem.ToString() + "방에 참가했습니다";
-                Messagedao.SendMessage(message);
+                SendMessage(message);
             }
 
         }
@@ -698,7 +803,7 @@ namespace MiniERP.View
                 if (result == DialogResult.OK)
                 {
                     string message = roomList.SelectedItem.ToString() + "방을 삭제합니다";
-                    Messagedao.SendMessage(message);
+                    SendMessage(message);
                     roomtable.Remove(roomList.SelectedItem);
                     rmRoom.Enabled = false;
                     rmRoom.Visible = false;

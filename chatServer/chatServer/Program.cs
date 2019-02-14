@@ -15,7 +15,7 @@ namespace chatServer
     public static List<ChattingElement> chattingList = new List<ChattingElement>();
         static void Main(string[] args)
         {
-            var ipaddr = IPAddress.Parse("192.168.0.8");
+            var ipaddr = IPAddress.Parse("192.168.0.6");
             TcpListener serverListener = new TcpListener(ipaddr,3333);
             serverListener.Start();//서버가 대기하기 시작함
             Console.WriteLine("채팅서버 가동>>>>");
@@ -33,6 +33,7 @@ namespace chatServer
                 var ns= chatClientSocket.GetStream();
                 Byte[] byteFrom = new Byte[chatClientSocket.SendBufferSize];
                ns.Read(byteFrom, 0, chatClientSocket.SendBufferSize);
+                int duplicateCount = 0;
                 clientNickName = Encoding.UTF8.GetString(byteFrom);
                 
                
@@ -170,6 +171,7 @@ namespace chatServer
                     }
                     else//서버가 보낸  메시지 일때
                     {                       
+                        int count = 0;
                         
                         bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재방 접속 인원:"+ chattingElement.NicNames + "::");
                         message="서버 메시지:" + msg + " 현재방 접속 인원:" + chattingElement.NicNames + "::";

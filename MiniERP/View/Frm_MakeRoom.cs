@@ -1,5 +1,4 @@
-﻿using MiniERP.Model.DAO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,9 +42,7 @@ namespace MiniERP.View
         private void makeRoom_Click(object sender, EventArgs e)
         {
             Form1 form = (Form1)this.Owner;
-            MessageDAO messageDao = form.Messagedao;
-            if(messageDao.checkmessage(room.Text))
-                if (!String.IsNullOrEmpty(room.Text) && memberList.CheckedItems.Count > 0)
+            if (!String.IsNullOrEmpty(room.Text) && memberList.CheckedItems.Count > 0)
             {
                 string members = "";
                 int count = 0;
@@ -59,9 +56,8 @@ namespace MiniERP.View
                 }
                 try
                 {
-                    //form.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
-                    messageDao.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
-                        if (form.OwnedRoom != "")
+                    form.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
+                    if (form.OwnedRoom != "")
                     {
                         form.OwnedRoom += "," + room.Text;
                     }
