@@ -17,9 +17,5 @@ namespace MiniERP.View
         {
             InitializeComponent();
         }
-
-        private void Frm_BusinessSelect_Load(object sender, EventArgs e)
-        {
-        }
     }
 }
