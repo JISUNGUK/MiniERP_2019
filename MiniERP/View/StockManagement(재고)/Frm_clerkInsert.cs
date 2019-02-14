@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MiniERP.View.StockManagement
 {
-    public partial class Frm_clerkInsert : Form
+    public partial class Frm_ClerkInsert : Form
     {
-        public Frm_clerkInsert()
+        public Frm_ClerkInsert()
         {
             InitializeComponent();
         }

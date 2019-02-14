@@ -44,6 +44,7 @@ namespace MiniERP.View
             this.영업ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_OrdM_inquiry = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_Accountregistration = new System.Windows.Forms.ToolStripMenuItem();
+            this.사원조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.물류관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서조회ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.생산계획서조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -205,7 +206,8 @@ namespace MiniERP.View
             // 
             this.영업ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsm_OrdM_inquiry,
-            this.tsm_Accountregistration});
+            this.tsm_Accountregistration,
+            this.사원조회ToolStripMenuItem});
             this.영업ToolStripMenuItem.Name = "영업ToolStripMenuItem";
             this.영업ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.영업ToolStripMenuItem.Text = "영업관리";
@@ -213,16 +215,23 @@ namespace MiniERP.View
             // tsm_OrdM_inquiry
             // 
             this.tsm_OrdM_inquiry.Name = "tsm_OrdM_inquiry";
-            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(138, 22);
+            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(180, 22);
             this.tsm_OrdM_inquiry.Text = "주문 조회";
             this.tsm_OrdM_inquiry.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // tsm_Accountregistration
             // 
             this.tsm_Accountregistration.Name = "tsm_Accountregistration";
-            this.tsm_Accountregistration.Size = new System.Drawing.Size(138, 22);
+            this.tsm_Accountregistration.Size = new System.Drawing.Size(180, 22);
             this.tsm_Accountregistration.Text = "거래처 조회";
             this.tsm_Accountregistration.Click += new System.EventHandler(this.MenuClickEvnet);
+            // 
+            // 사원조회ToolStripMenuItem
+            // 
+            this.사원조회ToolStripMenuItem.Name = "사원조회ToolStripMenuItem";
+            this.사원조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.사원조회ToolStripMenuItem.Text = "사원 조회";
+            this.사원조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
             // 물류관리ToolStripMenuItem
             // 
@@ -734,6 +743,7 @@ namespace MiniERP.View
         private System.Windows.Forms.Button particiRoom;
         private System.Windows.Forms.Timer timer1;
         private Label lbl_RoomName;
+        private ToolStripMenuItem 사원조회ToolStripMenuItem;
     }
 }
 
