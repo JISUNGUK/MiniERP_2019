@@ -134,7 +134,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "Frm_BusinessSelect";
             this.Text = "거래처 검색";
-            this.Load += new System.EventHandler(this.Frm_BusinessSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);

@@ -1,0 +1,9 @@
+diff a/MiniERP/View/Form1.Designer.cs b/MiniERP/View/Form1.Designer.cs	(rejected hunks)
+@@ -215,6 +215,7 @@
+             // tsm_OrdM_inquiry
+             // 
+             this.tsm_OrdM_inquiry.Name = "tsm_OrdM_inquiry";
++            this.tsm_OrdM_inquiry.Size = new System.Drawing.Size(180, 22);
+             this.tsm_OrdM_inquiry.Text = "주문 조회";
+             this.tsm_OrdM_inquiry.Click += new System.EventHandler(this.MenuClickEvnet);
+             // 

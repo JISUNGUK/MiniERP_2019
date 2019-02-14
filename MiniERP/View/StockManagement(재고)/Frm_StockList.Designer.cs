@@ -56,6 +56,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 36);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -134,7 +135,7 @@
             this.pnl_serchbox.Controls.Add(this.label3);
             this.pnl_serchbox.Controls.Add(this.label2);
             this.pnl_serchbox.Controls.Add(this.label1);
-            this.pnl_serchbox.Location = new System.Drawing.Point(12, 36);
+            this.pnl_serchbox.Location = new System.Drawing.Point(12, 67);
             this.pnl_serchbox.Name = "pnl_serchbox";
             this.pnl_serchbox.Size = new System.Drawing.Size(799, 102);
             this.pnl_serchbox.TabIndex = 14;
