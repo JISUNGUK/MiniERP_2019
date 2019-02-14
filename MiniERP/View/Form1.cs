@@ -3,6 +3,7 @@ using MiniERP.View.BusinessManagement_영업_;
 using MiniERP.View.LogisticsManagement;
 using MiniERP.View.SalesPurchaseManagement;
 using MiniERP.View.StockManagement;
+using MiniERP.View.StockManagement_재고_;
 using MiniERP.View.TradeManagement_거래_;
 using System;
 using System.Collections;
@@ -458,6 +459,29 @@ namespace MiniERP.View
                     treadelist.Show();  // 폼 실행
                     #endregion
                     Add_CloseBtn(treadelist); // 폼에 닫기 버튼 생성
+                    tabChk = true;
+                    break;
+                case "창고 이동":
+                   
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_WarehouseMovement warehouseMovement = new Frm_WarehouseMovement();
+                    warehouseMovement.ControlBox = false; // 컨트롤 상자 없애기
+                    warehouseMovement.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    warehouseMovement.MdiParent = this; // MDI 설정
+                    warehouseMovement.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(warehouseMovement); // 판넬에 설정한 폼 넣기
+                    warehouseMovement.Show();  // 폼 실행
+                    #endregion
+                    Add_CloseBtn(warehouseMovement); // 폼에 닫기 버튼 생성
                     tabChk = true;
                     break;
                 case "BOM 조회":
