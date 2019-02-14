@@ -659,6 +659,8 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
+        if(message.Text!="")
+            { 
             if (roomList.SelectedIndex != -1)
             {
                 if (checkmessage(message.Text))
@@ -667,7 +669,7 @@ namespace MiniERP.View
                         SendMessage(message.Text + "$$$$");
                     else
                         SendMessage(roomList.SelectedItem.ToString() + "방에 메시지를 보냅니다" + message.Text + "//");
-                    message.Text = "";
+                   
                 }
                 else
                     MessageBox.Show("금지된 단어로 메시지를 보낼수 없습니다");
@@ -675,6 +677,8 @@ namespace MiniERP.View
             if (roomList.SelectedIndex == -1)
             {
                 SendMessage(message.Text + "$$$$");
+            }
+            message.Text = "";
             }
         }
         private bool checkmessage(string message)

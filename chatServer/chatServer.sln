@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniERP", "MiniERP\MiniERP.csproj", "{83CA8451-5F51-4410-A7EB-40E8C7CA8A84}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatServer", "chatServer\chatServer\chatServer.csproj", "{99E9174A-19CE-46AC-8D82-0B3BECB7C401}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatServer", "chatServer\chatServer.csproj", "{99E9174A-19CE-46AC-8D82-0B3BECB7C401}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83CA8451-5F51-4410-A7EB-40E8C7CA8A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83CA8451-5F51-4410-A7EB-40E8C7CA8A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83CA8451-5F51-4410-A7EB-40E8C7CA8A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83CA8451-5F51-4410-A7EB-40E8C7CA8A84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99E9174A-19CE-46AC-8D82-0B3BECB7C401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99E9174A-19CE-46AC-8D82-0B3BECB7C401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99E9174A-19CE-46AC-8D82-0B3BECB7C401}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -26,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8830D915-BD72-4900-B516-881692B86B5B}
+		SolutionGuid = {D8130C02-0A1E-445B-B083-7BC9D5792FC3}
 	EndGlobalSection
 EndGlobal
