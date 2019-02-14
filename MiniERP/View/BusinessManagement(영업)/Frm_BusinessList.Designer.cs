@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txtCodeOrName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
             this.txtPresenter = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -64,6 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 74);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -140,17 +140,6 @@
             this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
             this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
             // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 10F);
-            this.label2.Location = new System.Drawing.Point(580, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 14);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "2019/01/01 ~ 2019/01/25";
-            // 
             // pnl_serchbox
             // 
             this.pnl_serchbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -168,9 +157,9 @@
             this.pnl_serchbox.Controls.Add(this.btnSelect);
             this.pnl_serchbox.Controls.Add(this.label1);
             this.pnl_serchbox.Controls.Add(this.label5);
-            this.pnl_serchbox.Location = new System.Drawing.Point(11, 41);
+            this.pnl_serchbox.Location = new System.Drawing.Point(12, 41);
             this.pnl_serchbox.Name = "pnl_serchbox";
-            this.pnl_serchbox.Size = new System.Drawing.Size(800, 118);
+            this.pnl_serchbox.Size = new System.Drawing.Size(799, 118);
             this.pnl_serchbox.TabIndex = 74;
             this.pnl_serchbox.Visible = false;
             // 
@@ -204,7 +193,7 @@
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(496, 60);
+            this.txtEmail.Location = new System.Drawing.Point(495, 60);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(252, 21);
             this.txtEmail.TabIndex = 14;
@@ -219,7 +208,7 @@
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(496, 24);
+            this.txtName.Location = new System.Drawing.Point(495, 24);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(252, 21);
             this.txtName.TabIndex = 12;
@@ -237,7 +226,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(409, 63);
+            this.label8.Location = new System.Drawing.Point(408, 63);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 12);
             this.label8.TabIndex = 10;
@@ -253,7 +242,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(713, 90);
+            this.btnSelect.Location = new System.Drawing.Point(712, 90);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 6;
@@ -265,7 +254,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(409, 28);
+            this.label1.Location = new System.Drawing.Point(408, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 12);
             this.label1.TabIndex = 3;
@@ -331,7 +320,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtCodeOrName);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Frm_BusinessList";
             this.Text = "거래처 조회";
@@ -353,7 +341,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtCodeOrName;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnl_serchbox;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label11;
