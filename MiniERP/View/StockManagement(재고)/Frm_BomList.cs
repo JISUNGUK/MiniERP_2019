@@ -45,14 +45,14 @@ namespace MiniERP
             bomInesrt.Show();
         }
 
-        private void textBox10_TextChanged(object sender, EventArgs e)
+        private void Frm_BomList_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
         }
 
-        private void Frm_BomList_Click(object sender, EventArgs e)
+        private void textBox10_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            textBox10.Clear();
         }
     }
 }

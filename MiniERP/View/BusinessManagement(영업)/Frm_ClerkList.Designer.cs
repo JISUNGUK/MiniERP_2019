@@ -247,7 +247,7 @@
             this.textBox10.Size = new System.Drawing.Size(405, 23);
             this.textBox10.TabIndex = 117;
             this.textBox10.Text = "사원 번호 및 이름을 입력하세요.";
-            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textBox10.Click += new System.EventHandler(this.textBox10_Click);
             // 
             // label8
             // 

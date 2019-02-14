@@ -271,7 +271,7 @@
             this.textBox10.Size = new System.Drawing.Size(405, 23);
             this.textBox10.TabIndex = 104;
             this.textBox10.Text = "BOM 번호 및 품목명을 입력하세요.";
-            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textBox10.Click += new System.EventHandler(this.textBox10_Click);
             // 
             // label8
             // 

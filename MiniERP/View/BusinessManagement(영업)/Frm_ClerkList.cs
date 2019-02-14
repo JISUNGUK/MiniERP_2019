@@ -39,9 +39,9 @@ namespace MiniERP.View.BusinessManagement_영업_
             clerkInsert.ShowDialog();
         }
 
-        private void textBox10_TextChanged(object sender, EventArgs e)
+        private void textBox10_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            textBox10.Clear();
         }
     }
 }
