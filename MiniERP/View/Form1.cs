@@ -177,7 +177,7 @@ namespace MiniERP.View
                         {
                             if(roomList.SelectedItem.ToString()==roomname)
                             {
-                                ChatContent.Text = ChatContent.Text + date + Environment.NewLine + ">>" + message + "\n";
+                                ChatContent.Text = ChatContent.Text + "\n"+ date + Environment.NewLine + ">>" + message + "\n";
                                 ChatContent.SelectionStart = ChatContent.TextLength;
                                 ChatContent.ScrollToCaret();
 
@@ -191,7 +191,7 @@ namespace MiniERP.View
                     {
                         if (roomList.SelectedItem == null || roomList.SelectedItem.ToString() == "전체")
                         {
-                            ChatContent.Text = ChatContent.Text + date + Environment.NewLine + ">>" + readData;
+                            ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;
                             ChatContent.SelectionStart = ChatContent.TextLength;
                             ChatContent.ScrollToCaret();
                         }
