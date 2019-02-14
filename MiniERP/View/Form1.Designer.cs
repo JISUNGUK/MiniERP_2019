@@ -1,4 +1,7 @@
-﻿namespace MiniERP.View
+﻿using System;
+using System.Windows.Forms;
+
+namespace MiniERP.View
 {
     partial class Form1
     {
@@ -28,6 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -69,6 +73,24 @@
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서분석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.lbl_RoomName = new System.Windows.Forms.Label();
+            this.particiRoom = new System.Windows.Forms.Button();
+            this.access = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nicname = new System.Windows.Forms.TextBox();
+            this.imageLabel = new System.Windows.Forms.Label();
+            this.imageButton = new System.Windows.Forms.Button();
+            this.sendMsg = new System.Windows.Forms.Button();
+            this.message = new System.Windows.Forms.TextBox();
+            this.ChatContent = new System.Windows.Forms.RichTextBox();
+            this.rmRoom = new System.Windows.Forms.Button();
+            this.mkRoom = new System.Windows.Forms.Button();
+            this.roomList = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.memberList = new System.Windows.Forms.ListBox();
+            this.roomName = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +101,7 @@
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,8 +121,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.Panal_Main);
             this.splitContainer1.Panel2MinSize = 30;
-            this.splitContainer1.Size = new System.Drawing.Size(1116, 681);
-            this.splitContainer1.SplitterDistance = 319;
+            this.splitContainer1.Size = new System.Drawing.Size(1095, 606);
+            this.splitContainer1.SplitterDistance = 312;
             this.splitContainer1.TabIndex = 1;
             // 
             // panel1
@@ -108,16 +131,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(319, 681);
+            this.panel1.Size = new System.Drawing.Size(312, 606);
             this.panel1.TabIndex = 0;
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(319, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(312, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -141,7 +165,7 @@
             this.Panal_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panal_Main.Location = new System.Drawing.Point(0, 0);
             this.Panal_Main.Name = "Panal_Main";
-            this.Panal_Main.Size = new System.Drawing.Size(793, 681);
+            this.Panal_Main.Size = new System.Drawing.Size(779, 606);
             this.Panal_Main.TabIndex = 0;
             // 
             // tabControl1
@@ -150,11 +174,12 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(793, 657);
+            this.tabControl1.Size = new System.Drawing.Size(779, 582);
             this.tabControl1.TabIndex = 4;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
             this.영업ToolStripMenuItem,
@@ -165,7 +190,7 @@
             this.생산관리ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(793, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(779, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -427,25 +452,202 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.lbl_RoomName);
+            this.splitContainer2.Panel2.Controls.Add(this.particiRoom);
+            this.splitContainer2.Panel2.Controls.Add(this.access);
+            this.splitContainer2.Panel2.Controls.Add(this.label3);
+            this.splitContainer2.Panel2.Controls.Add(this.nicname);
+            this.splitContainer2.Panel2.Controls.Add(this.imageLabel);
+            this.splitContainer2.Panel2.Controls.Add(this.imageButton);
+            this.splitContainer2.Panel2.Controls.Add(this.sendMsg);
+            this.splitContainer2.Panel2.Controls.Add(this.message);
+            this.splitContainer2.Panel2.Controls.Add(this.ChatContent);
+            this.splitContainer2.Panel2.Controls.Add(this.rmRoom);
+            this.splitContainer2.Panel2.Controls.Add(this.mkRoom);
+            this.splitContainer2.Panel2.Controls.Add(this.roomList);
+            this.splitContainer2.Panel2.Controls.Add(this.label2);
+            this.splitContainer2.Panel2.Controls.Add(this.label1);
+            this.splitContainer2.Panel2.Controls.Add(this.memberList);
+            this.splitContainer2.Panel2.Controls.Add(this.roomName);
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel2_Paint);
-            this.splitContainer2.Size = new System.Drawing.Size(1461, 681);
-            this.splitContainer2.SplitterDistance = 1116;
+            this.splitContainer2.Size = new System.Drawing.Size(1435, 606);
+            this.splitContainer2.SplitterDistance = 1095;
             this.splitContainer2.TabIndex = 3;
+            // 
+            // lbl_RoomName
+            // 
+            this.lbl_RoomName.AutoSize = true;
+            this.lbl_RoomName.Font = new System.Drawing.Font("굴림", 12F);
+            this.lbl_RoomName.Location = new System.Drawing.Point(87, 86);
+            this.lbl_RoomName.Name = "lbl_RoomName";
+            this.lbl_RoomName.Size = new System.Drawing.Size(130, 16);
+            this.lbl_RoomName.TabIndex = 16;
+            this.lbl_RoomName.Text = "방이름 여기 출력";
+            // 
+            // particiRoom
+            // 
+            this.particiRoom.Location = new System.Drawing.Point(264, 57);
+            this.particiRoom.Name = "particiRoom";
+            this.particiRoom.Size = new System.Drawing.Size(63, 23);
+            this.particiRoom.TabIndex = 15;
+            this.particiRoom.Text = "방참가";
+            this.particiRoom.UseVisualStyleBackColor = true;
+            this.particiRoom.Click += new System.EventHandler(this.particiRoom_Click);
+            // 
+            // access
+            // 
+            this.access.Location = new System.Drawing.Point(264, 2);
+            this.access.Name = "access";
+            this.access.Size = new System.Drawing.Size(63, 23);
+            this.access.TabIndex = 14;
+            this.access.Text = "접속";
+            this.access.UseVisualStyleBackColor = true;
+            this.access.Click += new System.EventHandler(this.access_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "사용자이름";
+            // 
+            // nicname
+            // 
+            this.nicname.Location = new System.Drawing.Point(90, 4);
+            this.nicname.Name = "nicname";
+            this.nicname.Size = new System.Drawing.Size(168, 21);
+            this.nicname.TabIndex = 12;
+            // 
+            // imageLabel
+            // 
+            this.imageLabel.AutoSize = true;
+            this.imageLabel.Location = new System.Drawing.Point(11, 625);
+            this.imageLabel.Name = "imageLabel";
+            this.imageLabel.Size = new System.Drawing.Size(73, 12);
+            this.imageLabel.TabIndex = 11;
+            this.imageLabel.Text = "첨부 이미지:";
+            // 
+            // imageButton
+            // 
+            this.imageButton.Location = new System.Drawing.Point(250, 625);
+            this.imageButton.Name = "imageButton";
+            this.imageButton.Size = new System.Drawing.Size(87, 23);
+            this.imageButton.TabIndex = 10;
+            this.imageButton.Text = "이미지 첨부";
+            this.imageButton.UseVisualStyleBackColor = true;
+            this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
+            // 
+            // sendMsg
+            // 
+            this.sendMsg.Location = new System.Drawing.Point(250, 571);
+            this.sendMsg.Name = "sendMsg";
+            this.sendMsg.Size = new System.Drawing.Size(77, 23);
+            this.sendMsg.TabIndex = 9;
+            this.sendMsg.Text = "전송";
+            this.sendMsg.UseVisualStyleBackColor = true;
+            this.sendMsg.Click += new System.EventHandler(this.sendMsg_Click);
+            // 
+            // message
+            // 
+            this.message.Location = new System.Drawing.Point(13, 573);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(231, 21);
+            this.message.TabIndex = 8;
+            this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp);
+            // 
+            // ChatContent
+            // 
+            this.ChatContent.Location = new System.Drawing.Point(13, 198);
+            this.ChatContent.Name = "ChatContent";
+            this.ChatContent.Size = new System.Drawing.Size(316, 365);
+            this.ChatContent.TabIndex = 7;
+            this.ChatContent.Text = "";
+            // 
+            // rmRoom
+            // 
+            this.rmRoom.Enabled = false;
+            this.rmRoom.Location = new System.Drawing.Point(181, 57);
+            this.rmRoom.Name = "rmRoom";
+            this.rmRoom.Size = new System.Drawing.Size(65, 23);
+            this.rmRoom.TabIndex = 6;
+            this.rmRoom.Text = "방제거";
+            this.rmRoom.UseVisualStyleBackColor = true;
+            this.rmRoom.Visible = false;
+            this.rmRoom.Click += new System.EventHandler(this.rmRoom_Click);
+            // 
+            // mkRoom
+            // 
+            this.mkRoom.Location = new System.Drawing.Point(90, 57);
+            this.mkRoom.Name = "mkRoom";
+            this.mkRoom.Size = new System.Drawing.Size(63, 23);
+            this.mkRoom.TabIndex = 5;
+            this.mkRoom.Text = "방생성";
+            this.mkRoom.UseVisualStyleBackColor = true;
+            this.mkRoom.Click += new System.EventHandler(this.mkRoom_Click);
+            // 
+            // roomList
+            // 
+            this.roomList.FormattingEnabled = true;
+            this.roomList.Location = new System.Drawing.Point(90, 31);
+            this.roomList.Name = "roomList";
+            this.roomList.Size = new System.Drawing.Size(237, 20);
+            this.roomList.TabIndex = 4;
+            this.roomList.SelectedIndexChanged += new System.EventHandler(this.roomList_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "방 목록";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "사용자목록";
+            // 
+            // memberList
+            // 
+            this.memberList.FormattingEnabled = true;
+            this.memberList.ItemHeight = 12;
+            this.memberList.Location = new System.Drawing.Point(90, 116);
+            this.memberList.Name = "memberList";
+            this.memberList.ScrollAlwaysVisible = true;
+            this.memberList.Size = new System.Drawing.Size(237, 76);
+            this.memberList.TabIndex = 1;
+            // 
+            // roomName
+            // 
+            this.roomName.AutoSize = true;
+            this.roomName.Font = new System.Drawing.Font("굴림", 12F);
+            this.roomName.Location = new System.Drawing.Point(15, 86);
+            this.roomName.Name = "roomName";
+            this.roomName.Size = new System.Drawing.Size(61, 16);
+            this.roomName.TabIndex = 0;
+            this.roomName.Text = "방 이름";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1461, 681);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1435, 606);
             this.Controls.Add(this.splitContainer2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IsMdiContainer = true;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mini_ERP";
+            this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -459,10 +661,17 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
+        }
+
+        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+           
         }
 
         #endregion
@@ -507,6 +716,24 @@
         private System.Windows.Forms.ToolStripMenuItem 구매현황ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 사원등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
+        private System.Windows.Forms.Label imageLabel;
+        private System.Windows.Forms.Button imageButton;
+        private System.Windows.Forms.Button sendMsg;
+        private System.Windows.Forms.TextBox message;
+        private System.Windows.Forms.RichTextBox ChatContent;
+        private System.Windows.Forms.Button rmRoom;
+        private System.Windows.Forms.Button mkRoom;
+        private System.Windows.Forms.ComboBox roomList;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox memberList;
+        private System.Windows.Forms.Label roomName;
+        private System.Windows.Forms.Button access;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox nicname;
+        private System.Windows.Forms.Button particiRoom;
+        private System.Windows.Forms.Timer timer1;
+        private Label lbl_RoomName;
     }
 }
 

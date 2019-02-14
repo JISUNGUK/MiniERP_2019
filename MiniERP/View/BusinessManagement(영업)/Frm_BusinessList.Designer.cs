@@ -59,7 +59,9 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 74);
             this.dataGridView1.Name = "dataGridView1";
@@ -140,7 +142,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 10F);
-            this.label2.Location = new System.Drawing.Point(631, 50);
+            this.label2.Location = new System.Drawing.Point(580, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 14);
             this.label2.TabIndex = 66;
@@ -163,9 +165,9 @@
             this.pnl_serchbox.Controls.Add(this.button8);
             this.pnl_serchbox.Controls.Add(this.label1);
             this.pnl_serchbox.Controls.Add(this.label5);
-            this.pnl_serchbox.Location = new System.Drawing.Point(13, 41);
+            this.pnl_serchbox.Location = new System.Drawing.Point(11, 41);
             this.pnl_serchbox.Name = "pnl_serchbox";
-            this.pnl_serchbox.Size = new System.Drawing.Size(799, 118);
+            this.pnl_serchbox.Size = new System.Drawing.Size(800, 118);
             this.pnl_serchbox.TabIndex = 74;
             this.pnl_serchbox.Visible = false;
             // 
@@ -199,7 +201,7 @@
             // textBox7
             // 
             this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(458, 59);
+            this.textBox7.Location = new System.Drawing.Point(459, 59);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(252, 21);
             this.textBox7.TabIndex = 14;
@@ -214,7 +216,7 @@
             // textBox5
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(458, 23);
+            this.textBox5.Location = new System.Drawing.Point(459, 23);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(252, 21);
             this.textBox5.TabIndex = 12;
@@ -232,7 +234,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(371, 62);
+            this.label8.Location = new System.Drawing.Point(372, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 12);
             this.label8.TabIndex = 10;
@@ -248,7 +250,7 @@
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Location = new System.Drawing.Point(712, 90);
+            this.button8.Location = new System.Drawing.Point(713, 90);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 6;
@@ -259,7 +261,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(371, 27);
+            this.label1.Location = new System.Drawing.Point(372, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 12);
             this.label1.TabIndex = 3;

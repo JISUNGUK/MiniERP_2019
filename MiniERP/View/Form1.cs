@@ -3,33 +3,225 @@ using MiniERP.View.LogisticsManagement;
 using MiniERP.View.SalesPurchaseManagement;
 using MiniERP.View.StockManagement;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace MiniERP.View
 {
     public partial class Form1 : Form
     {
+        //메시지 구현 필요 변수 부분  
+        public string[] bannWord = { "//", "[", "]", "접속종료합니다", "접속인원:", "만든 방명:", "$$$$", "방에 참가했습니다", "방정보:", "방에 메시지를 보냅니다", ":방의 주인은?", "방을 삭제합니다", "인원:" };
+        TcpClient client = new TcpClient();
+        private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
+        NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
+        string readData = null;
+        Frm_MakeRoom makeRoom;//방속성 정하는 창
+
+        Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
+
+        private string ownedRoom = "";
+        //메시지 구현부분 by 종완
+
+
+
+
+
+
         private Panel panel_mdi;
         private bool tabChk = true; // 탭페이지 중복검사용 - true 중복 , false 중복 X
+        private bool mboxchk = true; // 메세지 박스 실행 방지용
 
         private int tabSelcted_Index; // 선택한 탭의 인덱스 값을 저장합니다.
 
+        public string OwnedRoom { get => ownedRoom; set => ownedRoom = value; }
+
         public Form1()
         {
+            Frm_LoginBox loginbox = new Frm_LoginBox();
+            loginbox.ShowDialog();
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        /// <summary>
+        /// 서버에서 받고 전송한 메시지를 받아옴
+        /// </summary>
+        private void getMsg()
         {
+            //서버가 보내준 메시지를 받음!!!
+            while (true)
+            {
+                if (client.Connected)
+                {
+                    try
+                    {
+                        network = client.GetStream();
+                        Byte[] byteFrom = new byte[client.SendBufferSize];
+                        network.Read(byteFrom, 0, client.SendBufferSize);
+                        readData = Encoding.UTF8.GetString(byteFrom).Replace("\0", "");
+                    }
+                    catch (Exception)
+                    {
 
+
+                    };
+                    if (readData.Contains("해당 방은 있습니다"))
+                        MessageBox.Show("같은 이름의 방은 만들수 없습니다");
+
+                    Msg();
+                    DisplayMember();
+                }
+
+
+            }
+        }
+        /// <summary>
+        /// 방목록과 방에 들어온 접속자들을 폼에 추가
+        /// </summary>
+        private void DisplayMember()
+        {
+            if (this.InvokeRequired)//현재 getMsg()를 실행하는 스레드가 ui를 담당하는(Main()에서만들어진 스레드라면 다른 스레드로 getMsge가 호출되도록 함(대리자 이용)
+            {
+                this.Invoke(new MethodInvoker(DisplayMember));//스레드간 메시지 교환시킴
+            }
+            else
+            {
+
+
+                if (readData.Contains("접속 인원:"))
+                {
+                    memberList.Items.Clear();
+                    var seperators = new char[1];
+                    seperators[0] = ',';
+                    int lastIndex = readData.IndexOf("::");
+                    string accessmember = readData.Remove(lastIndex);
+                    int accessMemberIndex = readData.IndexOf("접속 인원:") + 6;
+                    accessmember = accessmember.Substring(accessMemberIndex);
+                    string[] members = accessmember.Split(seperators[0]);
+                    string memberNamelist = "";
+                    foreach (var v in members)
+                    {
+                        if (!memberNamelist.Contains(v))
+                            memberList.Items.Add(v);
+                        memberNamelist += v;
+                    }
+                }
+               
+                if (readData.Contains("방 목록:"))
+                {
+                    roomList.Items.Clear();
+                    var seperators = new char[1];
+                    seperators[0] = ',';
+                    int lastIndex = readData.IndexOf(";;");
+                    int accessRoomIndex = readData.IndexOf("방 목록:") + 5;
+                    string accessRoom = readData.Remove(lastIndex);
+                    string roomlist = accessRoom.Substring(accessRoomIndex);
+                    if (roomlist != "")
+                    {
+                        string[] rooms = roomlist.Split(seperators[0]);
+                        string roomNamelist = "";
+                        foreach (var v in rooms)
+                        {
+                            if (!roomNamelist.Contains(v))
+                            {
+
+                                roomList.Items.Add(v);
+                            }
+                            if (!roomtable.Contains(v))
+                            {
+                                roomtable.Add(v, "");//로컬프로그램에 저장될 채팅방 이름과 메시지내용들
+                            }
+                            roomNamelist += v;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 서버에서 받은 메시지를 채팅창에 추가
+        /// </summary>
+        private void Msg()
+        {
+            if (this.InvokeRequired)//현재 getMsg()를 실행하는 스레드가 ui를 담당하는(Main()에서만들어진 스레드라면 다른 스레드로 getMsge가 호출되도록 함(대리자 이용)
+            {
+                this.Invoke(new MethodInvoker(Msg));//스레드간 메시지 교환시킴
+            }
+            else
+            {
+                if (!readData.Contains("서버 메시지:"))
+                {
+                    string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + "\n";
+                    if (readData.Contains(">>>>"))
+                    {
+                        int indexOfseprate = readData.IndexOf(">>>>");
+                        string roomname = readData.Remove(indexOfseprate);
+                        string message = readData.Substring(indexOfseprate + 4);
+                        roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
+                        roomtable[roomname] += date + Environment.NewLine + ">>" + message + "\n";
+                       
+                    if(roomList.SelectedIndex!=-1)
+                        {
+                            if(roomList.SelectedItem.ToString()==roomname)
+                            {
+                                ChatContent.Text = ChatContent.Text + date + Environment.NewLine + ">>" + message + "\n";
+                                ChatContent.SelectionStart = ChatContent.TextLength;
+                                ChatContent.ScrollToCaret();
+
+                            }
+                        }
+
+
+
+                    }
+                    else
+                    {
+                        if (roomList.SelectedItem == null || roomList.SelectedItem.ToString() == "전체")
+                        {
+                            ChatContent.Text = ChatContent.Text + date + Environment.NewLine + ">>" + readData;
+                            ChatContent.SelectionStart = ChatContent.TextLength;
+                            ChatContent.ScrollToCaret();
+                        }
+                        roomtable["전체"] += date + Environment.NewLine + ">>" + readData+"\n" ; 
+                    }
+
+
+                }
+
+                
+
+            }
+        }
+
+
+        public void SendMessage(string message)
+        {
+            try
+            {
+                byte[] messageByte = Encoding.UTF8.GetBytes(message);//서버쪽에서 받았을때 해당 문자가 있으면 사용자가 보낸 문자라고 인식되게 함~~
+                if (client.Connected)
+                {
+                    network = client.GetStream();
+                    network.Write(messageByte, 0, messageByte.Length);
+                    network.Flush();
+                }
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message);
+            }
         }
 
         private void OpenForm(object menuName)
@@ -314,17 +506,34 @@ namespace MiniERP.View
             tabChk = false;
         }
 
-        // 왼쪽 실시간 확인창 최대화 폼 호출하는 메서드
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void CloseForm(object test)
+        {
+
+        }
+
+        
+
+        private void 견적서조회ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenForm(sender);
+        }
+
+        private void tsm_OrdM_inquiry_Click_1(object sender, EventArgs e)
+        {
+            OpenForm(sender);
+        }
+
+        private void 견적서조회ToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            OpenForm(sender);
+        }
+
+        private void tsm_Accountregistration_Click(object sender, EventArgs e)
         {
             Frm_MaxSizeGrp frm_MaxSizeGrp = new Frm_MaxSizeGrp();
             frm_MaxSizeGrp.Show();
         }
 
-        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-            // 뭐야 이거 삭제해야하는데 콘테이너를 못 찾겟다
-        }
         private void MenuClickEvnet(object sender, EventArgs e)
         {
             OpenForm(sender);
@@ -334,7 +543,7 @@ namespace MiniERP.View
         private void Add_CloseBtn(Form formtest) // !! 주의 조회 폼에서만 사용할것
         {
             Button closebtn = new Button(); // 버튼 생성
-            closebtn.Location = new Point(753, 12); // 위치고정 ( 변경하지말 것 )
+            closebtn.Location = new Point(740, 12); // 위치고정 ( 변경하지말 것 )
             closebtn.Anchor = AnchorStyles.Right; // 이거 쓸모 없음 ㅡㅡ
             closebtn.Image = Properties.Resources.CloseIcon; // 리소스 폴더내 이미지 파일을 사용
             closebtn.ImageAlign = ContentAlignment.MiddleCenter;
@@ -349,8 +558,199 @@ namespace MiniERP.View
         {
             tabSelcted_Index = tabControl1.SelectedIndex;
             tabControl1.TabPages.Remove(tabControl1.TabPages[tabSelcted_Index]);// 탭컨트롤에서 해당 페이지 삭제
-        } 
+        }
         #endregion
+
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            OpenForm("MainPage");
+        }
+
+    #region 프로그램 종료시 대화상자 이벤트
+    private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        // 폼이 닫히기 전에 메세지 박스로 재확인
+            if (mboxchk) // 중복방지용 변수 true 면 mbox 실행
+            {
+                mboxchk = false;
+                if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (network != null)
+                    {
+                        SendMessage(nicname.Text + "접속종료합니다");
+                        client.Close();
+                        network.Close();
+                    }
+                    e.Cancel = false; // 폼 닫음
+                }
+                else // No 선택시 닫기 취소
+                {
+                    e.Cancel = true; // 폼 닫기 취소
+                }
+                mboxchk = true;
+            }
+            else
+            {
+                mboxchk = true;
+            }
+        }
+        #endregion
+    
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Frm_MaxSizeGrp frm_MaxSizeGrp = new Frm_MaxSizeGrp();
+            frm_MaxSizeGrp.Show();
+        }
+
+        private void imageButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openfile1 = new OpenFileDialog();
+            DialogResult dr = openfile1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                imageLabel.Text += openfile1.FileName;
+            }
+        }
+
+        private void access_Click(object sender, EventArgs e)
+        {
+
+            //메시지 서버에 접속
+            try
+            {
+                readData = "채팅 서버 연결중...";
+                client.Connect("192.168.0.8", 3333);//서버 접속
+                roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
+                roomtable.Add("전체", "");
+                //Msg();
+                network = client.GetStream();
+
+                SendMessage(nicname.Text);
+
+                Thread thread = new Thread(getMsg);
+                thread.Start();
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message+"오류가 발생했습니다");
+            }
+            access.Enabled = false;
+            nicname.Enabled = false;
+            //메시지 서버에 접속
+        }
+
+        private void message_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                sendMsg_Click(sender, null);
+            }
+        }
+
+        private void sendMsg_Click(object sender, EventArgs e)
+        {
+            if (roomList.SelectedIndex != -1)
+            {
+                if (checkmessage(message.Text))
+                {
+                    if (roomList.SelectedItem.ToString() == "전체")
+                        SendMessage(message.Text + "$$$$");
+                    else
+                        SendMessage(roomList.SelectedItem.ToString() + "방에 메시지를 보냅니다" + message.Text + "//");
+                    message.Text = "";
+                }
+                else
+                    MessageBox.Show("금지된 단어로 메시지를 보낼수 없습니다");
+            }
+            if (roomList.SelectedIndex == -1)
+            {
+                SendMessage(message.Text + "$$$$");
+            }
+        }
+        private bool checkmessage(string message)
+        {
+            foreach (var v in bannWord)
+            {
+                if (message.Contains(v))
+                    return false;
+            }
+            return true;
+        }
+
+        private void particiRoom_Click(object sender, EventArgs e)
+        {
+            if (roomList.SelectedIndex != -1)
+            {
+                string message = roomList.SelectedItem.ToString() + "방에 참가했습니다";
+                SendMessage(message);
+            }
+
+        }
+
+        private void mkRoom_Click(object sender, EventArgs e)
+        {
+
+            makeRoom = new Frm_MakeRoom();
+
+            makeRoom.Owner = this;
+            makeRoom.RoomArr = new string[roomList.Items.Count];
+            makeRoom.MemberArr = new string[memberList.Items.Count];
+            DisplayMemberRoom();
+            makeRoom.Show();
+
+        }
+
+        private void DisplayMemberRoom()
+        {
+            for (int i = 0; i < roomList.Items.Count; i++)
+            {
+                makeRoom.RoomArr[i] = roomList.Items[i].ToString();
+            }
+
+            for (int i = 0; i < memberList.Items.Count; i++)
+            {
+                makeRoom.MemberArr[i] = memberList.Items[i].ToString();
+            }
+        }
+
+        private void roomList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChatContent.Text = roomtable[roomList.SelectedItem].ToString();
+            if (this.OwnedRoom.Contains(roomList.SelectedItem.ToString()))
+            {
+                rmRoom.Enabled = true;
+                rmRoom.Visible = true;
+            }
+            else
+            {
+                rmRoom.Enabled = false;
+                rmRoom.Visible = false;
+
+            }
+            lbl_RoomName.Text = roomList.SelectedItem.ToString();
+
+        }
+
+        private void rmRoom_Click(object sender, EventArgs e)
+        {
+            if (roomList.SelectedIndex != -1 && roomList.SelectedItem != "전체")
+            {
+                DialogResult result = MessageBox.Show("제거하시겠습니까?", "방제거창", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    string message = roomList.SelectedItem.ToString() + "방을 삭제합니다";
+                    SendMessage(message);
+                    roomtable.Remove(roomList.SelectedItem);
+                    rmRoom.Enabled = false;
+                    rmRoom.Visible = false;
+                }
+                
+            }
+        }
+
+       
     }   
 }

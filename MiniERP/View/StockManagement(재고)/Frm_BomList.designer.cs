@@ -98,7 +98,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("굴림", 10F);
-            this.label9.Location = new System.Drawing.Point(631, 49);
+            this.label9.Location = new System.Drawing.Point(580, 50);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(180, 14);
             this.label9.TabIndex = 110;
@@ -195,7 +195,7 @@
             this.pnl_serchbox.Controls.Add(this.btn_EstimateSelect);
             this.pnl_serchbox.Controls.Add(this.textBox7);
             this.pnl_serchbox.Controls.Add(this.label6);
-            this.pnl_serchbox.Location = new System.Drawing.Point(12, 40);
+            this.pnl_serchbox.Location = new System.Drawing.Point(12, 44);
             this.pnl_serchbox.Name = "pnl_serchbox";
             this.pnl_serchbox.Size = new System.Drawing.Size(799, 119);
             this.pnl_serchbox.TabIndex = 106;
@@ -281,7 +281,9 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 73);
             this.dataGridView1.Name = "dataGridView1";

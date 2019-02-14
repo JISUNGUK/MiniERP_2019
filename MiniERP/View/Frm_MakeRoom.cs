@@ -57,7 +57,15 @@ namespace MiniERP.View
                 try
                 {
                     form.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
+                    if (form.OwnedRoom != "")
+                    {
+                        form.OwnedRoom += "," + room.Text;
+                    }
+                    else
+                        form.OwnedRoom += room.Text;
                     this.Close();
+                    
+
                 }
                 catch (Exception ee)
                 {

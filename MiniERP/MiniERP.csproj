@@ -79,11 +79,35 @@
     <Compile Include="View\BusinessManagement%28영업%29\Frm_BusinessInsert.Designer.cs">
       <DependentUpon>Frm_BusinessInsert.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Frm_LoginBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_LoginBox.Designer.cs">
+      <DependentUpon>Frm_LoginBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Frm_MPDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_MPDetails.Designer.cs">
+      <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StockManagement%28재고%29\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\StockManagement%28재고%29\Frm_ItemInsert.Designer.cs">
       <DependentUpon>Frm_ItemInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_Login.Designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Frm_MakeRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_MakeRoom.Designer.cs">
+      <DependentUpon>Frm_MakeRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Frm_MaxSizeGrp.cs">
       <SubType>Form</SubType>
@@ -228,8 +252,20 @@
     <EmbeddedResource Include="View\BusinessManagement%28영업%29\Frm_BusinessInsert.resx">
       <DependentUpon>Frm_BusinessInsert.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_LoginBox.resx">
+      <DependentUpon>Frm_LoginBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_MPDetails.resx">
+      <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement%28재고%29\Frm_ItemInsert.resx">
       <DependentUpon>Frm_ItemInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_Login.resx">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_MakeRoom.resx">
+      <DependentUpon>Frm_MakeRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MaxSizeGrp.resx">
       <DependentUpon>Frm_MaxSizeGrp.cs</DependentUpon>
