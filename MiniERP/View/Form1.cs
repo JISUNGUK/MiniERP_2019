@@ -183,9 +183,6 @@ namespace MiniERP.View
 
                             }
                         }
-
-
-
                     }
                     else
                     {
@@ -226,6 +223,7 @@ namespace MiniERP.View
             }
         }
 
+        #region MDI 패널에 폼 불러오기 메서드
         private void OpenForm(object menuName)
         {
             if (tabControl1.TabCount <= 10)
@@ -247,7 +245,7 @@ namespace MiniERP.View
                     {
                         // 2. 중복된 폼이 있을때 아래 메서드를 실행하여 폼 생성
                         tabChk = true; // 중복검사용 bool 문 true로 전환
-                        tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()];
+                        tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()]; // 중복된 탭이 있으면 중복탭 선택
                         OpenForm(menuName);
                     }
 
@@ -263,6 +261,7 @@ namespace MiniERP.View
                 MessageBox.Show("탭은 10개까지만 생성할 수 있습니다.");
             }
         }
+        #endregion
 
         /// <summary>
         /// 탭 페이지와 판넬을 생성하고 MDI로 폼까지 호출 시켜주는 메서드
