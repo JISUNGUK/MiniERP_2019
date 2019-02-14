@@ -621,7 +621,7 @@ namespace MiniERP.View
             try
             {
                 readData = "채팅 서버 연결중...";
-                client.Connect("192.168.0.8", 3333);//서버 접속
+                client.Connect("192.168.0.6", 3333);//서버 접속
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
                 //Msg();
