@@ -84,6 +84,29 @@ namespace MiniERP.Model
         }
 
         /// <summary>
+        /// Querry로 select
+        /// </summary>
+        /// <param name="querry"></param>
+        /// <returns></returns>
+        public SqlDataReader QuerrySelect(string querry)
+        {
+            SqlConnection sqlConnection = OpenSqlConnection();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandType = System.Data.CommandType.Text;
+            sqlCommand.CommandText = querry;
+
+            try
+            {
+                return sqlCommand.ExecuteReader();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Table에 Insert를 수행합니다.
         /// </summary>
         /// <param name="storedProcedureName">수행될 저장프로시저의 이름입니다.</param>
@@ -114,6 +137,7 @@ namespace MiniERP.Model
                 return result;
             }
         }
+
 
         /// <summary>
         /// Table에 Update 또는 Delete를 수행합니다.

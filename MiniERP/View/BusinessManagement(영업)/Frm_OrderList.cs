@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniERP.Model.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,9 @@ namespace MiniERP.View.BusinessManagement
 
         private void Frm_OrderList_Load(object sender, EventArgs e)
         {
-            
+            // 테스트 모듈
+            OrderedDAO ordered = new OrderedDAO();
+            dataGridView1.DataSource = ordered.SelectAllOrdered();
         }
 
         private void button9_Click_1(object sender, EventArgs e)
