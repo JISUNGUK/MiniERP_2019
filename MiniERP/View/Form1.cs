@@ -586,24 +586,22 @@ namespace MiniERP.View
            
             OpenFileDialog openfile1 = new OpenFileDialog();
             DialogResult dr = openfile1.ShowDialog();
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Multiselect = true;
-            openFileDialog1.Filter = "All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
+            openfile1.Multiselect = true;
+            openfile1.Filter = "All files (*.*)|*.*";
+            openfile1.FilterIndex = 2;
+            openfile1.RestoreDirectory = true;
             if (dr == DialogResult.OK)
-            {
-                oBitmap = (Bitmap)Bitmap.FromFile(openFileDialog1.FileName);
-                Clipboard.Clear();
-                Clipboard.SetImage(oBitmap);
-                this.ChatContent.Paste();
+            {              
                 string filename = openfile1.FileName;
                 currentfileName = openfile1.FileName;
                 filelabel.Text = openfile1.SafeFileName;
+
+                //파일 아이콘을 갖고오는 부분
                 SHFILEINFO shinfo = new SHFILEINFO();
                 Win32.SHGetFileInfo(filename, 0, ref shinfo, (uint)System.Runtime.InteropServices.Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
                 System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
                 fileImage.Image = (Image)myIcon.ToBitmap();
+
             }
         }
 
