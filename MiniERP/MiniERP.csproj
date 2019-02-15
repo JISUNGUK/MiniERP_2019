@@ -53,9 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\DAO\BusinessDAO.cs" />
     <Compile Include="Model\DAO\ClerkDAO.cs" />
+    <Compile Include="Model\DAO\IBusinessDAO.cs" />
     <Compile Include="Model\DAO\IWarehouseDAO.cs" />
     <Compile Include="Model\DAO\MessageDAO.cs" />
+    <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
     <Compile Include="ToDoList_Detail.cs">
       <SubType>UserControl</SubType>
@@ -253,7 +256,9 @@
       <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </Compile>
     <Compile Include="VO\Barcode_Module.cs" />
+    <Compile Include="VO\Business.cs" />
     <Compile Include="VO\Clerk.cs" />
+    <Compile Include="VO\Ordered.cs" />
     <Compile Include="VO\Warehouse.cs" />
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
