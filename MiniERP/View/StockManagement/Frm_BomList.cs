@@ -1,4 +1,4 @@
-﻿using MiniERP.View.StockManagement;
+﻿using MiniERP.View.LogisticsManagement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,34 +9,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View.BusinessManagement_영업_
+namespace MiniERP.View.StockManagement
 {
-    public partial class Frm_ClerkList : Form
+    public partial class Frm_BomList : Form
     {
-        private bool serchbox = true;
-        public Frm_ClerkList()
+        private bool boxchk = true;
+
+        public Frm_BomList()
         {
             InitializeComponent();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void button9_Click(object sender, EventArgs e)
         {
-            if (serchbox)
+            if (boxchk)
             {
                 pnl_serchbox.Visible = true;
-                serchbox = false;
+                boxchk = false;
             }
             else
             {
                 pnl_serchbox.Visible = false;
-                serchbox = true;
+                boxchk = true;
             }
         }
 
-        private void btn_ClerkInsert_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert();
-            clerkInsert.ShowDialog();
+            Frm_BomInesrt bomInesrt = new Frm_BomInesrt();
+            bomInesrt.Show();
+        }
+
+        private void Frm_BomList_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
         }
 
         private void textBox10_Click(object sender, EventArgs e)

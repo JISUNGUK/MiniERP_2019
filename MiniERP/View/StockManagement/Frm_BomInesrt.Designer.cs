@@ -1,4 +1,4 @@
-﻿namespace MiniERP.View.LogisticsManagement
+﻿namespace MiniERP.View.StockManagement
 {
     partial class Frm_BomInesrt
     {

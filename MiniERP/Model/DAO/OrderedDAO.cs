@@ -41,8 +41,5 @@ namespace MiniERP.Model.DAO
 
         //abstract public void InsertOrdered();
         //abstract public void DeleteOrdered();
-
-        
-
     }
 }

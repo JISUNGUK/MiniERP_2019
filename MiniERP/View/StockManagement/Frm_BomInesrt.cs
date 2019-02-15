@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View.StockManagement_재고_
+namespace MiniERP.View.StockManagement
 {
-    public partial class Frm_WarehouseMovement : Form
+    public partial class Frm_BomInesrt : Form
     {
-        public Frm_WarehouseMovement()
+        public Frm_BomInesrt()
         {
             InitializeComponent();
         }

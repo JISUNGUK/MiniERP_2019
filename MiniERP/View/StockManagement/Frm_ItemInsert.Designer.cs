@@ -1,4 +1,4 @@
-﻿namespace MiniERP.View
+﻿namespace MiniERP.View.StockManagement
 {
     partial class Frm_ItemInsert
     {

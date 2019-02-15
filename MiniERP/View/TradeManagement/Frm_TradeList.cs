@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View.TradeManagement_거래_
+namespace MiniERP.View.TradeManagement
 {
     public partial class Frm_TradeList : Form
     {

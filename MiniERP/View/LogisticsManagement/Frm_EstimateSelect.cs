@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MiniERP.View.LogisticsManagement
 {
-    public partial class Frm_BomInesrt : Form
+    public partial class Frm_EstimateSelect : Form
     {
-        public Frm_BomInesrt()
+        public Frm_EstimateSelect()
         {
             InitializeComponent();
         }

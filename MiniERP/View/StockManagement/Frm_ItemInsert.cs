@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View
+namespace MiniERP.View.StockManagement
 {
     public partial class Frm_ItemInsert : Form
     {

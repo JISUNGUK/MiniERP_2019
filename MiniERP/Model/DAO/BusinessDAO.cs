@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiniERP.Model.DAO
 {
-    class BusinessDAO : IBusinessDAO
+    class BusinessDAO : Interface.IBusinessDAO
     {
         List<Business> businesses;
 

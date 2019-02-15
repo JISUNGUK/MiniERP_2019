@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiniERP.Model.DAO
 {
-    class WarehouseDAO : IWarehouseDAO
+    class WarehouseDAO : Interface.IWarehouseDAO
     {
         List<Warehouse> warehouses;
 

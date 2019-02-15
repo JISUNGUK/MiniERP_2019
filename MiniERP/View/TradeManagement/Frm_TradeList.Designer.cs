@@ -1,4 +1,4 @@
-﻿namespace MiniERP.View.TradeManagement_거래_
+﻿namespace MiniERP.View.TradeManagement
 {
     partial class Frm_TradeList
     {

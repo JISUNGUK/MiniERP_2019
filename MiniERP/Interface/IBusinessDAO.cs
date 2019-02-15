@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MiniERP.Model.DAO
+namespace MiniERP.Interface
 {
     interface IBusinessDAO
     {

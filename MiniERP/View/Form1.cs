@@ -1,11 +1,9 @@
 ﻿using MiniERP.Model.DAO;
 using MiniERP.View.BusinessManagement;
-using MiniERP.View.BusinessManagement_영업_;
 using MiniERP.View.LogisticsManagement;
 using MiniERP.View.SalesPurchaseManagement;
 using MiniERP.View.StockManagement;
-using MiniERP.View.StockManagement_재고_;
-using MiniERP.View.TradeManagement_거래_;
+using MiniERP.View.TradeManagement;
 using System;
 using System.Collections;
 using System.Collections.Generic;

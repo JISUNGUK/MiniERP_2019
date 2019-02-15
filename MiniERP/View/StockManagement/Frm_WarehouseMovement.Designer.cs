@@ -1,4 +1,4 @@
-﻿namespace MiniERP.View.StockManagement_재고_
+﻿namespace MiniERP.View.StockManagement
 {
     partial class Frm_WarehouseMovement
     {
