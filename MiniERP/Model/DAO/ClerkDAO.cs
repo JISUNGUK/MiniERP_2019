@@ -29,6 +29,7 @@ namespace MiniERP.Model.DAO
                     clerk.Clerk_name = sr["Clerk_name"].ToString();
                     clerk.Clerk_job = sr["Clerk_job"].ToString();
                     clerk.Clerk_password = password;
+                    clerks.Add(clerk);
                 }
                     return clerks;
             }
