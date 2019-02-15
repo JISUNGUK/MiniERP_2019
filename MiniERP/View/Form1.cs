@@ -6,19 +6,16 @@ using MiniERP.View.StockManagement;
 using MiniERP.View.TradeManagement;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
+using System.IO.Pipes;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.CheckedListBox;
+using System.Xml.Linq;
+
 
 namespace MiniERP.View
 {
@@ -29,6 +26,7 @@ namespace MiniERP.View
         TcpClient client = new TcpClient();
         private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
+        private string currentfileName;
         string readData = null;
         Frm_MakeRoom makeRoom;//방속성 정하는 창
 
@@ -37,6 +35,18 @@ namespace MiniERP.View
         private string ownedRoom = "";
 
        private MessageDAO messagedao;
+
+
+        public struct SHFILEINFO
+        {
+            public IntPtr hIcon;
+            public IntPtr iIcon;
+            public uint dwAttributes;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
+            public string szDisplayName;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 80)]
+            public string szTypeName;
+        };
         //메시지 구현부분 by 종완
 
 
@@ -131,24 +141,7 @@ namespace MiniERP.View
         }
 
 
-     /*   public void SendMessage(string message)
-        {
-            try
-            {
-                byte[] messageByte = Encoding.UTF8.GetBytes(message);//서버쪽에서 받았을때 해당 문자가 있으면 사용자가 보낸 문자라고 인식되게 함~~
-                if (client.Connected)
-                {
-                    network = client.GetStream();
-                    network.Write(messageByte, 0, messageByte.Length);
-                    network.Flush();
-                }
-            }
-            catch (Exception ee)
-            {
-
-                MessageBox.Show(ee.Message);
-            }
-        }*/
+    
 
         #region MDI 패널에 폼 불러오기 메서드
         private void OpenForm(object menuName)
@@ -586,14 +579,35 @@ namespace MiniERP.View
 
         private void fileButton_Click(object sender, EventArgs e)
         {
+            Bitmap oBitmap = null;
+
+
+
+           
             OpenFileDialog openfile1 = new OpenFileDialog();
             DialogResult dr = openfile1.ShowDialog();
-            
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Multiselect = true;
+            openFileDialog1.Filter = "All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+
+
+
             if (dr == DialogResult.OK)
             {
-                FileInfo file = new FileInfo(openfile1.FileName);
-                
-                fileLabel.Text += openfile1.FileName;
+                oBitmap = (Bitmap)Bitmap.FromFile(openFileDialog1.FileName);
+                Clipboard.Clear();
+                Clipboard.SetImage(oBitmap);
+                this.ChatContent.Paste();
+                string filename = openfile1.FileName;
+                currentfileName = openfile1.FileName;
+                filelabel.Text = openfile1.SafeFileName;
+                SHFILEINFO shinfo = new SHFILEINFO();
+                Win32.SHGetFileInfo(filename, 0, ref shinfo, (uint)System.Runtime.InteropServices.Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
+                System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
+                fileImage.Image = (Image)myIcon.ToBitmap();
             }
         }
 
@@ -636,8 +650,44 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-            Messagedao.SendChatMessage(message.Text, roomList);
-            message.Text = "";
+            //Messagedao.SendChatMessage(message.Text, roomList);
+            //message.Text = "";
+            //if(currentfileName!="")
+            //{
+
+            //    try
+            //    {
+            //        using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
+            //        {
+            //            using (var binaryReader = new BinaryReader(fileStream))
+            //            {
+            //                var _sendingBuffer = new byte[BUFFER_SIZE];
+
+            //                int length = (int)fileStream.Length;
+            //                int bytesRead = 0;
+
+            //                //Ensure we reached the end of the stream regardless of encoding 
+            //                while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
+            //                {
+            //                    bytesRead = binaryReader.Read(_sendingBuffer, 0, _sendingBuffer.Length);
+
+            //                    _socket.BeginSend(_sendingBuffer, 0, bytesRead, SocketFlags.None, SendFileCallback, null);
+
+            //                    //without this i received some messed up data 
+            //                    _sendingBuffer = new byte[BUFFER_SIZE];
+            //                }
+            //            }
+            //        }
+            //        fs.Close();
+            //    }
+            //    catch (Exception)
+            //    {
+
+            //        throw;
+            //    }
+
+
+            //}
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
