@@ -646,7 +646,7 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-        if(string.IsNullOrEmpty(message.Text))
+        if(!string.IsNullOrEmpty(message.Text))
             { 
             Messagedao.SendChatMessage(message.Text, roomList);
             message.Text = "";
