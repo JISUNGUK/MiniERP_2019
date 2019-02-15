@@ -31,16 +31,6 @@ namespace MiniERP.Model
         }
 
         /// <summary>
-        /// SqlConnection객체를 받아 SqlTransaction객체를 시작합니다.
-        /// </summary>
-        /// <param name="sqlConnection"></param>
-        /// <returns>SqlConnection객체를 받아 시작된 SqlTransaction객체를 반환합니다.</returns>
-        private SqlTransaction GetSqlTransaction(SqlConnection sqlConnection)
-        {
-            return sqlConnection.BeginTransaction();
-        }
-
-        /// <summary>
         /// Table에 대하여 수행할 SqlCommand를 반환합니다.
         /// </summary>
         /// <param name="sqlConnection">SqlConnection 객체입니다.</param>
@@ -106,6 +96,10 @@ namespace MiniERP.Model
             }
         }
 
+        #region 수정될수있는 내용, 작성자: 조성호
+        // 굳이 bool 타입으로 해야할 이유있음?
+        // 어짜피 try ~catch로 오류반환 할거니 그걸로 확인하면 될거라고 생각하는데..
+
         /// <summary>
         /// Table에 Insert를 수행합니다.
         /// </summary>
@@ -138,7 +132,6 @@ namespace MiniERP.Model
             }
         }
 
-
         /// <summary>
         /// Table에 Update 또는 Delete를 수행합니다.
         /// </summary>
@@ -169,6 +162,46 @@ namespace MiniERP.Model
             }
             return result;
         }
+
+        // 수정한다면 이런식으로. 바뀌는건 없음.
+        // 기존 SqlCommand 메서드를 따라서 ExecuteNonquery 라는 이름으로 하면 어떨까 싶음
+        public bool ExecuteNonquery(string storeProcedureName, SqlParameter[] sqlParameters)
+        {
+            bool result = false;
+
+            SqlConnection sqlConnection = OpenSqlConnection();
+            SqlTransaction sqlTransaction = GetSqlTransaction(sqlConnection);
+
+            using (sqlTransaction)
+            {
+                SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, sqlParameters, sqlTransaction);
+
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    sqlTransaction.Commit();
+                    result = true;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return result;
+        }
+
+
+        // 이거 필요함? 궁금해서 그럼.
+        /// <summary>
+        /// SqlConnection객체를 받아 SqlTransaction객체를 시작합니다.
+        /// </summary>
+        /// <param name="sqlConnection"></param>
+        /// <returns>SqlConnection객체를 받아 시작된 SqlTransaction객체를 반환합니다.</returns>
+        private SqlTransaction GetSqlTransaction(SqlConnection sqlConnection)
+        {
+            return sqlConnection.BeginTransaction();
+        }
+        #endregion
     }
 }
 
