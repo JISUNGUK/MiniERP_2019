@@ -54,6 +54,8 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.pnl_serchbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -171,7 +173,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("굴림", 10F);
-            this.button1.Location = new System.Drawing.Point(428, 12);
+            this.button1.Location = new System.Drawing.Point(252, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 23);
             this.button1.TabIndex = 43;
@@ -184,9 +186,9 @@
             this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
             this.textBox1.Location = new System.Drawing.Point(17, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(405, 23);
+            this.textBox1.Size = new System.Drawing.Size(229, 23);
             this.textBox1.TabIndex = 42;
-            this.textBox1.Text = "거래처 또는 품목을 입력하세요.";
+            this.textBox1.Text = "거래처 입력";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label2
@@ -248,10 +250,10 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dataGridView1.Location = new System.Drawing.Point(17, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 86);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(788, 503);
+            this.dataGridView1.Size = new System.Drawing.Size(788, 491);
             this.dataGridView1.TabIndex = 37;
             // 
             // Column1
@@ -294,11 +296,32 @@
             this.Column8.HeaderText = "종료일";
             this.Column8.Name = "Column8";
             // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("굴림", 10F);
+            this.textBox3.Location = new System.Drawing.Point(351, 12);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(229, 23);
+            this.textBox3.TabIndex = 50;
+            this.textBox3.Text = "품목 입력";
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("굴림", 10F);
+            this.button8.Location = new System.Drawing.Point(586, 12);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(82, 23);
+            this.button8.TabIndex = 51;
+            this.button8.Text = "검색";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // Frm_TradeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 618);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.pnl_serchbox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
@@ -349,5 +372,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button8;
     }
 }
