@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -583,13 +584,16 @@ namespace MiniERP.View
             frm_MaxSizeGrp.Show();
         }
 
-        private void imageButton_Click(object sender, EventArgs e)
+        private void fileButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openfile1 = new OpenFileDialog();
             DialogResult dr = openfile1.ShowDialog();
+            
             if (dr == DialogResult.OK)
             {
-                imageLabel.Text += openfile1.FileName;
+                FileInfo file = new FileInfo(openfile1.FileName);
+                
+                fileLabel.Text += openfile1.FileName;
             }
         }
 
@@ -626,13 +630,14 @@ namespace MiniERP.View
             if (e.KeyCode == Keys.Enter)
             {
                 sendMsg_Click(sender, null);
+                message.Text = "";
             }
         }
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-
             Messagedao.SendChatMessage(message.Text, roomList);
+            message.Text = "";
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
