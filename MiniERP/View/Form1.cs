@@ -591,10 +591,6 @@ namespace MiniERP.View
             openFileDialog1.Filter = "All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
-
-
-
-
             if (dr == DialogResult.OK)
             {
                 oBitmap = (Bitmap)Bitmap.FromFile(openFileDialog1.FileName);
@@ -650,8 +646,11 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-            //Messagedao.SendChatMessage(message.Text, roomList);
-            //message.Text = "";
+        if(string.IsNullOrEmpty(message.Text))
+            { 
+            Messagedao.SendChatMessage(message.Text, roomList);
+            message.Text = "";
+            }
             //if(currentfileName!="")
             //{
 
