@@ -650,44 +650,44 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-            Messagedao.SendChatMessage(message.Text, roomList);
-            message.Text = "";
-            if(currentfileName!="")
-            {
+            //Messagedao.SendChatMessage(message.Text, roomList);
+            //message.Text = "";
+            //if(currentfileName!="")
+            //{
 
-                try
-                {
-                    using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
-                    {
-                        using (var binaryReader = new BinaryReader(fileStream))
-                        {
-                            var _sendingBuffer = new byte[BUFFER_SIZE];
+            //    try
+            //    {
+            //        using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
+            //        {
+            //            using (var binaryReader = new BinaryReader(fileStream))
+            //            {
+            //                var _sendingBuffer = new byte[BUFFER_SIZE];
 
-                            int length = (int)fileStream.Length;
-                            int bytesRead = 0;
+            //                int length = (int)fileStream.Length;
+            //                int bytesRead = 0;
 
-                            //Ensure we reached the end of the stream regardless of encoding 
-                            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
-                            {
-                                bytesRead = binaryReader.Read(_sendingBuffer, 0, _sendingBuffer.Length);
+            //                //Ensure we reached the end of the stream regardless of encoding 
+            //                while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
+            //                {
+            //                    bytesRead = binaryReader.Read(_sendingBuffer, 0, _sendingBuffer.Length);
 
-                                _socket.BeginSend(_sendingBuffer, 0, bytesRead, SocketFlags.None, SendFileCallback, null);
+            //                    _socket.BeginSend(_sendingBuffer, 0, bytesRead, SocketFlags.None, SendFileCallback, null);
 
-                                //without this i received some messed up data 
-                                _sendingBuffer = new byte[BUFFER_SIZE];
-                            }
-                        }
-                    }
-                    fs.Close();
-                }
-                catch (Exception)
-                {
+            //                    //without this i received some messed up data 
+            //                    _sendingBuffer = new byte[BUFFER_SIZE];
+            //                }
+            //            }
+            //        }
+            //        fs.Close();
+            //    }
+            //    catch (Exception)
+            //    {
 
-                    throw;
-                }
+            //        throw;
+            //    }
 
 
-            }
+            //}
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
