@@ -73,13 +73,16 @@ namespace MiniERP.View
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서분석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.filelabel = new System.Windows.Forms.Label();
+            this.fileList = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.fileImage = new System.Windows.Forms.PictureBox();
             this.lbl_RoomName = new System.Windows.Forms.Label();
             this.particiRoom = new System.Windows.Forms.Button();
             this.access = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.nicname = new System.Windows.Forms.TextBox();
-            this.fileLabel = new System.Windows.Forms.Label();
+            this.filel = new System.Windows.Forms.Label();
             this.fileButton = new System.Windows.Forms.Button();
             this.sendMsg = new System.Windows.Forms.Button();
             this.message = new System.Windows.Forms.TextBox();
@@ -92,8 +95,6 @@ namespace MiniERP.View
             this.memberList = new System.Windows.Forms.ListBox();
             this.roomName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.fileList = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -460,6 +461,7 @@ namespace MiniERP.View
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.AutoScroll = true;
+            this.splitContainer2.Panel2.Controls.Add(this.filelabel);
             this.splitContainer2.Panel2.Controls.Add(this.fileList);
             this.splitContainer2.Panel2.Controls.Add(this.label4);
             this.splitContainer2.Panel2.Controls.Add(this.fileImage);
@@ -468,7 +470,7 @@ namespace MiniERP.View
             this.splitContainer2.Panel2.Controls.Add(this.access);
             this.splitContainer2.Panel2.Controls.Add(this.label3);
             this.splitContainer2.Panel2.Controls.Add(this.nicname);
-            this.splitContainer2.Panel2.Controls.Add(this.fileLabel);
+            this.splitContainer2.Panel2.Controls.Add(this.filel);
             this.splitContainer2.Panel2.Controls.Add(this.fileButton);
             this.splitContainer2.Panel2.Controls.Add(this.sendMsg);
             this.splitContainer2.Panel2.Controls.Add(this.message);
@@ -485,11 +487,39 @@ namespace MiniERP.View
             this.splitContainer2.SplitterDistance = 1188;
             this.splitContainer2.TabIndex = 3;
             // 
+            // filelabel
+            // 
+            this.filelabel.AutoSize = true;
+            this.filelabel.Location = new System.Drawing.Point(123, 607);
+            this.filelabel.Name = "filelabel";
+            this.filelabel.Size = new System.Drawing.Size(0, 12);
+            this.filelabel.TabIndex = 20;
+            // 
+            // fileList
+            // 
+            this.fileList.FormattingEnabled = true;
+            this.fileList.ItemHeight = 12;
+            this.fileList.Location = new System.Drawing.Point(261, 116);
+            this.fileList.Name = "fileList";
+            this.fileList.ScrollAlwaysVisible = true;
+            this.fileList.Size = new System.Drawing.Size(105, 76);
+            this.fileList.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(201, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "파일목록";
+            // 
             // fileImage
             // 
-            this.fileImage.Location = new System.Drawing.Point(74, 623);
+            this.fileImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fileImage.Location = new System.Drawing.Point(78, 607);
             this.fileImage.Name = "fileImage";
-            this.fileImage.Size = new System.Drawing.Size(58, 61);
+            this.fileImage.Size = new System.Drawing.Size(39, 39);
             this.fileImage.TabIndex = 17;
             this.fileImage.TabStop = false;
             // 
@@ -539,18 +569,18 @@ namespace MiniERP.View
             this.nicname.Size = new System.Drawing.Size(168, 21);
             this.nicname.TabIndex = 12;
             // 
-            // fileLabel
+            // filel
             // 
-            this.fileLabel.AutoSize = true;
-            this.fileLabel.Location = new System.Drawing.Point(11, 607);
-            this.fileLabel.Name = "fileLabel";
-            this.fileLabel.Size = new System.Drawing.Size(61, 12);
-            this.fileLabel.TabIndex = 11;
-            this.fileLabel.Text = "첨부 파일:";
+            this.filel.AutoSize = true;
+            this.filel.Location = new System.Drawing.Point(11, 607);
+            this.filel.Name = "filel";
+            this.filel.Size = new System.Drawing.Size(61, 12);
+            this.filel.TabIndex = 11;
+            this.filel.Text = "첨부 파일:";
             // 
             // fileButton
             // 
-            this.fileButton.Location = new System.Drawing.Point(250, 625);
+            this.fileButton.Location = new System.Drawing.Point(250, 652);
             this.fileButton.Name = "fileButton";
             this.fileButton.Size = new System.Drawing.Size(87, 23);
             this.fileButton.TabIndex = 10;
@@ -653,25 +683,6 @@ namespace MiniERP.View
             this.roomName.TabIndex = 0;
             this.roomName.Text = "방 이름";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(201, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "파일목록";
-            // 
-            // fileList
-            // 
-            this.fileList.FormattingEnabled = true;
-            this.fileList.ItemHeight = 12;
-            this.fileList.Location = new System.Drawing.Point(261, 116);
-            this.fileList.Name = "fileList";
-            this.fileList.ScrollAlwaysVisible = true;
-            this.fileList.Size = new System.Drawing.Size(105, 76);
-            this.fileList.TabIndex = 19;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -754,7 +765,7 @@ namespace MiniERP.View
         private System.Windows.Forms.ToolStripMenuItem 구매현황ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 사원등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
-        private System.Windows.Forms.Label fileLabel;
+        private System.Windows.Forms.Label filel;
         private System.Windows.Forms.Button fileButton;
         private System.Windows.Forms.Button sendMsg;
         private System.Windows.Forms.TextBox message;
@@ -776,6 +787,7 @@ namespace MiniERP.View
         private PictureBox fileImage;
         private ListBox fileList;
         private Label label4;
+        private Label filelabel;
     }
 }
 

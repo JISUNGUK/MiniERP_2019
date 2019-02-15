@@ -60,6 +60,7 @@
     <Compile Include="Model\DAO\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
+    <Compile Include="Model\DAO\win32.cs" />
     <Compile Include="ToDoList_Detail.cs">
       <SubType>UserControl</SubType>
     </Compile>

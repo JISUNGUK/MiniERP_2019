@@ -157,6 +157,25 @@ namespace MiniERP.Model.DAO
             }
         }
 
+        public void SendFile(Byte[] fileByte)
+        {
+            try
+            {
+                //서버쪽에서 받았을때 해당 문자가 있으면 사용자가 보낸 문자라고 인식되게 함~~
+                if (Client.Connected)
+                {
+                    Network = Client.GetStream();
+                    Network.Write(fileByte, 0, fileByte.Length);
+                    Network.Flush();
+                }
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message);
+            }
+        }
+
         public bool checkmessage(string message)
         {
             foreach (var v in bannWord)
