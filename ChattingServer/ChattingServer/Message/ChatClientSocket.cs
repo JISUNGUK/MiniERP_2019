@@ -4,12 +4,12 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace chatServer
+namespace ChattingServer
 {
     /// <summary>
     /// 채팅 참여자 각각이 메시지를 서버측에 보내는 메시지를 읽는 스레드를 위한 클래스
     /// </summary>
-    internal class ChatClientSocket
+    public class ChatClientSocket
     {
         private TcpClient chatClientSockets;
         private string clientNickName;
@@ -22,7 +22,6 @@ namespace chatServer
             this.ClientList = clientList;
             Thread thread = new Thread(Doread);
             thread.Start();
-
         }
 
         public TcpClient ChatClientSockets { get => chatClientSockets; set => chatClientSockets = value; }
@@ -59,8 +58,8 @@ namespace chatServer
                 receivestr = receivestr.Substring(0, letterlastIndex);
                 if(receivestr.Contains(""))
                         {
-                            Program.chattingList[0].MessageBody += ClientNickName + "님의 메시지:" + receivestr+"\n";
-                    Program.Broadcast(receivestr, ClientNickName, false);
+                            Server.chattingList[0].MessageBody += ClientNickName + "님의 메시지:" + receivestr+"\n";
+                            Server.Broadcast(receivestr, ClientNickName, false);
                         }
 
                     }
@@ -69,7 +68,7 @@ namespace chatServer
                     int index = receivestr.IndexOf("방에 메시지를 보냅니다");
                     string roomname = receivestr.Substring(0, index);
                     string message = receivestr.Remove(0, 12 + index).Replace("//", "");
-                    foreach (ChattingElement item in Program.chattingList)
+                    foreach (ChattingElement item in Server.chattingList)
                     {
                         if (item.RoomName == roomname)
                         {
@@ -78,8 +77,8 @@ namespace chatServer
                                 item.NicNames += "," + ClientNickName;
                             else
                                 item.NicNames += ClientNickName;
-                            Program.Multicast(message, ClientNickName, item, false);
-                            Console.WriteLine(ClientNickName + "의 메시지:" + message);
+                                Server.Multicast(message, ClientNickName, item, false);
+                            //Console.WriteLine(ClientNickName + "의 메시지:" + message);
                         }
                     }
                 }
@@ -88,7 +87,7 @@ namespace chatServer
                 {
                     int index = receivestr.IndexOf("방에 참가했습니다");
                     string roomname = receivestr.Remove(index);
-                    foreach (ChattingElement item in Program.chattingList)
+                    foreach (ChattingElement item in Server.chattingList)
                     {
                         if (item.RoomName == roomname)
                         {
@@ -96,8 +95,8 @@ namespace chatServer
                                 item.NicNames += ","+ClientNickName;                                
                             else
                                 item.NicNames +=ClientNickName;
-                            Program.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
-                            Console.WriteLine(ClientNickName+"님이 방에 참여 했습니다"+roomname);
+                                Server.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
+                           // Console.WriteLine(ClientNickName+"님이 방에 참여 했습니다"+roomname);
                         }
                     }
                     
@@ -110,12 +109,12 @@ namespace chatServer
                         string nicknames = receivestr.Substring(lastIndex+3).Replace("//", "");//방참가자들
                         string roomname = receivestr.Remove(lastIndex);//인원:문자가 나오는 이후의 문자들을 모두 제거
                         roomname = roomname.Substring(11);
-                    for(int i=0;i<Program.chattingList.Count;i++)
+                    for(int i=0;i< Server.chattingList.Count;i++)
                     {
-                        if(Program.chattingList[i].RoomName==roomname)
+                        if(Server.chattingList[i].RoomName==roomname)
                         {
-                            Program.Unicast("해당 방은 있습니다", this, true);
-                            Console.WriteLine("해당 방은 있습니다");
+                            Server.Unicast("해당 방은 있습니다", this, true);
+                            //Console.WriteLine("해당 방은 있습니다");
                             duplicateCount++;
                             break;
                         }
@@ -128,43 +127,43 @@ namespace chatServer
                         chatting.MessageBody = "";
                         chatting.RoomOwner = ClientNickName;
                         chatting.NicNames += nicknames;
-                        Program.chattingList.Add(chatting);
+                            Server.chattingList.Add(chatting);
                         int count = 0;
-                        foreach(var v in Program.chattingList)
+                        foreach(var v in Server.chattingList)
                         {
                             if (count != 0)
                                 rooms += "," + v.RoomName;
                             else
                                 rooms += v.RoomName;
-                            Console.WriteLine("방명:"+v.RoomName);
-                            Console.Write("참가자들:"+v.NicNames);
+                           // Console.WriteLine("방명:"+v.RoomName);
+                          //  Console.Write("참가자들:"+v.NicNames);
                             count++;
                         }
-                        Console.WriteLine();
-                        Program.Broadcast("방 목록:" + rooms + ";;", ClientNickName, true);
+                      //  Console.WriteLine();
+                        Server.Broadcast("방 목록:" + rooms + ";;", ClientNickName, true);
                     }
 
                 }
                 if(receivestr.Contains("접속종료합니다"))
                 {                                                                                                                             
-                            Program.clientList.Remove(ClientNickName);
+                            Server.clientList.Remove(ClientNickName);
                         string members = "";
-                        for(int i=0;i< Program.chattingList.Count;i++)
+                        for(int i=0;i < Server.chattingList.Count;i++)
                         {
-                            if(Program.chattingList[i].NicNames.Contains(ClientNickName))
+                            if (Server.chattingList[i].NicNames.Contains(ClientNickName))
                             {
-                                Program.chattingList[i].NicNames.Replace(ClientNickName, "");
-                                if (Program.chattingList[i].NicNames.Contains(",,"))
-                                    Program.chattingList[i].NicNames.Replace(",,", ",");
-                                if (Program.chattingList[i].NicNames.IndexOf(",") == 1)
-                                    Program.chattingList[i].NicNames.Substring(1);
-                                if (Program.chattingList[i].NicNames.IndexOf(",") == Program.chattingList[i].NicNames.Length - 1)
-                                    Program.chattingList[i].NicNames=Program.chattingList[i].NicNames.Remove(Program.chattingList[i].NicNames.Length - 1);
+                                Server.chattingList[i].NicNames.Replace(ClientNickName, "");
+                                if (Server.chattingList[i].NicNames.Contains(",,"))
+                                    Server.chattingList[i].NicNames.Replace(",,", ",");
+                                if (Server.chattingList[i].NicNames.IndexOf(",") == 1)
+                                    Server.chattingList[i].NicNames.Substring(1);
+                                if (Server.chattingList[i].NicNames.IndexOf(",") == Server.chattingList[i].NicNames.Length - 1)
+                                    Server.chattingList[i].NicNames = Server.chattingList[i].NicNames.Remove(Server.chattingList[i].NicNames.Length - 1);
                             }
                         }
-                        members = Program.GetMember();
-                        Console.WriteLine(ClientNickName+"님이 접속 종료했습니다");
-                        Program.Broadcast("접속 인원:" + members + "::", ClientNickName, true);
+                        members = Server.GetMember();
+                      //  Console.WriteLine(ClientNickName+"님이 접속 종료했습니다");
+                        Server.Broadcast("접속 인원:" + members + "::", ClientNickName, true);
                     }
                 if(receivestr.Contains("방을 삭제합니다"))
                     {
@@ -172,21 +171,21 @@ namespace chatServer
                         string roomName = receivestr.Remove(lastIndex);
                         string roomList = "";
                         
-                        for (int i = 0; i < Program.chattingList.Count; i++)
+                        for (int i = 0; i < Server.chattingList.Count; i++)
                         {
                        
-                            if (Program.chattingList[i].RoomName==roomName)
+                            if (Server.chattingList[i].RoomName==roomName)
                             {
-                                Program.chattingList.RemoveAt(i);
+                                Server.chattingList.RemoveAt(i);
                                 continue;
                             }
                             if(roomList!="")
-                                roomList += ","+Program.chattingList[i].RoomName;
+                                roomList += "," + Server.chattingList[i].RoomName;
                             else
-                                roomList += Program.chattingList[i].RoomName;
+                                roomList += Server.chattingList[i].RoomName;
 
                         }
-                        Program.Broadcast("방 목록:" + roomList + ";;", ClientNickName, true);
+                        Server.Broadcast("방 목록:" + roomList + ";;", ClientNickName, true);
 
 
                     }

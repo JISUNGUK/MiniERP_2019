@@ -613,7 +613,7 @@ namespace MiniERP.View
             {
                 Messagedao = new MessageDAO();
                 readData = "채팅 서버 연결중...";
-                client.Connect("192.168.0.6", 3333);//서버 접속
+                client.Connect("192.168.0.8", 3333);//서버 접속
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
@@ -649,42 +649,7 @@ namespace MiniERP.View
             Messagedao.SendChatMessage(message.Text, roomList);
             message.Text = "";
             }
-            //if(currentfileName!="")
-            //{
-
-            //    try
-            //    {
-            //        using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
-            //        {
-            //            using (var binaryReader = new BinaryReader(fileStream))
-            //            {
-            //                var _sendingBuffer = new byte[BUFFER_SIZE];
-
-            //                int length = (int)fileStream.Length;
-            //                int bytesRead = 0;
-
-            //                //Ensure we reached the end of the stream regardless of encoding 
-            //                while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
-            //                {
-            //                    bytesRead = binaryReader.Read(_sendingBuffer, 0, _sendingBuffer.Length);
-
-            //                    _socket.BeginSend(_sendingBuffer, 0, bytesRead, SocketFlags.None, SendFileCallback, null);
-
-            //                    //without this i received some messed up data 
-            //                    _sendingBuffer = new byte[BUFFER_SIZE];
-            //                }
-            //            }
-            //        }
-            //        fs.Close();
-            //    }
-            //    catch (Exception)
-            //    {
-
-            //        throw;
-            //    }
-
-
-            //}
+            
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
@@ -766,7 +731,12 @@ namespace MiniERP.View
                 tabSelcted_Index = tabControl1.SelectedIndex;
             }
             
-        } 
+        }
         #endregion
+
+        private void fileButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            toolTip1.Show("파일 용량은 100mb보다 작아야합니다", fileButton, fileButton.Location, 10);
+        }
     }   
 }

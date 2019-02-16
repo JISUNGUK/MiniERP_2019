@@ -57,10 +57,11 @@
     <Compile Include="Model\DAO\ClerkDAO.cs" />
     <Compile Include="Interface\IBusinessDAO.cs" />
     <Compile Include="Interface\IWarehouseDAO.cs" />
-    <Compile Include="Model\DAO\MessageDAO.cs" />
+    <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
+    <Compile Include="Model\DAO\Message\PostedData.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
-    <Compile Include="Model\DAO\win32.cs" />
+    <Compile Include="Model\DAO\Message\win32.cs" />
     <Compile Include="ToDoList_Detail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -391,6 +392,12 @@
     <None Include="Resources\MaxSizeIcon.png" />
     <None Include="Resources\CloseIcon.png" />
     <None Include="Resources\SerchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChattingServer\ChattingServer\ChattingServer.csproj">
+      <Project>{25aaac5e-fb90-4df6-abc4-804572d3e30e}</Project>
+      <Name>ChattingServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

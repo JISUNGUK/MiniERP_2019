@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace chatServer
+namespace ChattingServer
 {
-    class ChattingElement
+  public class ChattingElement
     {
         private string roomName;
         private string messageBody;
