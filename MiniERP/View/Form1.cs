@@ -1,4 +1,5 @@
-﻿using MiniERP.Model.DAO;
+﻿using ChattingServer.FTPbase;
+using MiniERP.Model.DAO;
 using MiniERP.View.BusinessManagement;
 using MiniERP.View.LogisticsManagement;
 using MiniERP.View.SalesPurchaseManagement;
@@ -6,11 +7,14 @@ using MiniERP.View.StockManagement;
 using MiniERP.View.TradeManagement;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.IO.Pipes;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -47,6 +51,13 @@ namespace MiniERP.View
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 80)]
             public string szTypeName;
         };
+
+        /// <summary>
+        /// 접속할 서버객체
+        /// </summary>
+        private IFTPServer Server = null;
+        List<UploadData> upload;//업로드할 파일들
+
         //메시지 구현부분 by 종완
 
 
@@ -602,8 +613,25 @@ namespace MiniERP.View
                 System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
                 fileImage.Image = (Image)myIcon.ToBitmap();
 
+                upload = new List<UploadData>();
+                foreach (string file in openfile1.FileNames)
+                {
+                    if ((new System.IO.FileInfo(file)).Length > 100000000)
+                    {
+                        MessageBox.Show("The file '" + file + "' size is more than 100MB, Please select a smaller file.", "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        continue;
+                    }
+                    UploadData data = new UploadData();
+                    data.Filename = file.Split('\\')[file.Split('\\').Length - 1];
+                    data.File = System.IO.File.ReadAllBytes(file);
+                    upload.Add(data);
+                }
+
             }
-        }
+
+
+                        
+            }
 
         private void access_Click(object sender, EventArgs e)
         {
@@ -622,6 +650,8 @@ namespace MiniERP.View
                 Messagedao.SendMessage(nicname.Text);
                 Thread thread = new Thread(getMsg);
                 thread.Start();
+                Thread ftptread = new Thread(FTPConnection);
+                ftptread.Start();
             }
             catch (Exception ee)
             {
@@ -649,7 +679,13 @@ namespace MiniERP.View
             Messagedao.SendChatMessage(message.Text, roomList);
             message.Text = "";
             }
-            
+
+        if(upload!=null)
+            {
+                Server.Upload(MachineInfo.GetJustIP(), upload);
+                RefreshList();
+            }
+
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
@@ -705,6 +741,34 @@ namespace MiniERP.View
 
         }
 
+        /// <summary>
+        /// 파일리스트의 리스트뷰를 더블클릭하면 발생
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ServerFileListView_DockChanged(object sender, EventArgs e)
+        {
+            if (ServerFileListView.SelectedItems.Count < 1)
+                return;
+
+            byte[] file;
+
+            Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file);
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.Title = "It saves the downloaded file.";
+            save.SupportMultiDottedExtensions = false;
+            save.Filter = "All|*.*";
+            save.FileName = ServerFileListView.SelectedItems[0].SubItems[2].Text;
+            if (save.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+            {
+                System.IO.File.WriteAllBytes(save.FileName, file);
+                MessageBox.Show(ServerFileListView.SelectedItems[0].SubItems[2].Text + "이 다운로드 되었습니다.", "FTP File 공유중", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            save.Dispose();
+
+        }
+
         private void rmRoom_Click(object sender, EventArgs e)
         {
             if (roomList.SelectedIndex != -1 && roomList.SelectedItem != "전체")
@@ -737,6 +801,114 @@ namespace MiniERP.View
         private void fileButton_MouseUp(object sender, MouseEventArgs e)
         {
             toolTip1.Show("파일 용량은 100mb보다 작아야합니다", fileButton, fileButton.Location, 10);
+        }
+        /// <summary>
+        /// 파일이 서버에 올려졌을때 서버의 파일목록을 최신화
+        /// </summary>
+        private void RefreshList()
+        {
+            if (ServerFileListView.InvokeRequired)
+            {
+                MethodInvoker invoker = new MethodInvoker(RefreshList);
+                ServerFileListView.Invoke(invoker);
+            }
+            else
+            {
+                try
+                {
+                    ServerFileListView.Items.Clear();
+                    ServerFileListView.SuspendLayout();
+                    List<ChattingServer.FTPbase.FileInfo> files = new List<ChattingServer.FTPbase.FileInfo>();
+                    Server.GetFiles(out files);
+
+                    foreach (ChattingServer.FTPbase.FileInfo file in files)
+                    {
+
+                        ListViewItem item = new ListViewItem((ServerFileListView.Items.Count + 1).ToString());
+                        item.SubItems.Add("FTP Server");
+                        item.SubItems.Add(file.Filename.Split('\\')[1]);
+                        //item.SubItems.Add(file.Size.ToString());
+                        ServerFileListView.Items.Add(item);
+                    }
+                    ServerFileListView.ResumeLayout();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void FTPConnection()
+        {
+            if (!GetConnection())//만약 ftpconnection이 되어있지않으면 ftp연결은 되지 않는다;
+                return;
+            else
+                MessageBox.Show("FTP서버와 연결이 잘 되었습니다");
+
+        }
+
+        /// <summary>
+        /// FTP서버에 접속!!
+        /// </summary>
+        private bool GetConnection()
+        {
+            bool connected = true;
+
+            SoapServerFormatterSinkProvider soap = new SoapServerFormatterSinkProvider();
+            BinaryServerFormatterSinkProvider binary = new BinaryServerFormatterSinkProvider();
+            soap.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
+            binary.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
+            soap.Next = binary;
+
+            Hashtable table = new Hashtable();
+            table.Add("port", "0");
+
+            TcpChannel channel = new TcpChannel(table, null, soap);
+            ChannelServices.RegisterChannel(channel, false);
+
+            try
+            {
+                Server = (IFTPServer)Activator.GetObject(typeof(IFTPServer), string.Format("tcp://{0}:{1}/FTPServerAPP/ftpserver.svr", "192.168.0.8", "8081"));
+            }
+            catch (Exception ex)
+            {
+                connected = false;
+                EventLogger.Logger(ex, "Client - GetConnection");
+            }
+
+            if (Server == null)
+            {
+                connected = false;
+                ChannelServices.UnregisterChannel(channel);
+                MessageBox.Show("Cannot Connect to the Server", "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return connected;
+            }
+
+            try
+            {
+                MiniERP.Model.DAO.PostedData handler = new MiniERP.Model.DAO.PostedData();
+                handler.RefreshList += new EventHandler(handler_RefreshList);
+
+                Server.PostedData += new PostedDataHandler(handler.Server_PostData);
+                Server.Update += new UpdateHandler(handler.Server_Update);
+
+                Server.Connect(MachineInfo.GetJustIP());
+
+            }
+            catch (Exception ex)
+            {
+                connected = false;
+                ChannelServices.UnregisterChannel(channel);
+                MessageBox.Show(ex.Message, "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return connected;
+
+        }
+        void handler_RefreshList(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please Refresh your list.", "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }   
 }

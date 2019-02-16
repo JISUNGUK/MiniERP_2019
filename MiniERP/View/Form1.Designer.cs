@@ -73,8 +73,12 @@ namespace MiniERP.View
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서분석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.ServerFileListView = new System.Windows.Forms.ListView();
+            this.Row = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ComputerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Filename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.filelabel = new System.Windows.Forms.Label();
-            this.fileList = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.fileImage = new System.Windows.Forms.PictureBox();
             this.lbl_RoomName = new System.Windows.Forms.Label();
@@ -128,8 +132,8 @@ namespace MiniERP.View
             // 
             this.splitContainer1.Panel2.Controls.Add(this.Panal_Main);
             this.splitContainer1.Panel2MinSize = 30;
-            this.splitContainer1.Size = new System.Drawing.Size(1777, 1202);
-            this.splitContainer1.SplitterDistance = 479;
+            this.splitContainer1.Size = new System.Drawing.Size(1640, 1202);
+            this.splitContainer1.SplitterDistance = 440;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -140,7 +144,7 @@ namespace MiniERP.View
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(479, 1202);
+            this.panel1.Size = new System.Drawing.Size(440, 1202);
             this.panel1.TabIndex = 0;
             // 
             // toolStrip1
@@ -151,7 +155,7 @@ namespace MiniERP.View
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(479, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(440, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -176,7 +180,7 @@ namespace MiniERP.View
             this.Panal_Main.Location = new System.Drawing.Point(0, 0);
             this.Panal_Main.Margin = new System.Windows.Forms.Padding(5);
             this.Panal_Main.Name = "Panal_Main";
-            this.Panal_Main.Size = new System.Drawing.Size(1292, 1202);
+            this.Panal_Main.Size = new System.Drawing.Size(1194, 1202);
             this.Panal_Main.TabIndex = 0;
             // 
             // tabControl1
@@ -186,7 +190,7 @@ namespace MiniERP.View
             this.tabControl1.Margin = new System.Windows.Forms.Padding(5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1292, 1160);
+            this.tabControl1.Size = new System.Drawing.Size(1194, 1160);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -204,7 +208,7 @@ namespace MiniERP.View
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1292, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1194, 42);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -470,8 +474,8 @@ namespace MiniERP.View
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.AutoScroll = true;
+            this.splitContainer2.Panel2.Controls.Add(this.ServerFileListView);
             this.splitContainer2.Panel2.Controls.Add(this.filelabel);
-            this.splitContainer2.Panel2.Controls.Add(this.fileList);
             this.splitContainer2.Panel2.Controls.Add(this.label4);
             this.splitContainer2.Panel2.Controls.Add(this.fileImage);
             this.splitContainer2.Panel2.Controls.Add(this.lbl_RoomName);
@@ -492,10 +496,48 @@ namespace MiniERP.View
             this.splitContainer2.Panel2.Controls.Add(this.memberList);
             this.splitContainer2.Panel2.Controls.Add(this.roomName);
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel2_Paint);
-            this.splitContainer2.Size = new System.Drawing.Size(2448, 1202);
-            this.splitContainer2.SplitterDistance = 1777;
+            this.splitContainer2.Size = new System.Drawing.Size(2262, 1202);
+            this.splitContainer2.SplitterDistance = 1640;
             this.splitContainer2.SplitterWidth = 6;
             this.splitContainer2.TabIndex = 3;
+            // 
+            // ServerFileListView
+            // 
+            this.ServerFileListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Row,
+            this.ComputerName,
+            this.Filename,
+            this.Size});
+            this.ServerFileListView.FullRowSelect = true;
+            this.ServerFileListView.GridLines = true;
+            this.ServerFileListView.Location = new System.Drawing.Point(579, 178);
+            this.ServerFileListView.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ServerFileListView.MultiSelect = false;
+            this.ServerFileListView.Name = "ServerFileListView";
+            this.ServerFileListView.Size = new System.Drawing.Size(255, 583);
+            this.ServerFileListView.TabIndex = 21;
+            this.ServerFileListView.UseCompatibleStateImageBehavior = false;
+            this.ServerFileListView.View = System.Windows.Forms.View.Details;
+            this.ServerFileListView.DoubleClick += new System.EventHandler(this.ServerFileListView_DockChanged);
+            // 
+            // Row
+            // 
+            this.Row.Text = "Row";
+            // 
+            // ComputerName
+            // 
+            this.ComputerName.Text = "Computer name";
+            this.ComputerName.Width = 209;
+            // 
+            // Filename
+            // 
+            this.Filename.Text = "Filename";
+            this.Filename.Width = 248;
+            // 
+            // Size
+            // 
+            this.Size.Text = "Size (KB)";
+            this.Size.Width = 124;
             // 
             // filelabel
             // 
@@ -506,21 +548,10 @@ namespace MiniERP.View
             this.filelabel.Size = new System.Drawing.Size(0, 21);
             this.filelabel.TabIndex = 20;
             // 
-            // fileList
-            // 
-            this.fileList.FormattingEnabled = true;
-            this.fileList.ItemHeight = 21;
-            this.fileList.Location = new System.Drawing.Point(410, 203);
-            this.fileList.Margin = new System.Windows.Forms.Padding(5);
-            this.fileList.Name = "fileList";
-            this.fileList.ScrollAlwaysVisible = true;
-            this.fileList.Size = new System.Drawing.Size(163, 130);
-            this.fileList.TabIndex = 19;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 203);
+            this.label4.Location = new System.Drawing.Point(575, 145);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 21);
@@ -720,7 +751,7 @@ namespace MiniERP.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(2448, 1202);
+            this.ClientSize = new System.Drawing.Size(2262, 1202);
             this.Controls.Add(this.splitContainer2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IsMdiContainer = true;
@@ -818,10 +849,14 @@ namespace MiniERP.View
         private Label lbl_RoomName;
         private ToolStripMenuItem 사원조회ToolStripMenuItem;
         private PictureBox fileImage;
-        private ListBox fileList;
         private Label label4;
         private Label filelabel;
         private ToolTip toolTip1;
+        private ListView ServerFileListView;
+        private ColumnHeader Row;
+        private ColumnHeader ComputerName;
+        private ColumnHeader Filename;
+        private ColumnHeader Size;
     }
 }
 

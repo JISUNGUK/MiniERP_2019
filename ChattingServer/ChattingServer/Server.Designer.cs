@@ -135,6 +135,7 @@
             this.Controls.Add(this.ServerIP);
             this.Name = "Server";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Server_FormClosing_1);
             this.ServerStatus.ResumeLayout(false);
             this.ServerStatus.PerformLayout();
             this.ResumeLayout(false);
