@@ -680,9 +680,12 @@ namespace MiniERP.View
             message.Text = "";
             }
 
-        if(upload!=null)
+        if(upload.Count>0)
             {
-                Server.Upload(MachineInfo.GetJustIP(), upload);
+                string folderName = "전체";
+                if (roomList.SelectedIndex != -1)
+                    folderName = roomList.SelectedItem.ToString();
+                Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
                 RefreshList();
             }
 
@@ -738,6 +741,7 @@ namespace MiniERP.View
 
             }
             lbl_RoomName.Text = roomList.SelectedItem.ToString();
+            RefreshList();
 
         }
 
@@ -752,8 +756,10 @@ namespace MiniERP.View
                 return;
 
             byte[] file;
-
-            Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file);
+            string folderName = "전체";
+            if (roomList.SelectedIndex != -1)
+                folderName = roomList.SelectedItem.ToString();
+            Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file, folderName);
 
             SaveFileDialog save = new SaveFileDialog();
             save.Title = "It saves the downloaded file.";
@@ -819,15 +825,18 @@ namespace MiniERP.View
                     ServerFileListView.Items.Clear();
                     ServerFileListView.SuspendLayout();
                     List<ChattingServer.FTPbase.FileInfo> files = new List<ChattingServer.FTPbase.FileInfo>();
-                    Server.GetFiles(out files);
+                    string folderName = "전체";
+                    if (roomList.SelectedIndex != -1)
+                        folderName = roomList.SelectedItem.ToString();
+                    Server.GetFiles(out files, folderName);
 
                     foreach (ChattingServer.FTPbase.FileInfo file in files)
                     {
 
                         ListViewItem item = new ListViewItem((ServerFileListView.Items.Count + 1).ToString());
                         item.SubItems.Add("FTP Server");
-                        item.SubItems.Add(file.Filename.Split('\\')[1]);
-                        //item.SubItems.Add(file.Size.ToString());
+                        item.SubItems.Add(file.Filename.Split('\\')[2]);
+                        item.SubItems.Add(file.Size.ToString());
                         ServerFileListView.Items.Add(item);
                     }
                     ServerFileListView.ResumeLayout();

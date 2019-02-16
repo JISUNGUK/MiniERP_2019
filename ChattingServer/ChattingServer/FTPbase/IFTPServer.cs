@@ -18,9 +18,9 @@ namespace ChattingServer.FTPbase
 
     public interface IFTPServer
     {
-        void Upload(string user, List<UploadData> files);
-        void Download(string user, string filename, out byte[] file);
-        void GetFiles(out List<FileInfo> files);
+        void Upload(string user, List<UploadData> files,string folderName);
+        void Download(string user, string filename, out byte[] file,string folderName);
+        void GetFiles(out List<FileInfo> files,string folderName);
         void Connect(string user);
         void Disconnect(string user);
         void PostData(string user, byte[] data);

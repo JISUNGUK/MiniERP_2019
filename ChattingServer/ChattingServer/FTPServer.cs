@@ -77,15 +77,15 @@ namespace ChattingServer
 
         public event PostedDataHandler PostedData;
 
-        public void Upload(string user,List<UploadData> files)
+        public void Upload(string user,List<UploadData> files,string folderName)
         {
-            if (!System.IO.Directory.Exists("Share"))
-                System.IO.Directory.CreateDirectory("Share");
+            if (!System.IO.Directory.Exists("Share\\"+ folderName))
+                System.IO.Directory.CreateDirectory("Share\\"+folderName);
 
             foreach (UploadData file in files)
             {
-                System.IO.File.WriteAllBytes("Share\\" + file.Filename, file.File);
-                AddLog(string.Format("> File: {0} has been uploaded at {1}. by {2}",file.Filename,DateTime.Now.ToShortTimeString(),user));
+                System.IO.File.WriteAllBytes("Share\\"+ folderName+"\\" + file.Filename, file.File);
+                AddLog(string.Format("> 파일: {0} 업로드 되었습니다. 업로드폴더 {1}. by {2}",file.Filename,DateTime.Now.ToShortTimeString(),user));
             }
 
             if (Update != null)
@@ -93,20 +93,20 @@ namespace ChattingServer
 
         }
 
-        public void Download(string user,string filename, out byte[] file)
+        public void Download(string user,string filename, out byte[] file,string folderName)
         {
             file = new byte[1];
 
-            if (!System.IO.Directory.Exists("Share"))
-                System.IO.Directory.CreateDirectory("Share");
+            if (!System.IO.Directory.Exists("Share\\"+folderName))
+                System.IO.Directory.CreateDirectory("Share\\" + folderName);
 
-            foreach (string the in System.IO.Directory.GetFiles("Share")) 
+            foreach (string the in System.IO.Directory.GetFiles("Share\\" + folderName)) 
             {
                 if(the.Contains(filename))
                 if (System.IO.File.Exists(the))
                 {
                     file = System.IO.File.ReadAllBytes(the);
-                    AddLog(string.Format("> File: {0} has been downloaded at {1}. by {2}",(new System.IO.FileInfo(the)).Name,DateTime.Now.ToShortTimeString(),user));
+                    AddLog(string.Format("> 파일: {0} 다운이 완료되었습니다 다운로드폴더: {1}. 다운로드한유저 {2}",(new System.IO.FileInfo(the)).Name,DateTime.Now.ToShortTimeString(),user));
                     break;
                 }
             }
@@ -115,15 +115,15 @@ namespace ChattingServer
                 file = null;
         }
 
-        public void GetFiles(out List<FileInfo> files)
+        public void GetFiles(out List<FileInfo> files, string folderName)
         {
 
-            if (!System.IO.Directory.Exists("Share"))
-                System.IO.Directory.CreateDirectory("Share");
+            if (!System.IO.Directory.Exists("Share\\"+ folderName))
+                System.IO.Directory.CreateDirectory("Share\\" + folderName);
             
             List<FileInfo > list = new List<FileInfo>();
 
-            foreach (string file in System.IO.Directory.GetFiles("Share"))
+            foreach (string file in System.IO.Directory.GetFiles("Share\\" + folderName))
             {
                 list.Add(new FileInfo(file, ((new System.IO.FileInfo(file).Length) / 1024)));
             }
