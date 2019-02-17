@@ -616,9 +616,9 @@ namespace MiniERP.View
                 upload = new List<UploadData>();
                 foreach (string file in openfile1.FileNames)
                 {
-                    if ((new System.IO.FileInfo(file)).Length > 100000000)
+                    if ((new System.IO.FileInfo(file)).Length > 2000000000)
                     {
-                        MessageBox.Show("The file '" + file + "' size is more than 100MB, Please select a smaller file.", "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("파일명: '" + file + "'은 사이즈가 2기가 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         continue;
                     }
                     UploadData data = new UploadData();
