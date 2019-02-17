@@ -680,7 +680,7 @@ namespace MiniERP.View
             message.Text = "";
             }
 
-        if(upload.Count>0)
+        if(upload.Count>0 && additionFile.Checked)
             {
                 string folderName = "전체";
                 if (roomList.SelectedIndex != -1)
