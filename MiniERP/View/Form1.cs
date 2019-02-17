@@ -642,6 +642,8 @@ namespace MiniERP.View
                 Messagedao = new MessageDAO();
                 readData = "채팅 서버 연결중...";
                 client.Connect("192.168.0.8", 3333);//서버 접속
+                access.Enabled = false;
+                nicname.Enabled = false;
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
@@ -658,8 +660,7 @@ namespace MiniERP.View
 
                 MessageBox.Show(ee.Message+"오류가 발생했습니다");
             }
-            access.Enabled = false;
-            nicname.Enabled = false;
+           
             //메시지 서버에 접속
         }
 

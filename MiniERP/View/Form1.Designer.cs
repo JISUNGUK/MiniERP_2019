@@ -797,10 +797,10 @@ namespace MiniERP.View
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
         {
-           
-        }
 
-        #endregion
+
+        }
+#endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel Panal_Main;
