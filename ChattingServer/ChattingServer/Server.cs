@@ -105,7 +105,7 @@ namespace ChattingServer
 
         private void StartMessage()
         {
-            var ipaddr = IPAddress.Parse("192.168.0.8");
+            var ipaddr = IPAddress.Parse("192.168.0.6");
             System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
             serverListener.Start();//서버가 대기하기 시작함
             Logger.Text+="채팅서버 가동>>>>";

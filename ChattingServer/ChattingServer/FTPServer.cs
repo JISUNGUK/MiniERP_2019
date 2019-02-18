@@ -90,6 +90,8 @@ namespace ChattingServer
 
             if (Update != null)
                 Update(user);
+            System.GC.Collect(0, GCCollectionMode.Forced);
+            System.GC.WaitForFullGCComplete();
 
         }
 
@@ -106,13 +108,15 @@ namespace ChattingServer
                 if (System.IO.File.Exists(the))
                 {
                     file = System.IO.File.ReadAllBytes(the);
-                    AddLog(string.Format("> 파일: {0} 다운이 완료되었습니다 다운로드폴더: {1}. 다운로드한유저 {2}",(new System.IO.FileInfo(the)).Name,DateTime.Now.ToShortTimeString(),user));
+                    AddLog(string.Format("> 파일: {0} 다운로드 중입니다 다운로드폴더: {1}. 다운로드 한유저 {2}",(new System.IO.FileInfo(the)).Name,DateTime.Now.ToShortTimeString(),user));
                     break;
                 }
             }
-
+            
             if (file.Length == 1)
                 file = null;
+            System.GC.Collect(0, GCCollectionMode.Forced);
+            System.GC.WaitForFullGCComplete();
         }
 
         public void GetFiles(out List<FileInfo> files, string folderName)
