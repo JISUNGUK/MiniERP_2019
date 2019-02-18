@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiniERP.Model.DAO
 {
-    class WarehouseDAO : Interface.IWarehouseDAO
+    class WarehouseDAO
     {
         List<Warehouse> warehouses;
 
@@ -18,7 +18,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                SqlDataReader sr = new DBConnection().ExecuteSelect(storedProcedureName);
+                SqlDataReader sr = new DBConnection().SelectQuery(storedProcedureName);
                 while(sr.Read())
                 {
                     warehouses.Add(new Warehouse
@@ -36,7 +36,7 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public bool InsertWarehouse(Warehouse warehouse)
+        public int InsertWarehouse(Warehouse warehouse)
         {
             string storedProcedureName = "InsertWarehouse";
 
@@ -49,7 +49,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                return con.ExcuteInsert(storedProcedureName, sqlParameters);
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
             }
             catch (Exception)
             {
@@ -62,7 +62,7 @@ namespace MiniERP.Model.DAO
             throw new NotImplementedException();
         }
 
-        public bool DeleteWarehouse(string warehouse_code)
+        public int DeleteWarehouse(string warehouse_code)
         {
             DBConnection con = new DBConnection();
             string storedProcedureName = "DeleteWarehouse";
@@ -72,7 +72,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                return con.ExecuteUpdateOrDelete(storedProcedureName, sqlParameters);
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
             }
             catch (Exception)
             {

@@ -19,7 +19,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                SqlDataReader sr = new DBConnection().ExecuteSelect(storedProcedureName);
+                SqlDataReader sr = new DBConnection().ExecuteSelect(storedProcedureName,null);
                 while (sr.Read())
                 {
                     Byte[] byted = StrToByteArray(sr["Clerk_password"].ToString());
@@ -45,7 +45,7 @@ namespace MiniERP.Model.DAO
             return encoding.GetBytes(strValue);
         }
 
-        public bool InsertClerk(Clerk clerk)
+        public int InsertClerk(Clerk clerk)
         {
             string storedProcedureName = "InsertClerk";
 
@@ -59,7 +59,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                return con.ExcuteInsert(storedProcedureName, sqlParameters);
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
             }
             catch (Exception)
             {
@@ -72,7 +72,7 @@ namespace MiniERP.Model.DAO
             throw new NotImplementedException();
         }
 
-        public bool DeleteClerk(string clerk_code)
+        public int DeleteClerk(string clerk_code)
         {
             DBConnection con = new DBConnection();
             string storedProcedureName = "DeleteClerk";
@@ -82,7 +82,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                return con.ExecuteUpdateOrDelete(storedProcedureName, sqlParameters);
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
             }
             catch (Exception)
             {

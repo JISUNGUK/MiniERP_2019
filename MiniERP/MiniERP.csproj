@@ -56,8 +56,6 @@
   <ItemGroup>
     <Compile Include="Model\DAO\BusinessDAO.cs" />
     <Compile Include="Model\DAO\ClerkDAO.cs" />
-    <Compile Include="Interface\IBusinessDAO.cs" />
-    <Compile Include="Interface\IWarehouseDAO.cs" />
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
@@ -262,6 +260,7 @@
     <Compile Include="VO\Business.cs" />
     <Compile Include="VO\Clerk.cs" />
     <Compile Include="VO\Ordered.cs" />
+    <Compile Include="VO\SampleOrder.cs" />
     <Compile Include="VO\Warehouse.cs" />
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
@@ -384,6 +383,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Interface\" />
     <Folder Include="View\AccountingManagement\" />
     <Folder Include="View\ProductionManagement\" />
   </ItemGroup>

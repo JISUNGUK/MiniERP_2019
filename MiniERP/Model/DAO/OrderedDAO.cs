@@ -25,7 +25,7 @@ namespace MiniERP.Model.DAO
             ordereds.Clear();
 
             DBConnection conn = new DBConnection();
-            SqlDataReader reader = conn.QuerrySelect("select * from ordered");
+            SqlDataReader reader = conn.SelectQuery("select * from ordered");
 
             while (reader.Read())
             {
@@ -35,10 +35,34 @@ namespace MiniERP.Model.DAO
 
                 ordereds.Add(order);
             }
-
+            conn.Close();
             return ordereds;
         }
 
+        public List<SampleOrder> SelectSampleOrdered(string order_Code)
+        {
+            List<SampleOrder> sampleOrders = new List<SampleOrder>();
+
+            DBConnection conn = new DBConnection();
+            SqlParameter[] sqlParameter = { new SqlParameter("@Order_code", order_Code) };
+
+            SqlDataReader reader = conn.ExecuteSelect("GET_ORDER", sqlParameter);
+            while (reader.Read()) 
+            {
+                SampleOrder sample = new SampleOrder();
+
+                sample.Order_Code = order_Code;
+                sample.Item_Code = reader[0].ToString();
+                sample.Item_Name = reader[1].ToString();
+                sample.Item_Count = Int32.Parse(reader[2].ToString());
+                sample.Item_Wrote_Fee = Int32.Parse(reader[3].ToString());
+                
+
+                sampleOrders.Add(sample);
+            }
+
+            return sampleOrders;
+        }
         //abstract public void InsertOrdered();
         //abstract public void DeleteOrdered();
     }

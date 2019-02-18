@@ -82,7 +82,7 @@ namespace MiniERP.View.StockManagement
                         Warehouse_standard = standard
                     };
 
-                    if (new WarehouseDAO().InsertWarehouse(wh))
+                    if (new WarehouseDAO().InsertWarehouse(wh) != -1)
                     {
                         MessageBox.Show("새로운 창고(공장)을 등록했습니다.");
                         this.Close();
