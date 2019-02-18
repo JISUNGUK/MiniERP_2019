@@ -73,10 +73,6 @@ namespace MiniERP.Model
         {
             SqlConnection sqlConnection = OpenSqlConnection();
             SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, sqlParameters);
-            if (sqlParameters != null)
-            {
-                sqlCommand.Parameters.AddRange(sqlParameters);
-            }
 
             try
             {
