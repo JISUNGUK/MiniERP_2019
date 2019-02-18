@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MiniERP.View.TradeManagement
+namespace MiniERP.View.SalesPurchaseManagement
 {
     public partial class Frm_SellBuyInsert : Form
     {
