@@ -32,7 +32,7 @@ namespace MiniERP.View
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
         private string currentfileName;
         string readData = null;
-        private string serverip="192.168.0.8";
+        private string serverip="192.168.0.6";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
 
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
