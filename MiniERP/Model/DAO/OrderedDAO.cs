@@ -35,7 +35,7 @@ namespace MiniERP.Model.DAO
 
                 ordereds.Add(order);
             }
-
+            conn.Close();
             return ordereds;
         }
 

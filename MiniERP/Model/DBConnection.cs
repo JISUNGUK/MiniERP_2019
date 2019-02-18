@@ -52,6 +52,15 @@ namespace MiniERP.Model
 
             return sqlCommand;
         }
+
+        /// <summary>
+        /// DB연결객체에 대한 연결을 닫은 후 리소스를 해제합니다.
+        /// </summary>
+        public void Close()
+        {
+            con.Close();
+            con.Dispose();
+        }
         #endregion
 
         #region 실행
@@ -62,26 +71,23 @@ namespace MiniERP.Model
         /// <returns>Table의 모든 내용을 SqlDataReader객체로 반환합니다.</returns>
         public SqlDataReader ExecuteSelect(string storeProcedureName, SqlParameter[] sqlParameters)
         {
-            SqlDataReader sqlDataReader;
-            using (SqlConnection sqlConnection = OpenSqlConnection())
+            SqlConnection sqlConnection = OpenSqlConnection();
+            SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, sqlParameters);
+            if (sqlParameters != null)
             {
-                SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, sqlParameters);
-                if (sqlParameters != null)
-                {
-                    sqlCommand.Parameters.AddRange(sqlParameters);
-                }
-
-                try
-                {
-                    sqlDataReader = sqlCommand.ExecuteReader();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+                sqlCommand.Parameters.AddRange(sqlParameters);
             }
-            return sqlDataReader;
+
+            try
+            {
+                return sqlCommand.ExecuteReader();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+
 
         /// <summary>
         /// 저장된 프로시저를 실행합니다. 영향받은 행의 갯수만 반환합니다.
@@ -123,15 +129,14 @@ namespace MiniERP.Model
         public SqlDataReader SelectQuery(string query)
         {
             SqlDataReader sqlDataReader;
-            using (SqlConnection sqlConnection = OpenSqlConnection())
-            {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandType = System.Data.CommandType.Text;
-                sqlCommand.CommandText = query;
+            SqlConnection sqlConnection = OpenSqlConnection();
 
-                sqlDataReader = sqlCommand.ExecuteReader();
-            }
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandType = System.Data.CommandType.Text;
+            sqlCommand.CommandText = query;
+
+            sqlDataReader = sqlCommand.ExecuteReader();
 
             try
             {
@@ -175,7 +180,7 @@ namespace MiniERP.Model
             }
 
             return result;
-        } 
+        }
         #endregion
     }
 }
