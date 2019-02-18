@@ -17,8 +17,9 @@ namespace MiniERP.Model
             con = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
 
+        #region 설정
         /// <summary>
-        /// DB연결이 닫혀있거나 끊어져 있을 경우 다시 연결합니다.
+        /// 열려있는 DB연결객체를 반환합니다.
         /// </summary>
         /// <returns>DB에 연결된 SqlConnection객체(con)를 반환합니다.</returns>
         private SqlConnection OpenSqlConnection()
@@ -31,176 +32,150 @@ namespace MiniERP.Model
         }
 
         /// <summary>
-        /// Table에 대하여 수행할 SqlCommand를 반환합니다.
+        /// SqlCommand 객체를 저장프로시저타입으로 설정 후 반환합니다.
         /// </summary>
         /// <param name="sqlConnection">SqlConnection 객체입니다.</param>
         /// <param name="storedProcedureName">수행할 저장프로시저의 이름입니다.</param>
         /// <param name="sqlParameters">수행할 저장프로시저에 필요한 파라메터입니다.</param>
         /// <param name="sqlTransaction">SqlCommand가 실행될 SqlTransaction입니다.</param>
         /// <returns></returns>
-        private SqlCommand GetSqlCommand(SqlConnection sqlConnection, string storedProcedureName, SqlParameter[] sqlParameters, SqlTransaction sqlTransaction)
+        private SqlCommand GetSqlCommand(SqlConnection sqlConnection, string storedProcedureName, SqlParameter[] sqlParameters)
         {
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             sqlCommand.CommandText = storedProcedureName;
-            sqlCommand.Transaction = sqlTransaction;
-            sqlCommand.Parameters.AddRange(sqlParameters);
+            if (sqlParameters != null)
+            {
+                sqlCommand.Parameters.AddRange(sqlParameters);
+            }
 
             return sqlCommand;
         }
+        #endregion
 
+        #region 실행
         /// <summary>
-        /// Table의 내용을 읽어옵니다.
+        /// 저장된 프로시저의 결과를 읽어옵니다.
         /// </summary>
         /// <param name="storeProcedureName">수행할 저장프로시저의 이름입니다.</param>
         /// <returns>Table의 모든 내용을 SqlDataReader객체로 반환합니다.</returns>
-        public SqlDataReader ExecuteSelect(string storeProcedureName)
+        public SqlDataReader ExecuteSelect(string storeProcedureName, SqlParameter[] sqlParameters)
         {
-            SqlConnection sqlConnection = OpenSqlConnection();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            sqlCommand.CommandText = storeProcedureName;
+            SqlDataReader sqlDataReader;
+            using (SqlConnection sqlConnection = OpenSqlConnection())
+            {
+                SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, sqlParameters);
+                if (sqlParameters != null)
+                {
+                    sqlCommand.Parameters.AddRange(sqlParameters);
+                }
 
-            try
-            {
-                return sqlCommand.ExecuteReader();
+                try
+                {
+                    sqlDataReader = sqlCommand.ExecuteReader();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            return sqlDataReader;
         }
 
         /// <summary>
-        /// Querry로 select
-        /// </summary>
-        /// <param name="querry"></param>
-        /// <returns></returns>
-        public SqlDataReader QuerrySelect(string querry)
-        {
-            SqlConnection sqlConnection = OpenSqlConnection();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.CommandText = querry;
-
-            try
-            {
-                return sqlCommand.ExecuteReader();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        #region 수정될수있는 내용, 작성자: 조성호
-        // 굳이 bool 타입으로 해야할 이유있음?
-        // 어짜피 try ~catch로 오류반환 할거니 그걸로 확인하면 될거라고 생각하는데..
-
-        /// <summary>
-        /// Table에 Insert를 수행합니다.
+        /// 저장된 프로시저를 실행합니다. 영향받은 행의 갯수만 반환합니다.
         /// </summary>
         /// <param name="storedProcedureName">수행될 저장프로시저의 이름입니다.</param>
         /// <param name="sqlParameters">수행될 저장프로시저에 필요한 파라메터입니다.</param>
-        /// <returns>Insert작업이 성공하면 true, 그렇지 않으면 false를 반환합니다.</returns>
-        public bool ExcuteInsert(string storedProcedureName, SqlParameter[] sqlParameters)
+        /// <returns>프로시저 실행이 정상적으로 완료되면 영향받은 행의 갯수를 반환합니다.</returns>
+        public int ExecuteNonQuery(string storedProcedureName, SqlParameter[] sqlParameters)
         {
-            bool result = false;
+            int result;
 
-            SqlConnection sqlConnection = OpenSqlConnection();
-            SqlTransaction sqlTransaction = GetSqlTransaction(sqlConnection);
-
-            using (sqlTransaction)
+            using (SqlConnection sqlConnection = OpenSqlConnection())
             {
-                SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storedProcedureName, sqlParameters, sqlTransaction);
+                using (SqlTransaction tran = sqlConnection.BeginTransaction())
+                {
+                    SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storedProcedureName, sqlParameters);
+                    sqlCommand.Transaction = tran;
+                    try
+                    {
+                        result = sqlCommand.ExecuteNonQuery();
+                        tran.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        tran.Rollback();
+                        throw;
+                    }
+                }
+            }
 
-                try
-                {
-                    sqlCommand.ExecuteNonQuery();
-                    sqlTransaction.Commit();
-                    result = true;
-                }
-                catch (Exception)
-                {
-                    sqlTransaction.Rollback();
-                    throw;
-                }
-                return result;
+            return result;
+        }
+
+        /// <summary>
+        /// Query로 select 결과 읽어오기
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public SqlDataReader SelectQuery(string query)
+        {
+            SqlDataReader sqlDataReader;
+            using (SqlConnection sqlConnection = OpenSqlConnection())
+            {
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandType = System.Data.CommandType.Text;
+                sqlCommand.CommandText = query;
+
+                sqlDataReader = sqlCommand.ExecuteReader();
+            }
+
+            try
+            {
+                return sqlDataReader;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
         /// <summary>
-        /// Table에 Update 또는 Delete를 수행합니다.
+        /// Query로 DML 실행
         /// </summary>
-        /// <param name="storeProcedureName">수행될 저장프로시저의 이름입니다.</param>
-        /// <param name="sqlParameters">수행될 저장프로시저에 필요한 파라메터입니다.</param>
-        /// <returns>Update 또는 Delete가 정상적으로 수행되면 true, 그렇지 않으면 false를 반환합니다.</returns>
-        public bool ExecuteUpdateOrDelete(string storeProcedureName, SqlParameter[] sqlParameters)
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public int NonQuery(string query)
         {
-            bool result = false;
+            int result;
 
-            SqlConnection sqlConnection = OpenSqlConnection();
-            SqlTransaction sqlTransaction = GetSqlTransaction(sqlConnection);
-
-            using (sqlTransaction)
+            using (SqlConnection sqlConnection = OpenSqlConnection())
             {
-                SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, sqlParameters, sqlTransaction);
+                using (SqlTransaction tran = sqlConnection.BeginTransaction())
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.CommandType = System.Data.CommandType.Text;
+                    sqlCommand.CommandText = query;
 
-                try
-                {
-                    sqlCommand.ExecuteNonQuery();
-                    sqlTransaction.Commit();
-                    result = true;
-                }
-                catch (Exception)
-                {
-                    throw;
+                    try
+                    {
+                        result = sqlCommand.ExecuteNonQuery();
+                        tran.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        tran.Rollback();
+                        throw;
+                    }
                 }
             }
+
             return result;
-        }
-
-        // 수정한다면 이런식으로. 바뀌는건 없음.
-        // 기존 SqlCommand 메서드를 따라서 ExecuteNonquery 라는 이름으로 하면 어떨까 싶음
-        public bool ExecuteNonquery(string storeProcedureName, SqlParameter[] sqlParameters)
-        {
-            bool result = false;
-
-            SqlConnection sqlConnection = OpenSqlConnection();
-            SqlTransaction sqlTransaction = GetSqlTransaction(sqlConnection);
-
-            using (sqlTransaction)
-            {
-                SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, sqlParameters, sqlTransaction);
-
-                try
-                {
-                    sqlCommand.ExecuteNonQuery();
-                    sqlTransaction.Commit();
-                    result = true;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-            return result;
-        }
-
-
-        // 이거 필요함? 궁금해서 그럼.
-        /// <summary>
-        /// SqlConnection객체를 받아 SqlTransaction객체를 시작합니다.
-        /// </summary>
-        /// <param name="sqlConnection"></param>
-        /// <returns>SqlConnection객체를 받아 시작된 SqlTransaction객체를 반환합니다.</returns>
-        private SqlTransaction GetSqlTransaction(SqlConnection sqlConnection)
-        {
-            return sqlConnection.BeginTransaction();
-        }
+        } 
         #endregion
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiniERP.Model.DAO
 {
-    class BusinessDAO : Interface.IBusinessDAO
+    class BusinessDAO
     {
         List<Business> businesses;
 
@@ -18,7 +18,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                SqlDataReader sr = new DBConnection().ExecuteSelect(storedProcedureName);
+                SqlDataReader sr = new DBConnection().ExecuteSelect(storedProcedureName,null);
                 while (sr.Read())
                 {
                     businesses.Add(new Business
@@ -39,7 +39,7 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public bool InsertBusiness(Business business)
+        public int InsertBusiness(Business business)
         {
             string storedProcedureName = "InsertBusiness";
 
@@ -55,7 +55,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                return con.ExcuteInsert(storedProcedureName, sqlParameters);
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
             }
             catch (Exception)
             {
@@ -63,12 +63,12 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public bool UpdateBusiness()
+        public int UpdateBusiness()
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteBusiness(string business_code)
+        public int DeleteBusiness(string business_code)
         {
             string storedProcedureName = "DeleteBusiness";
 
@@ -79,7 +79,7 @@ namespace MiniERP.Model.DAO
 
             try
             {
-                return con.ExecuteUpdateOrDelete(storedProcedureName, sqlParameters);
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
             }
             catch (Exception)
             {

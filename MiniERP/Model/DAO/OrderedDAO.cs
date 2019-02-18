@@ -25,7 +25,7 @@ namespace MiniERP.Model.DAO
             ordereds.Clear();
 
             DBConnection conn = new DBConnection();
-            SqlDataReader reader = conn.QuerrySelect("select * from ordered");
+            SqlDataReader reader = conn.SelectQuery("select * from ordered");
 
             while (reader.Read())
             {

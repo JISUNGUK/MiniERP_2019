@@ -96,7 +96,7 @@ namespace MiniERP.View.BusinessManagement
                         Presenter = txtPresenter.Text
                     };
 
-                    if (new BusinessDAO().InsertBusiness(business))
+                    if (new BusinessDAO().InsertBusiness(business) != -1)
                     {
                         MessageBox.Show("새로운 거래처를 등록했습니다.");
                         this.Close();
