@@ -27,14 +27,15 @@ namespace MiniERP.View
         //메시지 구현 필요 변수 부분  
         public string[] bannWord = { "//", "[", "]", "접속종료합니다", "접속인원:", "만든 방명:", "$$$$", "방에 참가했습니다", "방정보:", "방에 메시지를 보냅니다", ":방의 주인은?", "방을 삭제합니다", "인원:" };
         TcpClient client = new TcpClient();
+       
         private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
         private string currentfileName;
         string readData = null;
+        private string serverip="192.168.0.8";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
 
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
-
         private string ownedRoom = "";
 
        private MessageDAO messagedao;
@@ -55,7 +56,7 @@ namespace MiniERP.View
         /// 접속할 서버객체
         /// </summary>
         private IFTPServer Server = null;
-        List<UploadData> upload;//업로드할 파일들
+       
 
         //메시지 구현부분 by 종완
 
@@ -589,46 +590,7 @@ namespace MiniERP.View
 
         private void fileButton_Click(object sender, EventArgs e)
         {
-            Bitmap oBitmap = null;
-
-
-
            
-            OpenFileDialog openfile1 = new OpenFileDialog();
-            DialogResult dr = openfile1.ShowDialog();
-            openfile1.Multiselect = true;
-            openfile1.Filter = "All files (*.*)|*.*";
-            openfile1.FilterIndex = 2;
-            openfile1.RestoreDirectory = true;
-            if (dr == DialogResult.OK)
-            {              
-                string filename = openfile1.FileName;
-                currentfileName = openfile1.FileName;
-                filelabel.Text = openfile1.SafeFileName;
-
-                //파일 아이콘을 갖고오는 부분
-                SHFILEINFO shinfo = new SHFILEINFO();
-                Win32.SHGetFileInfo(filename, 0, ref shinfo, (uint)System.Runtime.InteropServices.Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
-                System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
-                fileImage.Image = (Image)myIcon.ToBitmap();
-                
-                upload = new List<UploadData>();
-                foreach (string file in openfile1.FileNames)
-                {
-                    if ((new System.IO.FileInfo(file)).Length > 2000000000)
-                    {
-                        MessageBox.Show("파일명: '" + file + "'은 사이즈가 2기가 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        continue;
-                    }
-                    UploadData data = new UploadData();
-                    data.Filename = file.Split('\\')[file.Split('\\').Length - 1];
-                    data.File = System.IO.File.ReadAllBytes(file);
-                    upload.Add(data);
-                    
-                }
-                openfile1.Dispose();
-                additionFile.Checked = true;                
-            }
 
 
                         
@@ -640,9 +602,11 @@ namespace MiniERP.View
             //메시지 서버에 접속
             try
             {
+                
+               
                 Messagedao = new MessageDAO();
                 readData = "채팅 서버 연결중...";
-                client.Connect("192.168.0.6", 3333);//서버 접속
+                client.Connect(serverip, 3333);//서버 접속
                 access.Enabled = false;
                 nicname.Enabled = false;
                 Messagedao.Client = client;
@@ -655,6 +619,7 @@ namespace MiniERP.View
                 thread.Start();
                 Thread ftptread = new Thread(FTPConnection);
                 ftptread.Start();
+                
             }
             catch (Exception ee)
             {
@@ -679,16 +644,90 @@ namespace MiniERP.View
         if(!string.IsNullOrEmpty(message.Text))
             { 
             Messagedao.SendChatMessage(message.Text, roomList);
-            message.Text = "";
+                string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
+                if (roomList.SelectedIndex!=-1)
+                {                
+                roomtable[roomList.SelectedItem.ToString()] += date+ "<<자신 메시지:" + message.Text+Environment.NewLine;
+                
+                }
+                else
+                {
+                    roomtable["전체"] += date + "<<자신 메시지:" + message.Text + Environment.NewLine;
+                }
+                ChatContent.Text += date + "<<자신 메시지:" + message.Text + Environment.NewLine;
+                message.Text = "";
+
             }
 
         if(additionFile.Checked)
-            {               
-                string folderName = "전체";
-                if (roomList.SelectedIndex != -1)
-                    folderName = roomList.SelectedItem.ToString();
-                Server.Upload(MachineInfo.GetJustIP(), upload, folderName);                    
-                RefreshList();                
+            {
+                Bitmap oBitmap = null;
+
+
+                List<UploadData> upload = new List<UploadData>(); //업로드할 파일들
+
+                OpenFileDialog openfile1 = new OpenFileDialog();
+                DialogResult dr = openfile1.ShowDialog();
+                openfile1.Multiselect = true;
+                openfile1.Filter = "All files (*.*)|*.*";
+                openfile1.FilterIndex = 2;
+                openfile1.RestoreDirectory = true;
+               
+                if (dr == DialogResult.OK)
+                {
+                    string filename = openfile1.FileName;
+                    currentfileName = openfile1.FileName;
+                    filelabel.Text = openfile1.SafeFileName;
+
+                    //파일 아이콘을 갖고오는 부분
+                    
+                    SHFILEINFO shinfo = new SHFILEINFO();
+                    Win32.SHGetFileInfo(filename, 0, ref shinfo, (uint)System.Runtime.InteropServices.Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
+                    System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
+                    fileImage.Image = (Image)myIcon.ToBitmap();
+
+
+                    try
+                    {
+                        UploadData data = new UploadData();
+                        System.IO.FileInfo fileinfo=null;
+                        string folderName = "전체";
+                        foreach (string file in openfile1.FileNames)
+                        {
+                            fileinfo = new System.IO.FileInfo(file);
+                            if (fileinfo.Length > 2000000000)
+                            {
+                                MessageBox.Show("파일명: '" + file + "'은 사이즈가 2기가 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                continue;
+                            }
+
+                            data.Filename = file.Split('\\')[file.Split('\\').Length - 1];
+                            data.File = System.IO.File.ReadAllBytes(file);
+                            upload.Add(data);
+                            if (roomList.SelectedIndex != -1)
+                                folderName = roomList.SelectedItem.ToString();
+                            System.GC.ReRegisterForFinalize(data.File);
+                        }
+                        
+                        Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
+                        upload.Clear();
+                        Server.Disconnect(MachineInfo.GetJustIP());
+                        GetConnection();
+                        MessageBox.Show("성공적으로 파일을 업로드 했습니다");
+                      
+
+
+                    }
+                    catch (Exception)
+                    {
+
+                       
+                    }
+
+                }
+                              
+                RefreshList();
+               
             }
 
 
@@ -819,7 +858,7 @@ namespace MiniERP.View
 
         private void fileButton_MouseUp(object sender, MouseEventArgs e)
         {
-            toolTip1.Show("파일 용량은 2GB보다 작아야합니다", fileButton, fileButton.Location, 10);
+            
         }
         /// <summary>
         /// 파일이 서버에 올려졌을때 서버의 파일목록을 최신화
@@ -893,7 +932,7 @@ namespace MiniERP.View
 
             try
             {
-                Server = (IFTPServer)Activator.GetObject(typeof(IFTPServer), string.Format("tcp://{0}:{1}/FTPServerAPP/ftpserver.svr", "192.168.0.6", "8081"));
+                Server = (IFTPServer)Activator.GetObject(typeof(IFTPServer), string.Format("tcp://{0}:{1}/FTPServerAPP/ftpserver.svr", serverip, "8081"));
             }
             catch (Exception ex)
             {

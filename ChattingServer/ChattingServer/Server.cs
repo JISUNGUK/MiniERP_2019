@@ -64,7 +64,7 @@ namespace ChattingServer
             RemotingConfiguration.ApplicationName = "FTPServerAPP";
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(FTPServer), "ftpserver.svr", WellKnownObjectMode.Singleton);
 
-            Logger.Text += Environment.NewLine + "***** TCP Channel has been published... *****";
+            Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****";
 
         }
 
@@ -105,7 +105,7 @@ namespace ChattingServer
 
         private void StartMessage()
         {
-            var ipaddr = IPAddress.Parse("192.168.0.6");
+            var ipaddr = IPAddress.Parse("192.168.0.8");
             System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
             serverListener.Start();//서버가 대기하기 시작함
             Logger.Text+="채팅서버 가동>>>>";
@@ -209,7 +209,7 @@ namespace ChattingServer
                 {
                     NetworkStream ns = tcp.GetStream();
                     byte[] bytemsg = new byte[tcp.ReceiveBufferSize];
-                    if (!isServerMsg)//클라이언트가 보낸 메시지일때
+                    if (!isServerMsg&&item.Key.ToString() != clientNickName)//클라이언트가 보낸 메시지일때
                     {
                         bytemsg = Encoding.UTF8.GetBytes(clientNickName + "님의 메시지:" + msg);//메시지를 바이트배열로 저장
                         chattingList[0].MessageBody += clientNickName + "님의 메시지:" + msg + "\n";
@@ -251,7 +251,7 @@ namespace ChattingServer
                     {
                         NetworkStream ns = tcp.GetStream();
                         byte[] bytemsg = new byte[tcp.ReceiveBufferSize];
-                        if (!isServerMsg)//클라이언트가 보낸 메시지일때
+                        if (!isServerMsg && item.Key.ToString() != clientNickName)//클라이언트가 보낸 메시지일때
                         {
                             chattingElement.MessageBody += clientNickName + "님의 메시지:" + msg + "\n";
                             bytemsg = Encoding.UTF8.GetBytes("방명:" + chattingElement.RoomName + ">>>>" + clientNickName + "님의 메시지:" + msg);//메시지를 바이트배열로 저장
@@ -326,6 +326,7 @@ namespace ChattingServer
             if (MessageBox.Show("Are you sure ? ", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
             {
                 e.Cancel = true;
+                
             }
             else
             {

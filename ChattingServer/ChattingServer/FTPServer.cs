@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using ChattingServer.FTPbase;
@@ -90,8 +91,9 @@ namespace ChattingServer
 
             if (Update != null)
                 Update(user);
-            System.GC.Collect(0, GCCollectionMode.Forced);
-            System.GC.WaitForFullGCComplete();
+            files.Clear();
+            //System.GC.ReRegisterForFinalize(files);
+ 
 
         }
 
@@ -115,8 +117,7 @@ namespace ChattingServer
             
             if (file.Length == 1)
                 file = null;
-            System.GC.Collect(0, GCCollectionMode.Forced);
-            System.GC.WaitForFullGCComplete();
+           // System.GC.ReRegisterForFinalize(file);
         }
 
         public void GetFiles(out List<FileInfo> files, string folderName)
@@ -133,7 +134,7 @@ namespace ChattingServer
             }
 
             files = list;
-            
+            //System.GC.ReRegisterForFinalize(files);
         }
 
 

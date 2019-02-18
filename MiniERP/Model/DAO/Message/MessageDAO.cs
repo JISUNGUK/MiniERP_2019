@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace MiniERP.Model.DAO
 {
@@ -13,11 +14,13 @@ namespace MiniERP.Model.DAO
     {
         private NetworkStream network;
         private TcpClient client;
+        
         public string[] bannWord = { "//", "[", "]", "접속종료합니다", "접속인원:", "만든 방명:", "$$$$", "방에 참가했습니다", "방정보:", "방에 메시지를 보냅니다", ":방의 주인은?", "방을 삭제합니다", "인원:" };
 
         public NetworkStream Network { get => network; set => network = value; }
         public TcpClient Client { get => client; set => client = value; }
-
+        private ComboBox roomList;
+        private PopupNotifier popup;
         public MessageDAO()
         {
 
@@ -100,6 +103,7 @@ namespace MiniERP.Model.DAO
 
         public void GetMsg(string readData,Hashtable roomtable,ComboBox roomList,RichTextBox ChatContent)
         {
+            this.roomList = roomList;
             if (!readData.Contains("서버 메시지:"))
             {
                 string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + "\n";
@@ -110,6 +114,12 @@ namespace MiniERP.Model.DAO
                     string message = readData.Substring(indexOfseprate + 4);
                     roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
                     roomtable[roomname] += date + Environment.NewLine + ">>" + message + "\n";
+                    popup = new PopupNotifier();
+                    popup.Delay = 3000;
+                    popup.TitleText = "방:" + roomname + "메시지";
+                    popup.ContentText = message;
+                    popup.Click += Popup_Click;
+                    popup.Popup();
 
                     if (roomList.SelectedIndex != -1)
                     {
@@ -119,12 +129,11 @@ namespace MiniERP.Model.DAO
                             ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + message + "\n";
                             ChatContent.SelectionStart = ChatContent.TextLength;
                             ChatContent.ScrollToCaret();
-                            NotifyIcon notification = new NotifyIcon();
-                            notification.BalloonTipTitle = "방 이름:" + roomname;
-                            notification.BalloonTipText = "메시지:" + date.Remove(date.Length-3) + Environment.NewLine + ">>" + message;
-
+                             
+                            
                         }
                     }
+
                 }
                 else
                 {
@@ -133,19 +142,27 @@ namespace MiniERP.Model.DAO
                         ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;
                         ChatContent.SelectionStart = ChatContent.TextLength;
                         ChatContent.ScrollToCaret();
-                        NotifyIcon notification = new NotifyIcon();
-                        notification.BalloonTipTitle = "방 이름:" + "전체";
-                        notification.BalloonTipText = "메시지:" + date.Remove(date.Length - 3) + Environment.NewLine + ">>" +readData;
-                        notification.ShowBalloonTip(1000);
-                        notification.Visible = true;
+                       
+
                     }
                     roomtable["전체"] += date + Environment.NewLine + ">>" + readData + "\n";
+                    popup = new PopupNotifier();
+                    popup.Delay = 3000;
+                    popup.TitleText = "방:" + "전체"+"메시지";
+                    popup.ContentText = readData;
+                    popup.Click += Popup_Click;
+                    popup.Popup();
                 }
 
 
             }
         }
 
+        private void Popup_Click(object sender, EventArgs e)
+        {
+            roomList.SelectedItem = popup.TitleText.Remove(popup.TitleText.IndexOf("메시지")).Substring(2);
+            
+        }
 
         public void SendMessage(string message)
         {
