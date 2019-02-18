@@ -2,7 +2,6 @@
 using MiniERP.Model.DAO;
 using MiniERP.View.BusinessManagement;
 using MiniERP.View.LogisticsManagement;
-using MiniERP.View.SalesPurchaseManagement;
 using MiniERP.View.StockManagement;
 using MiniERP.View.TradeManagement;
 using System;
@@ -274,7 +273,7 @@ namespace MiniERP.View
                         tabChk = true; // 중복확인용 bool 타입
                         break;
                     }
-                case "판매/구매 조회":
+                case "진행중인 거래조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
                     panel_mdi.Name = "testno1";
@@ -285,7 +284,7 @@ namespace MiniERP.View
                     #endregion
 
                     #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
-                    Frm_SellBuyList selllist = new Frm_SellBuyList();
+                    TradeManagement.Frm_SellBuyList selllist = new TradeManagement.Frm_SellBuyList();
                     selllist.ControlBox = false; // 컨트롤 상자 없애기
                     selllist.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
                     selllist.MdiParent = this; // MDI 설정
@@ -375,7 +374,7 @@ namespace MiniERP.View
                     #endregion
 
                     #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
-                    Frm_TradeList treadelist = new Frm_TradeList();
+                    TradeManagement.Frm_TradeList treadelist = new TradeManagement.Frm_TradeList();
                     treadelist.ControlBox = false; // 컨트롤 상자 없애기
                     treadelist.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
                     treadelist.MdiParent = this; // MDI 설정

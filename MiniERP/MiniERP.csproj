@@ -236,11 +236,11 @@
     <Compile Include="View\BusinessManagement\Frm_OrderList.Designer.cs">
       <DependentUpon>Frm_OrderList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\TradeManagement\Frm_SellBuyList.cs">
+    <Compile Include="View\TradeManagement\Frm_TradeList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\TradeManagement\Frm_SellBuyList.Designer.cs">
-      <DependentUpon>Frm_SellBuyList.cs</DependentUpon>
+    <Compile Include="View\TradeManagement\Frm_TradeList.Designer.cs">
+      <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Frm_WarehouseSelect.cs">
       <SubType>Form</SubType>
@@ -250,11 +250,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\TradeManagement\Frm_TradeList.cs">
+    <Compile Include="View\TradeManagement\Frm_SellBuyList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\TradeManagement\Frm_TradeList.Designer.cs">
-      <DependentUpon>Frm_TradeList.cs</DependentUpon>
+    <Compile Include="View\TradeManagement\Frm_SellBuyList.Designer.cs">
+      <DependentUpon>Frm_SellBuyList.cs</DependentUpon>
     </Compile>
     <Compile Include="VO\Barcode_Module.cs" />
     <Compile Include="VO\Business.cs" />
@@ -348,8 +348,8 @@
     <EmbeddedResource Include="View\BusinessManagement\Frm_OrderList.resx">
       <DependentUpon>Frm_OrderList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\TradeManagement\Frm_SellBuyList.resx">
-      <DependentUpon>Frm_SellBuyList.cs</DependentUpon>
+    <EmbeddedResource Include="View\TradeManagement\Frm_TradeList.resx">
+      <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_WarehouseSelect.resx">
       <DependentUpon>Frm_WarehouseSelect.cs</DependentUpon>
@@ -364,8 +364,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\TradeManagement\Frm_TradeList.resx">
-      <DependentUpon>Frm_TradeList.cs</DependentUpon>
+    <EmbeddedResource Include="View\TradeManagement\Frm_SellBuyList.resx">
+      <DependentUpon>Frm_SellBuyList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
