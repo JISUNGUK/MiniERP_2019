@@ -26,7 +26,7 @@ namespace MiniERP.View.BusinessManagement
         {
             businesses.Clear();
             dataGridView1.DataSource = null;
-            businesses = new BusinessDAO().GetBusiness();
+            businesses = new BusinessDAO().GetBusiness(new Business());
             dataGridView1.DataSource = businesses;
             dataGridView1.Columns[0].HeaderText = "거래처코드";
             dataGridView1.Columns[1].HeaderText = "거래처명";
@@ -43,7 +43,7 @@ namespace MiniERP.View.BusinessManagement
 
         private void Frm_BusinessList_Load(object sender, EventArgs e)
         {
-            businesses = new BusinessDAO().GetBusiness();
+            businesses = new BusinessDAO().GetBusiness(new Business());
             dataGridView1.DataSource = businesses;
             dataGridView1.Columns[0].HeaderText = "거래처코드";
             dataGridView1.Columns[1].HeaderText = "거래처명";
@@ -82,14 +82,15 @@ namespace MiniERP.View.BusinessManagement
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            selectBusinesses = new List<Business>();
-            foreach (var item in businesses)
+            Business business = new Business
             {
-                if (item.Code.Contains(txtCode.Text) && item.Name.Contains(txtName.Text) && item.Tel.Contains(txtTel.Text) && item.Email.Contains(txtEmail.Text) && item.Presenter.Contains(txtPresenter.Text))
-                {
-                    selectBusinesses.Add(item);
-                }
-            }
+                Code = txtCode.Text,
+                Name = txtName.Text,
+                Tel = txtTel.Text,
+                Email = txtEmail.Text,
+                Presenter = txtPresenter.Text
+            };
+            selectBusinesses = new BusinessDAO().GetBusiness(business);
             pnl_serchbox.Visible = false;
             dataGridView1.DataSource = selectBusinesses;
         }
@@ -114,14 +115,15 @@ namespace MiniERP.View.BusinessManagement
         {
             if (e.KeyCode == Keys.Enter)
             {
-                selectBusinesses = new List<Business>();
-                foreach (var item in businesses)
+                Business business = new Business
                 {
-                    if (item.Code.Contains(txtCodeOrName.Text) || item.Name.Contains(txtCodeOrName.Text))
-                    {
-                        selectBusinesses.Add(item);
-                    }
-                }
+                    Code = "",
+                    Name = txtCodeOrName.Text,
+                    Tel = "",
+                    Email = "",
+                    Presenter = ""
+                };
+                selectBusinesses = new BusinessDAO().GetBusiness(business);
                 dataGridView1.DataSource = selectBusinesses;
                 dataGridView1.Columns[0].HeaderText = "거래처코드";
                 dataGridView1.Columns[1].HeaderText = "거래처명";

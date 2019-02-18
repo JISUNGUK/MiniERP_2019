@@ -11,14 +11,25 @@ namespace MiniERP.Model.DAO
     {
         List<Business> businesses;
 
-        public List<Business> GetBusiness()
+        public List<Business> GetBusiness(Business business)
         {
             businesses = new List<Business>();
             string storedProcedureName = "GET_BUSINESS";
-
+            
             try
             {
-                SqlDataReader sr = new DBConnection().ExecuteSelect(storedProcedureName,null);
+                DBConnection con = new DBConnection();
+
+                SqlParameter[] sqlParameters = new SqlParameter[5]
+                {
+                    new SqlParameter("business_code", business.Code),
+                    new SqlParameter("business_name", business.Name),
+                    new SqlParameter("business_tel", business.Tel),
+                    new SqlParameter("business_email", business.Email),
+                    new SqlParameter("business_presenter", business.Presenter)
+                };
+
+                SqlDataReader sr = con.ExecuteSelect(storedProcedureName, sqlParameters);
                 while (sr.Read())
                 {
                     businesses.Add(new Business
@@ -28,9 +39,10 @@ namespace MiniERP.Model.DAO
                         Tel = sr["Business_tel"].ToString(),
                         Addr = sr["Business_addr"].ToString(),
                         Email = sr["Business_email"].ToString(),
-                        Presenter = sr["Business_presenter"].ToString(),
+                        Presenter = sr["Business_presenter"].ToString()
                     });
                 }
+                con.Close();
                 return businesses;
             }
             catch (Exception)

@@ -136,7 +136,7 @@
             this.txtCodeOrName.Name = "txtCodeOrName";
             this.txtCodeOrName.Size = new System.Drawing.Size(405, 23);
             this.txtCodeOrName.TabIndex = 67;
-            this.txtCodeOrName.Text = "거래처코드 또는 거래처명을 입력하세요.";
+            this.txtCodeOrName.Text = "거래처명을 입력하세요.";
             this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
             this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
             // 
@@ -175,7 +175,7 @@
             this.button11.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button11.Font = new System.Drawing.Font("굴림", 10F);
-            this.button11.Location = new System.Drawing.Point(320, 20);
+            this.button11.Location = new System.Drawing.Point(320, 24);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(25, 25);
             this.button11.TabIndex = 129;
