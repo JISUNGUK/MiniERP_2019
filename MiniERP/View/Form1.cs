@@ -611,7 +611,7 @@ namespace MiniERP.View
                 Win32.SHGetFileInfo(filename, 0, ref shinfo, (uint)System.Runtime.InteropServices.Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
                 System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
                 fileImage.Image = (Image)myIcon.ToBitmap();
-
+                
                 upload = new List<UploadData>();
                 foreach (string file in openfile1.FileNames)
                 {
@@ -624,8 +624,10 @@ namespace MiniERP.View
                     data.Filename = file.Split('\\')[file.Split('\\').Length - 1];
                     data.File = System.IO.File.ReadAllBytes(file);
                     upload.Add(data);
+                    
                 }
-
+                openfile1.Dispose();
+                additionFile.Checked = true;                
             }
 
 
@@ -680,15 +682,26 @@ namespace MiniERP.View
             message.Text = "";
             }
 
-        if(upload.Count>0 && additionFile.Checked)
-            {
+        if(additionFile.Checked)
+            {               
                 string folderName = "전체";
                 if (roomList.SelectedIndex != -1)
                     folderName = roomList.SelectedItem.ToString();
-                Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-                RefreshList();
+                Server.Upload(MachineInfo.GetJustIP(), upload, folderName);                    
+                RefreshList();                
             }
 
+
+        }
+
+        private void Server_PostedData(string user, byte[] data)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Server_posted(string fileName)
+        {
+            MessageBox.Show("서버에 파일:"+fileName+"을 모두 전송완료 하였습니다");
         }
 
         private void particiRoom_Click(object sender, EventArgs e)
@@ -806,13 +819,15 @@ namespace MiniERP.View
 
         private void fileButton_MouseUp(object sender, MouseEventArgs e)
         {
-            toolTip1.Show("파일 용량은 100mb보다 작아야합니다", fileButton, fileButton.Location, 10);
+            toolTip1.Show("파일 용량은 2GB보다 작아야합니다", fileButton, fileButton.Location, 10);
         }
         /// <summary>
         /// 파일이 서버에 올려졌을때 서버의 파일목록을 최신화
         /// </summary>
         private void RefreshList()
         {
+          
+
             if (ServerFileListView.InvokeRequired)
             {
                 MethodInvoker invoker = new MethodInvoker(RefreshList);
@@ -918,6 +933,12 @@ namespace MiniERP.View
         void handler_RefreshList(object sender, EventArgs e)
         {
             MessageBox.Show("Please Refresh your list.", "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            
+            RefreshList();
         }
     }   
 }

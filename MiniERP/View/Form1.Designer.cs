@@ -71,6 +71,7 @@ namespace MiniERP.View
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서분석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.Refresh = new System.Windows.Forms.Button();
             this.additionFile = new System.Windows.Forms.CheckBox();
             this.ServerFileListView = new System.Windows.Forms.ListView();
             this.Row = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -130,8 +131,10 @@ namespace MiniERP.View
             // 
             this.splitContainer1.Panel2.Controls.Add(this.Panal_Main);
             this.splitContainer1.Panel2MinSize = 30;
-            this.splitContainer1.Size = new System.Drawing.Size(887, 606);
-            this.splitContainer1.SplitterDistance = 237;
+
+            this.splitContainer1.Size = new System.Drawing.Size(912, 606);
+            this.splitContainer1.SplitterDistance = 243;
+
             this.splitContainer1.TabIndex = 1;
             // 
             // panel1
@@ -140,7 +143,9 @@ namespace MiniERP.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 606);
+
+            this.panel1.Size = new System.Drawing.Size(243, 606);
+
             this.panel1.TabIndex = 0;
             // 
             // toolStrip1
@@ -150,7 +155,9 @@ namespace MiniERP.View
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(237, 25);
+
+            this.toolStrip1.Size = new System.Drawing.Size(243, 25);
+
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -174,7 +181,9 @@ namespace MiniERP.View
             this.Panal_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panal_Main.Location = new System.Drawing.Point(0, 0);
             this.Panal_Main.Name = "Panal_Main";
-            this.Panal_Main.Size = new System.Drawing.Size(646, 606);
+
+            this.Panal_Main.Size = new System.Drawing.Size(665, 606);
+
             this.Panal_Main.TabIndex = 0;
             // 
             // tabControl1
@@ -183,7 +192,9 @@ namespace MiniERP.View
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(646, 582);
+
+            this.tabControl1.Size = new System.Drawing.Size(665, 582);
+
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -200,7 +211,9 @@ namespace MiniERP.View
             this.생산관리ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(646, 24);
+
+            this.menuStrip1.Size = new System.Drawing.Size(665, 24);
+
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -353,17 +366,21 @@ namespace MiniERP.View
             this.구매관리ToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.구매관리ToolStripMenuItem.Text = "판매/구매관리";
             // 
+
             // 진행중인거래ToolStripMenuItem
             // 
             this.진행중인거래ToolStripMenuItem.Name = "진행중인거래ToolStripMenuItem";
             this.진행중인거래ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.진행중인거래ToolStripMenuItem.Text = "진행중인 거래조회";
             this.진행중인거래ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
+
             // 
             // 거래조회ToolStripMenuItem
             // 
             this.거래조회ToolStripMenuItem.Name = "거래조회ToolStripMenuItem";
+
             this.거래조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+
             this.거래조회ToolStripMenuItem.Text = "거래 조회";
             this.거래조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvnet);
             // 
@@ -450,6 +467,7 @@ namespace MiniERP.View
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.AutoScroll = true;
+            this.splitContainer2.Panel2.Controls.Add(this.Refresh);
             this.splitContainer2.Panel2.Controls.Add(this.additionFile);
             this.splitContainer2.Panel2.Controls.Add(this.ServerFileListView);
             this.splitContainer2.Panel2.Controls.Add(this.filelabel);
@@ -473,10 +491,22 @@ namespace MiniERP.View
             this.splitContainer2.Panel2.Controls.Add(this.memberList);
             this.splitContainer2.Panel2.Controls.Add(this.roomName);
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel2_Paint);
-            this.splitContainer2.Size = new System.Drawing.Size(1224, 606);
-            this.splitContainer2.SplitterDistance = 887;
+
+            this.splitContainer2.Size = new System.Drawing.Size(1259, 606);
+            this.splitContainer2.SplitterDistance = 912;
             this.splitContainer2.TabIndex = 3;
             // 
+            // Refresh
+            // 
+            this.Refresh.Location = new System.Drawing.Point(286, 659);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(87, 23);
+            this.Refresh.TabIndex = 23;
+            this.Refresh.Text = "새로고침";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+
             // additionFile
             // 
             this.additionFile.AutoSize = true;
@@ -718,7 +748,9 @@ namespace MiniERP.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1224, 606);
+
+            this.ClientSize = new System.Drawing.Size(1259, 606);
+
             this.Controls.Add(this.splitContainer2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IsMdiContainer = true;
@@ -822,6 +854,7 @@ namespace MiniERP.View
         private ColumnHeader Filename;
         private ColumnHeader Size;
         private CheckBox additionFile;
+        private Button Refresh;
     }
 }
 

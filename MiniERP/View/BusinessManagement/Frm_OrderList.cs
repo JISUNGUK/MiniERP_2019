@@ -15,6 +15,8 @@ namespace MiniERP.View.BusinessManagement
     {
         private bool boxchk = true;
 
+        OrderedDAO ordered = new OrderedDAO();
+
         public Frm_OrderList()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace MiniERP.View.BusinessManagement
         private void Frm_OrderList_Load(object sender, EventArgs e)
         {
             // 테스트 모듈
-            OrderedDAO ordered = new OrderedDAO();
+            //OrderedDAO ordered = new OrderedDAO();
             dataGridView1.DataSource = ordered.SelectAllOrdered();
         }
 
@@ -50,6 +52,17 @@ namespace MiniERP.View.BusinessManagement
         private void textBox10_Click(object sender, EventArgs e)
         {
             textBox10.Clear();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show(dataGridView1.SelectedCells[0].Value.ToString());
+            string orderedCode = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            MessageBox.Show(orderedCode);
+
+            dataGridView1.DataSource = ordered.SelectSampleOrdered(orderedCode);
+            
+            //dataGridView1.DataSource= ordered.SelectSampleOrdered()
         }
     }
 }

@@ -90,6 +90,8 @@ namespace ChattingServer
 
             if (Update != null)
                 Update(user);
+            System.GC.Collect(0, GCCollectionMode.Forced);
+            System.GC.WaitForFullGCComplete();
 
         }
 
@@ -110,9 +112,11 @@ namespace ChattingServer
                     break;
                 }
             }
-
+            
             if (file.Length == 1)
                 file = null;
+            System.GC.Collect(0, GCCollectionMode.Forced);
+            System.GC.WaitForFullGCComplete();
         }
 
         public void GetFiles(out List<FileInfo> files, string folderName)

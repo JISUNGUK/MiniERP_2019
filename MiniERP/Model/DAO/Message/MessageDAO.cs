@@ -115,9 +115,13 @@ namespace MiniERP.Model.DAO
                     {
                         if (roomList.SelectedItem.ToString() == roomname)
                         {
+
                             ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + message + "\n";
                             ChatContent.SelectionStart = ChatContent.TextLength;
                             ChatContent.ScrollToCaret();
+                            NotifyIcon notification = new NotifyIcon();
+                            notification.BalloonTipTitle = "방 이름:" + roomname;
+                            notification.BalloonTipText = "메시지:" + date.Remove(date.Length-3) + Environment.NewLine + ">>" + message;
 
                         }
                     }
@@ -129,6 +133,11 @@ namespace MiniERP.Model.DAO
                         ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;
                         ChatContent.SelectionStart = ChatContent.TextLength;
                         ChatContent.ScrollToCaret();
+                        NotifyIcon notification = new NotifyIcon();
+                        notification.BalloonTipTitle = "방 이름:" + "전체";
+                        notification.BalloonTipText = "메시지:" + date.Remove(date.Length - 3) + Environment.NewLine + ">>" +readData;
+                        notification.ShowBalloonTip(1000);
+                        notification.Visible = true;
                     }
                     roomtable["전체"] += date + Environment.NewLine + ">>" + readData + "\n";
                 }
