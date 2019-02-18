@@ -641,7 +641,7 @@ namespace MiniERP.View
             {
                 Messagedao = new MessageDAO();
                 readData = "채팅 서버 연결중...";
-                client.Connect("192.168.0.8", 3333);//서버 접속
+                client.Connect("192.168.0.6", 3333);//서버 접속
                 access.Enabled = false;
                 nicname.Enabled = false;
                 Messagedao.Client = client;
@@ -879,7 +879,7 @@ namespace MiniERP.View
 
             try
             {
-                Server = (IFTPServer)Activator.GetObject(typeof(IFTPServer), string.Format("tcp://{0}:{1}/FTPServerAPP/ftpserver.svr", "192.168.0.8", "8081"));
+                Server = (IFTPServer)Activator.GetObject(typeof(IFTPServer), string.Format("tcp://{0}:{1}/FTPServerAPP/ftpserver.svr", "192.168.0.6", "8081"));
             }
             catch (Exception ex)
             {
