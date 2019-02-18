@@ -260,6 +260,7 @@
     <Compile Include="VO\Business.cs" />
     <Compile Include="VO\Clerk.cs" />
     <Compile Include="VO\Ordered.cs" />
+    <Compile Include="VO\SampleOrder.cs" />
     <Compile Include="VO\Warehouse.cs" />
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
