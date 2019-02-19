@@ -71,32 +71,6 @@ namespace MiniERP.View
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.견적서분석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.Refresh = new System.Windows.Forms.Button();
-            this.additionFile = new System.Windows.Forms.CheckBox();
-            this.ServerFileListView = new System.Windows.Forms.ListView();
-            this.Row = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ComputerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Filename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.filelabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.fileImage = new System.Windows.Forms.PictureBox();
-            this.lbl_RoomName = new System.Windows.Forms.Label();
-            this.particiRoom = new System.Windows.Forms.Button();
-            this.access = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nicname = new System.Windows.Forms.TextBox();
-            this.filel = new System.Windows.Forms.Label();
-            this.sendMsg = new System.Windows.Forms.Button();
-            this.message = new System.Windows.Forms.TextBox();
-            this.ChatContent = new System.Windows.Forms.RichTextBox();
-            this.rmRoom = new System.Windows.Forms.Button();
-            this.mkRoom = new System.Windows.Forms.Button();
-            this.roomList = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.memberList = new System.Windows.Forms.ListBox();
-            this.roomName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -109,9 +83,7 @@ namespace MiniERP.View
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileImage)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -450,267 +422,10 @@ namespace MiniERP.View
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.AutoScroll = true;
-            this.splitContainer2.Panel2.Controls.Add(this.Refresh);
-            this.splitContainer2.Panel2.Controls.Add(this.additionFile);
-            this.splitContainer2.Panel2.Controls.Add(this.ServerFileListView);
-            this.splitContainer2.Panel2.Controls.Add(this.filelabel);
-            this.splitContainer2.Panel2.Controls.Add(this.label4);
-            this.splitContainer2.Panel2.Controls.Add(this.fileImage);
-            this.splitContainer2.Panel2.Controls.Add(this.lbl_RoomName);
-            this.splitContainer2.Panel2.Controls.Add(this.particiRoom);
-            this.splitContainer2.Panel2.Controls.Add(this.access);
-            this.splitContainer2.Panel2.Controls.Add(this.label3);
-            this.splitContainer2.Panel2.Controls.Add(this.nicname);
-            this.splitContainer2.Panel2.Controls.Add(this.filel);
-            this.splitContainer2.Panel2.Controls.Add(this.sendMsg);
-            this.splitContainer2.Panel2.Controls.Add(this.message);
-            this.splitContainer2.Panel2.Controls.Add(this.ChatContent);
-            this.splitContainer2.Panel2.Controls.Add(this.rmRoom);
-            this.splitContainer2.Panel2.Controls.Add(this.mkRoom);
-            this.splitContainer2.Panel2.Controls.Add(this.roomList);
-            this.splitContainer2.Panel2.Controls.Add(this.label2);
-            this.splitContainer2.Panel2.Controls.Add(this.label1);
-            this.splitContainer2.Panel2.Controls.Add(this.memberList);
-            this.splitContainer2.Panel2.Controls.Add(this.roomName);
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel2_Paint);
             this.splitContainer2.Size = new System.Drawing.Size(1293, 606);
             this.splitContainer2.SplitterDistance = 936;
             this.splitContainer2.TabIndex = 3;
-            // 
-            // Refresh
-            // 
-            this.Refresh.Location = new System.Drawing.Point(286, 659);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(87, 23);
-            this.Refresh.TabIndex = 23;
-            this.Refresh.Text = "새로고침";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
-            // 
-            // additionFile
-            // 
-            this.additionFile.AutoSize = true;
-            this.additionFile.Location = new System.Drawing.Point(286, 628);
-            this.additionFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.additionFile.Name = "additionFile";
-            this.additionFile.Size = new System.Drawing.Size(96, 16);
-            this.additionFile.TabIndex = 22;
-            this.additionFile.Text = "파일첨부여부";
-            this.additionFile.UseVisualStyleBackColor = true;
-            // 
-            // ServerFileListView
-            // 
-            this.ServerFileListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Row,
-            this.ComputerName,
-            this.Filename,
-            this.Size});
-            this.ServerFileListView.FullRowSelect = true;
-            this.ServerFileListView.GridLines = true;
-            this.ServerFileListView.Location = new System.Drawing.Point(3, 702);
-            this.ServerFileListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ServerFileListView.MultiSelect = false;
-            this.ServerFileListView.Name = "ServerFileListView";
-            this.ServerFileListView.Size = new System.Drawing.Size(410, 336);
-            this.ServerFileListView.TabIndex = 21;
-            this.ServerFileListView.UseCompatibleStateImageBehavior = false;
-            this.ServerFileListView.View = System.Windows.Forms.View.Details;
-            this.ServerFileListView.DoubleClick += new System.EventHandler(this.ServerFileListView_DockChanged);
-            // 
-            // Row
-            // 
-            this.Row.Text = "Row";
-            // 
-            // ComputerName
-            // 
-            this.ComputerName.Text = "Computer name";
-            this.ComputerName.Width = 209;
-            // 
-            // Filename
-            // 
-            this.Filename.Text = "Filename";
-            this.Filename.Width = 248;
-            // 
-            // Size
-            // 
-            this.Size.Text = "Size (KB)";
-            this.Size.Width = 124;
-            // 
-            // filelabel
-            // 
-            this.filelabel.AutoSize = true;
-            this.filelabel.Location = new System.Drawing.Point(76, 659);
-            this.filelabel.Name = "filelabel";
-            this.filelabel.Size = new System.Drawing.Size(0, 12);
-            this.filelabel.TabIndex = 20;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 687);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "파일목록";
-            // 
-            // fileImage
-            // 
-            this.fileImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.fileImage.Location = new System.Drawing.Point(79, 618);
-            this.fileImage.Name = "fileImage";
-            this.fileImage.Size = new System.Drawing.Size(39, 39);
-            this.fileImage.TabIndex = 17;
-            this.fileImage.TabStop = false;
-            // 
-            // lbl_RoomName
-            // 
-            this.lbl_RoomName.AutoSize = true;
-            this.lbl_RoomName.Font = new System.Drawing.Font("굴림", 12F);
-            this.lbl_RoomName.Location = new System.Drawing.Point(87, 83);
-            this.lbl_RoomName.Name = "lbl_RoomName";
-            this.lbl_RoomName.Size = new System.Drawing.Size(130, 16);
-            this.lbl_RoomName.TabIndex = 16;
-            this.lbl_RoomName.Text = "방이름 여기 출력";
-            // 
-            // particiRoom
-            // 
-            this.particiRoom.Location = new System.Drawing.Point(270, 57);
-            this.particiRoom.Name = "particiRoom";
-            this.particiRoom.Size = new System.Drawing.Size(75, 23);
-            this.particiRoom.TabIndex = 15;
-            this.particiRoom.Text = "방참가";
-            this.particiRoom.UseVisualStyleBackColor = true;
-            this.particiRoom.Click += new System.EventHandler(this.particiRoom_Click);
-            // 
-            // access
-            // 
-            this.access.Location = new System.Drawing.Point(264, 2);
-            this.access.Name = "access";
-            this.access.Size = new System.Drawing.Size(63, 23);
-            this.access.TabIndex = 14;
-            this.access.Text = "접속";
-            this.access.UseVisualStyleBackColor = true;
-            this.access.Click += new System.EventHandler(this.access_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "사용자이름";
-            // 
-            // nicname
-            // 
-            this.nicname.Location = new System.Drawing.Point(90, 4);
-            this.nicname.Name = "nicname";
-            this.nicname.Size = new System.Drawing.Size(168, 21);
-            this.nicname.TabIndex = 12;
-            // 
-            // filel
-            // 
-            this.filel.AutoSize = true;
-            this.filel.Location = new System.Drawing.Point(10, 659);
-            this.filel.Name = "filel";
-            this.filel.Size = new System.Drawing.Size(61, 12);
-            this.filel.TabIndex = 11;
-            this.filel.Text = "첨부 파일:";
-            // 
-            // sendMsg
-            // 
-            this.sendMsg.Location = new System.Drawing.Point(286, 581);
-            this.sendMsg.Name = "sendMsg";
-            this.sendMsg.Size = new System.Drawing.Size(77, 23);
-            this.sendMsg.TabIndex = 9;
-            this.sendMsg.Text = "전송";
-            this.sendMsg.UseVisualStyleBackColor = true;
-            this.sendMsg.Click += new System.EventHandler(this.sendMsg_Click);
-            // 
-            // message
-            // 
-            this.message.Location = new System.Drawing.Point(13, 583);
-            this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(267, 21);
-            this.message.TabIndex = 8;
-            this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp);
-            // 
-            // ChatContent
-            // 
-            this.ChatContent.Location = new System.Drawing.Point(2, 198);
-            this.ChatContent.Name = "ChatContent";
-            this.ChatContent.Size = new System.Drawing.Size(361, 377);
-            this.ChatContent.TabIndex = 7;
-            this.ChatContent.Text = "";
-            // 
-            // rmRoom
-            // 
-            this.rmRoom.Enabled = false;
-            this.rmRoom.Location = new System.Drawing.Point(173, 57);
-            this.rmRoom.Name = "rmRoom";
-            this.rmRoom.Size = new System.Drawing.Size(90, 23);
-            this.rmRoom.TabIndex = 6;
-            this.rmRoom.Text = "방제거";
-            this.rmRoom.UseVisualStyleBackColor = true;
-            this.rmRoom.Visible = false;
-            this.rmRoom.Click += new System.EventHandler(this.rmRoom_Click);
-            // 
-            // mkRoom
-            // 
-            this.mkRoom.Location = new System.Drawing.Point(90, 57);
-            this.mkRoom.Name = "mkRoom";
-            this.mkRoom.Size = new System.Drawing.Size(77, 23);
-            this.mkRoom.TabIndex = 5;
-            this.mkRoom.Text = "방생성";
-            this.mkRoom.UseVisualStyleBackColor = true;
-            this.mkRoom.Click += new System.EventHandler(this.mkRoom_Click);
-            // 
-            // roomList
-            // 
-            this.roomList.FormattingEnabled = true;
-            this.roomList.Location = new System.Drawing.Point(90, 31);
-            this.roomList.Name = "roomList";
-            this.roomList.Size = new System.Drawing.Size(237, 20);
-            this.roomList.TabIndex = 4;
-            this.roomList.SelectedIndexChanged += new System.EventHandler(this.roomList_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "방 목록";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "사용자목록";
-            // 
-            // memberList
-            // 
-            this.memberList.FormattingEnabled = true;
-            this.memberList.ItemHeight = 12;
-            this.memberList.Location = new System.Drawing.Point(90, 116);
-            this.memberList.Name = "memberList";
-            this.memberList.ScrollAlwaysVisible = true;
-            this.memberList.Size = new System.Drawing.Size(127, 76);
-            this.memberList.TabIndex = 1;
-            // 
-            // roomName
-            // 
-            this.roomName.AutoSize = true;
-            this.roomName.Font = new System.Drawing.Font("굴림", 12F);
-            this.roomName.Location = new System.Drawing.Point(15, 83);
-            this.roomName.Name = "roomName";
-            this.roomName.Size = new System.Drawing.Size(61, 16);
-            this.roomName.TabIndex = 0;
-            this.roomName.Text = "방 이름";
             // 
             // Form1
             // 
@@ -739,11 +454,8 @@ namespace MiniERP.View
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fileImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -792,35 +504,9 @@ namespace MiniERP.View
         private System.Windows.Forms.ToolStripMenuItem 거래조회ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 사원등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
-        private System.Windows.Forms.Label filel;
-        private System.Windows.Forms.Button sendMsg;
-        private System.Windows.Forms.TextBox message;
-        private System.Windows.Forms.RichTextBox ChatContent;
-        private System.Windows.Forms.Button rmRoom;
-        private System.Windows.Forms.Button mkRoom;
-        private System.Windows.Forms.ComboBox roomList;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox memberList;
-        private System.Windows.Forms.Label roomName;
-        private System.Windows.Forms.Button access;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox nicname;
-        private System.Windows.Forms.Button particiRoom;
         private System.Windows.Forms.Timer timer1;
-        private Label lbl_RoomName;
         private ToolStripMenuItem 사원조회ToolStripMenuItem;
-        private PictureBox fileImage;
-        private Label label4;
-        private Label filelabel;
         private ToolTip toolTip1;
-        private ListView ServerFileListView;
-        private ColumnHeader Row;
-        private ColumnHeader ComputerName;
-        private ColumnHeader Filename;
-        private ColumnHeader Size;
-        private CheckBox additionFile;
-        private new Button Refresh;
     }
 }
 

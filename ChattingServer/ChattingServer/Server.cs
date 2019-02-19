@@ -65,7 +65,7 @@ namespace ChattingServer
             RemotingConfiguration.ApplicationName = "FTPServerAPP";
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(FTPServer), "ftpserver.svr", WellKnownObjectMode.Singleton);
 
-            Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****";
+            //Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****";
 
         }
 
@@ -107,74 +107,85 @@ namespace ChattingServer
         private void StartMessage()
         {
             var ipaddr = IPAddress.Parse(ipaddress);
-            System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
-            serverListener.Start();//서버가 대기하기 시작함
-           Logger.Text+="채팅서버 가동>>>>";
-            ChattingElement chattingAll = new ChattingElement();//전체 채팅방
-            chattingAll.RoomName = "전체";
-
-            chattingList.Add(chattingAll);//전체 사용자에게 전송되는 방,,,
-
-            for (; ; )
+            try
             {
-                var chatClientSocket = serverListener.AcceptTcpClient();//접속된 클라이언트 반환
-                string clientNickName = null;
-                if (chatClientSocket.Connected)
+                System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
+                serverListener.Start();
+                Logger.Text += "채팅서버 가동>>>>";
+                ChattingElement chattingAll = new ChattingElement();//전체 채팅방
+                chattingAll.RoomName = "전체";
+
+                chattingList.Add(chattingAll);//전체 사용자에게 전송되는 방,,,
+
+                for (; ; )
                 {
-                    var ns = chatClientSocket.GetStream();
-                    Byte[] byteFrom = new Byte[chatClientSocket.SendBufferSize];
-                    ns.Read(byteFrom, 0, chatClientSocket.SendBufferSize);
-                    int duplicateCount = 0;
-                    clientNickName = Encoding.UTF8.GetString(byteFrom);
-
-
-                    int index = clientNickName.IndexOf("\0");
-                    clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
-                    if (!clientList.Contains(clientNickName))
+                    var chatClientSocket = serverListener.AcceptTcpClient();//접속된 클라이언트 반환
+                    string clientNickName = null;
+                    if (chatClientSocket.Connected)
                     {
-                        clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                        //Logger.Text += clientNickName + "님이 접속했습니다";
-                        Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
-                        //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
+                        var ns = chatClientSocket.GetStream();
+                        Byte[] byteFrom = new Byte[chatClientSocket.SendBufferSize];
+                        ns.Read(byteFrom, 0, chatClientSocket.SendBufferSize);
+                        int duplicateCount = 0;
+                        clientNickName = Encoding.UTF8.GetString(byteFrom);
 
-                        string roomList = "";
-                        int count = 0;
-                        foreach (ChattingElement item in chattingList)
+
+                        int index = clientNickName.IndexOf("\0");
+                        clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
+                        ///Logger.Text += "접속을 감지했습니다";
+                        if (!clientList.Contains(clientNickName))
                         {
 
-                            if (count != 0)
-                                roomList += "," + item.RoomName;
-                            else
-                                roomList += item.RoomName;
-                            count++;
+                            clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
+                                                                             //Logger.Text += clientNickName + "님이 접속했습니다";
+                            Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
+                            //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
+
+                            string roomList = "";
+                            int count = 0;
+                            foreach (ChattingElement item in chattingList)
+                            {
+
+                                if (count != 0)
+                                    roomList += "," + item.RoomName;
+                                else
+                                    roomList += item.RoomName;
+                                count++;
+                            }
+                            string memberList = "";
+                            count = 0;
+                            foreach (DictionaryEntry v in clientList)
+                            {
+
+                                if (count != 0)
+                                    memberList += "," + v.Key;
+                                else
+                                    memberList += v.Key;
+                                count++;
+                            }
+
+
+                            Broadcast("접속 인원:" + memberList + "::", clientNickName, true);
+                            Broadcast("방 목록:" + roomList + ";;", clientNickName, true);
+                            ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
                         }
-                        string memberList = "";
-                        count = 0;
-                        foreach (DictionaryEntry v in clientList)
+                        else
                         {
-
-                            if (count != 0)
-                                memberList += "," + v.Key;
-                            else
-                                memberList += v.Key;
-                            count++;
+                            ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
+                            Unicast("해당 닉네임은 존재합니다 다른 이름으로 사용하세요", client, true);
+                           // Logger.Text += "해당 닉네임은 사용할 수 없습니다";
                         }
 
-
-                        Broadcast("접속 인원:" + memberList + "::", clientNickName, true);
-                        Broadcast("방 목록:" + roomList + ";;", clientNickName, true);
-                        ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
-                    }
-                    else
-                    {
-                        ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
-                        Unicast("해당 닉네임은 존재합니다 다른 이름으로 사용하세요", client, true);
-                        Logger.Text += "해당 닉네임은 사용할 수 없습니다";
                     }
 
                 }
-
             }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message);
+            }//서버가 대기하기 시작함
+           
         }
 
         public static string GetMember()
@@ -328,6 +339,7 @@ namespace ChattingServer
             {
                 e.Cancel = true;
                 this.Dispose();
+                
             }
             else
             {

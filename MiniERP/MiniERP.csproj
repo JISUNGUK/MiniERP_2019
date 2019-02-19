@@ -100,6 +100,12 @@
     <Compile Include="View\Frm_LoginBox.Designer.cs">
       <DependentUpon>Frm_LoginBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Frm_message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_message.Designer.cs">
+      <DependentUpon>Frm_message.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Frm_MPDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_LoginBox.resx">
       <DependentUpon>Frm_LoginBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_message.resx">
+      <DependentUpon>Frm_message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>

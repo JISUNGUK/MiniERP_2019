@@ -12,7 +12,6 @@ namespace MiniERP.View
 {
     public partial class Frm_LoginBox : Form
     {
-        int test2 = 0;
         private Form1 form1;
 
         public Frm_LoginBox(Form1 form1)
