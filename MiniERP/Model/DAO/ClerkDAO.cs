@@ -12,26 +12,34 @@ namespace MiniERP.Model.DAO
     {
         List<Clerk> clerks;
 
-        public List<Clerk> GetClerk()
+        public List<Clerk> GetClerk(Clerk clerk)
         {
             clerks = new List<Clerk>();
-            string storedProcedureName = "GET_Clerk";
+            string storedProcedureName = "GET_CLERK";
 
             try
             {
-                SqlDataReader sr = new DBConnection().ExecuteSelect(storedProcedureName,null);
+                DBConnection con = new DBConnection();
+
+                SqlParameter[] sqlParameters = new SqlParameter[2]
+                {
+                new SqlParameter("Clerk_name", clerk.Clerk_name),
+                new SqlParameter("Clerk_job", clerk.Clerk_job)
+                };
+
+                SqlDataReader sr = con.ExecuteSelect(storedProcedureName, sqlParameters);
                 while (sr.Read())
                 {
-                    Byte[] byted = StrToByteArray(sr["Clerk_password"].ToString());
-                    string password = Encoding.Unicode.GetString(byted);
-                    Clerk clerk = new Clerk();
-                    clerk.Clerk_code = sr["Clerk_code"].ToString();
-                    clerk.Clerk_name = sr["Clerk_name"].ToString();
-                    clerk.Clerk_job = sr["Clerk_job"].ToString();
-                    clerk.Clerk_password = password;
-                    clerks.Add(clerk);
+                    clerks.Add(new Clerk
+                    {
+                        Clerk_code = sr["Clerk_code"].ToString(),
+                        Clerk_name = sr["Clerk_name"].ToString(),
+                        Clerk_job = sr["Clerk_job"].ToString(),
+                        Clerk_password = sr["Clerk_password"].ToString()
+                    });
                 }
-                    return clerks;
+                con.Close();
+                return clerks;
             }
             catch (Exception)
             {
@@ -50,12 +58,12 @@ namespace MiniERP.Model.DAO
             string storedProcedureName = "InsertClerk";
 
             DBConnection con = new DBConnection();
-            byte[] password=StrToByteArray(clerk.Clerk_password);
-            SqlParameter[] sqlParameters = new SqlParameter[3];
+
+            SqlParameter[] sqlParameters = new SqlParameter[4];
             sqlParameters[0] = new SqlParameter("Clerk_code", clerk.Clerk_code);
             sqlParameters[1] = new SqlParameter("Clerk_name", clerk.Clerk_name);
             sqlParameters[2] = new SqlParameter("Clerk_job", clerk.Clerk_job);
-            sqlParameters[3] = new SqlParameter("Clerk_password", password);
+            sqlParameters[3] = new SqlParameter("Clerk_password", clerk.Clerk_password);
 
             try
             {
