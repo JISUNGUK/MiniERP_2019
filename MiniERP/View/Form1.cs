@@ -567,8 +567,7 @@ namespace MiniERP.View
                         network.Close();
 
                     }
-                    e.Cancel = false; // 폼 닫음
-                    Server.Disconnect(MachineInfo.GetJustIP());
+                    e.Cancel = false; // 폼 닫음                  
                     this.Close();
                     this.Dispose();
                     
