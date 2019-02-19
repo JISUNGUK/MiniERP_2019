@@ -30,6 +30,7 @@ namespace MiniERP.View
        
         private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
+        public static bool notify = false;
         private string currentfileName;
         string readData = null;
         private string serverip="192.168.0.6";
@@ -564,8 +565,21 @@ namespace MiniERP.View
             
         }
 
+
         #endregion
 
-        
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+                notify = false;
+            if(this.WindowState == FormWindowState.Normal)
+            {
+                notify = false;
+            }
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notify = true;
+            }
+        }
     }   
 }

@@ -113,24 +113,32 @@ namespace MiniERP.Model.DAO
                     string roomname = readData.Remove(indexOfseprate);
                     string message = readData.Substring(indexOfseprate + 4);
                     roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
-                    roomtable[roomname] += date + Environment.NewLine + ">>" + message + "\n";
+                    roomtable[roomname] += "\n"+ date + Environment.NewLine + ">>" + message + "\n";
+
+                    if(roomList.SelectedItem==roomname)
+                        View.Form1.notify = false;                    
+                    if (roomname !=roomList.SelectedItem)
+                        View.Form1.notify = true;
+                    if (MiniERP.View.Form1.notify)
+                    {
                     popup = new PopupNotifier();
-                    popup.Delay = 3000;
-                    popup.TitleText = "방:" + roomname + "메시지";
+                    popup.Delay = 1000;
+                    popup.TitleText = "방:" + roomname + "메시지//";
                     popup.ContentText = message;
                     popup.Click += Popup_Click;
                     popup.Popup();
-
+                    
+                    }
                     if (roomList.SelectedIndex != -1)
                     {
                         if (roomList.SelectedItem.ToString() == roomname)
                         {
 
-                            ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + message + "\n";
+                            ChatContent.Text = ChatContent.Text + "\n" + date +Environment.NewLine + ">>" + message + "\n";
                             ChatContent.SelectionStart = ChatContent.TextLength;
                             ChatContent.ScrollToCaret();
-                             
-                            
+                            View.Form1.notify = false;
+
                         }
                     }
 
@@ -145,17 +153,25 @@ namespace MiniERP.Model.DAO
                        
 
                     }
-                    roomtable["전체"] += date + Environment.NewLine + ">>" + readData + "\n";
-                    popup = new PopupNotifier();
-                    popup.Delay = 3000;
-                    popup.TitleText = "방:" + "전체"+"메시지";
-                    popup.ContentText = readData;
-                    popup.Click += Popup_Click;
-                    popup.Popup();
+                    roomtable["전체"] += "\n" + date + Environment.NewLine + ">>" + readData + "\n";
+                    if (roomList.SelectedItem == "전체")
+                        View.Form1.notify = false;
+                   if (roomList.SelectedItem!="전체")
+                       View.Form1.notify = true;
+                    if (MiniERP.View.Form1.notify)
+                    {
+                        popup = new PopupNotifier();
+                        popup.Delay = 1000;
+                        popup.TitleText = "방:" + "전체" + "메시지";
+                        popup.ContentText = readData;
+                        popup.Click += Popup_Click;
+                        popup.Popup();
+                    }
                 }
 
 
             }
+            
         }
 
         private void Popup_Click(object sender, EventArgs e)

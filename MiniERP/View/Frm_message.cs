@@ -543,6 +543,11 @@ namespace MiniERP.View
         {
            if(!nicname.Enabled)
                 messagedao.SendMessage("접속종료합니다");
+           if(Server!=null)
+            {
+                Server.Disconnect(serverip);
+            }
+           
         }
 
         private void message_KeyUp_1(object sender, KeyEventArgs e)
@@ -557,7 +562,7 @@ namespace MiniERP.View
         private void Frm_message_Load(object sender, EventArgs e)
         {
             messagedao = new MessageDAO();
-
+           
         }
     }
 }

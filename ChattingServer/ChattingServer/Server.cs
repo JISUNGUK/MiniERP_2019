@@ -345,5 +345,10 @@ namespace ChattingServer
                 e.Cancel = false;
             }
         }
+
+        private void Server_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
