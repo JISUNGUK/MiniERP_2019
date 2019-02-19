@@ -562,11 +562,8 @@ namespace MiniERP.View
                 {
                     if (network != null)
                     {
-                        Messagedao.SendMessage(nicname.Text + "접속종료합니다");
-                        //SendMessage(nicname.Text + "접속종료합니다");
+                        Messagedao.SendMessage(nicname.Text + "접속종료합니다");                    
                         client.Close();
-                        IAsyncResult ia;
-                        network.EndWrite(ia)
                         network.Close();
 
                     }
