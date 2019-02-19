@@ -562,14 +562,12 @@ namespace MiniERP.View
                 {
                     if (network != null)
                     {
-                        Messagedao.SendMessage(nicname.Text + "접속종료합니다");
-                        //SendMessage(nicname.Text + "접속종료합니다");
+                        Messagedao.SendMessage(nicname.Text + "접속종료합니다");                    
                         client.Close();
                         network.Close();
 
                     }
-                    e.Cancel = false; // 폼 닫음
-                    Server.Disconnect(MachineInfo.GetJustIP());
+                    e.Cancel = false; // 폼 닫음                  
                     this.Close();
                     this.Dispose();
                     
@@ -721,10 +719,10 @@ namespace MiniERP.View
 
 
                     }
-                    catch (Exception)
+                    catch (SocketException soed)
                     {
+                        MessageBox.Show(soed.Message+"연결에서 문제가 생겼습니다");
 
-                       
                     }
 
                 }
