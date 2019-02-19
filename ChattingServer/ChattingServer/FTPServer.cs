@@ -50,7 +50,7 @@ namespace ChattingServer
                 }
                 else
                 {
-                    Logger.Text += string.Format("{0}>{1} is connected at [{2}].", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
+                    Logger.Text += string.Format("{0}>{1} 연결되었습니다 [{2}].", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace ChattingServer
                 }
                 else
                 {
-                    Logger.Text += string.Format("{0}>{1} is Disconnected at [{2}].", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
+                    Logger.Text += string.Format("{0}>{1} 연결이 끊겼습니다 [{2}].", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
                 }
             }
         }

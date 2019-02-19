@@ -33,7 +33,7 @@ namespace MiniERP.View
         private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
        private NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
         private string currentfileName;
-        string readData = null;
+        string readData = "";
         private string nickname;
         private string serverip = "192.168.0.6";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
@@ -139,13 +139,13 @@ namespace MiniERP.View
         {
             //메시지 서버에 접속
             try
-            {               
-                Messagedao = new MessageDAO();
-                nickname = nicname.Text;
-                readData = "채팅 서버 연결중...";
+            {
+                
+                if(nicname.Text!=""&& nicname.Text.Length>1)
+                {                                   
+               Form1.nicname = nicname.Text;
                 client.Connect(serverip, 3333);//서버 접속
-                access.Enabled = false;
-                nicname.Enabled = false;
+               
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
@@ -156,6 +156,13 @@ namespace MiniERP.View
                 thread.Start();
                 Thread ftptread = new Thread(FTPConnection);
                 ftptread.Start();
+                    access.Enabled = false;
+                    nicname.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("닉네임을 두자 이상으로 입력해주세요");
+                }
 
             }
             catch (Exception ee)
@@ -163,6 +170,7 @@ namespace MiniERP.View
 
                 MessageBox.Show(ee.Message + "오류가 발생했습니다");
             }
+           
 
             //메시지 서버에 접속
         }
@@ -191,7 +199,7 @@ namespace MiniERP.View
                 {
                     roomtable["전체"] += date + "<<자신 메시지:" + message.Text + Environment.NewLine;
                 }
-                ChatContent.Text += date + "<<자신 메시지:" + message.Text + Environment.NewLine;
+                ChatContent.Text += "\n"+date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 message.Text = "";
 
             }
@@ -524,10 +532,7 @@ namespace MiniERP.View
 
        
 
-        private void message_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void filelabel1_Click(object sender, EventArgs e)
         {
@@ -536,9 +541,8 @@ namespace MiniERP.View
 
         private void Frm_message_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Messagedao.SendMessage(nicname + "접속종료합니다");
-            client.Close();
-            Network.Close();
+           if(!nicname.Enabled)
+                messagedao.SendMessage("접속종료합니다");
         }
 
         private void message_KeyUp_1(object sender, KeyEventArgs e)
@@ -548,6 +552,12 @@ namespace MiniERP.View
                     sendMsg_Click(sender, null);
                     message.Text = "";
                 }
+        }
+
+        private void Frm_message_Load(object sender, EventArgs e)
+        {
+            messagedao = new MessageDAO();
+
         }
     }
 }

@@ -65,7 +65,7 @@ namespace ChattingServer
             RemotingConfiguration.ApplicationName = "FTPServerAPP";
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(FTPServer), "ftpserver.svr", WellKnownObjectMode.Singleton);
 
-            //Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****";
+            Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****";
 
         }
 
@@ -126,7 +126,6 @@ namespace ChattingServer
                         var ns = chatClientSocket.GetStream();
                         Byte[] byteFrom = new Byte[chatClientSocket.SendBufferSize];
                         ns.Read(byteFrom, 0, chatClientSocket.SendBufferSize);
-                        int duplicateCount = 0;
                         clientNickName = Encoding.UTF8.GetString(byteFrom);
 
 
@@ -173,7 +172,7 @@ namespace ChattingServer
                         {
                             ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
                             Unicast("해당 닉네임은 존재합니다 다른 이름으로 사용하세요", client, true);
-                           // Logger.Text += "해당 닉네임은 사용할 수 없습니다";
+                            Logger.Text += "해당 닉네임은 사용할 수 없습니다";
                         }
 
                     }
@@ -241,7 +240,7 @@ namespace ChattingServer
 
                 }
             }
-            Console.WriteLine(message);
+          
         }
         /// <summary>
         /// 방정보를 입력받아 해당 닉네임의 사용자의 메시지를 전달
