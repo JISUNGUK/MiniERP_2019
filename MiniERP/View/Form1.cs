@@ -32,7 +32,7 @@ namespace MiniERP.View
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
         private string currentfileName;
         string readData = null;
-        private string serverip="192.168.0.8";
+        private string serverip="192.168.0.6";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
 
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
@@ -565,9 +565,16 @@ namespace MiniERP.View
                         Messagedao.SendMessage(nicname.Text + "접속종료합니다");
                         //SendMessage(nicname.Text + "접속종료합니다");
                         client.Close();
+                        IAsyncResult ia;
+                        network.EndWrite(ia)
                         network.Close();
+
                     }
                     e.Cancel = false; // 폼 닫음
+                    Server.Disconnect(MachineInfo.GetJustIP());
+                    this.Close();
+                    this.Dispose();
+                    
                 }
                 else // No 선택시 닫기 취소
                 {
@@ -702,16 +709,17 @@ namespace MiniERP.View
                             }
 
                             data.Filename = file.Split('\\')[file.Split('\\').Length - 1];
-                            data.File = System.IO.File.ReadAllBytes(file);
+                            Byte[] arr = System.IO.File.ReadAllBytes(file);
+                           
+                            data.File = arr;
                             upload.Add(data);
                             if (roomList.SelectedIndex != -1)
-                                folderName = roomList.SelectedItem.ToString();
-                            System.GC.ReRegisterForFinalize(data.File);
+                                folderName = roomList.SelectedItem.ToString();                       
                         }
                         
                         Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-                        upload.Clear();
-                        Server.Disconnect(MachineInfo.GetJustIP());
+
+                       
                         GetConnection();
                         MessageBox.Show("성공적으로 파일을 업로드 했습니다");
                       

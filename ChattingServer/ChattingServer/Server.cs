@@ -19,6 +19,7 @@ namespace ChattingServer
     {
         public static Hashtable clientList = new Hashtable();
         public static List<ChattingElement> chattingList = new List<ChattingElement>();
+        private string ipaddress = "192.168.0.6";
 
         public Server()
         {
@@ -105,10 +106,10 @@ namespace ChattingServer
 
         private void StartMessage()
         {
-            var ipaddr = IPAddress.Parse("192.168.0.8");
+            var ipaddr = IPAddress.Parse(ipaddress);
             System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
             serverListener.Start();//서버가 대기하기 시작함
-            Logger.Text+="채팅서버 가동>>>>";
+           Logger.Text+="채팅서버 가동>>>>";
             ChattingElement chattingAll = new ChattingElement();//전체 채팅방
             chattingAll.RoomName = "전체";
 
@@ -132,7 +133,7 @@ namespace ChattingServer
                     if (!clientList.Contains(clientNickName))
                     {
                         clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                        Logger.Text += clientNickName + "님이 접속했습니다";
+                        //Logger.Text += clientNickName + "님이 접속했습니다";
                         Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
                         //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
 
@@ -313,7 +314,7 @@ namespace ChattingServer
                     foreach (ChattingElement chatting in chattingList)
                         chattingRooms += chatting.RoomName;
                     bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
-                   // Console.WriteLine("서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
+                    //Logger.Text+="서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
                 }
                 ns.Write(bytemsg, 0, bytemsg.Length);
                 ns.Flush();
@@ -326,7 +327,7 @@ namespace ChattingServer
             if (MessageBox.Show("Are you sure ? ", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
             {
                 e.Cancel = true;
-                
+                this.Dispose();
             }
             else
             {

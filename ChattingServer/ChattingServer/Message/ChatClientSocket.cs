@@ -39,16 +39,14 @@ namespace ChattingServer
                      { 
                     NetworkStream ns = ChatClientSockets.GetStream();
                     messageByte = new Byte[ChatClientSockets.ReceiveBufferSize];
-                    if(messageByte!=null)
-                        ns.Read(messageByte, 0, ChatClientSockets.ReceiveBufferSize);
+                    ns.Read(messageByte, 0, ChatClientSockets.ReceiveBufferSize);
                     }
                 }
                 catch (Exception ee)
                 {
-
-                    
+                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
                 }
-               if(messageByte!=null)
+               if(Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                 {
                string receivestr= Encoding.UTF8.GetString(messageByte).Replace("\0","");
                
@@ -164,6 +162,7 @@ namespace ChattingServer
                         members = Server.GetMember();
                       //  Console.WriteLine(ClientNickName+"님이 접속 종료했습니다");
                         Server.Broadcast("접속 인원:" + members + "::", ClientNickName, true);
+                        break;
                     }
                 if(receivestr.Contains("방을 삭제합니다"))
                     {

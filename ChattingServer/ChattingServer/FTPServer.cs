@@ -92,7 +92,7 @@ namespace ChattingServer
             if (Update != null)
                 Update(user);
             files.Clear();
-            //System.GC.ReRegisterForFinalize(files);
+            System.GC.ReRegisterForFinalize(files);
  
 
         }
@@ -117,7 +117,7 @@ namespace ChattingServer
             
             if (file.Length == 1)
                 file = null;
-           // System.GC.ReRegisterForFinalize(file);
+            System.GC.ReRegisterForFinalize(file);
         }
 
         public void GetFiles(out List<FileInfo> files, string folderName)
