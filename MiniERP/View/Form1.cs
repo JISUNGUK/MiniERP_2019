@@ -719,10 +719,10 @@ namespace MiniERP.View
 
 
                     }
-                    catch (Exception)
+                    catch (SocketException soed)
                     {
+                        MessageBox.Show(soed.Message+"연결에서 문제가 생겼습니다");
 
-                       
                     }
 
                 }
