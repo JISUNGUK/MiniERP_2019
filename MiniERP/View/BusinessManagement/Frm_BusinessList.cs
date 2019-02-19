@@ -106,7 +106,7 @@ namespace MiniERP.View.BusinessManagement
             {
                 //MessageBox.Show(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 new BusinessDAO().DeleteBusiness(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                MessageBox.Show("삭제되었습니다.");
+                MessageBox.Show("해당 거래처가 삭제되었습니다.");
                 ReflashData();
             }
         }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MiniERP.VO
 {
-    class Clerk
+    public class Clerk
     {
         private string clerk_code;
         private string clerk_password;

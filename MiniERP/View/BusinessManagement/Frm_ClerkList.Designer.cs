@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.pnl_serchbox = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbJob = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btn_ClerkInsert = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtCodeOrName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnl_serchbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,11 +51,11 @@
             this.pnl_serchbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_serchbox.Controls.Add(this.comboBox1);
+            this.pnl_serchbox.Controls.Add(this.cmbJob);
             this.pnl_serchbox.Controls.Add(this.button7);
-            this.pnl_serchbox.Controls.Add(this.textBox1);
+            this.pnl_serchbox.Controls.Add(this.txtName);
             this.pnl_serchbox.Controls.Add(this.label1);
-            this.pnl_serchbox.Controls.Add(this.button1);
+            this.pnl_serchbox.Controls.Add(this.btnSelect);
             this.pnl_serchbox.Controls.Add(this.textBox7);
             this.pnl_serchbox.Controls.Add(this.label6);
             this.pnl_serchbox.Location = new System.Drawing.Point(12, 40);
@@ -64,14 +64,20 @@
             this.pnl_serchbox.TabIndex = 119;
             this.pnl_serchbox.Visible = false;
             // 
-            // comboBox1
+            // cmbJob
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(462, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 20);
-            this.comboBox1.TabIndex = 98;
+            this.cmbJob.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cmbJob.FormattingEnabled = true;
+            this.cmbJob.Items.AddRange(new object[] {
+            "사원",
+            "대리",
+            "팀장",
+            "과장",
+            "장군"});
+            this.cmbJob.Location = new System.Drawing.Point(462, 21);
+            this.cmbJob.Name = "cmbJob";
+            this.cmbJob.Size = new System.Drawing.Size(229, 20);
+            this.cmbJob.TabIndex = 98;
             // 
             // button7
             // 
@@ -86,13 +92,13 @@
             this.button7.TabIndex = 97;
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(106, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(81, 21);
-            this.textBox1.TabIndex = 96;
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtName.Location = new System.Drawing.Point(106, 21);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(81, 21);
+            this.txtName.TabIndex = 96;
             // 
             // label1
             // 
@@ -105,16 +111,17 @@
             this.label1.TabIndex = 94;
             this.label1.Text = "직       급";
             // 
-            // button1
+            // btnSelect
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Font = new System.Drawing.Font("굴림", 10F);
-            this.button1.Location = new System.Drawing.Point(697, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 23);
-            this.button1.TabIndex = 91;
-            this.button1.Text = "검색";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSelect.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnSelect.Location = new System.Drawing.Point(697, 21);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(82, 23);
+            this.btnSelect.TabIndex = 91;
+            this.btnSelect.Text = "검색";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // textBox7
             // 
@@ -146,16 +153,17 @@
             this.button4.Text = "Excel로 내보내기";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Font = new System.Drawing.Font("굴림", 10F);
-            this.button3.Location = new System.Drawing.Point(114, 584);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 121;
-            this.button3.Text = "선택삭제";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnDelete.Location = new System.Drawing.Point(114, 584);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 121;
+            this.btnDelete.Text = "선택삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btn_ClerkInsert
             // 
@@ -180,15 +188,16 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // textBox10
+            // txtCodeOrName
             // 
-            this.textBox10.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox10.Location = new System.Drawing.Point(12, 11);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(405, 23);
-            this.textBox10.TabIndex = 117;
-            this.textBox10.Text = "사원 번호 및 이름을 입력하세요.";
-            this.textBox10.Click += new System.EventHandler(this.textBox10_Click);
+            this.txtCodeOrName.Font = new System.Drawing.Font("굴림", 10F);
+            this.txtCodeOrName.Location = new System.Drawing.Point(12, 11);
+            this.txtCodeOrName.Name = "txtCodeOrName";
+            this.txtCodeOrName.Size = new System.Drawing.Size(405, 23);
+            this.txtCodeOrName.TabIndex = 117;
+            this.txtCodeOrName.Text = "사원이름을 입력하세요.";
+            this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
+            this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
             // 
             // dataGridView1
             // 
@@ -212,10 +221,10 @@
             this.ClientSize = new System.Drawing.Size(823, 618);
             this.Controls.Add(this.pnl_serchbox);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btn_ClerkInsert);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.txtCodeOrName);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Frm_ClerkList";
             this.Text = "사원 조회";
@@ -231,18 +240,18 @@
         #endregion
 
         private System.Windows.Forms.Panel pnl_serchbox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbJob;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btn_ClerkInsert;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtCodeOrName;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
