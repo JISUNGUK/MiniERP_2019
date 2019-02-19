@@ -717,10 +717,7 @@ namespace MiniERP.View
                                 folderName = roomList.SelectedItem.ToString();                       
                         }
                         
-                        Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-
-                       
-                        GetConnection();
+                        Server.Upload(MachineInfo.GetJustIP(), upload, folderName);                                             
                         MessageBox.Show("성공적으로 파일을 업로드 했습니다");
                       
 
