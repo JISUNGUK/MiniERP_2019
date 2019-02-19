@@ -37,7 +37,7 @@ namespace MiniERP.View
         Frm_message frm_message;//메시지창
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
         private string ownedRoom = "";
-
+        public static string nicname = "";
        private MessageDAO messagedao;
 
 
@@ -70,7 +70,7 @@ namespace MiniERP.View
         private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
 
         public string OwnedRoom { get => ownedRoom; set => ownedRoom = value; }
-        public MessageDAO Messagedao { get => messagedao; set => messagedao = value; }      
+        public MessageDAO Messagedao { get => messagedao; set => messagedao = value; }    
 
         internal DialogResult logIn;          //  로그인 체커부
         public Form1()
@@ -487,10 +487,8 @@ namespace MiniERP.View
         private void Form1_Load(object sender, EventArgs e)
         {
             OpenForm("MainPage");
-            Frm_message frm_message = new Frm_message();
-           
-            frm_message.TopLevel = false;
-            frm_message.TopMost = true;
+            frm_message = new Frm_message();
+            messagedao = new MessageDAO();       
 
             frm_message.MdiParent = this;
             this.splitContainer2.Panel2.Controls.Add(frm_message);
@@ -507,7 +505,7 @@ namespace MiniERP.View
                 mboxchk = false;
                 if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    
+                    frm_message.Close();
                     e.Cancel = false; // 폼 닫음                  
                     this.Close();
                     this.Dispose();
@@ -568,9 +566,6 @@ namespace MiniERP.View
 
         #endregion
 
-        private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
-        {
-
-        }
+        
     }   
 }
