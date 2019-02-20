@@ -29,17 +29,9 @@ namespace MiniERP.View
         TcpClient client = new TcpClient();
        
         private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
-        NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
-        public static bool notify = false;
-        private string currentfileName;
-        string readData = null;
-        private string serverip="192.168.0.6";
-        Frm_MakeRoom makeRoom;//방속성 정하는 창
-        Frm_message frm_message;//메시지창
-        Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
-        private string ownedRoom = "";
-        public static string nicname = "";
-       private MessageDAO messagedao;
+       
+        public static bool notify = false;             
+        Frm_message frm_message;//메시지창              
 
 
         public struct SHFILEINFO
@@ -69,9 +61,7 @@ namespace MiniERP.View
         private bool mboxchk = true; // 메세지 박스 실행 방지용
 
         private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
-
-        public string OwnedRoom { get => ownedRoom; set => ownedRoom = value; }
-        public MessageDAO Messagedao { get => messagedao; set => messagedao = value; }    
+      
 
         internal DialogResult logIn;          //  로그인 체커부
         public Form1()
@@ -488,8 +478,7 @@ namespace MiniERP.View
         private void Form1_Load(object sender, EventArgs e)
         {
             OpenForm("MainPage");
-            frm_message = new Frm_message();
-            messagedao = new MessageDAO();       
+            frm_message = new Frm_message();               
 
             frm_message.MdiParent = this;
             this.splitContainer2.Panel2.Controls.Add(frm_message);

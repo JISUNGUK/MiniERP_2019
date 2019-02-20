@@ -115,7 +115,7 @@ namespace MiniERP.Model.DAO
                     roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
                     roomtable[roomname] += "\n"+ date + Environment.NewLine + ">>" + message + "\n";
 
-                    if(roomList.SelectedItem==roomname)
+                    if(roomList.SelectedItem.ToString()==roomname)
                         View.Form1.notify = false;                    
                     if (roomname !=roomList.SelectedItem)
                         View.Form1.notify = true;
@@ -153,8 +153,8 @@ namespace MiniERP.Model.DAO
                        
 
                     }
-                    roomtable["전체"] += "\n" + date + Environment.NewLine + ">>" + readData + "\n";
-                    if (roomList.SelectedItem == "전체")
+                    roomtable["전체"] += "\n" + date + Environment.NewLine + "\n>>" + readData + "\n";
+                    if (roomList.SelectedItem.ToString() == "전체")
                         View.Form1.notify = false;
                    if (roomList.SelectedItem!="전체")
                        View.Form1.notify = true;

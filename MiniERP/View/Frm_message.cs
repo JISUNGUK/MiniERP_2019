@@ -142,8 +142,7 @@ namespace MiniERP.View
             {
                 
                 if(nicname.Text!=""&& nicname.Text.Length>1)
-                {                                   
-               Form1.nicname = nicname.Text;
+                {                                                
                 client.Connect(serverip, 3333);//서버 접속
                
                 Messagedao.Client = client;
@@ -192,12 +191,12 @@ namespace MiniERP.View
                 string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
                 if (roomList.SelectedIndex != -1)
                 {
-                    roomtable[roomList.SelectedItem.ToString()] += date + "<<자신 메시지:" + message.Text + Environment.NewLine;
+                    roomtable[roomList.SelectedItem.ToString()] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
 
                 }
                 else
                 {
-                    roomtable["전체"] += date + "<<자신 메시지:" + message.Text + Environment.NewLine;
+                    roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 }
                 ChatContent.Text += "\n"+date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 message.Text = "";
@@ -206,7 +205,6 @@ namespace MiniERP.View
 
             if (additionFile.Checked)
             {
-                Bitmap oBitmap = null;
 
 
                 List<UploadData> upload = new List<UploadData>(); //업로드할 파일들
