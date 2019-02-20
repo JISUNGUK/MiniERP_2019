@@ -7,6 +7,7 @@ using MiniERP.View.TradeManagement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Pipes;
@@ -496,10 +497,10 @@ namespace MiniERP.View
                 if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     frm_message.Close();
-                    e.Cancel = false; // 폼 닫음                  
-                    this.Close();
+                    e.Cancel = false; // 폼 닫음  
+                    closeBackground(@"taskkill /im  Minierp.exe /f");
+
                     this.Dispose();
-                    
                 }
                 else // No 선택시 닫기 취소
                 {
@@ -512,8 +513,27 @@ namespace MiniERP.View
                 mboxchk = true;
             }
         }
+
+        private void closeBackground(string command)
+        {
+            ProcessStartInfo cmd = new ProcessStartInfo();
+            Process process = new Process();
+            cmd.FileName = @"cmd";
+            cmd.WindowStyle = ProcessWindowStyle.Hidden;
+            cmd.CreateNoWindow = true;
+            cmd.UseShellExecute = false;
+            cmd.RedirectStandardInput = true;
+            cmd.RedirectStandardInput = true;
+            cmd.RedirectStandardError = false;
+
+            process.EnableRaisingEvents = false;
+            process.StartInfo = cmd;
+            process.Start();
+            process.StandardInput.Write(command + Environment.NewLine);
+            process.StandardInput.Close();
+        }
         #endregion
-    
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Frm_MaxSizeGrp frm_MaxSizeGrp = new Frm_MaxSizeGrp();

@@ -12,6 +12,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Diagnostics;
 
 namespace ChattingServer
 {
@@ -65,7 +66,7 @@ namespace ChattingServer
             RemotingConfiguration.ApplicationName = "FTPServerAPP";
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(FTPServer), "ftpserver.svr", WellKnownObjectMode.Singleton);
 
-            Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****";
+            Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****"+Environment.NewLine;
 
         }
 
@@ -131,7 +132,7 @@ namespace ChattingServer
 
                         int index = clientNickName.IndexOf("\0");
                         clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
-                        ///Logger.Text += "접속을 감지했습니다";
+                        Logger.Text += "접속을 감지했습니다";
                         if (!clientList.Contains(clientNickName))
                         {
 
@@ -336,19 +337,40 @@ namespace ChattingServer
         {
             if (MessageBox.Show("Are you sure ? ", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
             {
-                e.Cancel = true;
-                this.Dispose();
+                e.Cancel = true;                
+                
                 
             }
             else
-            {
-                e.Cancel = false;
+            {               
+                e.Cancel = false; // 폼 닫음  
+                closeBackground(@"taskkill /im ChattingServer.exe /f");
+
+                this.Dispose();
             }
         }
 
         private void Server_Load(object sender, EventArgs e)
         {
 
+        }
+        private void closeBackground(string command)
+        {
+            ProcessStartInfo cmd = new ProcessStartInfo();
+            Process process = new Process();
+            cmd.FileName = @"cmd";
+            cmd.WindowStyle = ProcessWindowStyle.Hidden;
+            cmd.CreateNoWindow = true;
+            cmd.UseShellExecute = false;
+            cmd.RedirectStandardInput = true;
+            cmd.RedirectStandardInput = true;
+            cmd.RedirectStandardError = false;
+
+            process.EnableRaisingEvents = false;
+            process.StartInfo = cmd;
+            process.Start();
+            process.StandardInput.Write(command + Environment.NewLine);
+            process.StandardInput.Close();
         }
     }
 }
