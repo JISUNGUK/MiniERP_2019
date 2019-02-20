@@ -232,6 +232,7 @@ namespace MiniERP.View
 
                     try
                     {
+                        int uploadcount = 0;
                         UploadData data = new UploadData();
                         System.IO.FileInfo fileinfo = null;
                         string folderName = "전체";
@@ -240,7 +241,7 @@ namespace MiniERP.View
                             fileinfo = new System.IO.FileInfo(file);
                             if (fileinfo.Length > 200000000)
                             {
-                                MessageBox.Show("파일명: '" + file + "'은 사이즈가 200mb 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("파일명: '" + file + "'은 사이즈가 200mb 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);                               
                                 continue;
                             }
 
@@ -251,10 +252,14 @@ namespace MiniERP.View
                             upload.Add(data);
                             if (roomList.SelectedIndex != -1)
                                 folderName = roomList.SelectedItem.ToString();
+                            uploadcount++;
                         }
-
-                        Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-                        MessageBox.Show("성공적으로 파일을 업로드 했습니다");
+                        if (uploadcount > 0)
+                        { 
+                            Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
+                        
+                            MessageBox.Show("성공적으로 파일을 업로드 했습니다");
+                        }
 
 
 
@@ -262,6 +267,11 @@ namespace MiniERP.View
                     catch (SocketException soed)
                     {
                         MessageBox.Show(soed.Message + "연결에서 문제가 생겼습니다");
+
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show("파일을 올리는 도중에 오류가 생겼습니다");
 
                     }
 
@@ -503,39 +513,12 @@ namespace MiniERP.View
 
      
 
-        private void additionFile_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ServerFileListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fileImage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void filel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
        
 
         
 
-        private void filelabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void Frm_message_FormClosing(object sender, FormClosingEventArgs e)
         {
