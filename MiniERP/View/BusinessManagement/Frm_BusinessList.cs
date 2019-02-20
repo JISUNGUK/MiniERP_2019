@@ -104,10 +104,16 @@ namespace MiniERP.View.BusinessManagement
         {
             if (MessageBox.Show("선택한 거래처를 삭제하시겠습니까?", "거래처 삭제", MessageBoxButtons.YesNo)== DialogResult.Yes)
             {
-                //MessageBox.Show(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                new BusinessDAO().DeleteBusiness(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                MessageBox.Show("해당 거래처가 삭제되었습니다.");
-                ReflashData();
+                try
+                {
+                    new BusinessDAO().DeleteBusiness(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    MessageBox.Show("해당 거래처가 삭제되었습니다.", "삭제 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReflashData();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("해당 거래처와 진행중인 거래가 있습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

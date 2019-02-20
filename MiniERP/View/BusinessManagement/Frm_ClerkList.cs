@@ -139,9 +139,16 @@ namespace MiniERP.View.BusinessManagement
             //MessageBox.Show(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             if (MessageBox.Show("선택한 사원을 삭제하시겠습니까?","사원 삭제", MessageBoxButtons.YesNo)== DialogResult.Yes)
             {
-                new ClerkDAO().DeleteClerk(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                MessageBox.Show("해당 사원이 삭제되었습니다.");
-                ReflashData();
+                try
+                {
+                    new ClerkDAO().DeleteClerk(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    MessageBox.Show("해당 사원이 삭제되었습니다.", "삭제 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReflashData();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("해당 사원이 담당중인 거래가 있습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

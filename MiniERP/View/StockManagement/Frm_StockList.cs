@@ -27,7 +27,7 @@ namespace MiniERP.View.StockManagement
             warehouses.Clear();
             dataGridView1.DataSource = null;
 
-            warehouses = new WarehouseDAO().GetWarehouses();
+            warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
             dataGridView1.DataSource = warehouses;
             dataGridView1.Columns[0].HeaderText = "창고코드";
             dataGridView1.Columns[1].HeaderText = "창고명";
@@ -56,7 +56,7 @@ namespace MiniERP.View.StockManagement
                 pnl_serchbox.Visible = false;
                 boxchk = true;
             }
-
+            rdoAll.Checked = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace MiniERP.View.StockManagement
 
         private void Frm_StockList_Load(object sender, EventArgs e)
         {
-            warehouses = new WarehouseDAO().GetWarehouses();
+            warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
             dataGridView1.DataSource = warehouses;
             dataGridView1.Columns[0].HeaderText = "창고코드";
             dataGridView1.Columns[1].HeaderText = "창고명";
@@ -79,9 +79,16 @@ namespace MiniERP.View.StockManagement
         {
             if (MessageBox.Show("선택된 창고(공장)을 삭제하시겠습니까?", "선택삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                new WarehouseDAO().DeleteWarehouse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                MessageBox.Show("삭제되었습니다.");
-                ReflashData();
+                try
+                {
+                    new WarehouseDAO().DeleteWarehouse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    MessageBox.Show("삭제되었습니다.", "삭제 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReflashData();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("현재 사용되고 있는 창고(공장)입니다. 삭제할 수 없습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         
@@ -96,32 +103,27 @@ namespace MiniERP.View.StockManagement
         //}
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            selectWarehouses = new List<Warehouse>();
-
-            foreach (var item in warehouses)
+            string standard = "";
+            if (rdoAll.Checked == true)
             {
-                if ((chkWarehouse.Checked == true) && (chkFactory.Checked == false))
-                {
-                    if (item.Warehouse_code.Contains(txtCode.Text) && item.Warehouse_name.Contains(txtName.Text) && item.Warehouse_standard.Contains(chkWarehouse.Text))
-                    {
-                        selectWarehouses.Add(item);
-                    }
-                }
-                else if ((chkWarehouse.Checked == false) && (chkFactory.Checked == true))
-                {
-                    if (item.Warehouse_code.Contains(txtCode.Text) && item.Warehouse_name.Contains(txtName.Text) && item.Warehouse_standard.Contains(chkFactory.Text))
-                    {
-                        selectWarehouses.Add(item);
-                    }
-                }
-                else if ((chkWarehouse.Checked == true) && (chkFactory.Checked == true))
-                {
-                    if (item.Warehouse_code.Contains(txtCode.Text) && item.Warehouse_name.Contains(txtName.Text) && (item.Warehouse_standard.Contains(chkWarehouse.Text) || item.Warehouse_standard.Contains(chkFactory.Text)))
-                    {
-                        selectWarehouses.Add(item);
-                    }
-                }
+                standard = "";
             }
+            else if(rdoWarehouse.Checked == true)
+            {
+                standard = "창고";
+            }
+            else
+            {
+                standard = "공장";
+            }
+
+            Warehouse warehouse = new Warehouse
+            {
+                Warehouse_code = txtCode.Text,
+                Warehouse_name = txtName.Text,
+                Warehouse_standard = standard
+            };
+            selectWarehouses = new WarehouseDAO().GetWarehouses(warehouse);
             pnl_serchbox.Visible = false;
             dataGridView1.DataSource = selectWarehouses;
         }
@@ -135,14 +137,13 @@ namespace MiniERP.View.StockManagement
         {
             if (e.KeyCode == Keys.Enter)
             {
-                selectWarehouses = new List<Warehouse>();
-                foreach (var item in warehouses)
+                Warehouse warehouse = new Warehouse
                 {
-                    if (item.Warehouse_code.Contains(txtCodeOrName.Text) || item.Warehouse_name.Contains(txtCodeOrName.Text))
-                    {
-                        selectWarehouses.Add(item);
-                    }
-                }
+                    Warehouse_name = txtCodeOrName.Text
+                };
+
+                selectWarehouses = new WarehouseDAO().GetWarehouses(warehouse);
+
                 dataGridView1.DataSource = selectWarehouses;
                 dataGridView1.Columns[0].HeaderText = "창고코드";
                 dataGridView1.Columns[1].HeaderText = "창고명";

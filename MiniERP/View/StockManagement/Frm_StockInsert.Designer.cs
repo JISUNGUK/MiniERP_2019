@@ -50,6 +50,7 @@
             this.btnCancel.TabIndex = 21;
             this.btnCancel.Text = "닫기";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnReset
             // 
@@ -60,6 +61,7 @@
             this.btnReset.TabIndex = 20;
             this.btnReset.Text = "다시작성";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSave
             // 

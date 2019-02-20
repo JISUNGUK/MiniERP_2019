@@ -35,8 +35,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
-            this.chkFactory = new System.Windows.Forms.CheckBox();
-            this.chkWarehouse = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtCode = new System.Windows.Forms.TextBox();
@@ -45,6 +43,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.rdoAll = new System.Windows.Forms.RadioButton();
+            this.rdoWarehouse = new System.Windows.Forms.RadioButton();
+            this.rdoFactory = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_serchbox.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +82,7 @@
             this.txtCodeOrName.Name = "txtCodeOrName";
             this.txtCodeOrName.Size = new System.Drawing.Size(405, 23);
             this.txtCodeOrName.TabIndex = 8;
-            this.txtCodeOrName.Text = "창고코드 또는 창고명을 입력하세요.";
+            this.txtCodeOrName.Text = "창고명을 입력하세요.";
             this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
             this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
             // 
@@ -125,8 +126,9 @@
             this.pnl_serchbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_serchbox.Controls.Add(this.chkFactory);
-            this.pnl_serchbox.Controls.Add(this.chkWarehouse);
+            this.pnl_serchbox.Controls.Add(this.rdoFactory);
+            this.pnl_serchbox.Controls.Add(this.rdoWarehouse);
+            this.pnl_serchbox.Controls.Add(this.rdoAll);
             this.pnl_serchbox.Controls.Add(this.button6);
             this.pnl_serchbox.Controls.Add(this.txtName);
             this.pnl_serchbox.Controls.Add(this.txtCode);
@@ -140,26 +142,6 @@
             this.pnl_serchbox.Size = new System.Drawing.Size(799, 102);
             this.pnl_serchbox.TabIndex = 14;
             this.pnl_serchbox.Visible = false;
-            // 
-            // chkFactory
-            // 
-            this.chkFactory.AutoSize = true;
-            this.chkFactory.Location = new System.Drawing.Point(183, 61);
-            this.chkFactory.Name = "chkFactory";
-            this.chkFactory.Size = new System.Drawing.Size(48, 16);
-            this.chkFactory.TabIndex = 11;
-            this.chkFactory.Text = "공장";
-            this.chkFactory.UseVisualStyleBackColor = true;
-            // 
-            // chkWarehouse
-            // 
-            this.chkWarehouse.AutoSize = true;
-            this.chkWarehouse.Location = new System.Drawing.Point(91, 61);
-            this.chkWarehouse.Name = "chkWarehouse";
-            this.chkWarehouse.Size = new System.Drawing.Size(48, 16);
-            this.chkWarehouse.TabIndex = 10;
-            this.chkWarehouse.Text = "창고";
-            this.chkWarehouse.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -235,6 +217,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "검색 기능";
             // 
+            // rdoAll
+            // 
+            this.rdoAll.AutoSize = true;
+            this.rdoAll.Location = new System.Drawing.Point(91, 60);
+            this.rdoAll.Name = "rdoAll";
+            this.rdoAll.Size = new System.Drawing.Size(47, 16);
+            this.rdoAll.TabIndex = 10;
+            this.rdoAll.TabStop = true;
+            this.rdoAll.Text = "전체";
+            this.rdoAll.UseVisualStyleBackColor = true;
+            // 
+            // rdoWarehouse
+            // 
+            this.rdoWarehouse.AutoSize = true;
+            this.rdoWarehouse.Location = new System.Drawing.Point(171, 60);
+            this.rdoWarehouse.Name = "rdoWarehouse";
+            this.rdoWarehouse.Size = new System.Drawing.Size(47, 16);
+            this.rdoWarehouse.TabIndex = 11;
+            this.rdoWarehouse.TabStop = true;
+            this.rdoWarehouse.Text = "창고";
+            this.rdoWarehouse.UseVisualStyleBackColor = true;
+            // 
+            // rdoFactory
+            // 
+            this.rdoFactory.AutoSize = true;
+            this.rdoFactory.Location = new System.Drawing.Point(251, 60);
+            this.rdoFactory.Name = "rdoFactory";
+            this.rdoFactory.Size = new System.Drawing.Size(47, 16);
+            this.rdoFactory.TabIndex = 12;
+            this.rdoFactory.TabStop = true;
+            this.rdoFactory.Text = "공장";
+            this.rdoFactory.UseVisualStyleBackColor = true;
+            // 
             // Frm_StockList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -275,7 +290,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkFactory;
-        private System.Windows.Forms.CheckBox chkWarehouse;
+        private System.Windows.Forms.RadioButton rdoFactory;
+        private System.Windows.Forms.RadioButton rdoWarehouse;
+        private System.Windows.Forms.RadioButton rdoAll;
     }
 }

@@ -50,24 +50,24 @@ namespace MiniERP.View.StockManagement
         {
             if (String.IsNullOrEmpty(txtCode.Text))
             {
-                MessageBox.Show("사원코드를 입력해주세요.");
+                MessageBox.Show("사원코드를 입력하지 않았습니다.", "사원코드를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Focus();
             }
             else if (String.IsNullOrEmpty(txtName.Text))
             {
-                MessageBox.Show("사원이름을 입력해주세요.");
+                MessageBox.Show("사원이름을 입력하지 않았습니다.", "사원이름을 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtName.Focus();
             }
             else if (String.IsNullOrEmpty(txtPassword.Text))
             {
-                MessageBox.Show("비밀번호를 입력해주세요.");
+                MessageBox.Show("비밀번호를 입력하지 않았습니다.", "비밀번호를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPassword.Focus();
             }
             else
             {
                 if (CheckClerkcode(txtCode.Text))
                 {
-                    MessageBox.Show("이미 존재하는 사원코드입니다. 다른 사원코드를 입력해주세요.");
+                    MessageBox.Show("이미 존재하는 사원코드입니다. 다른 사원코드를 입력해주세요.", "코드가 중복됩니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCode.Focus();
                 }
                 else
@@ -81,12 +81,12 @@ namespace MiniERP.View.StockManagement
                     };
                     if (new ClerkDAO().InsertClerk(clerk) != -1)
                     {
-                        MessageBox.Show("새로운 사원을 등록했습니다.");
+                        MessageBox.Show("새로운 사원을 등록했습니다.", "사원 등록", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("등록에 실패했습니다.");
+                        MessageBox.Show("등록에 실패했습니다.", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
