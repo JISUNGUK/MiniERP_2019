@@ -29,8 +29,12 @@ namespace MiniERP.View
                 VO.Clerk loginclerk = new VO.Clerk();
                 loginclerk.Clerk_code = txt_id.Text;
                 loginclerk.Clerk_password = txt_pw.Text;
-                Model.DAO.Message.loginDao login = new Model.DAO.Message.loginDao();
-               afterclerk =login.GetClerk(loginclerk)[0];//list의 첫번째 객체를 갖고옴
+                Model.DAO.Message.loginDao login = new Model.DAO.Message.loginDao();               
+                
+                List<VO.Clerk>clerklist=login.GetClerk(loginclerk);
+                if (clerklist.Count > 0)
+                    afterclerk = clerklist[0];
+
             }
 
             if (!String.IsNullOrEmpty(afterclerk.Clerk_name))

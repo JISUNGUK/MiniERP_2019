@@ -263,7 +263,7 @@ namespace MiniERP.View
                     }
                     catch (Exception ee)
                     {
-                        MessageBox.Show("파일을 올리는 도중에 오류가 생겼습니다");
+                        MessageBox.Show(ee.Message+"파일을 올리는 도중에 오류가 생겼습니다");
 
                     }
 
