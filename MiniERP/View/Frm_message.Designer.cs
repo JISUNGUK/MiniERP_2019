@@ -39,9 +39,7 @@
             this.fileImage = new System.Windows.Forms.PictureBox();
             this.lbl_RoomName = new System.Windows.Forms.Label();
             this.particiRoom = new System.Windows.Forms.Button();
-            this.access = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.nicname = new System.Windows.Forms.TextBox();
             this.filel = new System.Windows.Forms.Label();
             this.sendMsg = new System.Windows.Forms.Button();
             this.message = new System.Windows.Forms.TextBox();
@@ -57,6 +55,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.nicknamel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +73,7 @@
             // 
             this.additionFile.AutoSize = true;
             this.additionFile.Location = new System.Drawing.Point(317, 645);
-            this.additionFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.additionFile.Margin = new System.Windows.Forms.Padding(2);
             this.additionFile.Name = "additionFile";
             this.additionFile.Size = new System.Drawing.Size(96, 16);
             this.additionFile.TabIndex = 43;
@@ -156,16 +155,6 @@
             this.particiRoom.UseVisualStyleBackColor = true;
             this.particiRoom.Click += new System.EventHandler(this.particiRoom_Click);
             // 
-            // access
-            // 
-            this.access.Location = new System.Drawing.Point(296, 15);
-            this.access.Name = "access";
-            this.access.Size = new System.Drawing.Size(63, 23);
-            this.access.TabIndex = 37;
-            this.access.Text = "접속";
-            this.access.UseVisualStyleBackColor = true;
-            this.access.Click += new System.EventHandler(this.access_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -174,14 +163,6 @@
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 36;
             this.label3.Text = "사용자이름";
-            // 
-            // nicname
-            // 
-            this.nicname.Location = new System.Drawing.Point(110, 15);
-            this.nicname.Name = "nicname";
-            this.nicname.Size = new System.Drawing.Size(168, 21);
-            this.nicname.TabIndex = 35;
-            this.nicname.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp);
             // 
             // filel
             // 
@@ -322,12 +303,22 @@
             this.label8.TabIndex = 48;
             this.label8.Text = "사용자목록";
             // 
+            // nicknamel
+            // 
+            this.nicknamel.AutoSize = true;
+            this.nicknamel.Location = new System.Drawing.Point(108, 15);
+            this.nicknamel.Name = "nicknamel";
+            this.nicknamel.Size = new System.Drawing.Size(38, 12);
+            this.nicknamel.TabIndex = 55;
+            this.nicknamel.Text = "label5";
+            // 
             // Frm_message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 842);
             this.ControlBox = false;
+            this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -339,9 +330,7 @@
             this.Controls.Add(this.fileImage);
             this.Controls.Add(this.lbl_RoomName);
             this.Controls.Add(this.particiRoom);
-            this.Controls.Add(this.access);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.nicname);
             this.Controls.Add(this.filel);
             this.Controls.Add(this.sendMsg);
             this.Controls.Add(this.message);
@@ -377,9 +366,7 @@
         private System.Windows.Forms.PictureBox fileImage;
         private System.Windows.Forms.Label lbl_RoomName;
         private System.Windows.Forms.Button particiRoom;
-        private System.Windows.Forms.Button access;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox nicname;
         private System.Windows.Forms.Label filel;
         private System.Windows.Forms.Button sendMsg;
         private System.Windows.Forms.TextBox message;
@@ -395,5 +382,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label nicknamel;
     }
 }

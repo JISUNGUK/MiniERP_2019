@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Model\DAO\BusinessDAO.cs" />
     <Compile Include="Model\DAO\ClerkDAO.cs" />
+    <Compile Include="Model\DAO\Message\loginDao.cs" />
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />

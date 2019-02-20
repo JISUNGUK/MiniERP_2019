@@ -25,26 +25,13 @@ namespace MiniERP.View
 {
     public partial class Form1 : Form
     {
-        //메시지 구현 필요 변수 부분  
-        public string[] bannWord = { "//", "[", "]", "접속종료합니다", "접속인원:", "만든 방명:", "$$$$", "방에 참가했습니다", "방정보:", "방에 메시지를 보냅니다", ":방의 주인은?", "방을 삭제합니다", "인원:" };
-        TcpClient client = new TcpClient();
+        
        
-        private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
-       
-        public static bool notify = false;             
+        public static bool notify = false;//알림이 오는지 선택            
         Frm_message frm_message;//메시지창              
 
 
-        public struct SHFILEINFO
-        {
-            public IntPtr hIcon;
-            public IntPtr iIcon;
-            public uint dwAttributes;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
-            public string szDisplayName;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 80)]
-            public string szTypeName;
-        };
+       
 
         /// <summary>
         /// 접속할 서버객체
@@ -62,9 +49,9 @@ namespace MiniERP.View
         private bool mboxchk = true; // 메세지 박스 실행 방지용
 
         private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
-      
 
-        internal DialogResult logIn;          //  로그인 체커부
+        public string nickname="";
+        public DialogResult logIn;          //  로그인 체커부
         public Form1()
         {
             Frm_LoginBox loginbox = new Frm_LoginBox(this);
@@ -479,8 +466,8 @@ namespace MiniERP.View
         private void Form1_Load(object sender, EventArgs e)
         {
             OpenForm("MainPage");
-            frm_message = new Frm_message();               
-
+            frm_message = new Frm_message();
+            frm_message.Nickname = this.nickname;
             frm_message.MdiParent = this;
             this.splitContainer2.Panel2.Controls.Add(frm_message);
             frm_message.Dock = DockStyle.Fill;

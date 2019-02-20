@@ -337,9 +337,7 @@ namespace ChattingServer
         {
             if (MessageBox.Show("Are you sure ? ", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
             {
-                e.Cancel = true;                
-                
-                
+                e.Cancel = true;                                              
             }
             else
             {               

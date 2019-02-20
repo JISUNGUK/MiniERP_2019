@@ -135,44 +135,36 @@ namespace MiniERP.View
             }
         }
 
-        private void access_Click(object sender, EventArgs e)
+        private void accessChatting()
         {
-            //메시지 서버에 접속
             try
             {
-                
-                if(nicname.Text!=""&& nicname.Text.Length>1)
-                {                                                
                 client.Connect(serverip, 3333);//서버 접속
-               
+
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
                 //Msg();
                 Network = client.GetStream();
-                Messagedao.SendMessage(nicname.Text);
+                Messagedao.SendMessage(nickname);
+                nicknamel.Text = nickname;
                 Thread thread = new Thread(getMsg);
                 thread.Start();
                 Thread ftptread = new Thread(FTPConnection);
                 ftptread.Start();
-                    access.Enabled = false;
-                    nicname.Enabled = false;
-                }
-                else
-                {
-                    MessageBox.Show("닉네임을 두자 이상으로 입력해주세요");
-                }
+
 
             }
             catch (Exception ee)
             {
 
-                MessageBox.Show(ee.Message + "오류가 발생했습니다");
+                MessageBox.Show(ee.Message);
             }
            
 
-            //메시지 서버에 접속
         }
+
+        
 
         private void message_KeyUp(object sender, KeyEventArgs e)
         {
@@ -521,8 +513,8 @@ namespace MiniERP.View
        
 
         private void Frm_message_FormClosing(object sender, FormClosingEventArgs e)
-        {
-           if(!nicname.Enabled)
+        {  
+            if(nicknamel.Text!="label5")
                 messagedao.SendMessage("접속종료합니다");
            if(Server!=null)
             {
@@ -543,7 +535,12 @@ namespace MiniERP.View
         private void Frm_message_Load(object sender, EventArgs e)
         {
             messagedao = new MessageDAO();
-           
+            accessChatting();
+        }
+
+        private void access_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
