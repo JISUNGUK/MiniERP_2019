@@ -266,10 +266,16 @@
       <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </Compile>
     <Compile Include="VO\Barcode_Module.cs" />
+    <Compile Include="VO\BOM.cs" />
     <Compile Include="VO\Business.cs" />
     <Compile Include="VO\Clerk.cs" />
+    <Compile Include="VO\Distribution.cs" />
+    <Compile Include="VO\Item.cs" />
+    <Compile Include="VO\Manufacture.cs" />
     <Compile Include="VO\Ordered.cs" />
     <Compile Include="VO\SampleOrder.cs" />
+    <Compile Include="VO\Stock.cs" />
+    <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
