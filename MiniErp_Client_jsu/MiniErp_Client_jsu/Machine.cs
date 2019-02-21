@@ -5,27 +5,14 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Machine_Client
+namespace MiniErp_Client_jsu
 {
     class Machine
     {
-        static string err_Code;                     //  서버로 보내는 에러코드
-        static string command_Code;                 //  서버에서 받는 명령어 코드
-
-        public string Err_Code { get { return err_Code; } set { err_Code = value; } }
-        public string Command_Code { get { return command_Code; } set { command_Code = value; } }
-
-
         TcpClient client;
         static NetworkStream nstream = default(NetworkStream);     //기본값 할당(해당 객체의 기본값 참조형은 null)
 
         private string serverIp = "192.168.0.240";
-
-        /*
-         *  서버에서 명령어 받아서 처리
-         *  서버로 에러코드를 보내기
-         *  해당 위치의 바코드 지나간거 갯수 트래킹하기
-         */
 
 
         //  처음실행시 접속을 위한 셋팅
@@ -78,7 +65,7 @@ namespace Machine_Client
         {
             if (msg.IndexOf("[command]", 0) != -1)
             {
-                command_Code = msg;
+                //command_Code = msg;
                 return true;
             }
             return false;
@@ -89,7 +76,12 @@ namespace Machine_Client
             client.Close();
             nstream.Close();
 
-            Console.WriteLine("sever state : " + client.Connected.ToString());
+            //Console.WriteLine("sever state : " + client.Connected.ToString());
+        }
+
+        public bool SeverState()
+        {
+            return client.Connected;
         }
     }
 }
