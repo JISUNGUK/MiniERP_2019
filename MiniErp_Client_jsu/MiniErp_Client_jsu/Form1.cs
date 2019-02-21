@@ -42,7 +42,7 @@ namespace MiniErp_Client_jsu
 
                 //  없다면 추가
                 codes.Add(new Barcode(temp));
-                //MessageBox.Show("리스트에 추가");
+                MessageBox.Show("리스트에 추가");
 
             }
             
@@ -71,11 +71,14 @@ namespace MiniErp_Client_jsu
 
         private void button1_Click(object sender, EventArgs e)
         {
+            StringBuilder sb = new StringBuilder();
             foreach (var item in codes)
             {
                 txt_Log.Clear();
-                txt_Log.Text += item.Barcode_Code + "\t" + item.Barcode_Count + "\n";
+                //MessageBox.Show(item.Barcode_Code);
+                sb.AppendLine(item.Barcode_Code + "\t" + item.Barcode_Count);
             }
+            txt_Log.Text = sb.ToString();
 
             this.txt_Barcode.Focus();
         }
