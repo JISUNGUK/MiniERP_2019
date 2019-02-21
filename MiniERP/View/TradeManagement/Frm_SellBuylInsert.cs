@@ -16,5 +16,21 @@ namespace MiniERP.View.TradeManagement
         {
             InitializeComponent();
         }
+
+        private void rdo_Sell_CheckedChanged(object sender, EventArgs e)
+        {
+            lab_Warehouse.Text = "출고창고";
+        }
+
+        private void rdo_Buy_CheckedChanged(object sender, EventArgs e)
+        {
+            lab_Warehouse.Text = "입고창고";
+        }
+
+        // 텍스트박스에 입력시 비움.
+        private void Txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            ((TextBox)sender).Clear();
+        }
     }
 }

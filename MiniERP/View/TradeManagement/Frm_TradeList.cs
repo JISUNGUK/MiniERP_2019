@@ -26,21 +26,17 @@ namespace MiniERP.View.TradeManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (serchbox)
-            {
-                pnl_serchbox.Visible = true;
-                serchbox = false;
-            }
-            else
-            {
-                pnl_serchbox.Visible = false;
-                serchbox = true;
-            }
+
         }
 
         private void textBox1_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            pnl_serchbox.Visible = !pnl_serchbox.Visible;
         }
     }
 }

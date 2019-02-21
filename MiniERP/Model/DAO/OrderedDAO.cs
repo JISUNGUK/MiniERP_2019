@@ -18,7 +18,7 @@ namespace MiniERP.Model.DAO
 
     class OrderedDAO
     {
-        List<Ordered> ordereds = new List<Ordered>();
+        private List<Ordered> ordereds = new List<Ordered>();
 
         public List<Ordered> SelectAllOrdered()
         {
@@ -63,7 +63,39 @@ namespace MiniERP.Model.DAO
 
             return sampleOrders;
         }
-        //abstract public void InsertOrdered();
-        //abstract public void DeleteOrdered();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="business_code">거래처번호</param>
+        /// <param name="clerk_code">담당자(사원)번호</param>
+        /// <param name="warehouse_code">출고(입고)창고번호</param>
+        /// <param name="trade_standard">거래구분(구매/판매)</param>
+        /// <param name="item_code">품목번호(구분자 |를 이용하여 입력)</param>
+        /// <param name="item_count">품목갯수(구분자 |를 이용하여 입력)</param>
+        public void InsertOrdered(string business_code,string clerk_code,string warehouse_code,string trade_standard, string item_code, string item_count)
+        {
+            //유효성 검사
+
+            //--------------
+            DBConnection dbCon = new DBConnection();
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("business_code",business_code),
+                new SqlParameter("clerk_code",clerk_code),
+                new SqlParameter("warehouse_code",warehouse_code),
+                new SqlParameter("trade_standard",trade_standard),
+                new SqlParameter("item_code",item_code),
+                new SqlParameter("item_count",item_count)
+            };
+
+            try
+            {
+                dbCon.ExecuteNonQuery("SET_ORDER", sqlParameters);
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

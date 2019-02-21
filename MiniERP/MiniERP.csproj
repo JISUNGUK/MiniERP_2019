@@ -234,12 +234,6 @@
     <Compile Include="View\LogisticsManagement\Frm_EstimateList.Designer.cs">
       <DependentUpon>Frm_EstimateList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BusinessManagement\Frm_OrderInsert.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\BusinessManagement\Frm_OrderInsert.Designer.cs">
-      <DependentUpon>Frm_OrderInsert.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\BusinessManagement\Frm_OrderList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,9 +355,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LogisticsManagement\Frm_EstimateList.resx">
       <DependentUpon>Frm_EstimateList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\BusinessManagement\Frm_OrderInsert.resx">
-      <DependentUpon>Frm_OrderInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BusinessManagement\Frm_OrderList.resx">
       <DependentUpon>Frm_OrderList.cs</DependentUpon>
