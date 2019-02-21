@@ -116,6 +116,7 @@ namespace MiniERP.Model.DAO
                     roomtable[roomname] += "\n"+ date + Environment.NewLine + ">>" + message + "\n";
 
                    
+                    //알림창을 띄워줌 해당 창의 알림이 울릴지 여부를 확인
                     if (MiniERP.View.Form1.notify)
                     {
                     popup = new PopupNotifier();

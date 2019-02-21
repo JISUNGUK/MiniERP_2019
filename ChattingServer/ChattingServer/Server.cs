@@ -13,6 +13,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Diagnostics;
+using System.IO;
 
 namespace ChattingServer
 {
@@ -112,7 +113,7 @@ namespace ChattingServer
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
                 serverListener.Start();
-                Logger.Text += "채팅서버 가동>>>>";
+                Logger.Text += "채팅서버 가동>>>>\n";
                 ChattingElement chattingAll = new ChattingElement();//전체 채팅방
                 chattingAll.RoomName = "전체";
 
@@ -132,12 +133,12 @@ namespace ChattingServer
 
                         int index = clientNickName.IndexOf("\0");
                         clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
-                        Logger.Text += "접속을 감지했습니다";
+                        Logger.Text += "접속을 감지했습니다\n";
                         if (!clientList.Contains(clientNickName))
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                                                                             //Logger.Text += clientNickName + "님이 접속했습니다";
+                            Logger.Text +="\n"+ clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
 
@@ -173,7 +174,7 @@ namespace ChattingServer
                         {
                             ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
                             Unicast("해당 닉네임은 존재합니다 다른 이름으로 사용하세요", client, true);
-                            Logger.Text += "해당 닉네임은 사용할 수 없습니다";
+                           
                         }
 
                     }
@@ -221,11 +222,12 @@ namespace ChattingServer
                 {
                     NetworkStream ns = tcp.GetStream();
                     byte[] bytemsg = new byte[tcp.ReceiveBufferSize];
+                    
                     if (!isServerMsg&&item.Key.ToString() != clientNickName)//클라이언트가 보낸 메시지일때
                     {
+                        string date = "보낸시간:" + DateTime.Now + "\n";
                         bytemsg = Encoding.UTF8.GetBytes(clientNickName + "님의 메시지:" + msg);//메시지를 바이트배열로 저장
-                        chattingList[0].MessageBody += clientNickName + "님의 메시지:" + msg + "\n";
-                        message = clientNickName + "님의 메시지:" + msg;
+                        chattingList[0].MessageBody += date+clientNickName + "님의 메시지:" + msg + "\n";
 
                     }
                     else//서버가 보낸  메시지 일때
@@ -265,24 +267,22 @@ namespace ChattingServer
                         byte[] bytemsg = new byte[tcp.ReceiveBufferSize];
                         if (!isServerMsg && item.Key.ToString() != clientNickName)//클라이언트가 보낸 메시지일때
                         {
-                            chattingElement.MessageBody += clientNickName + "님의 메시지:" + msg + "\n";
+                            string date = "보낸시간:" + DateTime.Now+"\n";
+                            chattingElement.MessageBody += date+ clientNickName + "님의 메시지:" + msg + "\n";
                             bytemsg = Encoding.UTF8.GetBytes("방명:" + chattingElement.RoomName + ">>>>" + clientNickName + "님의 메시지:" + msg);//메시지를 바이트배열로 저장
-                            message = "방명:" + chattingElement.RoomName + ">>>>" + clientNickName + "님의 메시지:" + msg;
                         }
                         else//서버가 보낸  메시지 일때
                         {
-                            int count = 0;
+                            
 
-                            bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재방 접속 인원:" + chattingElement.NicNames + "::");
-                            message = "서버 메시지:" + msg + " 현재방 접속 인원:" + chattingElement.NicNames + "::";
+                            bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재방 접속 인원:" + chattingElement.NicNames + "::");                            
                         }
                         ns.Write(bytemsg, 0, bytemsg.Length);
                         ns.Flush();
 
                     }
                 }
-            }
-            Console.WriteLine(message);
+            }           
         }
 
         public static string GetMember(ChattingElement chattingElement)
@@ -325,7 +325,7 @@ namespace ChattingServer
                     foreach (ChattingElement chatting in chattingList)
                         chattingRooms += chatting.RoomName;
                     bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
-                    //Logger.Text+="서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
+                    FTPServer.Logger.Text+="서버 메시지:" + msg + " 현재 접속인원:" + GetMember()+"\n";
                 }
                 ns.Write(bytemsg, 0, bytemsg.Length);
                 ns.Flush();
@@ -340,7 +340,8 @@ namespace ChattingServer
                 e.Cancel = true;                                              
             }
             else
-            {               
+            {
+                exportChatting_Click(null,null);
                 e.Cancel = false; // 폼 닫음  
                 closeBackground(@"taskkill /im ChattingServer.exe /f");
 
@@ -369,6 +370,29 @@ namespace ChattingServer
             process.Start();
             process.StandardInput.Write(command + Environment.NewLine);
             process.StandardInput.Close();
+        }
+
+        private void exportChatting_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog savefile = new SaveFileDialog();
+           DialogResult dr= savefile.ShowDialog();
+            if (dr != DialogResult.OK)
+                return;
+            else
+            {
+              FileStream fs = new FileStream(savefile.FileName, FileMode.Create, FileAccess.Write);
+                foreach (var item in chattingList)
+                {
+                    byte[] roomNameByte = Encoding.Default.GetBytes("방명:"+item.RoomName);
+                    fs.Write(roomNameByte, 0, roomNameByte.Length);
+                    fs.Flush();
+                    byte[] messageByte = Encoding.Default.GetBytes("메시지 본문:" + item.MessageBody);
+                    fs.Write(messageByte,0, messageByte.Length);
+                    fs.Flush();
+                }
+                fs.Close();
+            }
+            savefile.Dispose();
         }
     }
 }

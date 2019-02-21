@@ -139,7 +139,15 @@ namespace MiniERP.View
         {
             try
             {
-                client.Connect(serverip, 3333);//서버 접속
+                try
+                {
+                    client.Connect(serverip, 3333);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("서버가 열려있지 않습니다");
+                    Application.Exit();
+                }//서버 접속
 
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
@@ -333,36 +341,6 @@ namespace MiniERP.View
 
         }
 
-        /// <summary>
-        /// 파일리스트의 리스트뷰를 더블클릭하면 발생
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ServerFileListView_DockChanged(object sender, EventArgs e)
-        {
-            if (ServerFileListView.SelectedItems.Count < 1)
-                return;
-
-            byte[] file;
-            string folderName = "전체";
-            if (roomList.SelectedIndex != -1)
-                folderName = roomList.SelectedItem.ToString();
-            Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file, folderName);
-
-            SaveFileDialog save = new SaveFileDialog();
-            save.Title = "It saves the downloaded file.";
-            save.SupportMultiDottedExtensions = false;
-            save.Filter = "All|*.*";
-            save.FileName = ServerFileListView.SelectedItems[0].SubItems[2].Text;
-            if (save.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
-            {
-                System.IO.File.WriteAllBytes(save.FileName, file);
-                MessageBox.Show(ServerFileListView.SelectedItems[0].SubItems[2].Text + "이 다운로드 되었습니다.", "FTP File 공유중", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            save.Dispose();
-
-        }
-
         private void rmRoom_Click(object sender, EventArgs e)
         {
             if (roomList.SelectedIndex != -1 && roomList.SelectedItem != "전체")
@@ -540,6 +518,31 @@ namespace MiniERP.View
 
         private void access_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void ServerFileListView_DoubleClick(object sender, EventArgs e)
+        {
+            if (ServerFileListView.SelectedItems.Count < 1)
+                return;
+
+            byte[] file;
+            string folderName = "전체";
+            if (roomList.SelectedIndex != -1)
+                folderName = roomList.SelectedItem.ToString();
+            Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file, folderName);
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.Title = "It saves the downloaded file.";
+            save.SupportMultiDottedExtensions = false;
+            save.Filter = "All|*.*";
+            save.FileName = ServerFileListView.SelectedItems[0].SubItems[2].Text;
+            if (save.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+            {
+                System.IO.File.WriteAllBytes(save.FileName, file);
+                MessageBox.Show(ServerFileListView.SelectedItems[0].SubItems[2].Text + "이 다운로드 되었습니다.", "FTP File 공유중", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            save.Dispose();
 
         }
     }

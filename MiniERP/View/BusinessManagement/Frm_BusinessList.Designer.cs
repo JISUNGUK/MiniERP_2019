@@ -38,7 +38,7 @@
             this.txtCodeOrName = new System.Windows.Forms.TextBox();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
             this.txtPresenter = new System.Windows.Forms.TextBox();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnSearchBusiness = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTel = new System.Windows.Forms.TextBox();
@@ -58,6 +58,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -65,6 +67,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 74);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(799, 506);
@@ -146,7 +149,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_serchbox.Controls.Add(this.txtPresenter);
-            this.pnl_serchbox.Controls.Add(this.button11);
+            this.pnl_serchbox.Controls.Add(this.btnSearchBusiness);
             this.pnl_serchbox.Controls.Add(this.label11);
             this.pnl_serchbox.Controls.Add(this.txtEmail);
             this.pnl_serchbox.Controls.Add(this.txtTel);
@@ -170,16 +173,17 @@
             this.txtPresenter.Size = new System.Drawing.Size(209, 21);
             this.txtPresenter.TabIndex = 130;
             // 
-            // button11
+            // btnSearchBusiness
             // 
-            this.button11.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button11.Font = new System.Drawing.Font("굴림", 10F);
-            this.button11.Location = new System.Drawing.Point(320, 24);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(25, 25);
-            this.button11.TabIndex = 129;
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnSearchBusiness.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btnSearchBusiness.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchBusiness.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnSearchBusiness.Location = new System.Drawing.Point(320, 24);
+            this.btnSearchBusiness.Name = "btnSearchBusiness";
+            this.btnSearchBusiness.Size = new System.Drawing.Size(25, 25);
+            this.btnSearchBusiness.TabIndex = 129;
+            this.btnSearchBusiness.UseVisualStyleBackColor = true;
+            this.btnSearchBusiness.Click += new System.EventHandler(this.btnSearchBusiness_Click);
             // 
             // label11
             // 
@@ -302,7 +306,7 @@
             this.btnInsert.TabIndex = 75;
             this.btnInsert.Text = "신규";
             this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.button5_Click);
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // Frm_BusinessList
             // 
@@ -342,7 +346,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtCodeOrName;
         private System.Windows.Forms.Panel pnl_serchbox;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnSearchBusiness;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtTel;

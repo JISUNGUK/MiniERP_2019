@@ -67,11 +67,6 @@ namespace MiniERP.View.BusinessManagement
                 MessageBox.Show("거래처 주소를 입력하지 않았습니다.", "거래처 주소를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAddr.Focus();
             }
-            else if (String.IsNullOrEmpty(txtEmail.Text))
-            {
-                MessageBox.Show("거래처 이메일을 입력하지 않았습니다.", "거래처 이메일을 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtEmail.Focus();
-            }
             else if (String.IsNullOrEmpty(txtPresenter.Text))
             {
                 MessageBox.Show("거래처 대표자명을 입력하지 않았습니다.", "거래처 대표자명을 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -95,13 +90,13 @@ namespace MiniERP.View.BusinessManagement
                         Email = txtEmail.Text,
                         Presenter = txtPresenter.Text
                     };
-
-                    if (new BusinessDAO().InsertBusiness(business) != -1)
+                    try
                     {
+                        new BusinessDAO().InsertBusiness(business);
                         MessageBox.Show("새로운 거래처를 등록했습니다.", "등록 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
-                    else
+                    catch (Exception)
                     {
                         MessageBox.Show("등록에 실패했습니다.", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

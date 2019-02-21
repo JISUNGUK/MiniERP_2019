@@ -39,11 +39,6 @@ namespace MiniERP.View.StockManagement
             InitializeComponent();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_serch_Click(object sender, EventArgs e)
         {
             if (boxchk)
@@ -148,6 +143,27 @@ namespace MiniERP.View.StockManagement
                 dataGridView1.Columns[0].HeaderText = "창고코드";
                 dataGridView1.Columns[1].HeaderText = "창고명";
                 dataGridView1.Columns[2].HeaderText = "창고구분";
+            }
+        }
+
+        private void btnSearchWarehouse_Click(object sender, EventArgs e)
+        {
+            Frm_WarehouseSelect fws = new Frm_WarehouseSelect();
+            
+            if (fws.ShowDialog() == DialogResult.OK)
+            {
+                txtCode.Text = fws.Warehouse.Warehouse_code;
+                txtName.Text = fws.Warehouse.Warehouse_name;
+                if (fws.Warehouse.Warehouse_standard == "창고")
+                {
+                    rdoWarehouse.Checked = true;
+                    rdoFactory.Checked = false;
+                }
+                else
+                {
+                    rdoWarehouse.Checked = false;
+                    rdoFactory.Checked = true;
+                }
             }
         }
     }

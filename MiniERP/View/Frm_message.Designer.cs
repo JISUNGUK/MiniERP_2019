@@ -97,7 +97,7 @@
             this.ServerFileListView.TabIndex = 42;
             this.ServerFileListView.UseCompatibleStateImageBehavior = false;
             this.ServerFileListView.View = System.Windows.Forms.View.Details;
-            this.ServerFileListView.DockChanged += new System.EventHandler(this.ServerFileListView_DockChanged);
+            this.ServerFileListView.DoubleClick += new System.EventHandler(this.ServerFileListView_DoubleClick);
             // 
             // Row
             // 

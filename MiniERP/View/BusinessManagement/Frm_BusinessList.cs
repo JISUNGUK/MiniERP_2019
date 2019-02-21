@@ -55,8 +55,6 @@ namespace MiniERP.View.BusinessManagement
 
         private void btn_BusinessSelect_Click(object sender, EventArgs e)
         {
-            Frm_BusinessSelect Frm_businessSelect = new Frm_BusinessSelect();
-            Frm_businessSelect.ShowDialog();              
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,13 +69,6 @@ namespace MiniERP.View.BusinessManagement
                 pnl_serchbox.Visible = false;
                 boxchk = true;
             }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Frm_BusinessInsert businessInsert = new Frm_BusinessInsert(businesses);
-            businessInsert.ShowDialog();
-            ReflashData();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -143,6 +134,26 @@ namespace MiniERP.View.BusinessManagement
         private void textBox1_Click(object sender, EventArgs e)
         {
             txtCodeOrName.Clear();
+        }
+
+        private void btnSearchBusiness_Click(object sender, EventArgs e)
+        {
+            Frm_BusinessSelect fbs = new Frm_BusinessSelect();
+            if (fbs.ShowDialog() == DialogResult.OK)
+            {
+                txtCode.Text = fbs.Business.Code;
+                txtName.Text = fbs.Business.Name;
+                txtTel.Text = fbs.Business.Tel;
+                txtEmail.Text = fbs.Business.Email;
+                txtPresenter.Text = fbs.Business.Presenter;
+            }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            Frm_BusinessInsert businessInsert = new Frm_BusinessInsert(businesses);
+            businessInsert.ShowDialog();
+            ReflashData();
         }
     }
 }

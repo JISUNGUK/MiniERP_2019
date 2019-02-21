@@ -35,7 +35,10 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.rdoFactory = new System.Windows.Forms.RadioButton();
+            this.rdoWarehouse = new System.Windows.Forms.RadioButton();
+            this.rdoAll = new System.Windows.Forms.RadioButton();
+            this.btnSearchWarehouse = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rdoAll = new System.Windows.Forms.RadioButton();
-            this.rdoWarehouse = new System.Windows.Forms.RadioButton();
-            this.rdoFactory = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_serchbox.SuspendLayout();
             this.SuspendLayout();
@@ -129,7 +129,7 @@
             this.pnl_serchbox.Controls.Add(this.rdoFactory);
             this.pnl_serchbox.Controls.Add(this.rdoWarehouse);
             this.pnl_serchbox.Controls.Add(this.rdoAll);
-            this.pnl_serchbox.Controls.Add(this.button6);
+            this.pnl_serchbox.Controls.Add(this.btnSearchWarehouse);
             this.pnl_serchbox.Controls.Add(this.txtName);
             this.pnl_serchbox.Controls.Add(this.txtCode);
             this.pnl_serchbox.Controls.Add(this.btnSelect);
@@ -143,16 +143,49 @@
             this.pnl_serchbox.TabIndex = 14;
             this.pnl_serchbox.Visible = false;
             // 
-            // button6
+            // rdoFactory
             // 
-            this.button6.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Location = new System.Drawing.Point(315, 23);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(25, 25);
-            this.button6.TabIndex = 9;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.rdoFactory.AutoSize = true;
+            this.rdoFactory.Location = new System.Drawing.Point(251, 60);
+            this.rdoFactory.Name = "rdoFactory";
+            this.rdoFactory.Size = new System.Drawing.Size(47, 16);
+            this.rdoFactory.TabIndex = 12;
+            this.rdoFactory.TabStop = true;
+            this.rdoFactory.Text = "공장";
+            this.rdoFactory.UseVisualStyleBackColor = true;
+            // 
+            // rdoWarehouse
+            // 
+            this.rdoWarehouse.AutoSize = true;
+            this.rdoWarehouse.Location = new System.Drawing.Point(171, 60);
+            this.rdoWarehouse.Name = "rdoWarehouse";
+            this.rdoWarehouse.Size = new System.Drawing.Size(47, 16);
+            this.rdoWarehouse.TabIndex = 11;
+            this.rdoWarehouse.TabStop = true;
+            this.rdoWarehouse.Text = "창고";
+            this.rdoWarehouse.UseVisualStyleBackColor = true;
+            // 
+            // rdoAll
+            // 
+            this.rdoAll.AutoSize = true;
+            this.rdoAll.Location = new System.Drawing.Point(91, 60);
+            this.rdoAll.Name = "rdoAll";
+            this.rdoAll.Size = new System.Drawing.Size(47, 16);
+            this.rdoAll.TabIndex = 10;
+            this.rdoAll.TabStop = true;
+            this.rdoAll.Text = "전체";
+            this.rdoAll.UseVisualStyleBackColor = true;
+            // 
+            // btnSearchWarehouse
+            // 
+            this.btnSearchWarehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btnSearchWarehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchWarehouse.Location = new System.Drawing.Point(315, 23);
+            this.btnSearchWarehouse.Name = "btnSearchWarehouse";
+            this.btnSearchWarehouse.Size = new System.Drawing.Size(25, 25);
+            this.btnSearchWarehouse.TabIndex = 9;
+            this.btnSearchWarehouse.UseVisualStyleBackColor = true;
+            this.btnSearchWarehouse.Click += new System.EventHandler(this.btnSearchWarehouse_Click);
             // 
             // txtName
             // 
@@ -217,39 +250,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "검색 기능";
             // 
-            // rdoAll
-            // 
-            this.rdoAll.AutoSize = true;
-            this.rdoAll.Location = new System.Drawing.Point(91, 60);
-            this.rdoAll.Name = "rdoAll";
-            this.rdoAll.Size = new System.Drawing.Size(47, 16);
-            this.rdoAll.TabIndex = 10;
-            this.rdoAll.TabStop = true;
-            this.rdoAll.Text = "전체";
-            this.rdoAll.UseVisualStyleBackColor = true;
-            // 
-            // rdoWarehouse
-            // 
-            this.rdoWarehouse.AutoSize = true;
-            this.rdoWarehouse.Location = new System.Drawing.Point(171, 60);
-            this.rdoWarehouse.Name = "rdoWarehouse";
-            this.rdoWarehouse.Size = new System.Drawing.Size(47, 16);
-            this.rdoWarehouse.TabIndex = 11;
-            this.rdoWarehouse.TabStop = true;
-            this.rdoWarehouse.Text = "창고";
-            this.rdoWarehouse.UseVisualStyleBackColor = true;
-            // 
-            // rdoFactory
-            // 
-            this.rdoFactory.AutoSize = true;
-            this.rdoFactory.Location = new System.Drawing.Point(251, 60);
-            this.rdoFactory.Name = "rdoFactory";
-            this.rdoFactory.Size = new System.Drawing.Size(47, 16);
-            this.rdoFactory.TabIndex = 12;
-            this.rdoFactory.TabStop = true;
-            this.rdoFactory.Text = "공장";
-            this.rdoFactory.UseVisualStyleBackColor = true;
-            // 
             // Frm_StockList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -282,7 +282,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Panel pnl_serchbox;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnSearchWarehouse;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Button btnSelect;
