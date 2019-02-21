@@ -12,8 +12,6 @@ namespace MiniERP.View.TradeManagement
 {
     public partial class Frm_TradeList : Form
     {
-        private bool serchbox;
-
         public Frm_TradeList()
         {
             InitializeComponent();
