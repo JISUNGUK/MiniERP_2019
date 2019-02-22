@@ -45,6 +45,11 @@ namespace MiniERP.View
             }
 
             dataGridView1.DataSource = dataTable;
+            // DataGridView에 표시되는 컬럼의 넓이를 설정합니다.
+            for (int i = 0; i < dataTable.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataTable.Columns.Count;
+            }
         }
 
         private void txtName_Click(object sender, EventArgs e)
@@ -85,6 +90,10 @@ namespace MiniERP.View
             }
 
             dataGridView1.DataSource = dataTable;
+            for (int i = 0; i < dataTable.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataTable.Columns.Count;
+            }
         }
 
         private void btnApply_Click(object sender, EventArgs e)
