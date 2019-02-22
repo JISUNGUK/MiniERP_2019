@@ -49,14 +49,14 @@ namespace ChattingServer
                if(Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                 {
                string receivestr= Encoding.UTF8.GetString(messageByte).Replace("\0","");
-               
-                if(receivestr.Contains("$$$$"))//전체에게 전송되는 메시지
+                    string date = "보낸시간:" + DateTime.Now + "\n";
+                    if (receivestr.Contains("$$$$"))//전체에게 전송되는 메시지
                 { 
                int letterlastIndex= receivestr.IndexOf("$$$$");
                 receivestr = receivestr.Substring(0, letterlastIndex);
                 if(receivestr.Contains(""))
                         {
-                            Server.chattingList[0].MessageBody += ClientNickName + "님의 메시지:" + receivestr+"\n";
+                            Server.chattingList[0].MessageBody += date + "보낸이:" + ClientNickName + Environment.NewLine + "메시지:"+receivestr +"\n";
                             Server.Broadcast(receivestr, ClientNickName, false);
                         }
 
@@ -70,9 +70,9 @@ namespace ChattingServer
                     {
                         if (item.RoomName == roomname)
                         {
-                                string date = "보낸시간:"+DateTime.Now+"\n";
+                                
                             
-                           item.MessageBody += date+"보낸이:"+ ClientNickName + Environment.NewLine + message;
+                           item.MessageBody += date+"보낸이:"+ ClientNickName + Environment.NewLine + "메시지:"+message+"\n";
                             if (item.NicNames != "")
                                 item.NicNames += "," + ClientNickName;
                             else

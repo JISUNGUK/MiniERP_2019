@@ -93,7 +93,7 @@ namespace ChattingServer
         /// <param name="e"></param>
         private void Server_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure ? ", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("종료하시겠습니까 ? ", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
             {
                 e.Cancel = true;
             }
@@ -335,7 +335,7 @@ namespace ChattingServer
 
         private void Server_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure ? ", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("종료하십니까 ? ", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
             {
                 e.Cancel = true;                                              
             }
@@ -383,10 +383,10 @@ namespace ChattingServer
               FileStream fs = new FileStream(savefile.FileName, FileMode.Create, FileAccess.Write);
                 foreach (var item in chattingList)
                 {
-                    byte[] roomNameByte = Encoding.Default.GetBytes("방명:"+item.RoomName);
+                    byte[] roomNameByte = Encoding.Default.GetBytes("{방명:"+item.RoomName + "\n");
                     fs.Write(roomNameByte, 0, roomNameByte.Length);
                     fs.Flush();
-                    byte[] messageByte = Encoding.Default.GetBytes("메시지 본문:" + item.MessageBody);
+                    byte[] messageByte = Encoding.Default.GetBytes("[메시지 본문:\n" + item.MessageBody+"]}\n");
                     fs.Write(messageByte,0, messageByte.Length);
                     fs.Flush();
                 }
