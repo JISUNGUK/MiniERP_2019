@@ -31,13 +31,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.pnl_serchbox.SuspendLayout();
@@ -92,6 +92,24 @@
             this.button7.TabIndex = 50;
             this.button7.Text = "검색";
             this.button7.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
+            this.textBox1.Location = new System.Drawing.Point(244, 8);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 23);
+            this.textBox1.TabIndex = 42;
+            this.textBox1.Text = "거래처 입력";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("굴림", 10F);
+            this.textBox3.Location = new System.Drawing.Point(9, 8);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(229, 23);
+            this.textBox3.TabIndex = 50;
+            this.textBox3.Text = "품목 입력";
             // 
             // label1
             // 
@@ -147,15 +165,6 @@
             this.label4.Size = new System.Drawing.Size(107, 14);
             this.label4.TabIndex = 46;
             this.label4.Text = "페이지 / 페이지";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox1.Location = new System.Drawing.Point(244, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 23);
-            this.textBox1.TabIndex = 42;
-            this.textBox1.Text = "거래처 입력";
             // 
             // label2
             // 
@@ -218,6 +227,7 @@
             this.Column8});
             this.dataGridView1.Location = new System.Drawing.Point(17, 86);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(788, 491);
             this.dataGridView1.TabIndex = 37;
@@ -261,15 +271,6 @@
             // 
             this.Column8.HeaderText = "종료일";
             this.Column8.Name = "Column8";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox3.Location = new System.Drawing.Point(9, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 23);
-            this.textBox3.TabIndex = 50;
-            this.textBox3.Text = "품목 입력";
             // 
             // button1
             // 

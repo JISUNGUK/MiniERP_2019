@@ -33,6 +33,14 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.gView_Order = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Cleaner = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,14 +67,6 @@
             this.txt_BusinessName = new System.Windows.Forms.TextBox();
             this.txt_BusinessCode = new System.Windows.Forms.TextBox();
             this.lab_TotalPrice = new System.Windows.Forms.Label();
-            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gView_Order)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +121,49 @@
             this.gView_Order.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellContentClick);
             this.gView_Order.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gView_Order_RowsAdded);
             this.gView_Order.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gView_Order_RowsRemoved);
+            // 
+            // Select
+            // 
+            this.Select.HeaderText = "선택";
+            this.Select.Name = "Select";
+            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Select.Width = 40;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "품목코드";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "품목명";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "규격";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "박스/롤/Carton";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "수량";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "단가";
+            this.Column7.Name = "Column7";
+            // 
+            // totalFee
+            // 
+            this.totalFee.HeaderText = "총액";
+            this.totalFee.Name = "totalFee";
             // 
             // btn_Cleaner
             // 
@@ -239,7 +282,6 @@
             this.btn_Business.Size = new System.Drawing.Size(25, 25);
             this.btn_Business.TabIndex = 126;
             this.btn_Business.UseVisualStyleBackColor = true;
-            this.btn_Business.Click += new System.EventHandler(this.btn_Business_Click);
             // 
             // btn_Warehouse
             // 
@@ -377,49 +419,6 @@
             this.lab_TotalPrice.Size = new System.Drawing.Size(29, 12);
             this.lab_TotalPrice.TabIndex = 141;
             this.lab_TotalPrice.Text = "공백";
-            // 
-            // Select
-            // 
-            this.Select.HeaderText = "선택";
-            this.Select.Name = "Select";
-            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Select.Width = 40;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "품목코드";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "품목명";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "규격";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "박스/롤/Carton";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "수량";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "단가";
-            this.Column7.Name = "Column7";
-            // 
-            // totalFee
-            // 
-            this.totalFee.HeaderText = "총액";
-            this.totalFee.Name = "totalFee";
             // 
             // Frm_SellBuyInsert
             // 

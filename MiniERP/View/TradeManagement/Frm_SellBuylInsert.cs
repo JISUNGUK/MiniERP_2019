@@ -99,24 +99,46 @@ namespace MiniERP.View.TradeManagement
             //gView_Order.Rows[e.RowIndex].Cells["Select"].Value = (bool)gView_Order.Rows[e.RowIndex].Cells["Select"].Value ? false : true;
         }
 
+        private void btn_Click(object sender, EventArgs e)
+        {
+            Form frm;
+            if (((Button)sender).Name.Contains("Clerk"))
+            {
+                frm = new Frm_ClerkSelect();
+                if (frm.ShowDialog() != DialogResult.Cancel)
+                {
+                    this.txt_WareCode.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_code;
+                    this.txt_WareName.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_name;
+                }
+            }
+            else if (((Button)sender).Name.Contains("Business"))
+            {
+                frm = new Frm_BusinessSelect();
+                if (frm.ShowDialog() != DialogResult.Cancel)
+                {
+                    this.txt_WareCode.Text = ((Frm_BusinessSelect)frm).Business.Code;
+                    this.txt_WareName.Text = ((Frm_BusinessSelect)frm).Business.Name;
+                }
+            }
+            else if(((Button)sender).Name.Contains("Warehouse"))
+            {
+                frm = new Frm_WarehouseSelect();
+                if (frm.ShowDialog() != DialogResult.Cancel)
+                {
+                    this.txt_WareCode.Text = ((Frm_WarehouseSelect)frm).Warehouse.Warehouse_code;
+                    this.txt_WareName.Text = ((Frm_WarehouseSelect)frm).Warehouse.Warehouse_name;
+                }
+            }
+        }
+
         private void btn_Warehouse_Click(object sender, EventArgs e)
         {
-            Frm_WarehouseSelect frm = new Frm_WarehouseSelect();
-            if (frm.ShowDialog() != DialogResult.Cancel)
-            {
-                this.txt_WareCode.Text = frm.Warehouse.Warehouse_code;
-                this.txt_WareName.Text = frm.Warehouse.Warehouse_name;
-            }
+            
         }
 
         private void btn_Business_Click(object sender, EventArgs e)
         {
-            Frm_BusinessSelect frm = new Frm_BusinessSelect();
-            if (frm.ShowDialog() != DialogResult.Cancel)
-            {
-                this.txt_BusinessCode.Text = frm.Business.Code;
-                this.txt_BusinessName.Text = frm.Business.Name;
-            }
+
         }
     }
 }
