@@ -27,13 +27,26 @@ namespace MiniERP.View.BusinessManagement
             businesses.Clear();
             dataGridView1.DataSource = null;
             businesses = new BusinessDAO().GetBusiness(new Business());
-            dataGridView1.DataSource = businesses;
+            Display(businesses);
+        }
+
+        /// <summary>
+        /// 매개변수로 받은 List를 이용해 DataGridView에 내용을 출력합니다.
+        /// </summary>
+        /// <param name="listBusiness">DataGridView에 출력될 내용을 저장하고 있는 List입니다.</param>
+        private void Display(List<Business> listBusiness)
+        {
+            dataGridView1.DataSource = listBusiness;
             dataGridView1.Columns[0].HeaderText = "거래처코드";
             dataGridView1.Columns[1].HeaderText = "거래처명";
             dataGridView1.Columns[2].HeaderText = "거래처연락처";
             dataGridView1.Columns[3].HeaderText = "거래처주소";
             dataGridView1.Columns[4].HeaderText = "거래처이메일";
             dataGridView1.Columns[5].HeaderText = "거래처대표";
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataGridView1.Columns.Count;
+            }
         }
 
         public Frm_BusinessList()
@@ -44,13 +57,7 @@ namespace MiniERP.View.BusinessManagement
         private void Frm_BusinessList_Load(object sender, EventArgs e)
         {
             businesses = new BusinessDAO().GetBusiness(new Business());
-            dataGridView1.DataSource = businesses;
-            dataGridView1.Columns[0].HeaderText = "거래처코드";
-            dataGridView1.Columns[1].HeaderText = "거래처명";
-            dataGridView1.Columns[2].HeaderText = "거래처연락처";
-            dataGridView1.Columns[3].HeaderText = "거래처주소";
-            dataGridView1.Columns[4].HeaderText = "거래처이메일";
-            dataGridView1.Columns[5].HeaderText = "거래처대표";
+            Display(businesses);
         }
 
         private void btn_BusinessSelect_Click(object sender, EventArgs e)
@@ -73,17 +80,18 @@ namespace MiniERP.View.BusinessManagement
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            Business business = new Business
+            Business business = new Business()
             {
                 Code = txtCode.Text,
                 Name = txtName.Text,
                 Tel = txtTel.Text,
+                Addr = null,
                 Email = txtEmail.Text,
                 Presenter = txtPresenter.Text
             };
             selectBusinesses = new BusinessDAO().GetBusiness(business);
             pnl_serchbox.Visible = false;
-            dataGridView1.DataSource = selectBusinesses;
+            Display(selectBusinesses);
         }
 
         private void txtCodeOrName_Click(object sender, EventArgs e)
@@ -121,19 +129,8 @@ namespace MiniERP.View.BusinessManagement
                     Presenter = ""
                 };
                 selectBusinesses = new BusinessDAO().GetBusiness(business);
-                dataGridView1.DataSource = selectBusinesses;
-                dataGridView1.Columns[0].HeaderText = "거래처코드";
-                dataGridView1.Columns[1].HeaderText = "거래처명";
-                dataGridView1.Columns[2].HeaderText = "거래처연락처";
-                dataGridView1.Columns[3].HeaderText = "거래처주소";
-                dataGridView1.Columns[4].HeaderText = "거래처이메일";
-                dataGridView1.Columns[5].HeaderText = "거래처대표";
+                Display(selectBusinesses);
             }
-        }
-
-        private void textBox1_Click(object sender, EventArgs e)
-        {
-            txtCodeOrName.Clear();
         }
 
         private void btnSearchBusiness_Click(object sender, EventArgs e)

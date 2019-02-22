@@ -21,17 +21,29 @@ namespace MiniERP.View.StockManagement
         /// <summary>
         /// DataGridView의 내용을 최신화합니다.
         /// </summary> 
-        /// 작성자 : 이상권
         private void ReflashData()
         {
             warehouses.Clear();
             dataGridView1.DataSource = null;
 
             warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
-            dataGridView1.DataSource = warehouses;
+            Display(warehouses);
+        }
+
+        /// <summary>
+        /// 매개변수로 받은 List를 이용해 DataGridView에 내용을 출력합니다.
+        /// </summary>
+        /// <param name="listWarehouse">DataGridView에 출력될 내용을 저장하고 있는 List입니다.</param>
+        private void Display(List<Warehouse> listWarehouse)
+        {
+            dataGridView1.DataSource = listWarehouse;
             dataGridView1.Columns[0].HeaderText = "창고코드";
             dataGridView1.Columns[1].HeaderText = "창고명";
             dataGridView1.Columns[2].HeaderText = "창고구분";
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataGridView1.Columns.Count;
+            }
         }
 
         public Frm_StockList()
@@ -64,10 +76,7 @@ namespace MiniERP.View.StockManagement
         private void Frm_StockList_Load(object sender, EventArgs e)
         {
             warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
-            dataGridView1.DataSource = warehouses;
-            dataGridView1.Columns[0].HeaderText = "창고코드";
-            dataGridView1.Columns[1].HeaderText = "창고명";
-            dataGridView1.Columns[2].HeaderText = "창고구분";
+            Display(warehouses);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -87,15 +96,6 @@ namespace MiniERP.View.StockManagement
             }
         }
         
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
-        //    textBox1.Clear();
-        //}
-
-        //private void textBox1_Click(object sender, EventArgs e)
-        //{
-        //    textBox1.Clear();
-        //}
         private void btnSelect_Click(object sender, EventArgs e)
         {
             string standard = "";
@@ -120,7 +120,7 @@ namespace MiniERP.View.StockManagement
             };
             selectWarehouses = new WarehouseDAO().GetWarehouses(warehouse);
             pnl_serchbox.Visible = false;
-            dataGridView1.DataSource = selectWarehouses;
+            Display(selectWarehouses);
         }
 
         private void txtCodeOrName_Click(object sender, EventArgs e)
@@ -139,10 +139,7 @@ namespace MiniERP.View.StockManagement
 
                 selectWarehouses = new WarehouseDAO().GetWarehouses(warehouse);
 
-                dataGridView1.DataSource = selectWarehouses;
-                dataGridView1.Columns[0].HeaderText = "창고코드";
-                dataGridView1.Columns[1].HeaderText = "창고명";
-                dataGridView1.Columns[2].HeaderText = "창고구분";
+                Display(selectWarehouses);
             }
         }
 

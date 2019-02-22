@@ -27,7 +27,14 @@ namespace MiniERP.View
         private void Frm_BusinessSelect_Load(object sender, EventArgs e)
         {
             businesses = new BusinessDAO().GetBusiness(new Business());
+            Display();
+        }
 
+        /// <summary>
+        /// 현재 class의 리스트를 이용해 DataGridView에 내용을 출력합니다.
+        /// </summary>
+        private void Display()
+        {
             DataTable dataTable = new DataTable();
             DataColumn[] dataColumns = new DataColumn[2]
             {
@@ -45,6 +52,11 @@ namespace MiniERP.View
             }
 
             dataGridView1.DataSource = dataTable;
+            // DataGridView에 표시되는 컬럼의 넓이를 설정합니다.
+            for (int i = 0; i < dataTable.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataTable.Columns.Count;
+            }
         }
 
         private void txtName_Click(object sender, EventArgs e)
@@ -68,23 +80,7 @@ namespace MiniERP.View
             };
             businesses = new BusinessDAO().GetBusiness(business);
 
-            DataTable dataTable = new DataTable();
-            DataColumn[] dataColumns = new DataColumn[2]
-            {
-                new DataColumn("거래처코드"),
-                new DataColumn("거래처명")
-            };
-            dataTable.Columns.AddRange(dataColumns);
-
-            foreach (var item in businesses)
-            {
-                DataRow dataRow = dataTable.NewRow();
-                dataRow["거래처코드"] = item.Code;
-                dataRow["거래처명"] = item.Name;
-                dataTable.Rows.Add(dataRow);
-            }
-
-            dataGridView1.DataSource = dataTable;
+            Display();
         }
 
         private void btnApply_Click(object sender, EventArgs e)
