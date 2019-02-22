@@ -33,7 +33,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Insert = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,8 +41,8 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,16 +99,17 @@
             this.button3.Text = "선택삭제";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_Insert
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Font = new System.Drawing.Font("굴림", 10F);
-            this.button2.Location = new System.Drawing.Point(23, 583);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "신규";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Insert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Insert.Font = new System.Drawing.Font("굴림", 10F);
+            this.btn_Insert.Location = new System.Drawing.Point(23, 583);
+            this.btn_Insert.Name = "btn_Insert";
+            this.btn_Insert.Size = new System.Drawing.Size(75, 23);
+            this.btn_Insert.TabIndex = 25;
+            this.btn_Insert.Text = "신규";
+            this.btn_Insert.UseVisualStyleBackColor = true;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // dataGridView1
             // 
@@ -163,17 +164,6 @@
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 16);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "판매";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
@@ -184,6 +174,17 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "구매";
             this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 13);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(47, 16);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "판매";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // Frm_SellBuyList
             // 
@@ -196,7 +197,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_Insert);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Frm_SellBuyList";
             this.Text = "판매/구매조회";
@@ -215,7 +216,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Insert;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

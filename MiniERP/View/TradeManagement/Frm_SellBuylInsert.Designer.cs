@@ -198,12 +198,13 @@
             // 
             // txt_ClerkCode
             // 
+            this.txt_ClerkCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_ClerkCode.Font = new System.Drawing.Font("굴림", 10F);
             this.txt_ClerkCode.Location = new System.Drawing.Point(95, 13);
             this.txt_ClerkCode.Name = "txt_ClerkCode";
+            this.txt_ClerkCode.ReadOnly = true;
             this.txt_ClerkCode.Size = new System.Drawing.Size(100, 23);
             this.txt_ClerkCode.TabIndex = 116;
-            this.txt_ClerkCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // label2
             // 
@@ -271,6 +272,7 @@
             this.btn_Clerk.Size = new System.Drawing.Size(25, 25);
             this.btn_Clerk.TabIndex = 125;
             this.btn_Clerk.UseVisualStyleBackColor = true;
+            this.btn_Clerk.Click += new System.EventHandler(this.btn_Text_Click);
             // 
             // btn_Business
             // 
@@ -282,6 +284,7 @@
             this.btn_Business.Size = new System.Drawing.Size(25, 25);
             this.btn_Business.TabIndex = 126;
             this.btn_Business.UseVisualStyleBackColor = true;
+            this.btn_Business.Click += new System.EventHandler(this.btn_Text_Click);
             // 
             // btn_Warehouse
             // 
@@ -293,16 +296,17 @@
             this.btn_Warehouse.Size = new System.Drawing.Size(25, 25);
             this.btn_Warehouse.TabIndex = 129;
             this.btn_Warehouse.UseVisualStyleBackColor = true;
-            this.btn_Warehouse.Click += new System.EventHandler(this.btn_Warehouse_Click);
+            this.btn_Warehouse.Click += new System.EventHandler(this.btn_Text_Click);
             // 
             // txt_WareCode
             // 
+            this.txt_WareCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_WareCode.Font = new System.Drawing.Font("굴림", 10F);
             this.txt_WareCode.Location = new System.Drawing.Point(95, 42);
             this.txt_WareCode.Name = "txt_WareCode";
+            this.txt_WareCode.ReadOnly = true;
             this.txt_WareCode.Size = new System.Drawing.Size(100, 23);
             this.txt_WareCode.TabIndex = 128;
-            this.txt_WareCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // lab_Warehouse
             // 
@@ -377,39 +381,43 @@
             // 
             // txt_ClerkName
             // 
+            this.txt_ClerkName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_ClerkName.Font = new System.Drawing.Font("굴림", 10F);
             this.txt_ClerkName.Location = new System.Drawing.Point(201, 13);
             this.txt_ClerkName.Name = "txt_ClerkName";
+            this.txt_ClerkName.ReadOnly = true;
             this.txt_ClerkName.Size = new System.Drawing.Size(148, 23);
             this.txt_ClerkName.TabIndex = 137;
-            this.txt_ClerkName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // txt_WareName
             // 
+            this.txt_WareName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_WareName.Font = new System.Drawing.Font("굴림", 10F);
             this.txt_WareName.Location = new System.Drawing.Point(201, 41);
             this.txt_WareName.Name = "txt_WareName";
+            this.txt_WareName.ReadOnly = true;
             this.txt_WareName.Size = new System.Drawing.Size(148, 23);
             this.txt_WareName.TabIndex = 138;
-            this.txt_WareName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // txt_BusinessName
             // 
+            this.txt_BusinessName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_BusinessName.Font = new System.Drawing.Font("굴림", 10F);
             this.txt_BusinessName.Location = new System.Drawing.Point(592, 13);
             this.txt_BusinessName.Name = "txt_BusinessName";
+            this.txt_BusinessName.ReadOnly = true;
             this.txt_BusinessName.Size = new System.Drawing.Size(146, 23);
             this.txt_BusinessName.TabIndex = 140;
-            this.txt_BusinessName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // txt_BusinessCode
             // 
+            this.txt_BusinessCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_BusinessCode.Font = new System.Drawing.Font("굴림", 10F);
             this.txt_BusinessCode.Location = new System.Drawing.Point(486, 13);
             this.txt_BusinessCode.Name = "txt_BusinessCode";
+            this.txt_BusinessCode.ReadOnly = true;
             this.txt_BusinessCode.Size = new System.Drawing.Size(100, 23);
             this.txt_BusinessCode.TabIndex = 139;
-            this.txt_BusinessCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // lab_TotalPrice
             // 

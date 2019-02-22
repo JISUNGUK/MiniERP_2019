@@ -15,6 +15,7 @@ namespace MiniERP.View.TradeManagement
         public Frm_SellBuyInsert()
         {
             InitializeComponent();
+            txt_BusinessCode.ReadOnly = true;
         }
 
         #region 라디오박스 이벤트
@@ -28,28 +29,6 @@ namespace MiniERP.View.TradeManagement
             lab_Warehouse.Text = "입고창고";
         }
         #endregion
-
-        /// <summary>
-        /// 텍스트박스에 키이벤트를 주면 해당 텍스트박스와 관련 텍스트박스를 Clear한다.
-        /// </summary>
-        private void Txt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (((TextBox)sender).Name.Contains("Clerk"))
-            {
-                txt_ClerkCode.Clear();
-                txt_ClerkName.Clear();
-            }
-            else if (((TextBox)sender).Name.Contains("Business"))
-            {
-                txt_BusinessCode.Clear();
-                txt_BusinessName.Clear();
-            }
-            else if (((TextBox)sender).Name.Contains("Ware"))
-            {
-                txt_WareCode.Clear();
-                txt_WareName.Clear();
-            }
-        }
 
         /// <summary>
         /// 다시작성 버튼클릭 이벤트, 텍스트박스와 그리드뷰를 Clear 한다
@@ -72,12 +51,18 @@ namespace MiniERP.View.TradeManagement
         #region 품목 추가/삭제시 총액구하기
         private void gView_Order_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            Get_TotalFee();
+            if (gView_Order.RowCount > 0)
+            {
+                Get_TotalFee();
+            }
         }
 
         private void gView_Order_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            Get_TotalFee();
+            if (gView_Order.RowCount > 0)
+            {
+                Get_TotalFee();
+            }
         }
 
         private void Get_TotalFee()
@@ -96,10 +81,13 @@ namespace MiniERP.View.TradeManagement
         /// </summary>
         private void gView_Order_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //gView_Order.Rows[e.RowIndex].Cells["Select"].Value = (bool)gView_Order.Rows[e.RowIndex].Cells["Select"].Value ? false : true;
+            if (e.ColumnIndex == 0)
+            {
+                //gView_Order.Rows[e.RowIndex].Cells["Select"].Value = (bool)gView_Order.Rows[e.RowIndex].Cells["Select"].Value ? false : true;
+            }
         }
 
-        private void btn_Click(object sender, EventArgs e)
+        private void btn_Text_Click(object sender, EventArgs e)
         {
             Form frm;
             if (((Button)sender).Name.Contains("Clerk"))
@@ -107,8 +95,8 @@ namespace MiniERP.View.TradeManagement
                 frm = new Frm_ClerkSelect();
                 if (frm.ShowDialog() != DialogResult.Cancel)
                 {
-                    this.txt_WareCode.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_code;
-                    this.txt_WareName.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_name;
+                    this.txt_ClerkCode.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_code;
+                    this.txt_ClerkName.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_name;
                 }
             }
             else if (((Button)sender).Name.Contains("Business"))
@@ -116,11 +104,11 @@ namespace MiniERP.View.TradeManagement
                 frm = new Frm_BusinessSelect();
                 if (frm.ShowDialog() != DialogResult.Cancel)
                 {
-                    this.txt_WareCode.Text = ((Frm_BusinessSelect)frm).Business.Code;
-                    this.txt_WareName.Text = ((Frm_BusinessSelect)frm).Business.Name;
+                    this.txt_BusinessCode.Text = ((Frm_BusinessSelect)frm).Business.Code;
+                    this.txt_BusinessName.Text = ((Frm_BusinessSelect)frm).Business.Name;
                 }
             }
-            else if(((Button)sender).Name.Contains("Warehouse"))
+            else if (((Button)sender).Name.Contains("Warehouse"))
             {
                 frm = new Frm_WarehouseSelect();
                 if (frm.ShowDialog() != DialogResult.Cancel)
@@ -129,16 +117,6 @@ namespace MiniERP.View.TradeManagement
                     this.txt_WareName.Text = ((Frm_WarehouseSelect)frm).Warehouse.Warehouse_name;
                 }
             }
-        }
-
-        private void btn_Warehouse_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btn_Business_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

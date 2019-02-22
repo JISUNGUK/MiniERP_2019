@@ -16,5 +16,11 @@ namespace MiniERP.View.TradeManagement
         {
             InitializeComponent();
         }
+
+        private void btn_Insert_Click(object sender, EventArgs e)
+        {
+            Frm_SellBuyInsert frm = new Frm_SellBuyInsert();
+            frm.ShowDialog();
+        }
     }
 }
