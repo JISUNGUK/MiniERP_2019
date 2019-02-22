@@ -35,41 +35,25 @@ namespace MiniErp_Client_jsu
             Console.WriteLine("sever state : " + client.Connected.ToString());
         }
 
-        //  에러발생 알고리즘
-        //  관제중 에러발생 -> 에러 코드 생성 -> 에러 전송
-        /// <summary>
-        /// 에러메시지 보내기
-        /// </summary>
-        /// <param name="err"></param>
-        public void Err_Sending(string err)
-        {
-            if (String.IsNullOrEmpty(err) != true && err.IndexOf("[err]", 0) != -1)     //  에러메시지인지 확인된다면 sanding
-            {
-                byte[] ubytes = System.Text.Encoding.Unicode.GetBytes(err);
-                nstream.Write(ubytes, 0, ubytes.Length);
 
-                Console.WriteLine("errcode send : Ok", err);
+        /// <summary>
+        /// 메시지 보내기
+        /// </summary>
+        /// <param name="msg">command, err code 샌딩</param>
+        public void SendingMsg(string msg)
+        {
+            try
+            {
+                Byte[] tempBytes = Encoding.Unicode.GetBytes(msg);
+                nstream.Write(tempBytes, 0, tempBytes.Length);
+                System.Windows.Forms.MessageBox.Show("sending ok");
             }
-            else
-                Console.WriteLine("errcode send : Fail");
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("sending fail");
+            }
         }
 
-        //  서버의 명령어 받는 알고리즘
-        //  서버의 명령어를 받기 -> 올바른 명령어인지 판독 -> 해당 명령어에 맞는 기능 수행( 정지/시작/실시간 통계 )
-        /// <summary>
-        /// 서버에서 오는 명령어가 올바른 명령어인지 인식함
-        /// </summary>
-        /// <param name="msg"></param>
-        /// <returns>true 시 올바른 명령어</returns>
-        public bool CommandChecker(string msg)
-        {
-            if (msg.IndexOf("[command]", 0) != -1)
-            {
-                //command_Code = msg;
-                return true;
-            }
-            return false;
-        }
 
         public void CloseSeverTest()
         {
@@ -83,5 +67,7 @@ namespace MiniErp_Client_jsu
         {
             return client.Connected;
         }
+
+        
     }
 }
