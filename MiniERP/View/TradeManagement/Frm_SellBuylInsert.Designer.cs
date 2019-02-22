@@ -33,38 +33,40 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.gView_Order = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btn_Cleaner = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_ClerkCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btn_Clerk = new System.Windows.Forms.Button();
+            this.btn_Business = new System.Windows.Forms.Button();
+            this.btn_Warehouse = new System.Windows.Forms.Button();
+            this.txt_WareCode = new System.Windows.Forms.TextBox();
             this.lab_Warehouse = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.rdo_Sell = new System.Windows.Forms.RadioButton();
             this.rdo_Buy = new System.Windows.Forms.RadioButton();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btn_ItemAdd = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.btn_ItemDelete = new System.Windows.Forms.Button();
+            this.txt_ClerkName = new System.Windows.Forms.TextBox();
+            this.txt_WareName = new System.Windows.Forms.TextBox();
+            this.txt_BusinessName = new System.Windows.Forms.TextBox();
+            this.txt_BusinessCode = new System.Windows.Forms.TextBox();
+            this.lab_TotalPrice = new System.Windows.Forms.Label();
+            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gView_Order)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,38 +103,45 @@
             // 
             this.gView_Order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gView_Order.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column1});
+            this.totalFee});
             this.gView_Order.Location = new System.Drawing.Point(21, 107);
             this.gView_Order.Name = "gView_Order";
+            this.gView_Order.RowHeadersVisible = false;
             this.gView_Order.RowTemplate.Height = 23;
+            this.gView_Order.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gView_Order.Size = new System.Drawing.Size(749, 263);
             this.gView_Order.TabIndex = 123;
+            this.gView_Order.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellContentClick);
+            this.gView_Order.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gView_Order_RowsAdded);
+            this.gView_Order.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gView_Order_RowsRemoved);
             // 
-            // button2
+            // btn_Cleaner
             // 
-            this.button2.Font = new System.Drawing.Font("굴림", 10F);
-            this.button2.Location = new System.Drawing.Point(120, 386);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 122;
-            this.button2.Text = "다시작성";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Cleaner.Font = new System.Drawing.Font("굴림", 10F);
+            this.btn_Cleaner.Location = new System.Drawing.Point(120, 386);
+            this.btn_Cleaner.Name = "btn_Cleaner";
+            this.btn_Cleaner.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cleaner.TabIndex = 122;
+            this.btn_Cleaner.Text = "다시작성";
+            this.btn_Cleaner.UseVisualStyleBackColor = true;
+            this.btn_Cleaner.Click += new System.EventHandler(this.btn_Cleaner_Click);
             // 
-            // button6
+            // btn_Save
             // 
-            this.button6.Font = new System.Drawing.Font("굴림", 10F);
-            this.button6.Location = new System.Drawing.Point(21, 386);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 121;
-            this.button6.Text = "저장";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btn_Save.Font = new System.Drawing.Font("굴림", 10F);
+            this.btn_Save.Location = new System.Drawing.Point(21, 386);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 23);
+            this.btn_Save.TabIndex = 121;
+            this.btn_Save.Text = "저장";
+            this.btn_Save.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -144,14 +153,14 @@
             this.label3.TabIndex = 118;
             this.label3.Text = "거래처";
             // 
-            // textBox4
+            // txt_ClerkCode
             // 
-            this.textBox4.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox4.Location = new System.Drawing.Point(95, 13);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 116;
-            this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
+            this.txt_ClerkCode.Font = new System.Drawing.Font("굴림", 10F);
+            this.txt_ClerkCode.Location = new System.Drawing.Point(95, 13);
+            this.txt_ClerkCode.Name = "txt_ClerkCode";
+            this.txt_ClerkCode.Size = new System.Drawing.Size(100, 23);
+            this.txt_ClerkCode.TabIndex = 116;
+            this.txt_ClerkCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // label2
             // 
@@ -209,47 +218,49 @@
             this.button7.TabIndex = 114;
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_Clerk
             // 
-            this.button1.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Font = new System.Drawing.Font("굴림", 10F);
-            this.button1.Location = new System.Drawing.Point(355, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
-            this.button1.TabIndex = 125;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Clerk.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btn_Clerk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Clerk.Font = new System.Drawing.Font("굴림", 10F);
+            this.btn_Clerk.Location = new System.Drawing.Point(355, 13);
+            this.btn_Clerk.Name = "btn_Clerk";
+            this.btn_Clerk.Size = new System.Drawing.Size(25, 25);
+            this.btn_Clerk.TabIndex = 125;
+            this.btn_Clerk.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_Business
             // 
-            this.button3.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Font = new System.Drawing.Font("굴림", 10F);
-            this.button3.Location = new System.Drawing.Point(744, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 25);
-            this.button3.TabIndex = 126;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_Business.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btn_Business.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Business.Font = new System.Drawing.Font("굴림", 10F);
+            this.btn_Business.Location = new System.Drawing.Point(744, 13);
+            this.btn_Business.Name = "btn_Business";
+            this.btn_Business.Size = new System.Drawing.Size(25, 25);
+            this.btn_Business.TabIndex = 126;
+            this.btn_Business.UseVisualStyleBackColor = true;
+            this.btn_Business.Click += new System.EventHandler(this.btn_Business_Click);
             // 
-            // button8
+            // btn_Warehouse
             // 
-            this.button8.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button8.Font = new System.Drawing.Font("굴림", 10F);
-            this.button8.Location = new System.Drawing.Point(355, 41);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(25, 25);
-            this.button8.TabIndex = 129;
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_Warehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btn_Warehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Warehouse.Font = new System.Drawing.Font("굴림", 10F);
+            this.btn_Warehouse.Location = new System.Drawing.Point(355, 41);
+            this.btn_Warehouse.Name = "btn_Warehouse";
+            this.btn_Warehouse.Size = new System.Drawing.Size(25, 25);
+            this.btn_Warehouse.TabIndex = 129;
+            this.btn_Warehouse.UseVisualStyleBackColor = true;
+            this.btn_Warehouse.Click += new System.EventHandler(this.btn_Warehouse_Click);
             // 
-            // textBox2
+            // txt_WareCode
             // 
-            this.textBox2.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox2.Location = new System.Drawing.Point(95, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 128;
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
+            this.txt_WareCode.Font = new System.Drawing.Font("굴림", 10F);
+            this.txt_WareCode.Location = new System.Drawing.Point(95, 42);
+            this.txt_WareCode.Name = "txt_WareCode";
+            this.txt_WareCode.Size = new System.Drawing.Size(100, 23);
+            this.txt_WareCode.TabIndex = 128;
+            this.txt_WareCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
             // lab_Warehouse
             // 
@@ -295,14 +306,14 @@
             this.rdo_Buy.UseVisualStyleBackColor = true;
             this.rdo_Buy.CheckedChanged += new System.EventHandler(this.rdo_Buy_CheckedChanged);
             // 
-            // button9
+            // btn_ItemAdd
             // 
-            this.button9.Location = new System.Drawing.Point(613, 78);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 134;
-            this.button9.Text = "품목추가";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btn_ItemAdd.Location = new System.Drawing.Point(613, 78);
+            this.btn_ItemAdd.Name = "btn_ItemAdd";
+            this.btn_ItemAdd.Size = new System.Drawing.Size(75, 23);
+            this.btn_ItemAdd.TabIndex = 134;
+            this.btn_ItemAdd.Text = "품목추가";
+            this.btn_ItemAdd.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -313,50 +324,67 @@
             this.label8.TabIndex = 135;
             this.label8.Text = "총가격 : ";
             // 
-            // button10
+            // btn_ItemDelete
             // 
-            this.button10.Location = new System.Drawing.Point(694, 78);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 136;
-            this.button10.Text = "품목삭제";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btn_ItemDelete.Location = new System.Drawing.Point(694, 78);
+            this.btn_ItemDelete.Name = "btn_ItemDelete";
+            this.btn_ItemDelete.Size = new System.Drawing.Size(75, 23);
+            this.btn_ItemDelete.TabIndex = 136;
+            this.btn_ItemDelete.Text = "품목삭제";
+            this.btn_ItemDelete.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // txt_ClerkName
             // 
-            this.textBox5.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox5.Location = new System.Drawing.Point(201, 13);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(148, 23);
-            this.textBox5.TabIndex = 137;
-            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
+            this.txt_ClerkName.Font = new System.Drawing.Font("굴림", 10F);
+            this.txt_ClerkName.Location = new System.Drawing.Point(201, 13);
+            this.txt_ClerkName.Name = "txt_ClerkName";
+            this.txt_ClerkName.Size = new System.Drawing.Size(148, 23);
+            this.txt_ClerkName.TabIndex = 137;
+            this.txt_ClerkName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
-            // textBox6
+            // txt_WareName
             // 
-            this.textBox6.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox6.Location = new System.Drawing.Point(201, 41);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(148, 23);
-            this.textBox6.TabIndex = 138;
-            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
+            this.txt_WareName.Font = new System.Drawing.Font("굴림", 10F);
+            this.txt_WareName.Location = new System.Drawing.Point(201, 41);
+            this.txt_WareName.Name = "txt_WareName";
+            this.txt_WareName.Size = new System.Drawing.Size(148, 23);
+            this.txt_WareName.TabIndex = 138;
+            this.txt_WareName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
-            // textBox1
+            // txt_BusinessName
             // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox1.Location = new System.Drawing.Point(592, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 23);
-            this.textBox1.TabIndex = 140;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
+            this.txt_BusinessName.Font = new System.Drawing.Font("굴림", 10F);
+            this.txt_BusinessName.Location = new System.Drawing.Point(592, 13);
+            this.txt_BusinessName.Name = "txt_BusinessName";
+            this.txt_BusinessName.Size = new System.Drawing.Size(146, 23);
+            this.txt_BusinessName.TabIndex = 140;
+            this.txt_BusinessName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
             // 
-            // textBox7
+            // txt_BusinessCode
             // 
-            this.textBox7.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox7.Location = new System.Drawing.Point(486, 13);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 23);
-            this.textBox7.TabIndex = 139;
-            this.textBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
+            this.txt_BusinessCode.Font = new System.Drawing.Font("굴림", 10F);
+            this.txt_BusinessCode.Location = new System.Drawing.Point(486, 13);
+            this.txt_BusinessCode.Name = "txt_BusinessCode";
+            this.txt_BusinessCode.Size = new System.Drawing.Size(100, 23);
+            this.txt_BusinessCode.TabIndex = 139;
+            this.txt_BusinessCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyDown);
+            // 
+            // lab_TotalPrice
+            // 
+            this.lab_TotalPrice.AutoSize = true;
+            this.lab_TotalPrice.Location = new System.Drawing.Point(649, 386);
+            this.lab_TotalPrice.Name = "lab_TotalPrice";
+            this.lab_TotalPrice.Size = new System.Drawing.Size(29, 12);
+            this.lab_TotalPrice.TabIndex = 141;
+            this.lab_TotalPrice.Text = "공백";
+            // 
+            // Select
+            // 
+            this.Select.HeaderText = "선택";
+            this.Select.Name = "Select";
+            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Select.Width = 40;
             // 
             // Column2
             // 
@@ -388,10 +416,10 @@
             this.Column7.HeaderText = "단가";
             this.Column7.Name = "Column7";
             // 
-            // Column1
+            // totalFee
             // 
-            this.Column1.HeaderText = "총액";
-            this.Column1.Name = "Column1";
+            this.totalFee.HeaderText = "총액";
+            this.totalFee.Name = "totalFee";
             // 
             // Frm_SellBuyInsert
             // 
@@ -399,27 +427,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(792, 418);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.lab_TotalPrice);
+            this.Controls.Add(this.txt_BusinessName);
+            this.Controls.Add(this.txt_BusinessCode);
+            this.Controls.Add(this.txt_WareName);
+            this.Controls.Add(this.txt_ClerkName);
+            this.Controls.Add(this.btn_ItemDelete);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.btn_ItemAdd);
             this.Controls.Add(this.rdo_Buy);
             this.Controls.Add(this.rdo_Sell);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.btn_Warehouse);
+            this.Controls.Add(this.txt_WareCode);
             this.Controls.Add(this.lab_Warehouse);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Business);
+            this.Controls.Add(this.btn_Clerk);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.gView_Order);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btn_Cleaner);
+            this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_ClerkCode);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox3);
@@ -444,37 +473,39 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView gView_Order;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_Cleaner;
+        private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_ClerkCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btn_Clerk;
+        private System.Windows.Forms.Button btn_Business;
+        private System.Windows.Forms.Button btn_Warehouse;
+        private System.Windows.Forms.TextBox txt_WareCode;
         private System.Windows.Forms.Label lab_Warehouse;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton rdo_Sell;
         private System.Windows.Forms.RadioButton rdo_Buy;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btn_ItemAdd;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button btn_ItemDelete;
+        private System.Windows.Forms.TextBox txt_ClerkName;
+        private System.Windows.Forms.TextBox txt_WareName;
+        private System.Windows.Forms.TextBox txt_BusinessName;
+        private System.Windows.Forms.TextBox txt_BusinessCode;
+        private System.Windows.Forms.Label lab_TotalPrice;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalFee;
     }
 }
