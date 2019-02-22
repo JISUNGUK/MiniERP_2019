@@ -399,7 +399,6 @@ namespace MiniERP.View
                     MessageBox.Show("해당 폼이 없습니다.");
                     tabControl1.SelectedTab = tabControl1.TabPages[0];
                     break;
-
             }
             tabChk = false;
         }
@@ -407,23 +406,6 @@ namespace MiniERP.View
         private void CloseForm(object test)
         {
 
-        }
-
-        
-
-        private void 견적서조회ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void tsm_OrdM_inquiry_Click_1(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-        }
-
-        private void 견적서조회ToolStripMenuItem1_Click_1(object sender, EventArgs e)
-        {
-            OpenForm(sender);
         }
 
         private void tsm_Accountregistration_Click(object sender, EventArgs e)

@@ -26,7 +26,14 @@ namespace MiniERP.View
         private void Frm_WarehouseSelect_Load(object sender, EventArgs e)
         {
             warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
+            Display();
+        }
 
+        /// <summary>
+        /// 현재 class의 리스트를 이용해 DataGridView에 내용을 출력합니다.
+        /// </summary>
+        private void Display()
+        {
             DataTable dataTable = new DataTable();
             DataColumn[] dataColumns = new DataColumn[3]
             {
@@ -76,28 +83,7 @@ namespace MiniERP.View
             };
             warehouses = new WarehouseDAO().GetWarehouses(warehouse);
 
-            DataTable dataTable = new DataTable();
-            DataColumn[] dataColumns = new DataColumn[3]
-            {
-                new DataColumn("구분"),
-                new DataColumn("창고코드"),
-                new DataColumn("창고명")
-            };
-            dataTable.Columns.AddRange(dataColumns);
-
-            foreach (var item in warehouses)
-            {
-                DataRow dataRow = dataTable.NewRow();
-                dataRow["구분"] = item.Warehouse_standard;
-                dataRow["창고코드"] = item.Warehouse_code;
-                dataRow["창고명"] = item.Warehouse_name;
-                dataTable.Rows.Add(dataRow);
-            }
-            dataGridView1.DataSource = dataTable;
-            for (int i = 0; i < dataTable.Columns.Count; i++)
-            {
-                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataTable.Columns.Count;
-            }
+            Display();
         }
 
         private void txtName_KeyDown(object sender, KeyEventArgs e)
