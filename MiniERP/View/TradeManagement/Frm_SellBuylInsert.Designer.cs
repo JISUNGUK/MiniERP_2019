@@ -101,6 +101,8 @@
             // 
             // gView_Order
             // 
+            this.gView_Order.AllowUserToAddRows = false;
+            this.gView_Order.AllowUserToDeleteRows = false;
             this.gView_Order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gView_Order.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select,
@@ -111,13 +113,15 @@
             this.Column6,
             this.Column7,
             this.totalFee});
+            this.gView_Order.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.gView_Order.Location = new System.Drawing.Point(21, 107);
             this.gView_Order.Name = "gView_Order";
             this.gView_Order.RowHeadersVisible = false;
             this.gView_Order.RowTemplate.Height = 23;
-            this.gView_Order.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gView_Order.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gView_Order.Size = new System.Drawing.Size(749, 263);
             this.gView_Order.TabIndex = 123;
+            this.gView_Order.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellClick);
             this.gView_Order.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellContentClick);
             this.gView_Order.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gView_Order_RowsAdded);
             this.gView_Order.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gView_Order_RowsRemoved);
@@ -360,6 +364,7 @@
             this.btn_ItemAdd.TabIndex = 134;
             this.btn_ItemAdd.Text = "품목추가";
             this.btn_ItemAdd.UseVisualStyleBackColor = true;
+            this.btn_ItemAdd.Click += new System.EventHandler(this.btn_ItemAdd_Click);
             // 
             // label8
             // 
@@ -378,6 +383,7 @@
             this.btn_ItemDelete.TabIndex = 136;
             this.btn_ItemDelete.Text = "품목삭제";
             this.btn_ItemDelete.UseVisualStyleBackColor = true;
+            this.btn_ItemDelete.Click += new System.EventHandler(this.btn_ItemDelete_Click);
             // 
             // txt_ClerkName
             // 
