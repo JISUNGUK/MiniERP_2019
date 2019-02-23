@@ -36,7 +36,7 @@ namespace MiniERP.View
         private string currentfileName;
         string readData = "";
         private string nickname;
-        private string serverip = "192.168.1.4";
+        private string serverip = "192.168.0.6";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
         private List<Board>boardList = new List<Board>();
 
