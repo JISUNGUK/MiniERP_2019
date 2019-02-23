@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Message.Control;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace MiniERP.Model.DAO
 
         }
 
-        public void DisplayContent(string readData,ListBox memberList,ComboBox roomList,Hashtable roomtable)
+        public void DisplayContent(string readData,ListBox memberList,ComboBox roomList,List<Board> boardList)
         {
             if (readData.Contains("접속 인원:"))
             {
@@ -60,19 +61,29 @@ namespace MiniERP.Model.DAO
                 {
                     string[] rooms = roomlist.Split(seperators[0]);
                     string roomNamelist = "";
-                    foreach (var v in rooms)
+                   
+                    foreach (var v in rooms)//룸이름이 저장되어있다,
                     {
                         if (!roomNamelist.Contains(v))
                         {
 
                             roomList.Items.Add(v);
                         }
-                        if (!roomtable.Contains(v))
+                        int duplicateCount = 0;//해당 방이 있는지 여부
+                        foreach (var item in boardList)
                         {
-                            roomtable.Add(v, "");//로컬프로그램에 저장될 채팅방 이름과 메시지내용들
+                            if (item.BoardName == v)
+                                duplicateCount++;
                         }
                         roomNamelist += v;
+                        if (duplicateCount == 0)
+                        {
+                            Board board = new Board();
+                            board.BoardName = v;
+                            boardList.Add(board);
+                        }
                     }
+                    
                 }
             }
         }
@@ -101,19 +112,28 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public void GetMsg(string readData,Hashtable roomtable,ComboBox roomList,RichTextBox ChatContent)
+        public void GetMsg(string readData,List<Board> boardList,ComboBox roomList,Board board)
         {
             this.roomList = roomList;
             if (!readData.Contains("서버 메시지:"))
             {
-                string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + "\n";
+                //string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + "\n";
                 if (readData.Contains(">>>>"))
                 {
                     int indexOfseprate = readData.IndexOf(">>>>");
                     string roomname = readData.Remove(indexOfseprate);
                     string message = readData.Substring(indexOfseprate + 4);
                     roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
-                    roomtable[roomname] += "\n"+ date + Environment.NewLine + ">>" + message + "\n";
+                                                     // roomtable[roomname] += "\n"+ date + Environment.NewLine + ">>" + message + "\n";
+                    foreach (var item in boardList)
+                    {
+                        if(item.BoardName==roomname)
+                        {
+                            string date = DateTime.Now.Date.ToString();
+                            item.AddMessages(message+"\n보낸시간:"+ date, false);
+                            break;                           
+                        }
+                    }
 
                    
                     //알림창을 띄워줌 해당 창의 알림이 울릴지 여부를 확인
@@ -129,30 +149,39 @@ namespace MiniERP.Model.DAO
                     }
                     if (roomList.SelectedIndex != -1)
                     {
+                        string date = DateTime.Now.Date.ToString();
                         if (roomList.SelectedItem.ToString() == roomname)
                         {
 
-                            ChatContent.Text = ChatContent.Text + "\n" + date +Environment.NewLine + ">>" + message + "\n";
-                            ChatContent.SelectionStart = ChatContent.TextLength;
-                            ChatContent.ScrollToCaret();
+                            /* ChatContent.Text = ChatContent.Text + "\n" + date +Environment.NewLine + ">>" + message + "\n";
+                             ChatContent.SelectionStart = ChatContent.TextLength;
+                             ChatContent.ScrollToCaret();*/
+                            board.AddMessages(message + "\n보낸시간:" + date, false);
+                          
                             View.Form1.notify = false;
 
                         }
+                        boardList[roomList.SelectedIndex].AddMessages(message + "\n보낸시간:" + date, false);
                     }
 
                 }
                 else
                 {
+                    string date = DateTime.Now.Date.ToString();
                     if (roomList.SelectedItem == null || roomList.SelectedItem.ToString() == "전체")
                     {
-                        ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;
-                        ChatContent.SelectionStart = ChatContent.TextLength;
-                        ChatContent.ScrollToCaret();
+                        /* ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;
+                         ChatContent.SelectionStart = ChatContent.TextLength;
+                         ChatContent.ScrollToCaret();*/
                        
+                      
+                        board.AddMessages(readData + "보낸시간" + date, false);
+
 
                     }
-                    roomtable["전체"] += "\n" + date + Environment.NewLine + "\n>>" + readData + "\n";
-                   
+                    boardList[0].AddMessages(readData + "보낸시간" + date, false);
+                    // roomtable["전체"] += "\n" + date + Environment.NewLine + "\n>>" + readData + "\n";
+
                     if (MiniERP.View.Form1.notify)
                     {
                         popup = new PopupNotifier();

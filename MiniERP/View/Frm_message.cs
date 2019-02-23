@@ -1,4 +1,5 @@
 ﻿using ChattingServer.FTPbase;
+using Message.Control;
 using MiniERP.Model.DAO;
 using System;
 using System.Collections;
@@ -35,13 +36,15 @@ namespace MiniERP.View
         private string currentfileName;
         string readData = "";
         private string nickname;
-        private string serverip = "192.168.0.6";
+        private string serverip = "192.168.1.4";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
+        private List<Board>boardList = new List<Board>();
 
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
         private string ownedRoom = "";
 
         private MessageDAO messagedao;
+
 
 
         public struct SHFILEINFO
@@ -113,7 +116,7 @@ namespace MiniERP.View
             }
             else
             {
-                Messagedao.DisplayContent(readData, memberList, roomList, roomtable);
+                Messagedao.DisplayContent(readData, memberList, roomList,boardList);
 
             }
         }
@@ -129,7 +132,7 @@ namespace MiniERP.View
             }
             else
             {
-                Messagedao.GetMsg(readData, roomtable, roomList, ChatContent);
+                Messagedao.GetMsg(readData, boardList, roomList,messageBoard);
 
 
             }
@@ -150,8 +153,11 @@ namespace MiniERP.View
                 }//서버 접속
 
                 Messagedao.Client = client;
-                roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
-                roomtable.Add("전체", "");
+               // roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
+                //roomtable.Add("전체", "");
+                Board board = new Board();
+                board.BoardName = "전체";
+                boardList.Add(board);
                 //Msg();
                 Network = client.GetStream();
                 Messagedao.SendMessage(nickname);
@@ -188,17 +194,23 @@ namespace MiniERP.View
             if (!string.IsNullOrEmpty(message.Text))
             {
                 Messagedao.SendChatMessage(message.Text, roomList);
-                string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
+                string date = "\n보낸 시간:" + DateTime.Now.Date.ToString();
+               // string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
                 if (roomList.SelectedIndex != -1)
                 {
-                    roomtable[roomList.SelectedItem.ToString()] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                    // roomtable[roomList.SelectedItem.ToString()] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                    //string date = DateTime.Now.Date.ToString();
 
+                    boardList[roomList.SelectedIndex].AddMessages(message.Text + date, true);
                 }
                 else
                 {
-                    roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                  //  roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                  boardList[0].AddMessages(message.Text + date, true);
+                   
                 }
-                ChatContent.Text += "\n"+date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                messageBoard.AddMessages(message.Text + date, true);
+                //ChatContent.Text += "\n"+date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 message.Text = "";
 
             }
@@ -324,7 +336,14 @@ namespace MiniERP.View
 
         private void roomList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChatContent.Text = roomtable[roomList.SelectedItem].ToString();
+            //ChatContent.Text = roomtable[roomList.SelectedItem].ToString();
+            // WeakReference wr = new WeakReference(boardList[roomList.SelectedIndex]);
+            if(roomList.SelectedIndex>-1)
+            {
+                messageBoard = null;
+
+            messageBoard = boardList[roomList.SelectedIndex];
+            }
             if (this.OwnedRoom.Contains(roomList.SelectedItem.ToString()))
             {
                 rmRoom.Enabled = true;
@@ -543,6 +562,11 @@ namespace MiniERP.View
                 MessageBox.Show(ServerFileListView.SelectedItems[0].SubItems[2].Text + "이 다운로드 되었습니다.", "FTP File 공유중", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             save.Dispose();
+
+        }
+
+        private void message_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

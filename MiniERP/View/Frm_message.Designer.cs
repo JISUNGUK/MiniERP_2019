@@ -56,13 +56,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.nicknamel = new System.Windows.Forms.Label();
+            this.messageBoard = new Message.Control.Board();
             ((System.ComponentModel.ISupportInitialize)(this.fileImage)).BeginInit();
             this.SuspendLayout();
             // 
             // Refresh
             // 
             this.Refresh.Location = new System.Drawing.Point(510, 1035);
-            this.Refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Refresh.Margin = new System.Windows.Forms.Padding(4);
             this.Refresh.Name = "Refresh";
             this.Refresh.Size = new System.Drawing.Size(124, 34);
             this.Refresh.TabIndex = 44;
@@ -93,7 +94,7 @@
             this.ServerFileListView.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ServerFileListView.MultiSelect = false;
             this.ServerFileListView.Name = "ServerFileListView";
-            this.ServerFileListView.Size = new System.Drawing.Size(584, 502);
+            this.ServerFileListView.Size = new System.Drawing.Size(636, 502);
             this.ServerFileListView.TabIndex = 42;
             this.ServerFileListView.UseCompatibleStateImageBehavior = false;
             this.ServerFileListView.View = System.Windows.Forms.View.Details;
@@ -132,7 +133,7 @@
             // 
             this.fileImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.fileImage.Location = new System.Drawing.Point(157, 952);
-            this.fileImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fileImage.Margin = new System.Windows.Forms.Padding(4);
             this.fileImage.Name = "fileImage";
             this.fileImage.Size = new System.Drawing.Size(54, 56);
             this.fileImage.TabIndex = 40;
@@ -152,7 +153,7 @@
             // particiRoom
             // 
             this.particiRoom.Location = new System.Drawing.Point(406, 98);
-            this.particiRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.particiRoom.Margin = new System.Windows.Forms.Padding(4);
             this.particiRoom.Name = "particiRoom";
             this.particiRoom.Size = new System.Drawing.Size(107, 39);
             this.particiRoom.TabIndex = 38;
@@ -183,7 +184,7 @@
             // sendMsg
             // 
             this.sendMsg.Location = new System.Drawing.Point(453, 897);
-            this.sendMsg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sendMsg.Margin = new System.Windows.Forms.Padding(4);
             this.sendMsg.Name = "sendMsg";
             this.sendMsg.Size = new System.Drawing.Size(110, 34);
             this.sendMsg.TabIndex = 33;
@@ -194,16 +195,17 @@
             // message
             // 
             this.message.Location = new System.Drawing.Point(63, 900);
-            this.message.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.message.Margin = new System.Windows.Forms.Padding(4);
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(380, 28);
             this.message.TabIndex = 32;
+            this.message.TextChanged += new System.EventHandler(this.message_TextChanged);
             this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp_1);
             // 
             // ChatContent
             // 
             this.ChatContent.Location = new System.Drawing.Point(61, 309);
-            this.ChatContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ChatContent.Margin = new System.Windows.Forms.Padding(4);
             this.ChatContent.Name = "ChatContent";
             this.ChatContent.Size = new System.Drawing.Size(514, 564);
             this.ChatContent.TabIndex = 31;
@@ -213,7 +215,7 @@
             // 
             this.rmRoom.Enabled = false;
             this.rmRoom.Location = new System.Drawing.Point(269, 98);
-            this.rmRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rmRoom.Margin = new System.Windows.Forms.Padding(4);
             this.rmRoom.Name = "rmRoom";
             this.rmRoom.Size = new System.Drawing.Size(129, 34);
             this.rmRoom.TabIndex = 30;
@@ -225,7 +227,7 @@
             // mkRoom
             // 
             this.mkRoom.Location = new System.Drawing.Point(164, 98);
-            this.mkRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mkRoom.Margin = new System.Windows.Forms.Padding(4);
             this.mkRoom.Name = "mkRoom";
             this.mkRoom.Size = new System.Drawing.Size(96, 34);
             this.mkRoom.TabIndex = 29;
@@ -237,7 +239,7 @@
             // 
             this.roomList.FormattingEnabled = true;
             this.roomList.Location = new System.Drawing.Point(157, 63);
-            this.roomList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roomList.Margin = new System.Windows.Forms.Padding(4);
             this.roomList.Name = "roomList";
             this.roomList.Size = new System.Drawing.Size(337, 26);
             this.roomList.TabIndex = 28;
@@ -268,7 +270,7 @@
             this.memberList.FormattingEnabled = true;
             this.memberList.ItemHeight = 18;
             this.memberList.Location = new System.Drawing.Point(157, 186);
-            this.memberList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.memberList.Margin = new System.Windows.Forms.Padding(4);
             this.memberList.Name = "memberList";
             this.memberList.ScrollAlwaysVisible = true;
             this.memberList.Size = new System.Drawing.Size(180, 112);
@@ -334,12 +336,24 @@
             this.nicknamel.TabIndex = 55;
             this.nicknamel.Text = "label5";
             // 
+            // messageBoard
+            // 
+            this.messageBoard.AutoScroll = true;
+            this.messageBoard.BackColor = System.Drawing.Color.White;
+            this.messageBoard.BoardName = null;
+            this.messageBoard.Location = new System.Drawing.Point(61, 309);
+            this.messageBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.messageBoard.Name = "messageBoard";
+            this.messageBoard.Size = new System.Drawing.Size(514, 564);
+            this.messageBoard.TabIndex = 56;
+            // 
             // Frm_message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 1106);
             this.ControlBox = false;
+            this.Controls.Add(this.messageBoard);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -365,7 +379,7 @@
             this.Controls.Add(this.memberList);
             this.Controls.Add(this.roomName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_message";
             this.Text = "Frm_message";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_message_FormClosing);
@@ -406,5 +420,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label nicknamel;
+        private Message.Control.Board messageBoard;
     }
 }

@@ -21,7 +21,7 @@ namespace ChattingServer
     {
         public static Hashtable clientList = new Hashtable();
         public static List<ChattingElement> chattingList = new List<ChattingElement>();
-        private string ipaddress = "192.168.0.6";
+        private string ipaddress = "192.168.1.4";
 
         public Server()
         {
