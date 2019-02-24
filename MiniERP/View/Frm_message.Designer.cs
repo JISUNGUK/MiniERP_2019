@@ -198,7 +198,6 @@
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(380, 28);
             this.message.TabIndex = 32;
-            this.message.TextChanged += new System.EventHandler(this.message_TextChanged);
             this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp_1);
             // 
             // ChatContent
