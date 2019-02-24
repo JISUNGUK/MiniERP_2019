@@ -20,7 +20,7 @@ namespace MiniERP.View
 {
     public partial class Frm_message : Form
     {
-    
+
         public Frm_message()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace MiniERP.View
         TcpClient client = new TcpClient();
 
         private Hashtable clientList = new Hashtable();//방과 해당 방의 메시지 내용을 저장
-       private NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
+        private NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
         private string currentfileName;
         string readData = "";
         private string nickname;
@@ -130,7 +130,7 @@ namespace MiniERP.View
             }
             else
             {
-                Messagedao.GetMsg(readData, roomtable, roomList, ChatContent,windowstate);
+                Messagedao.GetMsg(readData, roomtable, roomList, ChatContent, windowstate);
 
 
             }
@@ -169,11 +169,11 @@ namespace MiniERP.View
 
                 MessageBox.Show(ee.Message);
             }
-           
+
 
         }
 
-        
+
 
         private void message_KeyUp(object sender, KeyEventArgs e)
         {
@@ -199,7 +199,7 @@ namespace MiniERP.View
                 {
                     roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 }
-                ChatContent.Text += "\n"+date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                ChatContent.Text += "\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 message.Text = "";
 
             }
@@ -242,7 +242,7 @@ namespace MiniERP.View
                             fileinfo = new System.IO.FileInfo(file);
                             if (fileinfo.Length > 200000000)
                             {
-                                MessageBox.Show("파일명: '" + file + "'은 사이즈가 200mb 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);                               
+                                MessageBox.Show("파일명: '" + file + "'은 사이즈가 200mb 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 continue;
                             }
 
@@ -256,9 +256,9 @@ namespace MiniERP.View
                             uploadcount++;
                         }
                         if (uploadcount > 0)
-                        { 
+                        {
                             Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-                        
+
                             MessageBox.Show("성공적으로 파일을 업로드 했습니다");
                         }
 
@@ -272,7 +272,7 @@ namespace MiniERP.View
                     }
                     catch (Exception ee)
                     {
-                        MessageBox.Show(ee.Message+"파일을 올리는 도중에 오류가 생겼습니다");
+                        MessageBox.Show(ee.Message + "파일을 올리는 도중에 오류가 생겼습니다");
 
                     }
 
@@ -478,37 +478,37 @@ namespace MiniERP.View
             RefreshList();
         }
 
-       
 
-       
 
-     
 
-        
-       
 
-        
 
-       
+
+
+
+
+
+
+
 
         private void Frm_message_FormClosing(object sender, FormClosingEventArgs e)
-        {  
-            if(nicknamel.Text!="label5")
+        {
+            if (nicknamel.Text != "label5")
                 messagedao.SendMessage("접속종료합니다");
-           if(Server!=null)
+            if (Server != null)
             {
                 Server.Disconnect(serverip);
             }
-           
+
         }
 
         private void message_KeyUp_1(object sender, KeyEventArgs e)
-        {            
-                if (e.KeyCode == Keys.Enter)
-                {
-                    sendMsg_Click(sender, null);
-                    message.Text = "";
-                }
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                sendMsg_Click(sender, null);
+                message.Text = "";
+            }
         }
 
         private void Frm_message_Load(object sender, EventArgs e)
