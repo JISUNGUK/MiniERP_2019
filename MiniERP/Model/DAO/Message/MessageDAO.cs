@@ -165,7 +165,7 @@ namespace MiniERP.Model.DAO
                     {
                         if (roomList.SelectedIndex == -1)
                             View.Form1.notify = true;
-                        if ("전체" != roomList.SelectedItem.ToString() && roomList.SelectedIndex > 0)
+                       else if ("전체" != roomList.SelectedItem.ToString() && roomList.SelectedIndex > 0)
                             View.Form1.notify = true;
                         else
                             View.Form1.notify = false;
