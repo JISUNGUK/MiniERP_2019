@@ -21,7 +21,7 @@ namespace ChattingServer
     {
         public static Hashtable clientList = new Hashtable();
         public static List<ChattingElement> chattingList = new List<ChattingElement>();
-        private string ipaddress = "192.168.0.8";
+        private string ipaddress = "192.168.0.6";
         private int chattcount = 0;//사원들이 들어왔었는지 유무,,( 폼을 끝낼때 없으면 채팅방을 안 내보냄)
 
         public Server()
