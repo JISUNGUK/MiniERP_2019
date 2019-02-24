@@ -447,13 +447,13 @@ namespace MiniERP.View
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            OpenForm("MainPage");
-            frm_message = new Frm_message();
-            frm_message.Nickname = this.nickname;
-            frm_message.MdiParent = this;
-            this.splitContainer2.Panel2.Controls.Add(frm_message);
-            frm_message.Dock = DockStyle.Fill;
-            frm_message.Show();
+            //OpenForm("MainPage");
+            //frm_message = new Frm_message();
+            //frm_message.Nickname = this.nickname;
+            //frm_message.MdiParent = this;
+            //this.splitContainer2.Panel2.Controls.Add(frm_message);
+            //frm_message.Dock = DockStyle.Fill;
+            //frm_message.Show();
         }
 
     #region 프로그램 종료시 대화상자 이벤트

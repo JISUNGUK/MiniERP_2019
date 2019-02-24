@@ -99,8 +99,8 @@ namespace MiniERP.View
                         Item_group = item.Item_group,
                         Item_comment = item.Item_comment
                     };
+                    break;
                 }
-                break;
             }
             this.Close();
         }
