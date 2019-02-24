@@ -35,14 +35,14 @@ namespace MiniERP.View
         private string currentfileName;
         string readData = "";
         private string nickname;
-        private string serverip = "192.168.0.6";
+        private string serverip = "192.168.1.7";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
 
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
         private string ownedRoom = "";
 
         private MessageDAO messagedao;
-
+        private string windowstate;
 
         public struct SHFILEINFO
         {
@@ -64,6 +64,7 @@ namespace MiniERP.View
         public MessageDAO Messagedao { get => messagedao; set => messagedao = value; }
         public string Nickname { get => nickname; set => nickname = value; }
         public NetworkStream Network { get => network; set => network = value; }
+        public string Windowstate { get => windowstate; set => windowstate = value; }
 
         internal DialogResult logIn;          //  로그인 체커부
 
@@ -129,7 +130,7 @@ namespace MiniERP.View
             }
             else
             {
-                Messagedao.GetMsg(readData, roomtable, roomList, ChatContent);
+                Messagedao.GetMsg(readData, roomtable, roomList, ChatContent,windowstate);
 
 
             }

@@ -549,14 +549,19 @@ namespace MiniERP.View
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
+            { 
                 notify = false;
-            if(this.WindowState == FormWindowState.Normal)
+                frm_message.Windowstate = "최대화";
+            }
+            if (this.WindowState == FormWindowState.Normal)
             {
                 notify = false;
+                frm_message.Windowstate = "기본";
             }
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notify = true;
+                frm_message.Windowstate = "최소화";
             }
         }
     }   

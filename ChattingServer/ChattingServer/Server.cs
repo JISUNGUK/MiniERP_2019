@@ -21,7 +21,8 @@ namespace ChattingServer
     {
         public static Hashtable clientList = new Hashtable();
         public static List<ChattingElement> chattingList = new List<ChattingElement>();
-        private string ipaddress = "192.168.0.6";
+        private string ipaddress = "192.168.1.7";
+        private int chattcount = 0;//사원들이 들어왔었는지 유무,,( 폼을 끝낼때 없으면 채팅방을 안 내보냄)
 
         public Server()
         {
@@ -133,13 +134,14 @@ namespace ChattingServer
 
                         int index = clientNickName.IndexOf("\0");
                         clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
-                        Logger.Text += "접속을 감지했습니다\n";
+                        Logger.Text += "접속을 감지했습니다\n";                       
                         if (!clientList.Contains(clientNickName))
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
                             Logger.Text +="\n"+ clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
+
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
 
                             string roomList = "";
@@ -168,6 +170,7 @@ namespace ChattingServer
 
                             Broadcast("접속 인원:" + memberList + "::", clientNickName, true);
                             Broadcast("방 목록:" + roomList + ";;", clientNickName, true);
+                            chattcount++;
                             ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
                         }
                         else
@@ -341,8 +344,10 @@ namespace ChattingServer
             }
             else
             {
+            if(chattcount>0)
                 exportChatting_Click(null,null);
-                e.Cancel = false; // 폼 닫음  
+
+            e.Cancel = false; // 폼 닫음  
                 closeBackground(@"taskkill /im ChattingServer.exe /f");
 
                 this.Dispose();

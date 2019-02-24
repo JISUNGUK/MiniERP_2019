@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniERP.View;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -101,7 +102,7 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public void GetMsg(string readData,Hashtable roomtable,ComboBox roomList,RichTextBox ChatContent)
+        public void GetMsg(string readData,Hashtable roomtable,ComboBox roomList,RichTextBox ChatContent,string windowstate)
         {
             this.roomList = roomList;
             if (!readData.Contains("서버 메시지:"))
@@ -114,8 +115,15 @@ namespace MiniERP.Model.DAO
                     string message = readData.Substring(indexOfseprate + 4);
                     roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
                     roomtable[roomname] += "\n"+ date + Environment.NewLine + ">>" + message + "\n";
-
-                   
+                    if(windowstate!="최소화")
+                    { 
+                    if(roomList.SelectedIndex==-1)
+                            View.Form1.notify = true;
+                        else if (roomname != roomList.SelectedItem.ToString())
+                        View.Form1.notify = true;
+                    else
+                            View.Form1.notify = false;
+                    }
                     //알림창을 띄워줌 해당 창의 알림이 울릴지 여부를 확인
                     if (MiniERP.View.Form1.notify)
                     {
@@ -135,7 +143,7 @@ namespace MiniERP.Model.DAO
                             ChatContent.Text = ChatContent.Text + "\n" + date +Environment.NewLine + ">>" + message + "\n";
                             ChatContent.SelectionStart = ChatContent.TextLength;
                             ChatContent.ScrollToCaret();
-                            View.Form1.notify = false;
+                    
 
                         }
                     }
@@ -152,7 +160,16 @@ namespace MiniERP.Model.DAO
 
                     }
                     roomtable["전체"] += "\n" + date + Environment.NewLine + "\n>>" + readData + "\n";
-                   
+
+                    if (windowstate != "최소화")
+                    {
+                        if(roomList.SelectedIndex==-1)
+                            View.Form1.notify = true;
+                        if ("전체" != roomList.SelectedItem.ToString()&&roomList.SelectedIndex>0)
+                            View.Form1.notify = true;
+                        else
+                            View.Form1.notify = false;
+                    }
                     if (MiniERP.View.Form1.notify)
                     {
                         popup = new PopupNotifier();
