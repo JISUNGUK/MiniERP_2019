@@ -16,12 +16,16 @@ namespace MiniERP.Model.DAO
         private NetworkStream network;
         private TcpClient client;
 
+
         public string[] bannWord = { "//", "[", "]", "접속종료합니다", "접속인원:", "만든 방명:", "$$$$", "방에 참가했습니다", "방정보:", "방에 메시지를 보냅니다", ":방의 주인은?", "방을 삭제합니다", "인원:" };
 
         public NetworkStream Network { get => network; set => network = value; }
         public TcpClient Client { get => client; set => client = value; }
+        public Form1 Form { get => form; set => form = value; }
+
         private ComboBox roomList;
         private PopupNotifier popup;
+        private Form1 form;
         public MessageDAO()
         {
 
@@ -165,7 +169,7 @@ namespace MiniERP.Model.DAO
                     {
                         if (roomList.SelectedIndex == -1)
                             View.Form1.notify = true;
-                       else if ("전체" != roomList.SelectedItem.ToString() && roomList.SelectedIndex > 0)
+                        else if ("전체" != roomList.SelectedItem.ToString() && roomList.SelectedIndex > 0)
                             View.Form1.notify = true;
                         else
                             View.Form1.notify = false;
@@ -189,6 +193,7 @@ namespace MiniERP.Model.DAO
         private void Popup_Click(object sender, EventArgs e)
         {
             roomList.SelectedItem = popup.TitleText.Remove(popup.TitleText.IndexOf("메시지")).Substring(2);
+            form.WindowState = FormWindowState.Normal;
 
         }
 

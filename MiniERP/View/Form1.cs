@@ -25,13 +25,13 @@ namespace MiniERP.View
 {
     public partial class Form1 : Form
     {
-        
-       
+
+
         public static bool notify = false;//알림이 오는지 선택            
         Frm_message frm_message;//메시지창              
 
 
-       
+
 
         /// <summary>
         /// 접속할 서버객체
@@ -50,25 +50,25 @@ namespace MiniERP.View
 
         private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
 
-        public string nickname="";
+        public string nickname = "";
         public DialogResult logIn;          //  로그인 체커부
         public Form1()
         {
             Frm_LoginBox loginbox = new Frm_LoginBox(this);
             loginbox.ShowDialog();
-            if (logIn != DialogResult.OK) 
+            if (logIn != DialogResult.OK)
             {
                 this.Close();
             }
             InitializeComponent();
         }
 
-      
-
-       
 
 
-    
+
+
+
+
 
         #region MDI 패널에 폼 불러오기 메서드
         private void OpenForm(object menuName)
@@ -303,7 +303,7 @@ namespace MiniERP.View
                     tabChk = true;
                     break;
                 case "창고 이동":
-                   
+
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
                     panel_mdi.Name = "testno1";
@@ -389,7 +389,7 @@ namespace MiniERP.View
                         businessInsert.Show();
                         break;
                     }
-                
+
                 case "사원 등록":
                     Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert();
                     clerkInsert.Show();  // 폼 실행
@@ -449,17 +449,18 @@ namespace MiniERP.View
         {
             OpenForm("MainPage");
             frm_message = new Frm_message();
+            frm_message.Form = this;
             frm_message.Nickname = this.nickname;
             frm_message.MdiParent = this;
-           this.splitContainer2.Panel2.Controls.Add(frm_message);
+            this.splitContainer2.Panel2.Controls.Add(frm_message);
             frm_message.Dock = DockStyle.Fill;
-           frm_message.Show();
+            frm_message.Show();
         }
 
-    #region 프로그램 종료시 대화상자 이벤트
-    private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        #region 프로그램 종료시 대화상자 이벤트
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-        // 폼이 닫히기 전에 메세지 박스로 재확인
+            // 폼이 닫히기 전에 메세지 박스로 재확인
             if (mboxchk) // 중복방지용 변수 true 면 mbox 실행
             {
                 mboxchk = false;
@@ -511,36 +512,36 @@ namespace MiniERP.View
 
         private void fileButton_Click(object sender, EventArgs e)
         {
-           
 
 
-                        
-            }
 
-      
 
-       
+        }
 
-       
 
-       
+
+
+
+
+
+
 
         private void Server_posted(string fileName)
         {
-            MessageBox.Show("서버에 파일:"+fileName+"을 모두 전송완료 하였습니다");
+            MessageBox.Show("서버에 파일:" + fileName + "을 모두 전송완료 하였습니다");
         }
 
-      
+
 
 
         #region 탭페이지 선택 이벤트
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if (tabControl1.SelectedIndex != -1 )
+            if (tabControl1.SelectedIndex != -1)
             {
                 tabSelcted_Index = tabControl1.SelectedIndex;
             }
-            
+
         }
 
 
@@ -549,7 +550,7 @@ namespace MiniERP.View
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
-            { 
+            {
                 notify = false;
                 frm_message.Windowstate = "최대화";
             }
@@ -564,5 +565,6 @@ namespace MiniERP.View
                 frm_message.Windowstate = "최소화";
             }
         }
-    }   
+
+    }
 }
