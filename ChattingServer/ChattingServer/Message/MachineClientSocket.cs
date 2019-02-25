@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChattingServer.Server;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace ChattingServer.Message
             this.MachineList = machineList;
             Thread thread = new Thread(Doread);
             thread.Start();
+
         }
 
         public TcpClient MachineSockets { get => machineSockets; set => machineSockets = value; }
@@ -30,6 +32,7 @@ namespace ChattingServer.Message
 
         private void Doread()
         {
+           
             while (true)
             {
                 Byte[] messageByte = null;
@@ -37,6 +40,7 @@ namespace ChattingServer.Message
                 {
                     if (machineSockets.Connected)
                     {
+                        
                         NetworkStream ns = machineSockets.GetStream();
                         messageByte = new Byte[machineSockets.ReceiveBufferSize];
                         ns.Read(messageByte, 0, machineSockets.ReceiveBufferSize);
@@ -58,7 +62,7 @@ namespace ChattingServer.Message
                         receivestr = receivestr.Substring(0, letterlastIndex);
                         if (receivestr.Contains(""))
                         {
-                            ChatServer.chattingList[0].MessageBody += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
+                            MachineServer.machineList[0] += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
                            //Server.Broadcast(receivestr, ClientNickName, false);
                         }
 

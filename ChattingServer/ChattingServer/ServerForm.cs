@@ -79,18 +79,7 @@ namespace ChattingServer
 
         }
 
-        /// <summary>
-        /// It handles the ServerPortValue textbox's Keypress event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ServerPortValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
-                e.Handled = false;
-            else
-                e.Handled = true;
-        }
+       
 
      
 
@@ -207,6 +196,11 @@ namespace ChattingServer
                 fs.Close();
             }
             savefile.Dispose();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

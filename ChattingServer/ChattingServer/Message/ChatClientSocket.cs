@@ -80,7 +80,7 @@ namespace ChattingServer
                             else
                                 item.NicNames += ClientNickName;
                                 ChatServer.Multicast(message, ClientNickName, item, false);
-                           // FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
+                            FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
                         }
                     }
                 }
@@ -98,7 +98,7 @@ namespace ChattingServer
                             else
                                 item.NicNames +=ClientNickName;
                                 ChatServer.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
-                               // FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
+                                FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
                         }
                     }
                     
@@ -137,9 +137,9 @@ namespace ChattingServer
                                 rooms += "," + v.RoomName;
                             else
                                 rooms += v.RoomName;
-                              //  FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName;
-                               // FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames;
-                            count++;
+                                      FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName+"\n";
+                                     FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames+"\n";
+                                    count++;
                         }
 
                             ChatServer.Broadcast("방 목록:" + rooms + ";;", ClientNickName, true);
@@ -164,7 +164,7 @@ namespace ChattingServer
                             }
                         }
                         members = ChatServer.GetMember();
-                       //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
+                       FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
                         ChatServer.Broadcast("접속 인" +
                             "원:" + members + "::", ClientNickName, true);
                         break;
