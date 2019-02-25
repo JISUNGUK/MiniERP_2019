@@ -47,29 +47,29 @@ namespace MiniERP.View.BusinessManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtCode.Text))
+            if (String.IsNullOrEmpty(txtCode.Text)) 
             {
-                MessageBox.Show("거래처코드를 입력하지 않았습니다.", "거래처코드를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("거래처코드를 입력해주세요.", "거래처코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Focus();
             }
-            else if (String.IsNullOrEmpty(txtName.Text))
+            else if (String.IsNullOrEmpty(txtName.Text)) 
             {
-                MessageBox.Show("거래처명을 입력하지 않았습니다.", "거래처명을 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("거래처명을 입력해주세요.", "거래처명을 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtName.Focus();
             }
-            else if (String.IsNullOrEmpty(txtTel.Text))
+            else if (String.IsNullOrEmpty(txtTel.Text)) 
             {
-                MessageBox.Show("거래처 연락처를 입력하지 않았습니다.", "거래처 연락처를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("거래처 연락처를 입력해주세요.", "거래처 연락처를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTel.Focus();
             }
-            else if (String.IsNullOrEmpty(txtAddr.Text))
+            else if (String.IsNullOrEmpty(txtAddr.Text)) 
             {
-                MessageBox.Show("거래처 주소를 입력하지 않았습니다.", "거래처 주소를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("거래처 주소를 입력해주세요.", "거래처 주소를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAddr.Focus();
             }
-            else if (String.IsNullOrEmpty(txtPresenter.Text))
+            else if (String.IsNullOrEmpty(txtPresenter.Text)) 
             {
-                MessageBox.Show("거래처 대표자명을 입력하지 않았습니다.", "거래처 대표자명을 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("거래처 대표자명을 입력해주세요.", "거래처 대표자명을 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPresenter.Focus();
             }
             else

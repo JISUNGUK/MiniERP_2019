@@ -36,22 +36,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.pbxImage = new System.Windows.Forms.PictureBox();
+            this.txtComment = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtStandard = new System.Windows.Forms.TextBox();
+            this.txtUnit = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnImageSearch = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cmbClass = new System.Windows.Forms.ComboBox();
+            this.txtGroup = new System.Windows.Forms.TextBox();
+            this.mTxtFee = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -120,76 +120,49 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 184);
+            this.label9.Location = new System.Drawing.Point(10, 197);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 8;
             this.label9.Text = "비고";
             // 
-            // pictureBox1
+            // pbxImage
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.pbxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxImage.Location = new System.Drawing.Point(12, 12);
+            this.pbxImage.Name = "pbxImage";
+            this.pbxImage.Size = new System.Drawing.Size(150, 150);
+            this.pbxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImage.TabIndex = 9;
+            this.pbxImage.TabStop = false;
             // 
-            // textBox1
+            // txtComment
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 199);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(701, 57);
-            this.textBox1.TabIndex = 10;
+            this.txtComment.Location = new System.Drawing.Point(12, 212);
+            this.txtComment.Multiline = true;
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(701, 57);
+            this.txtComment.TabIndex = 10;
             // 
-            // button1
+            // btnRegister
             // 
-            this.button1.Location = new System.Drawing.Point(189, 275);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "등록";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRegister.Location = new System.Drawing.Point(189, 275);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(75, 23);
+            this.btnRegister.TabIndex = 11;
+            this.btnRegister.Text = "등록";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(436, 275);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "취소";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(246, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 21);
-            this.textBox2.TabIndex = 13;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(456, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(184, 21);
-            this.textBox3.TabIndex = 14;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(436, 95);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 12);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "~";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(246, 124);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(184, 21);
-            this.textBox4.TabIndex = 16;
+            this.btnCancel.Location = new System.Drawing.Point(436, 275);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "취소";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // button3
             // 
@@ -201,33 +174,33 @@
             this.button3.TabIndex = 17;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // txtCode
             // 
-            this.textBox5.Location = new System.Drawing.Point(246, 9);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(184, 21);
-            this.textBox5.TabIndex = 18;
+            this.txtCode.Location = new System.Drawing.Point(246, 9);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(184, 21);
+            this.txtCode.TabIndex = 18;
             // 
-            // textBox6
+            // txtName
             // 
-            this.textBox6.Location = new System.Drawing.Point(529, 9);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(184, 21);
-            this.textBox6.TabIndex = 19;
+            this.txtName.Location = new System.Drawing.Point(529, 9);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(184, 21);
+            this.txtName.TabIndex = 19;
             // 
-            // textBox7
+            // txtStandard
             // 
-            this.textBox7.Location = new System.Drawing.Point(246, 36);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(184, 21);
-            this.textBox7.TabIndex = 20;
+            this.txtStandard.Location = new System.Drawing.Point(246, 36);
+            this.txtStandard.Name = "txtStandard";
+            this.txtStandard.Size = new System.Drawing.Size(184, 21);
+            this.txtStandard.TabIndex = 20;
             // 
-            // textBox8
+            // txtUnit
             // 
-            this.textBox8.Location = new System.Drawing.Point(529, 36);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(184, 21);
-            this.textBox8.TabIndex = 21;
+            this.txtUnit.Location = new System.Drawing.Point(529, 36);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(184, 21);
+            this.txtUnit.TabIndex = 21;
             // 
             // button4
             // 
@@ -239,14 +212,48 @@
             this.button4.TabIndex = 22;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnImageSearch
             // 
-            this.button5.Location = new System.Drawing.Point(31, 84);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 23);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "품목 이미지 등록";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnImageSearch.Location = new System.Drawing.Point(33, 168);
+            this.btnImageSearch.Name = "btnImageSearch";
+            this.btnImageSearch.Size = new System.Drawing.Size(107, 23);
+            this.btnImageSearch.TabIndex = 23;
+            this.btnImageSearch.Text = "품목 이미지 등록";
+            this.btnImageSearch.UseVisualStyleBackColor = true;
+            this.btnImageSearch.Click += new System.EventHandler(this.btnImageSearch_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // cmbClass
+            // 
+            this.cmbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbClass.FormattingEnabled = true;
+            this.cmbClass.Items.AddRange(new object[] {
+            "자재",
+            "반제품",
+            "완제품"});
+            this.cmbClass.Location = new System.Drawing.Point(246, 66);
+            this.cmbClass.Name = "cmbClass";
+            this.cmbClass.Size = new System.Drawing.Size(184, 20);
+            this.cmbClass.TabIndex = 24;
+            // 
+            // txtGroup
+            // 
+            this.txtGroup.Location = new System.Drawing.Point(246, 124);
+            this.txtGroup.Name = "txtGroup";
+            this.txtGroup.Size = new System.Drawing.Size(184, 21);
+            this.txtGroup.TabIndex = 16;
+            // 
+            // mTxtFee
+            // 
+            this.mTxtFee.Location = new System.Drawing.Point(246, 92);
+            this.mTxtFee.Mask = "999999999999";
+            this.mTxtFee.Name = "mTxtFee";
+            this.mTxtFee.Size = new System.Drawing.Size(184, 21);
+            this.mTxtFee.TabIndex = 25;
+            this.mTxtFee.ValidatingType = typeof(int);
             // 
             // Frm_ItemInsert
             // 
@@ -254,21 +261,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(727, 310);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.mTxtFee);
+            this.Controls.Add(this.cmbClass);
+            this.Controls.Add(this.btnImageSearch);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtUnit);
+            this.Controls.Add(this.txtStandard);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtCode);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtGroup);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.txtComment);
+            this.Controls.Add(this.pbxImage);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -283,7 +289,8 @@
             this.Name = "Frm_ItemInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "품목등록";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.Frm_ItemInsert_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,20 +306,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.PictureBox pbxImage;
+        private System.Windows.Forms.TextBox txtComment;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtStandard;
+        private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnImageSearch;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox cmbClass;
+        private System.Windows.Forms.TextBox txtGroup;
+        private System.Windows.Forms.MaskedTextBox mTxtFee;
     }
 }
