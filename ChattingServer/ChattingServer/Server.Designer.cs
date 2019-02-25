@@ -101,7 +101,7 @@
             this.StartServer.Name = "StartServer";
             this.StartServer.Size = new System.Drawing.Size(88, 21);
             this.StartServer.TabIndex = 12;
-            this.StartServer.Text = "Start Server";
+            this.StartServer.Text = "서버시작";
             this.StartServer.UseVisualStyleBackColor = true;
             this.StartServer.Click += new System.EventHandler(this.StartServer_Click);
             // 
@@ -156,7 +156,7 @@
             this.Controls.Add(this.Logger);
             this.Controls.Add(this.ServerIPValue);
             this.Controls.Add(this.ServerIP);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Server";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Server_FormClosing_1);

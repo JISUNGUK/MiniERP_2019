@@ -48,8 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatServer.cs" />
     <Compile Include="Message\ChatClientSocket.cs" />
     <Compile Include="Message\ChattingElement.cs" />
+    <Compile Include="Message\MachineClientSocket.cs" />
     <Compile Include="Server.cs">
       <SubType>Form</SubType>
     </Compile>
