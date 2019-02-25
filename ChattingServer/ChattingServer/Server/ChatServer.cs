@@ -78,7 +78,7 @@ namespace ChattingServer
 
                             Broadcast("접속 인원:" + memberList + "::", clientNickName, true);
                             Broadcast("방 목록:" + roomList + ";;", clientNickName, true);
-                            Server.chattcount++;
+                            ServerForm.chattcount++;
                             ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, ChatServer.clientList);
                         }
                         else

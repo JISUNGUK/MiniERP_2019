@@ -17,7 +17,7 @@ using System.IO;
 
 namespace ChattingServer
 {
-    public partial class Server : Form
+    public partial class ServerForm : Form
     {
        // public static Hashtable clientList = new Hashtable();
        // public static List<ChattingElement> chattingList = new List<ChattingElement>();
@@ -25,7 +25,7 @@ namespace ChattingServer
         //private string ipaddress = "192.168.0.6";
         public static int chattcount = 0;//사원들이 들어왔었는지 유무,,( 폼을 끝낼때 없으면 채팅방을 안 내보냄)
 
-        public Server()
+        public ServerForm()
         {
             InitializeComponent();
             ServerIPValue.Text = MachineInfo.GetJustIP();
@@ -33,16 +33,11 @@ namespace ChattingServer
 
         private void StartServer_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(ServerPortValue.Text))
-            {
-                MessageBox.Show("FTP포트번호를 입력하시오.", "Server", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+           
             Thread thread = new Thread(new ThreadStart(EstablishRemote));
             thread.Start();
             Thread threadMessage = new Thread(new ThreadStart(StartMessage));
-            threadMessage.Start();           
-            ServerPortValue.ReadOnly = true;
+            threadMessage.Start();                    
             StartServer.Enabled = false;
             ServerStatusMessage.Text = "FTP서버 시작...";
         }
@@ -59,7 +54,7 @@ namespace ChattingServer
             soap.Next = binary;
 
             Hashtable table = new Hashtable();
-            table.Add("port", ServerPortValue.Text);
+            table.Add("port", 8081);
 
             TcpChannel channel = new TcpChannel(table, null, soap);
 

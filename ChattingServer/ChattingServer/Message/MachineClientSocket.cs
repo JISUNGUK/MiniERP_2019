@@ -55,14 +55,14 @@ namespace ChattingServer.Message
                         receivestr = receivestr.Substring(0, letterlastIndex);
                         if (receivestr.Contains(""))
                         {
-                            ChatServer.chattingList[0].MessageBody += date + "보낸이:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
+                            ChatServer.chattingList[0].MessageBody += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
                            //Server.Broadcast(receivestr, ClientNickName, false);
                         }
 
                     }                                                         
                     if (receivestr.Contains("접속종료합니다"))
                     {
-                        Server.machineList.Remove(machineName);
+                        ServerForm.machineList.Remove(machineName);
 
                         FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
                         break;
