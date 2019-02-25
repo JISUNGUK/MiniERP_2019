@@ -1,140 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
-using ChattingServer.FTPbase;
 using System.Collections;
-using ChattingServer;
-using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
-using System.Diagnostics;
-using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ChattingServer
 {
-    public partial class Server : Form
+    class ChatServer
     {
-       // public static Hashtable clientList = new Hashtable();
-       // public static List<ChattingElement> chattingList = new List<ChattingElement>();
-        public static Hashtable machineList = new Hashtable();//머신들의 이름과 IP를 저장
-        //private string ipaddress = "192.168.0.6";
-        public static int chattcount = 0;//사원들이 들어왔었는지 유무,,( 폼을 끝낼때 없으면 채팅방을 안 내보냄)
-
-        public Server()
-        {
-            InitializeComponent();
-            ServerIPValue.Text = MachineInfo.GetJustIP();
-        }
-
-        private void StartServer_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(ServerPortValue.Text))
-            {
-                MessageBox.Show("FTP포트번호를 입력하시오.", "Server", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            Thread thread = new Thread(new ThreadStart(EstablishRemote));
-            thread.Start();
-            Thread threadMessage = new Thread(new ThreadStart(StartMessage));
-            threadMessage.Start();           
-            ServerPortValue.ReadOnly = true;
-            StartServer.Enabled = false;
-            ServerStatusMessage.Text = "FTP서버 시작...";
-        }
-        /// <summary>
-        /// It Establishs the remote object through the network
-        /// </summary>
-        private void EstablishRemote()
-        {
-            SoapServerFormatterSinkProvider soap = new SoapServerFormatterSinkProvider();
-            BinaryServerFormatterSinkProvider binary = new BinaryServerFormatterSinkProvider();
-            soap.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
-            binary.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
-
-            soap.Next = binary;
-
-            Hashtable table = new Hashtable();
-            table.Add("port", ServerPortValue.Text);
-
-            TcpChannel channel = new TcpChannel(table, null, soap);
-
-            FTPServer.Logger = Logger;
-
-            ChannelServices.RegisterChannel(channel, false);
-            RemotingConfiguration.ApplicationName = "FTPServerAPP";
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(FTPServer), "ftpserver.svr", WellKnownObjectMode.Singleton);
-
-            try
-            {
-                Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****" + Environment.NewLine;
-            }
-            catch (InvalidOperationException)
-            {
-
-                
-            }
-
-        }
-
-        /// <summary>
-        /// It handles the ServerPortValue textbox's Keypress event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ServerPortValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
-                e.Handled = false;
-            else
-                e.Handled = true;
-        }
-
-     
-
-        /// <summary>
-        /// It handles the formclosing event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Server_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("종료하시겠습니까 ? ", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                e.Cancel = false;
-            }
-
-
-
-        }
-
-        private void StartMessage()
+        public static Hashtable clientList = new Hashtable();
+        public static List<ChattingElement> chattingList = new List<ChattingElement>();
+        private string ipaddress = "192.168.0.6";
+        public void StartMessage()
         {
 
-            try
-            {
-                ChatServer chatserver = new ChatServer();
-                chatserver.StartMessage();
-            }
-            catch (Exception ee)
-            {
-
-                MessageBox.Show(ee.Message);
-            }
-          /*  var ipaddr = IPAddress.Parse(ipaddress);
+            var ipaddr = IPAddress.Parse(ipaddress);
             try
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
                 serverListener.Start();
-                Logger.Text += "채팅서버 가동>>>>\n";
+                FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
                 ChattingElement chattingAll = new ChattingElement();//전체 채팅방
                 chattingAll.RoomName = "전체";
 
@@ -154,12 +42,12 @@ namespace ChattingServer
 
                         int index = clientNickName.IndexOf("\0");
                         clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
-                        Logger.Text += "접속을 감지했습니다\n";                       
+                     //   FTPServer.Logger.Text += "접속을 감지했습니다\n";
                         if (!clientList.Contains(clientNickName))
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                            Logger.Text +="\n"+ clientNickName + "님이 접속했습니다\n";
+                          //  FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
 
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
@@ -190,14 +78,14 @@ namespace ChattingServer
 
                             Broadcast("접속 인원:" + memberList + "::", clientNickName, true);
                             Broadcast("방 목록:" + roomList + ";;", clientNickName, true);
-                            chattcount++;
-                            ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
+                            ServerForm.chattcount++;
+                            ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, ChatServer.clientList);
                         }
                         else
                         {
-                            ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, clientList);
-                            Unicast("해당 닉네임은 존재합니다 다른 이름으로 사용하세요", client, true);
-                           
+                            ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, ChatServer.clientList);
+                           Unicast("해당 닉네임은 존재합니다 다른 이름으로 사용하세요", client, true);
+
                         }
 
                     }
@@ -206,12 +94,11 @@ namespace ChattingServer
             }
             catch (Exception ee)
             {
+                throw;
+               
+            }//서버가 대기하기 시작함
 
-                MessageBox.Show(ee.Message);
-            }//서버가 대기하기 시작함*/
-           
         }
-/*
         public static string GetMember()
         {
             string peoples = "";
@@ -245,12 +132,12 @@ namespace ChattingServer
                 {
                     NetworkStream ns = tcp.GetStream();
                     byte[] bytemsg = new byte[tcp.ReceiveBufferSize];
-                    
-                    if (!isServerMsg&&item.Key.ToString() != clientNickName)//클라이언트가 보낸 메시지일때
+
+                    if (!isServerMsg && item.Key.ToString() != clientNickName)//클라이언트가 보낸 메시지일때
                     {
                         string date = "보낸시간:" + DateTime.Now + "\n";
                         bytemsg = Encoding.UTF8.GetBytes(clientNickName + "님의 메시지:" + msg);//메시지를 바이트배열로 저장
-                        chattingList[0].MessageBody += date+clientNickName + "님의 메시지:" + msg + "\n";
+                        chattingList[0].MessageBody += date + clientNickName + "님의 메시지:" + msg + "\n";
 
                     }
                     else//서버가 보낸  메시지 일때
@@ -266,7 +153,7 @@ namespace ChattingServer
 
                 }
             }
-          
+
         }
         /// <summary>
         /// 방정보를 입력받아 해당 닉네임의 사용자의 메시지를 전달
@@ -290,22 +177,22 @@ namespace ChattingServer
                         byte[] bytemsg = new byte[tcp.ReceiveBufferSize];
                         if (!isServerMsg && item.Key.ToString() != clientNickName)//클라이언트가 보낸 메시지일때
                         {
-                            string date = "보낸시간:" + DateTime.Now+"\n";
-                            chattingElement.MessageBody += date+ clientNickName + "님의 메시지:" + msg + "\n";
+                            string date = "보낸시간:" + DateTime.Now + "\n";
+                            chattingElement.MessageBody += date + clientNickName + "님의 메시지:" + msg + "\n";
                             bytemsg = Encoding.UTF8.GetBytes("방명:" + chattingElement.RoomName + ">>>>" + clientNickName + "님의 메시지:" + msg);//메시지를 바이트배열로 저장
                         }
                         else//서버가 보낸  메시지 일때
                         {
-                            
 
-                            bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재방 접속 인원:" + chattingElement.NicNames + "::");                            
+
+                            bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재방 접속 인원:" + chattingElement.NicNames + "::");
                         }
                         ns.Write(bytemsg, 0, bytemsg.Length);
                         ns.Flush();
 
                     }
                 }
-            }           
+            }
         }
 
         public static string GetMember(ChattingElement chattingElement)
@@ -348,76 +235,12 @@ namespace ChattingServer
                     foreach (ChattingElement chatting in chattingList)
                         chattingRooms += chatting.RoomName;
                     bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
-                    FTPServer.Logger.Text+="서버 메시지:" + msg + " 현재 접속인원:" + GetMember()+"\n";
+                    FTPServer.Logger.Text += "서버 메시지:" + msg + " 현재 접속인원:" + GetMember() + "\n";
                 }
                 ns.Write(bytemsg, 0, bytemsg.Length);
                 ns.Flush();
 
             }
-        }
-*/
-        private void Server_FormClosing_1(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("종료하십니까 ? ", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
-            {
-                e.Cancel = true;                                              
-            }
-            else
-            {
-            if(chattcount>0)
-                exportChatting_Click(null,null);
-
-            e.Cancel = false; // 폼 닫음  
-                closeBackground(@"taskkill /im ChattingServer.exe /f");
-
-                this.Dispose();
-            }
-        }
-
-        private void Server_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void closeBackground(string command)
-        {
-            ProcessStartInfo cmd = new ProcessStartInfo();
-            Process process = new Process();
-            cmd.FileName = @"cmd";
-            cmd.WindowStyle = ProcessWindowStyle.Hidden;
-            cmd.CreateNoWindow = true;
-            cmd.UseShellExecute = false;
-            cmd.RedirectStandardInput = true;
-            cmd.RedirectStandardInput = true;
-            cmd.RedirectStandardError = false;
-
-            process.EnableRaisingEvents = false;
-            process.StartInfo = cmd;
-            process.Start();
-            process.StandardInput.Write(command + Environment.NewLine);
-            process.StandardInput.Close();
-        }
-
-        private void exportChatting_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog savefile = new SaveFileDialog();
-           DialogResult dr= savefile.ShowDialog();
-            if (dr != DialogResult.OK)
-                return;
-            else
-            {
-              FileStream fs = new FileStream(savefile.FileName, FileMode.Create, FileAccess.Write);
-                foreach (var item in ChatServer.chattingList)
-                {
-                    byte[] roomNameByte = Encoding.Default.GetBytes("{방명:"+item.RoomName + "\n");
-                    fs.Write(roomNameByte, 0, roomNameByte.Length);
-                    fs.Flush();
-                    byte[] messageByte = Encoding.Default.GetBytes("[메시지 본문:\n" + item.MessageBody+"]}\n");
-                    fs.Write(messageByte,0, messageByte.Length);
-                    fs.Flush();
-                }
-                fs.Close();
-            }
-            savefile.Dispose();
         }
     }
 }

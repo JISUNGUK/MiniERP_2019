@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiniERP.VO;
 
+/* 구현: 조성호
+ * 주문등록폼
+ * 완료일: 2019-02-22
+ * 수정필요한 내용: 예외처리,디자인(폼띄워지는 위치, 그리드뷰 데이터컬럼크기,그리드뷰 기본설정 등)
+ */
 namespace MiniERP.View.TradeManagement
 {
     public partial class Frm_SellBuyInsert : Form
@@ -48,12 +53,14 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
-        #region 품목 갯수 변경시 총액합구하기
+        /// <summary>
+        /// 주문품목이 삭제되면 총액합 다시 계산
+        /// </summary>
         private void gView_Order_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             if (gView_Order.RowCount > 0)
             {
-                Get_TotalFee();
+                lab_TotalPrice.Text = string.Format("{0:n0}", Get_TotalFee());
             }
             else
             {
@@ -61,7 +68,10 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
-        private void Get_TotalFee()
+        /// <summary>
+        /// 총액합을 구하는 함수
+        /// </summary>
+        private int Get_TotalFee()
         {
             int totalFee = 0;
             if (gView_Order.Rows.Count > 0)
@@ -71,9 +81,9 @@ namespace MiniERP.View.TradeManagement
                     totalFee += Convert.ToInt32(item.Cells["totalFee"].Value);
                 }
             }
-            lab_TotalPrice.Text = string.Format("{0:n0}", totalFee);
+            return totalFee;
         }
-        #endregion
+
 
         /// <summary>
         /// 그리드뷰 체크박스 체크이벤트
@@ -86,6 +96,9 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 기본값 (담당자,거래처,창고)를 입력하는 버튼이벤트
+        /// </summary>
         private void btn_Text_Click(object sender, EventArgs e)
         {
             Form frm;
@@ -118,6 +131,9 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 주문품목을 추가하는 버튼이벤트
+        /// </summary>
         private void btn_ItemAdd_Click(object sender, EventArgs e)
         {
             Frm_ItemSelect frm = new Frm_ItemSelect();
@@ -149,6 +165,9 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 체크박스의 체크여부가 true인것만 삭제
+        /// </summary>
         private void btn_ItemDelete_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in gView_Order.Rows)
@@ -160,15 +179,21 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 각 품목의 입력한 갯수에 따라 총액과 총액합 수정
+        /// </summary>
         private void gView_Order_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (gView_Order.Columns[e.ColumnIndex].Name.Contains("count"))
             {
                 gView_Order.Rows[e.RowIndex].Cells["totalfee"].Value = Convert.ToInt32(gView_Order.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) * Convert.ToInt32(gView_Order.Rows[e.RowIndex].Cells["fee"].Value);
-                Get_TotalFee();
+                lab_TotalPrice.Text = string.Format("{0:n0}", Get_TotalFee());
             }
         }
 
+        /// <summary>
+        /// 주문데이터를 DB테이블에 저장
+        /// </summary>
         private void btn_Save_Click(object sender, EventArgs e)
         {
             if (Valiable_Check())
@@ -187,7 +212,7 @@ namespace MiniERP.View.TradeManagement
                     standard = "판매";
                 }
 
-                // 품목코드/갯수 문자열
+                // 품목코드/갯수 문자열 만들기
                 foreach (DataGridViewRow item in gView_Order.Rows)
                 {
                     code += item.Cells["code"].Value.ToString() + "|";
@@ -195,12 +220,6 @@ namespace MiniERP.View.TradeManagement
                 }
                 code = code.Substring(0, code.Length - 1);
                 count = count.Substring(0, count.Length - 1);
-                //MessageBox.Show("거래처코드: " + txt_BusinessCode.Text);
-                //MessageBox.Show("사원코드: " + txt_ClerkCode.Text);
-                //MessageBox.Show("창고코드: " + txt_WareCode.Text);
-                //MessageBox.Show("구분: " + standard);
-                //MessageBox.Show("품목문자열: " + code);
-                //MessageBox.Show("갯수문자열: " + count);
 
                 Model.DAO.OrderedDAO order = new Model.DAO.OrderedDAO();
                 try
@@ -215,6 +234,10 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        ///  입력 데이터 유효성검사(널유무만 확인됨, 품목갯수 숫자만 들어오게 만들기)
+        /// </summary>
+        /// <returns>통과:true , 실패:false</returns>
         private bool Valiable_Check()
         {
             if (String.IsNullOrWhiteSpace(txt_ClerkCode.Text))

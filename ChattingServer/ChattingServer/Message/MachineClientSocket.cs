@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ChattingServer.Message
@@ -19,6 +20,8 @@ namespace ChattingServer.Message
             this.machineSockets = machineSockets;
             this.MachineName = machineName;
             this.MachineList = machineList;
+            Thread thread = new Thread(Doread);
+            thread.Start();
         }
 
         public TcpClient MachineSockets { get => machineSockets; set => machineSockets = value; }
@@ -43,6 +46,8 @@ namespace ChattingServer.Message
                 {
                     System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
                 }
+                if(messageByte!=null)
+                { 
                 if (Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                 {
                     string receivestr = Encoding.UTF8.GetString(messageByte).Replace("\0", "");
@@ -53,19 +58,20 @@ namespace ChattingServer.Message
                         receivestr = receivestr.Substring(0, letterlastIndex);
                         if (receivestr.Contains(""))
                         {
-                            ChatServer.chattingList[0].MessageBody += date + "보낸이:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
+                            ChatServer.chattingList[0].MessageBody += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
                            //Server.Broadcast(receivestr, ClientNickName, false);
                         }
 
                     }                                                         
                     if (receivestr.Contains("접속종료합니다"))
                     {
-                        Server.machineList.Remove(machineName);
+                        ServerForm.machineList.Remove(machineName);
 
                         FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
                         break;
                     }
                     
+                }
                 }
 
 

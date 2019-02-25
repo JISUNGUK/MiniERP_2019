@@ -44,8 +44,10 @@ namespace ChattingServer
                 }
                 catch (Exception ee)
                 {
-                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
+                    
                 }
+                if(messageByte!=null)
+                { 
                if(Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                 {
                string receivestr= Encoding.UTF8.GetString(messageByte).Replace("\0","");
@@ -96,7 +98,7 @@ namespace ChattingServer
                             else
                                 item.NicNames +=ClientNickName;
                                 ChatServer.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
-                                FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
+                               // FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
                         }
                     }
                     
@@ -114,7 +116,7 @@ namespace ChattingServer
                         if(ChatServer.chattingList[i].RoomName==roomname)
                         {
                             ChatServer.Unicast("해당 방은 있습니다", this, true);
-                                FTPServer.Logger.Text += "\n" + "해당 방은 있습니다\n";
+                              //  FTPServer.Logger.Text += "\n" + "해당 방은 있습니다\n";
                             duplicateCount++;
                             break;
                         }
@@ -135,8 +137,8 @@ namespace ChattingServer
                                 rooms += "," + v.RoomName;
                             else
                                 rooms += v.RoomName;
-                                FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName;
-                                FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames;
+                              //  FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName;
+                               // FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames;
                             count++;
                         }
 
@@ -162,7 +164,7 @@ namespace ChattingServer
                             }
                         }
                         members = ChatServer.GetMember();
-                       FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
+                       //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
                         ChatServer.Broadcast("접속 인" +
                             "원:" + members + "::", ClientNickName, true);
                         break;
@@ -192,8 +194,9 @@ namespace ChattingServer
 
                     }
                 }
+                }
 
-            
+
             }
         }
     }
