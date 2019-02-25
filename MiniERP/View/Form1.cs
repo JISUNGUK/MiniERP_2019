@@ -414,13 +414,6 @@ namespace MiniERP.View
             frm_MaxSizeGrp.Show();
         }
 
-
-        private void MenuClickEvnet(object sender, EventArgs e)
-        {
-            OpenForm(sender);
-            tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
-        }
-
         #region 탭페이지 닫기버튼 생성 메서드
         private void Add_CloseBtn(Form formtest) // !! 주의 조회 폼에서만 사용할것
         {
@@ -566,5 +559,10 @@ namespace MiniERP.View
             }
         }
 
+        private void MenuClickEvent(object sender, EventArgs e)
+        {
+            OpenForm(sender);
+            tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
+        }
     }
 }
