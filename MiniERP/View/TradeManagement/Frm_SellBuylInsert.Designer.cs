@@ -33,14 +33,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.gView_Order = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Cleaner = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,6 +59,14 @@
             this.txt_BusinessName = new System.Windows.Forms.TextBox();
             this.txt_BusinessCode = new System.Windows.Forms.TextBox();
             this.lab_TotalPrice = new System.Windows.Forms.Label();
+            this.select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalfee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gView_Order)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,15 +105,15 @@
             this.gView_Order.AllowUserToDeleteRows = false;
             this.gView_Order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gView_Order.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.totalFee});
-            this.gView_Order.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.select,
+            this.code,
+            this.name,
+            this.unit,
+            this.standard,
+            this.count,
+            this.fee,
+            this.totalfee});
+            this.gView_Order.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gView_Order.Location = new System.Drawing.Point(21, 107);
             this.gView_Order.Name = "gView_Order";
             this.gView_Order.RowHeadersVisible = false;
@@ -121,53 +121,9 @@
             this.gView_Order.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gView_Order.Size = new System.Drawing.Size(749, 263);
             this.gView_Order.TabIndex = 123;
-            this.gView_Order.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellClick);
             this.gView_Order.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellContentClick);
-            this.gView_Order.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gView_Order_RowsAdded);
+            this.gView_Order.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellValueChanged);
             this.gView_Order.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gView_Order_RowsRemoved);
-            // 
-            // Select
-            // 
-            this.Select.HeaderText = "선택";
-            this.Select.Name = "Select";
-            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Select.Width = 40;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "품목코드";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "품목명";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "규격";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "박스/롤/Carton";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "수량";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "단가";
-            this.Column7.Name = "Column7";
-            // 
-            // totalFee
-            // 
-            this.totalFee.HeaderText = "총액";
-            this.totalFee.Name = "totalFee";
             // 
             // btn_Cleaner
             // 
@@ -189,6 +145,7 @@
             this.btn_Save.TabIndex = 121;
             this.btn_Save.Text = "저장";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // label3
             // 
@@ -320,7 +277,7 @@
             this.lab_Warehouse.Name = "lab_Warehouse";
             this.lab_Warehouse.Size = new System.Drawing.Size(63, 14);
             this.lab_Warehouse.TabIndex = 127;
-            this.lab_Warehouse.Text = "입고창고";
+            this.lab_Warehouse.Text = "출고창고";
             // 
             // label7
             // 
@@ -369,11 +326,12 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.Location = new System.Drawing.Point(590, 386);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.Size = new System.Drawing.Size(77, 16);
             this.label8.TabIndex = 135;
-            this.label8.Text = "총가격 : ";
+            this.label8.Text = "총액합 : ";
             // 
             // btn_ItemDelete
             // 
@@ -428,11 +386,61 @@
             // lab_TotalPrice
             // 
             this.lab_TotalPrice.AutoSize = true;
-            this.lab_TotalPrice.Location = new System.Drawing.Point(649, 386);
+            this.lab_TotalPrice.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lab_TotalPrice.Location = new System.Drawing.Point(657, 386);
             this.lab_TotalPrice.Name = "lab_TotalPrice";
-            this.lab_TotalPrice.Size = new System.Drawing.Size(29, 12);
+            this.lab_TotalPrice.Size = new System.Drawing.Size(0, 16);
             this.lab_TotalPrice.TabIndex = 141;
-            this.lab_TotalPrice.Text = "공백";
+            // 
+            // select
+            // 
+            this.select.HeaderText = "선택";
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.select.Width = 40;
+            // 
+            // code
+            // 
+            this.code.HeaderText = "품목코드";
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "품목명";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "단위";
+            this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
+            // 
+            // standard
+            // 
+            this.standard.HeaderText = "규격";
+            this.standard.Name = "standard";
+            this.standard.ReadOnly = true;
+            // 
+            // count
+            // 
+            this.count.HeaderText = "수량";
+            this.count.Name = "count";
+            // 
+            // fee
+            // 
+            this.fee.HeaderText = "단가";
+            this.fee.Name = "fee";
+            this.fee.ReadOnly = true;
+            // 
+            // totalfee
+            // 
+            this.totalfee.HeaderText = "총액";
+            this.totalfee.Name = "totalfee";
+            this.totalfee.ReadOnly = true;
             // 
             // Frm_SellBuyInsert
             // 
@@ -512,13 +520,13 @@
         private System.Windows.Forms.TextBox txt_BusinessName;
         private System.Windows.Forms.TextBox txt_BusinessCode;
         private System.Windows.Forms.Label lab_TotalPrice;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalFee;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn select;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn standard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalfee;
     }
 }
