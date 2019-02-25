@@ -52,6 +52,7 @@ namespace ChattingServer
                 {
                string receivestr= Encoding.UTF8.GetString(messageByte).Replace("\0","");
                     string date = "보낸시간:" + DateTime.Now + "\n";
+                        FTPServer.Logger.Text +="들어온 메시지:"+ receivestr+"\n";
                     if (receivestr.Contains("$$$$"))//전체에게 전송되는 메시지
                 { 
                int letterlastIndex= receivestr.IndexOf("$$$$");
@@ -80,7 +81,7 @@ namespace ChattingServer
                             else
                                 item.NicNames += ClientNickName;
                                 ChatServer.Multicast(message, ClientNickName, item, false);
-                            FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
+                            //FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
                         }
                     }
                 }
@@ -98,7 +99,7 @@ namespace ChattingServer
                             else
                                 item.NicNames +=ClientNickName;
                                 ChatServer.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
-                                FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
+                                //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
                         }
                     }
                     
@@ -137,8 +138,8 @@ namespace ChattingServer
                                 rooms += "," + v.RoomName;
                             else
                                 rooms += v.RoomName;
-                                      FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName+"\n";
-                                     FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames+"\n";
+                                      //FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName+"\n";
+                                    // FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames+"\n";
                                     count++;
                         }
 

@@ -56,6 +56,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.nicknamel = new System.Windows.Forms.Label();
+            this.reacess = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fileImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // 
             this.additionFile.AutoSize = true;
             this.additionFile.Location = new System.Drawing.Point(317, 645);
-            this.additionFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.additionFile.Margin = new System.Windows.Forms.Padding(2);
             this.additionFile.Name = "additionFile";
             this.additionFile.Size = new System.Drawing.Size(96, 16);
             this.additionFile.TabIndex = 43;
@@ -313,12 +314,23 @@
             this.nicknamel.TabIndex = 55;
             this.nicknamel.Text = "label5";
             // 
+            // reacess
+            // 
+            this.reacess.Location = new System.Drawing.Point(329, 4);
+            this.reacess.Name = "reacess";
+            this.reacess.Size = new System.Drawing.Size(75, 23);
+            this.reacess.TabIndex = 56;
+            this.reacess.Text = "재접속";
+            this.reacess.UseVisualStyleBackColor = true;
+            this.reacess.Click += new System.EventHandler(this.reacess_Click);
+            // 
             // Frm_message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 846);
             this.ControlBox = false;
+            this.Controls.Add(this.reacess);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -384,5 +396,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label nicknamel;
+        private System.Windows.Forms.Button reacess;
     }
 }

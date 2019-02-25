@@ -31,10 +31,10 @@ namespace ChattingServer.Server
                     string machineName = null;
                     if (machineSocket.Connected)
                     {
-                        NetworkStream ns1 = machineSocket.GetStream();
+                        /*NetworkStream ns1 = machineSocket.GetStream();
                        byte [] messagebyte = Encoding.UTF8.GetBytes("접속되셨어요");
                         ns1.Write(messagebyte, 0, messagebyte.Length);
-                        ns1.Flush();
+                        ns1.Flush();*/
 
                         var ns = machineSocket.GetStream();                       
                         Byte[] byteFrom = new Byte[machineSocket.SendBufferSize];

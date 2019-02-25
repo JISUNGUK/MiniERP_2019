@@ -145,24 +145,29 @@ namespace MiniERP.View
                 try
                 {
                     client.Connect(serverip, 3333);
+                    if(messagedao.Network.DataAvailable)
+                        reacess.Enabled = false;
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("서버가 열려있지 않습니다");
-                    Application.Exit();
+
                 }//서버 접속
 
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
                 //Msg();
+                if(client.Connected)
+                { 
                 Network = client.GetStream();
-                Messagedao.SendMessage(nickname);
+                Messagedao.SendMessage(nickname);                
                 nicknamel.Text = nickname;
                 Thread thread = new Thread(getMsg);
                 thread.Start();
                 Thread ftptread = new Thread(FTPConnection);
                 ftptread.Start();
+                }
 
 
             }
@@ -548,6 +553,12 @@ namespace MiniERP.View
             }
             save.Dispose();
 
+        }
+
+        private void reacess_Click(object sender, EventArgs e)
+        {
+            messagedao = new MessageDAO();             
+                accessChatting();                
         }
     }
 }
