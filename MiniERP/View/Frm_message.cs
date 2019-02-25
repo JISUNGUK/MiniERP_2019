@@ -142,17 +142,12 @@ namespace MiniERP.View
         {
             try
             {
-                try
-                {
+               
                     client.Connect(serverip, 3333);
-                    if(messagedao.Network.DataAvailable)
-                        reacess.Enabled = false;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("서버가 열려있지 않습니다");
-
-                }//서버 접속
+                messagedao.Network = client.GetStream();
+                   
+               
+               
 
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
@@ -174,7 +169,7 @@ namespace MiniERP.View
             catch (Exception ee)
             {
 
-                MessageBox.Show(ee.Message);
+                MessageBox.Show("서버가 열려있지않습니다");
             }
 
 
@@ -195,6 +190,7 @@ namespace MiniERP.View
         {
             if (!string.IsNullOrEmpty(message.Text))
             {
+               
                 Messagedao.SendChatMessage(message.Text, roomList);
                 string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
                 if (roomList.SelectedIndex != -1)
@@ -207,7 +203,7 @@ namespace MiniERP.View
                     roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 }
                 ChatContent.Text += "\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
-                message.Text = "";
+                message.Text = "";          
 
             }
 
@@ -557,8 +553,11 @@ namespace MiniERP.View
 
         private void reacess_Click(object sender, EventArgs e)
         {
+        if(messagedao.Network==null)
+            { 
             messagedao = new MessageDAO();             
-                accessChatting();                
+            accessChatting();
+            }
         }
     }
 }
