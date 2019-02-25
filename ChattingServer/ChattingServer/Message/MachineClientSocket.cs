@@ -43,6 +43,8 @@ namespace ChattingServer.Message
                 {
                     System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
                 }
+                if(messageByte!=null)
+                { 
                 if (Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                 {
                     string receivestr = Encoding.UTF8.GetString(messageByte).Replace("\0", "");
@@ -66,6 +68,7 @@ namespace ChattingServer.Message
                         break;
                     }
                     
+                }
                 }
 
 
