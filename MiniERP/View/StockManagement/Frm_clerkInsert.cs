@@ -48,19 +48,19 @@ namespace MiniERP.View.StockManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtCode.Text))
+            if (String.IsNullOrEmpty(txtCode.Text)) 
             {
-                MessageBox.Show("사원코드를 입력하지 않았습니다.", "사원코드를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("사원코드를 입력해주세요.", "사원코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Focus();
             }
-            else if (String.IsNullOrEmpty(txtName.Text))
+            else if (String.IsNullOrEmpty(txtName.Text)) 
             {
-                MessageBox.Show("사원이름을 입력하지 않았습니다.", "사원이름을 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("사원이름을 입력해주세요.", "사원이름을 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtName.Focus();
             }
-            else if (String.IsNullOrEmpty(txtPassword.Text))
+            else if (String.IsNullOrEmpty(txtPassword.Text)) 
             {
-                MessageBox.Show("비밀번호를 입력하지 않았습니다.", "비밀번호를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("비밀번호를 입력해주세요.", "비밀번호를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPassword.Focus();
             }
             else
@@ -81,12 +81,12 @@ namespace MiniERP.View.StockManagement
                     };
                     if (new ClerkDAO().InsertClerk(clerk) != -1)
                     {
-                        MessageBox.Show("새로운 사원을 등록했습니다.", "사원 등록", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("새로운 사원을 등록했습니다.", "사원등록 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("등록에 실패했습니다.", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("사원등록에 실패했습니다.", "사원등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

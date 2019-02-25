@@ -270,6 +270,8 @@
     <Compile Include="VO\Manufacture.cs" />
     <Compile Include="VO\Ordered.cs" />
     <Compile Include="VO\SampleOrder.cs" />
+    <Compile Include="VO\Status.cs" />
+    <Compile Include="VO\StatusList.cs" />
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />

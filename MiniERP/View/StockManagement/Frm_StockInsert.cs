@@ -47,14 +47,14 @@ namespace MiniERP.View.StockManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtCode.Text))
+            if (String.IsNullOrEmpty(txtCode.Text)) 
             {
-                MessageBox.Show("창고코드를 입력하지 않았습니다.", "창고코드를 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("창고코드를 입력해주세요.", "창고코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Focus();
             }
-            else if (String.IsNullOrEmpty(txtName.Text))
+            else if (String.IsNullOrEmpty(txtName.Text)) 
             {
-                MessageBox.Show("창고명을 입력하지 않았습니다.", "창고명을 입력해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("창고명을 입력해주세요.", "창고명을 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtName.Focus();
             }
             else
