@@ -172,9 +172,11 @@ namespace MiniERP.View.TradeManagement
         {
             foreach (DataGridViewRow item in gView_Order.Rows)
             {
-                if ((bool)item.Cells["select"].Value)
+                if (Convert.ToBoolean(item.Cells["select"].Value))
                 {
                     gView_Order.Rows.Remove(item);
+                    btn_ItemDelete_Click(null, null);
+                    return;
                 }
             }
         }
