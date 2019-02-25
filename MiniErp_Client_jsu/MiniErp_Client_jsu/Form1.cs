@@ -9,22 +9,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//  taskkill /im minierp_client_jsu.exe /f 
 namespace MiniErp_Client_jsu
 {
     public partial class Form1 : Form
     {
-        Machine machine;
-        List<Barcode> codes=new List<Barcode>();
+        Machine machine = new Machine();
+        Chatting chatting;
+
 
         //  erro , command 리스트
         List<Erro> erros = new List<Erro>();
         List<Command> commands = new List<Command>();
+        List<Barcode> codes = new List<Barcode>();
 
         public Form1()
         {
             InitializeComponent();
+            chatting = new Chatting(machine.Ip, machine.Name);
         }
 
+        
 
         private void txt_Barcode_KeyDown(object sender, KeyEventArgs e)
         {
@@ -50,20 +55,20 @@ namespace MiniErp_Client_jsu
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                machine = new Machine();
-                machine.Setting();
-                if (machine.SeverState()==true)
-                {
-                    checkBox1.Checked = true;
-                    txt_Log.Text += "sever connection ok";
-                }
-            }
-            catch (Exception)
-            {
-                checkBox1.Checked = false;
-            }
+            //try
+            //{
+            //    machine = new Machine();
+            //    machine.Setting();
+            //    if (machine.SeverState()==true)
+            //    {
+            //        checkBox1.Checked = true;
+            //        txt_Log.Text += "sever connection ok";
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    checkBox1.Checked = false;
+            //}
 
             #region command test 모듈
             ////string testmsg = "[command] exit";
@@ -75,10 +80,12 @@ namespace MiniErp_Client_jsu
             #endregion
 
             #region erro test 모듈
-            Erro testErro = new Erro(1);
-            MessageBox.Show(testErro.Erro_Code + "\n" + testErro.Head + testErro.Erro_String); 
+            //Erro testErro = new Erro(1);
+            //MessageBox.Show(testErro.Erro_Code + "\n" + testErro.Head + testErro.Erro_String);
             #endregion
 
+
+            chatting.Start();
 
         }
 
@@ -93,18 +100,18 @@ namespace MiniErp_Client_jsu
             txt_Log.Text = sb.ToString();
 
             this.txt_Barcode.Focus();
+
+            foreach (var item in chatting.Command)
+            {
+                MessageBox.Show(item);
+            }
+
+            chatting.BarcodeMsgMaker(codes);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                machine.CloseSeverTest();
-            }
-            catch (Exception)
-            {
 
-            }
         }
     }
 }
