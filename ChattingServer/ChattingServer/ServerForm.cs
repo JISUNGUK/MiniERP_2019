@@ -14,6 +14,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Diagnostics;
 using System.IO;
+using ChattingServer.Server;
 
 namespace ChattingServer
 {
@@ -37,7 +38,9 @@ namespace ChattingServer
             Thread thread = new Thread(new ThreadStart(EstablishRemote));
             thread.Start();
             Thread threadMessage = new Thread(new ThreadStart(StartMessage));
-            threadMessage.Start();                    
+            threadMessage.Start();
+            Thread threadMachine = new Thread(new ThreadStart(StartMachine));
+            threadMachine.Start();
             StartServer.Enabled = false;
             ServerStatusMessage.Text = "FTP서버 시작...";
         }
@@ -125,6 +128,21 @@ namespace ChattingServer
                 MessageBox.Show(ee.Message);
             }
          
+        }
+
+        private void StartMachine()
+        {
+            try
+            {
+                MachineServer machineServer = new MachineServer();
+                machineServer.StartMessage();
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message);
+            }
+
         }
 
         private void Server_FormClosing_1(object sender, FormClosingEventArgs e)

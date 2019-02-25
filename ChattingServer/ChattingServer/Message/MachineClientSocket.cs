@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ChattingServer.Message
@@ -19,6 +20,8 @@ namespace ChattingServer.Message
             this.machineSockets = machineSockets;
             this.MachineName = machineName;
             this.MachineList = machineList;
+            Thread thread = new Thread(Doread);
+            thread.Start();
         }
 
         public TcpClient MachineSockets { get => machineSockets; set => machineSockets = value; }
