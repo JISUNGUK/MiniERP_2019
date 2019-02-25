@@ -34,12 +34,12 @@ namespace ChattingServer
 
         private void StartServer_Click(object sender, EventArgs e)
         {
-           
-            Thread thread = new Thread(new ThreadStart(EstablishRemote));
+            FTPServer.Logger = this.Logger;
+            Thread thread = new Thread(new ThreadStart(EstablishRemote));//ftp서버가동
             thread.Start();
-            Thread threadMessage = new Thread(new ThreadStart(StartMessage));
+            Thread threadMessage = new Thread(new ThreadStart(StartMessage));//채팅서버가동
             threadMessage.Start();
-            Thread threadMachine = new Thread(new ThreadStart(StartMachine));
+            Thread threadMachine = new Thread(new ThreadStart(StartMachine));//머신서버가동
             threadMachine.Start();
             StartServer.Enabled = false;
             ServerStatusMessage.Text = "FTP서버 시작...";
@@ -69,7 +69,7 @@ namespace ChattingServer
 
             try
             {
-                Logger.Text += Environment.NewLine + "***** TCP채널이 생성되었습니다... *****" + Environment.NewLine;
+                Logger.Text += Environment.NewLine + "***** FTP서버가 가동중입니다... *****" + Environment.NewLine;
             }
             catch (InvalidOperationException)
             {

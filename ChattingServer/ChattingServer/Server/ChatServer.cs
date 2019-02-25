@@ -22,7 +22,7 @@ namespace ChattingServer
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
                 serverListener.Start();
-              //  FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
+                FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
                 ChattingElement chattingAll = new ChattingElement();//전체 채팅방
                 chattingAll.RoomName = "전체";
 
@@ -47,7 +47,7 @@ namespace ChattingServer
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                            FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
+                          //  FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
 
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속

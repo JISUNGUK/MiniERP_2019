@@ -11,8 +11,7 @@ namespace ChattingServer.Server
 {
     class MachineServer
     {
-        public static Hashtable machineList = new Hashtable();
-        //public static List<ChattingElement> machi = new List<ChattingElement>();
+        public static Hashtable machineList = new Hashtable();  
         private string ipaddress = "192.168.0.6";
         public void StartMessage()
         {
@@ -22,11 +21,8 @@ namespace ChattingServer.Server
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 4444);
                 serverListener.Start();
-                //  FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
-                //ChattingElement chattingAll = new ChattingElement();//전체 채팅방
-                //chattingAll.RoomName = "전체";
-
-                //chattingList.Add(chattingAll);//전체 사용자에게 전송되는 방,,,
+                  FTPServer.Logger.Text += "머신서버 가동>>>>\n";
+                
 
                 for (; ; )
                 {
@@ -42,7 +38,7 @@ namespace ChattingServer.Server
 
                         int index = machineName.IndexOf("\0");
                         machineName = machineName.Remove(index, machineName.Length - index);
-                        //   FTPServer.Logger.Text += "접속을 감지했습니다\n";
+                           FTPServer.Logger.Text += "기계접속을 감지했습니다\n";
                         if (!machineList.Contains(machineName))
                         {
 
