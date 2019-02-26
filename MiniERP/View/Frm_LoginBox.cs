@@ -123,10 +123,9 @@ namespace MiniERP.View
                             autologin.Checked = false;
                     }
                     count++;
-                }
+                }*/
                 if(autologin.Checked)
                     btn_Login_Click(null, null);
-                fs.Close();*/
             }
 
         }
