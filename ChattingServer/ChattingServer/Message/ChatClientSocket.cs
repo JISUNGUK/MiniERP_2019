@@ -52,7 +52,7 @@ namespace ChattingServer
                 {
                string receivestr= Encoding.UTF8.GetString(messageByte).Replace("\0","");
                     string date = "보낸시간:" + DateTime.Now + "\n";
-                        FTPServer.Logger.Text +="들어온 메시지:"+ receivestr+"\n";
+                        //FTPServer.Logger.Text +="들어온 메시지:"+ receivestr+"\n";
                     if (receivestr.Contains("$$$$"))//전체에게 전송되는 메시지
                 { 
                int letterlastIndex= receivestr.IndexOf("$$$$");

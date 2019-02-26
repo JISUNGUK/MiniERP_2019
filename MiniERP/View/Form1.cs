@@ -15,6 +15,7 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -455,10 +456,11 @@ namespace MiniERP.View
             frm_message = new Frm_message();
             frm_message.Form = this;
             frm_message.Nickname = this.nickname;
-            frm_message.MdiParent = this;
-            this.splitContainer2.Panel2.Controls.Add(frm_message);
+            //frm_message.MdiParent = this;
+            //this.splitContainer2.Panel2.Controls.Add(frm_message);
             frm_message.Dock = DockStyle.Fill;
             frm_message.Show();
+            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y);
         }
 
         #region 프로그램 종료시 대화상자 이벤트
@@ -491,10 +493,38 @@ namespace MiniERP.View
 
         private void outputloginFile()
         {
-            if(save)
+            DESCryptoServiceProvider DES = new DESCryptoServiceProvider();
+            Byte[] keybyte = new byte[8];
+            int i = 0;
+            foreach (var item in ASCIIEncoding.ASCII.GetBytes("ccarayhua"))
+            {
+                
+                keybyte[i++] = item;
+                if (i == 8)
+                {
+                    i = 0;
+                    break;
+                }
+            }
+            Byte[] ivByte = new byte[8];
+            foreach (var item in ASCIIEncoding.ASCII.GetBytes("sjw9433"))
+            {
+
+                ivByte[i++] = item;
+                if (i == 8)
+                {
+                    i = 0;
+                    break;
+                }
+            }
+            DES.Key = keybyte;
+            DES.IV = ivByte;
+            ICryptoTransform Encrypt = DES.CreateEncryptor();//암호객체 생성
+          
+
+            if (save)
             {
                 FileStream fs=null;
-                StreamWriter sr=null;
             if (!System.IO.File.Exists("login.txt"))
                 {
                    fs = new FileStream("login.txt", FileMode.Create, FileAccess.Write, FileShare.None);
@@ -505,13 +535,18 @@ namespace MiniERP.View
                     fs = new FileStream("login.txt", FileMode.Truncate, FileAccess.Write, FileShare.None);
 
                 }
-                sr = new StreamWriter(fs);
-                sr.WriteLine("id:" + id);
-                sr.WriteLine("pw:" + pwd);
-                sr.WriteLine("autologin:" + autologin);
-                sr.Close();
+                CryptoStream cryptostream = new CryptoStream(fs, Encrypt, CryptoStreamMode.Write);//해당파일을 암호화시킴
+                Byte[] bytelogin = new byte[fs.Length];
+                bytelogin = Encoding.UTF8.GetBytes("id:" + id + "\n" + "pw:" + pwd + "autologin:" + autologin);
+                cryptostream.Write(bytelogin, 0, bytelogin.Length);
+                fs.Flush();
+                cryptostream.Close();
                 fs.Close();
-
+                //sr = new StreamWriter(fs);
+                //sr.WriteLine("id:" + id);
+                //sr.WriteLine("pw:" + pwd);
+                //sr.WriteLine("autologin:" + autologin);
+                //sr.Close();         
             }
 
         }
@@ -585,6 +620,8 @@ namespace MiniERP.View
         {
             if (this.WindowState == FormWindowState.Maximized)
             {
+               
+                    frm_message.Location = new Point(this.Width - frm_message.Width, this.Location.Y + 50);
                 notify = false;
                 frm_message.Windowstate = "최대화";
             }
@@ -604,6 +641,20 @@ namespace MiniERP.View
         {
             OpenForm(sender);
             tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
+        }
+
+        private void Form1_LocationChanged(object sender, EventArgs e)
+        {
+            if(frm_message!=null)
+            { 
+            frm_message.Location = new Point(this.Location.X+this.Width-10, this.Location.Y);
+            }
+            
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
         }
     }
 }
