@@ -51,8 +51,7 @@ namespace MiniERP.View
                 form1.Autologin = autologin.Checked + "";
                 MessageBox.Show("로그인 되었습니다");
 
-                if (System.IO.File.Exists("login.txt"))
-                    System.IO.File.Delete("login.txt");
+                
                 this.Close();
                 
             }

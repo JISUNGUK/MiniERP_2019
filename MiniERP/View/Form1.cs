@@ -493,16 +493,25 @@ namespace MiniERP.View
         {
             if(save)
             {
-                
-            
-                   FileStream fs = new FileStream("login.txt", FileMode.Create, FileAccess.Write, FileShare.None);
-                StreamWriter sr = new StreamWriter(fs);
-                int count = 0;
+                FileStream fs=null;
+                StreamWriter sr=null;
+            if (!System.IO.File.Exists("login.txt"))
+                {
+                   fs = new FileStream("login.txt", FileMode.Create, FileAccess.Write, FileShare.None);
+               
+                }
+            else
+                {
+                    fs = new FileStream("login.txt", FileMode.Truncate, FileAccess.Write, FileShare.None);
+
+                }
+                sr = new StreamWriter(fs);
                 sr.WriteLine("id:" + id);
                 sr.WriteLine("pw:" + pwd);
                 sr.WriteLine("autologin:" + autologin);
                 sr.Close();
                 fs.Close();
+
             }
 
         }

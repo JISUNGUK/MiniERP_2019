@@ -145,7 +145,7 @@ namespace MiniERP.View
                
                     client.Connect(serverip, 3333);
                 messagedao.Network = client.GetStream();
-                   
+                client.ReceiveTimeout = 1000;
                
                
 
@@ -459,7 +459,6 @@ namespace MiniERP.View
                 Server.Update += new UpdateHandler(handler.Server_Update);
 
                 Server.Connect(MachineInfo.GetJustIP());
-
             }
             catch (Exception ex)
             {
