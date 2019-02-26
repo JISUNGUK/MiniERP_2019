@@ -90,6 +90,22 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        
+        public bool CheckWarehouseData(string warehouseCode)
+        {
+            string storedProcedureName = "Check_WarehouseData";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("warehouse_code", warehouseCode)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                return con.ExecuteSelect(storedProcedureName, sqlParameters).HasRows;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

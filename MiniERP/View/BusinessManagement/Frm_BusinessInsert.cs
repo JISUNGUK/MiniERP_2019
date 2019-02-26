@@ -25,6 +25,11 @@ namespace MiniERP.View.BusinessManagement
                 MessageBox.Show("거래처코드를 입력해주세요.", "거래처코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Focus();
             }
+            else if (new BusinessDAO().CheckBusinessCode(txtCode.Text))
+            {
+                MessageBox.Show("이미 사용중인 거래처코드입니다.\n다른 코드를 사용해주세요.", "거래처코드 중복", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCode.Focus();
+            }
             else if (String.IsNullOrEmpty(txtName.Text))
             {
                 MessageBox.Show("거래처명을 입력해주세요.", "거래처명을 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);

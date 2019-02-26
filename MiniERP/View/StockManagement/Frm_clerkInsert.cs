@@ -26,6 +26,11 @@ namespace MiniERP.View.StockManagement
                 MessageBox.Show("사원코드를 입력해주세요.", "사원코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Focus();
             }
+            else if (new ClerkDAO().CheckClerkData(txtCode.Text))
+            {
+                MessageBox.Show("이미 등록되어있는 사원코드입니다.\n다른 사원코드를 사용해주세요.", "사원코드 중복", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCode.Focus();
+            }
             else if (String.IsNullOrEmpty(txtName.Text))
             {
                 MessageBox.Show("사원이름을 입력해주세요.", "사원이름을 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);

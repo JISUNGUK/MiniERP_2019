@@ -98,5 +98,29 @@ namespace MiniERP.Model.DAO
                 throw;
             }
         }
+
+        /// <summary>
+        /// 등록하려는 사원이 이미 테이블에 존재하는지 확인하기 위한 메서드입니다.
+        /// </summary>
+        /// <param name="clerkCode">등록하려는 사원의 코드입니다.</param>
+        /// <returns>사원코드로 Clerk테이블을 조회했을 때 나오는 행의 개수를 반환합니다.</returns>
+        public bool CheckClerkData(string clerkCode)
+        {
+            string storedProcedureName = "Check_ClerkData";
+
+            DBConnection con = new DBConnection();
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("clerk_code", clerkCode)
+            };
+            try
+            {
+                return con.ExecuteSelect(storedProcedureName, sqlParameters).HasRows;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
