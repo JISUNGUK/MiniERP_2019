@@ -142,10 +142,11 @@ namespace MiniERP.View
         {
             try
             {
-               
-                    client.Connect(serverip, 3333);
+                client.SendTimeout = 1000;
+                client.Connect(serverip, 3333);
                 messagedao.Network = client.GetStream();
-                client.ReceiveTimeout = 1000;
+                
+                //client.ReceiveTimeout = 1000;
                
                
 
