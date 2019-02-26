@@ -1,0 +1,13 @@
+diff a/MiniERP/Model/DAO/Message/MessageDAO.cs b/MiniERP/Model/DAO/Message/MessageDAO.cs	(rejected hunks)
+@@ -115,10 +115,7 @@
+                     roomname = roomname.Substring(3);//방명:으로부터 인덱스가 3인것부터가 방명이므로
+                     roomtable[roomname] += "\n"+ date + Environment.NewLine + ">>" + message + "\n";
+ 
+-                    if(roomList.SelectedItem.ToString()==roomname)
+-                        View.Form1.notify = false;                    
+-                    if (roomname !=roomList.SelectedItem)
+-                        View.Form1.notify = true;
++                   
+                     if (MiniERP.View.Form1.notify)
+                     {
+                     popup = new PopupNotifier();
