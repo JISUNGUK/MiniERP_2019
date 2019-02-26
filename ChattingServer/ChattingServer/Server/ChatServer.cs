@@ -22,7 +22,7 @@ namespace ChattingServer
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
                 serverListener.Start();
-                FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
+                //FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
                 ChattingElement chattingAll = new ChattingElement();//전체 채팅방
                 chattingAll.RoomName = "전체";
 
@@ -42,12 +42,12 @@ namespace ChattingServer
 
                         int index = clientNickName.IndexOf("\0");
                         clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
-                     //   FTPServer.Logger.Text += "접속을 감지했습니다\n";
+                        //FTPServer.Logger.Text += "접속을 감지했습니다\n";
                         if (!clientList.Contains(clientNickName))
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                          //  FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
+                           // FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
 
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
@@ -78,7 +78,7 @@ namespace ChattingServer
 
                             Broadcast("접속 인원:" + memberList + "::", clientNickName, true);
                             Broadcast("방 목록:" + roomList + ";;", clientNickName, true);
-                            ServerForm.chattcount++;
+                            
                             ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, ChatServer.clientList);
                         }
                         else
@@ -235,7 +235,7 @@ namespace ChattingServer
                     foreach (ChattingElement chatting in chattingList)
                         chattingRooms += chatting.RoomName;
                     bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
-                    FTPServer.Logger.Text += "서버 메시지:" + msg + " 현재 접속인원:" + GetMember() + "\n";
+                   // FTPServer.Logger.Text += "서버 메시지:" + msg + " 현재 접속인원:" + GetMember() + "\n";
                 }
                 ns.Write(bytemsg, 0, bytemsg.Length);
                 ns.Flush();

@@ -49,9 +49,20 @@ namespace MiniERP.View
         private bool mboxchk = true; // 메세지 박스 실행 방지용
 
         private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
+        private string id;//로그인시 입력할 사원id
+        private string pwd;//로그인시 입력될 사원pw
+        private bool save;//현 로그인 정보 저장
+        private string autologin;//자동로그인 여부
 
-        public string nickname = "";
+        public string nickname = "";//상대방에게 보이는 자신의 이름
+
         public DialogResult logIn;          //  로그인 체커부
+
+        public string Id { get => id; set => id = value; }
+        public string Pwd { get => pwd; set => pwd = value; }
+        public string Autologin { get => autologin; set => autologin = value; }
+        public bool Save { get => save; set => save = value; }
+
         public Form1()
         {
             Frm_LoginBox loginbox = new Frm_LoginBox(this);
@@ -59,7 +70,7 @@ namespace MiniERP.View
             if (logIn != DialogResult.OK)
             {
                 this.Close();
-            }
+            }            
             InitializeComponent();
         }
 
@@ -460,6 +471,7 @@ namespace MiniERP.View
                 if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     frm_message.Close();
+                    outputloginFile();
                     e.Cancel = false; // 폼 닫음  
                     closeBackground(@"taskkill /im  Minierp.exe /f");
 
@@ -476,6 +488,35 @@ namespace MiniERP.View
                 mboxchk = true;
             }
         }
+
+        private void outputloginFile()
+        {
+            if(save)
+            {
+                FileStream fs=null;
+                StreamWriter sr=null;
+            if (!System.IO.File.Exists("login.txt"))
+                {
+                   fs = new FileStream("login.txt", FileMode.Create, FileAccess.Write, FileShare.None);
+               
+                }
+            else
+                {
+                    fs = new FileStream("login.txt", FileMode.Truncate, FileAccess.Write, FileShare.None);
+
+                }
+                sr = new StreamWriter(fs);
+                sr.WriteLine("id:" + id);
+                sr.WriteLine("pw:" + pwd);
+                sr.WriteLine("autologin:" + autologin);
+                sr.Close();
+                fs.Close();
+
+            }
+
+        }
+
+        
 
         private void closeBackground(string command)
         {

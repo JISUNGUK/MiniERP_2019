@@ -14,7 +14,8 @@ namespace MiniERP.Model
 
         public DBConnection()
         {
-            con = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);            
         }
 
         #region 설정

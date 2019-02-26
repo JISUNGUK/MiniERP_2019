@@ -35,7 +35,7 @@
             this.ServerStatus = new System.Windows.Forms.StatusStrip();
             this.ServerStatusMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.exportChatting = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.machine = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ServerStatus.SuspendLayout();
@@ -93,7 +93,7 @@
             this.ServerStatus.Location = new System.Drawing.Point(0, 257);
             this.ServerStatus.Name = "ServerStatus";
             this.ServerStatus.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
-            this.ServerStatus.Size = new System.Drawing.Size(527, 22);
+            this.ServerStatus.Size = new System.Drawing.Size(573, 22);
             this.ServerStatus.SizingGrip = false;
             this.ServerStatus.TabIndex = 15;
             // 
@@ -113,14 +113,15 @@
             this.exportChatting.UseVisualStyleBackColor = true;
             this.exportChatting.Click += new System.EventHandler(this.exportChatting_Click);
             // 
-            // button1
+            // machine
             // 
-            this.button1.Location = new System.Drawing.Point(269, 225);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "기계명령";
-            this.button1.UseVisualStyleBackColor = true;
+            this.machine.Location = new System.Drawing.Point(275, 225);
+            this.machine.Name = "machine";
+            this.machine.Size = new System.Drawing.Size(96, 23);
+            this.machine.TabIndex = 17;
+            this.machine.Text = "기계명령";
+            this.machine.UseVisualStyleBackColor = true;
+            this.machine.Click += new System.EventHandler(this.machine_Click);
             // 
             // button2
             // 
@@ -140,14 +141,14 @@
             this.button3.Text = "모니터링";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // Server
+            // ServerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 279);
+            this.ClientSize = new System.Drawing.Size(573, 279);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.machine);
             this.Controls.Add(this.exportChatting);
             this.Controls.Add(this.ServerStatus);
             this.Controls.Add(this.StartServer);
@@ -155,7 +156,7 @@
             this.Controls.Add(this.ServerIPValue);
             this.Controls.Add(this.ServerIP);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Server";
+            this.Name = "ServerForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Server_FormClosing_1);
             this.Load += new System.EventHandler(this.Server_Load);
@@ -175,7 +176,7 @@
         private System.Windows.Forms.StatusStrip ServerStatus;
         private System.Windows.Forms.ToolStripStatusLabel ServerStatusMessage;
         private System.Windows.Forms.Button exportChatting;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button machine;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
     }

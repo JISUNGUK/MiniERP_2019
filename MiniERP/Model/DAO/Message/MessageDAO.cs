@@ -144,8 +144,8 @@ namespace MiniERP.Model.DAO
                         if (roomList.SelectedItem.ToString() == roomname)
                         {
 
-                            ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + message + "\n";
-                            ChatContent.SelectionStart = ChatContent.TextLength;
+                            ChatContent.AppendText(ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + message + "\n");
+                            ChatContent.SelectionStart = ChatContent.Text.Length;//맨 마지막 선택...
                             ChatContent.ScrollToCaret();
 
 
@@ -155,6 +155,7 @@ namespace MiniERP.Model.DAO
                 }
                 else
                 {
+                   
                     if (roomList.SelectedItem == null || roomList.SelectedItem.ToString() == "전체")
                     {
                         ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;
@@ -183,6 +184,8 @@ namespace MiniERP.Model.DAO
                         popup.Click += Popup_Click;
                         popup.Popup();
                     }
+                    ChatContent.SelectionStart = ChatContent.Text.Length;//맨 마지막 선택...
+                    ChatContent.ScrollToCaret();
                 }
 
 

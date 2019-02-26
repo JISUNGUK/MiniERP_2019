@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MiniERP.Model.DAO;
+using MiniERP.VO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,24 +19,63 @@ namespace MiniERP.View.TradeManagement
             InitializeComponent();
         }
 
-        private void pnl_serchbox_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void btn_Detail_Click(object sender, EventArgs e)
         {
             pnl_serchbox.Visible = !pnl_serchbox.Visible;
+        }
+
+        private void Frm_TradeList_Load(object sender, EventArgs e)
+        {
+            GViewSetting();
+        }
+
+        List<Trade> trades;
+        private void GViewSetData()
+        {
+            TradeDAO tradeDAO = new TradeDAO();
+            trades = tradeDAO.GetTrade(low_date.Value,max_date.Value,null);
+            gViewTrade.Rows.Clear();
+            foreach (var item in trades)
+            {
+                gViewTrade.Rows.Add(item.Trade_standard, item.Trade_code, item.Clerk_name, item.Business_name, item.Item_summary, item.Total_fee, item.Trade_status,item.End_date);
+            }
+        }
+
+        private void GViewSetting()
+        {
+
+        }
+
+        private void gViewTrade_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            Frm_SellBuyInsert frm = new Frm_SellBuyInsert();
+            frm.ShowDialog();
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            GViewSetData();
+        }
+
+        private void gViewTrade_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (var item in trades)
+            {
+                if(item.Trade_code == gViewTrade.Rows[e.RowIndex].Cells["trade_code"].Value.ToString())
+                {
+                    Frm_ModifyTrade frm = new Frm_ModifyTrade(item);
+                    if(frm.ShowDialog() != DialogResult.Cancel)
+                    {
+                        GViewSetData();
+                    }
+                    break;
+                }
+            }
         }
     }
 }

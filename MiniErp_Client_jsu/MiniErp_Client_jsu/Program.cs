@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChattingServer
+namespace MiniErp_Client_jsu
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace ChattingServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ServerForm());
-            }
+            Application.Run(new Form1());
         }
     }
+}

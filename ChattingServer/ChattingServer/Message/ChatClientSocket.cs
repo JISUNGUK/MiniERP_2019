@@ -52,6 +52,7 @@ namespace ChattingServer
                 {
                string receivestr= Encoding.UTF8.GetString(messageByte).Replace("\0","");
                     string date = "보낸시간:" + DateTime.Now + "\n";
+                        FTPServer.Logger.Text +="들어온 메시지:"+ receivestr+"\n";
                     if (receivestr.Contains("$$$$"))//전체에게 전송되는 메시지
                 { 
                int letterlastIndex= receivestr.IndexOf("$$$$");
@@ -60,7 +61,8 @@ namespace ChattingServer
                         {
                             ChatServer.chattingList[0].MessageBody += date + "보낸이:" + ClientNickName + Environment.NewLine + "메시지:"+receivestr +"\n";
                             ChatServer.Broadcast(receivestr, ClientNickName, false);
-                        }
+                                ServerForm.chattcount++;
+                            }
 
                     }
                 if(receivestr.Contains("방에 메시지를 보냅니다"))
@@ -80,8 +82,9 @@ namespace ChattingServer
                             else
                                 item.NicNames += ClientNickName;
                                 ChatServer.Multicast(message, ClientNickName, item, false);
-                           // FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
-                        }
+                                ServerForm.chattcount++;
+                                    //FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
+                                }
                     }
                 }
                
@@ -98,7 +101,7 @@ namespace ChattingServer
                             else
                                 item.NicNames +=ClientNickName;
                                 ChatServer.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
-                               // FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
+                                //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
                         }
                     }
                     
@@ -137,9 +140,9 @@ namespace ChattingServer
                                 rooms += "," + v.RoomName;
                             else
                                 rooms += v.RoomName;
-                              //  FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName;
-                               // FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames;
-                            count++;
+                                      //FTPServer.Logger.Text += "\n" + "방명:" +v.RoomName+"\n";
+                                    // FTPServer.Logger.Text += "\n" + "참가자들:" +v.NicNames+"\n";
+                                    count++;
                         }
 
                             ChatServer.Broadcast("방 목록:" + rooms + ";;", ClientNickName, true);
@@ -164,7 +167,7 @@ namespace ChattingServer
                             }
                         }
                         members = ChatServer.GetMember();
-                       //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
+                       FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
                         ChatServer.Broadcast("접속 인" +
                             "원:" + members + "::", ClientNickName, true);
                         break;

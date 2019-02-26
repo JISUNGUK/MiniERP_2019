@@ -79,18 +79,7 @@ namespace ChattingServer
 
         }
 
-        /// <summary>
-        /// It handles the ServerPortValue textbox's Keypress event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ServerPortValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
-                e.Handled = false;
-            else
-                e.Handled = true;
-        }
+       
 
      
 
@@ -188,6 +177,8 @@ namespace ChattingServer
 
         private void exportChatting_Click(object sender, EventArgs e)
         {
+            if(chattcount>0)
+            { 
             SaveFileDialog savefile = new SaveFileDialog();
            DialogResult dr= savefile.ShowDialog();
             if (dr != DialogResult.OK)
@@ -206,7 +197,23 @@ namespace ChattingServer
                 }
                 fs.Close();
             }
-            savefile.Dispose();
+                savefile.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("저장된 채팅내용이 없습니다");
+            }
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void machine_Click(object sender, EventArgs e)
+        {
+            MachineServer.machineList[0].sendMessage("안녕안녕");
         }
     }
 }

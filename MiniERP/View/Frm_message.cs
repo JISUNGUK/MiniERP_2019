@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
@@ -141,35 +142,32 @@ namespace MiniERP.View
         private void accessChatting()
         {
             try
-            {
-                try
-                {
-                    client.Connect(serverip, 3333);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("서버가 열려있지 않습니다");
-                    Application.Exit();
-                }//서버 접속
-
+            {              
+               var access= client.BeginConnect(serverip, 3333,null,null);
+                //client.Connect(serverip, 3333);
+                var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+                messagedao.Network = client.GetStream();                                                 
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
                 //Msg();
+                if(client.Connected)
+                { 
                 Network = client.GetStream();
-                Messagedao.SendMessage(nickname);
+                Messagedao.SendMessage(nickname);                
                 nicknamel.Text = nickname;
                 Thread thread = new Thread(getMsg);
                 thread.Start();
                 Thread ftptread = new Thread(FTPConnection);
                 ftptread.Start();
+                }
 
 
             }
             catch (Exception ee)
             {
 
-                MessageBox.Show(ee.Message);
+                MessageBox.Show("서버가 열려있지않습니다");
             }
 
 
@@ -190,6 +188,7 @@ namespace MiniERP.View
         {
             if (!string.IsNullOrEmpty(message.Text))
             {
+               
                 Messagedao.SendChatMessage(message.Text, roomList);
                 string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
                 if (roomList.SelectedIndex != -1)
@@ -201,8 +200,10 @@ namespace MiniERP.View
                 {
                     roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 }
-                ChatContent.Text += "\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
-                message.Text = "";
+                ChatContent.AppendText("\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine);
+                //ChatContent.se(0, ChatContent.Text.Length);//맨 마지막 선택...
+                ChatContent.ScrollToCaret();
+                message.Text = "";          
 
             }
 
@@ -458,7 +459,6 @@ namespace MiniERP.View
                 Server.Update += new UpdateHandler(handler.Server_Update);
 
                 Server.Connect(MachineInfo.GetJustIP());
-
             }
             catch (Exception ex)
             {
@@ -548,6 +548,15 @@ namespace MiniERP.View
             }
             save.Dispose();
 
+        }
+
+        private void reacess_Click(object sender, EventArgs e)
+        {
+        if(messagedao.Network==null)
+            { 
+            messagedao = new MessageDAO();             
+            accessChatting();
+            }
         }
     }
 }
