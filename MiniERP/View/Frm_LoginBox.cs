@@ -112,6 +112,7 @@ namespace MiniERP.View
             else
             {
                 autologin.Enabled = false;
+                //if(System.IO.)
             }
         }
     }

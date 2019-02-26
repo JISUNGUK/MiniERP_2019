@@ -210,5 +210,10 @@ namespace ChattingServer
         {
 
         }
+
+        private void machine_Click(object sender, EventArgs e)
+        {
+            MachineServer.machineList[0].sendMessage("안녕안녕");
+        }
     }
 }
