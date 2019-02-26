@@ -30,6 +30,8 @@ namespace ChattingServer.Message
         public string MachineName { get => machineName; set => machineName = value; }
         public Hashtable MachineList { get => machineList; set => machineList = value; }
 
+        
+
         private void Doread()
         {
            
@@ -59,27 +61,44 @@ namespace ChattingServer.Message
                     if (receivestr.Contains("$$$$"))//서버에게 작업보고
                     {
                         int letterlastIndex = receivestr.IndexOf("$$$$");
-                        receivestr = receivestr.Substring(0, letterlastIndex);
-                        if (receivestr.Contains(""))
-                        {
-                            MachineServer.machineList[0] += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
+                        receivestr = receivestr.Substring(0, letterlastIndex);                        
+                            MachineServer.machineTable[0] += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
                            //Server.Broadcast(receivestr, ClientNickName, false);
-                        }
 
                     }                                                         
-                    if (receivestr.Contains("접속종료합니다"))
+                    else if (receivestr.Contains("접속종료합니다"))
                     {
-                        ServerForm.machineList.Remove(machineName);
-
-                        //FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
+                        MachineServer.machineTable.Remove(machineName);
+                        for(int i=0;i<MachineServer.machineList.Count;i++)
+                            {
+                                if (MachineServer.machineList[i].MachineName == machineName)
+                                {
+                                    MachineServer.machineList.RemoveAt(i);
+                                    break;
+                                }
+                            }
+                        FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
                         break;
-                    }
+                    }                
+
                     
                 }
                 }
 
 
             }
+        }
+        
+        /// <summary>
+        /// 해당 머신에게 명령을 전송 
+        /// </summary>
+        /// <param name="message">해당기계에게 전송될 메시지</param>
+        public void sendMessage(string message)
+        {
+            NetworkStream ns = this.machineSockets.GetStream();
+            Byte[] messagebyte = Encoding.UTF8.GetBytes(message);
+            ns.Write(messagebyte, 0, messagebyte.Length);
+            ns.Flush();
         }
     }
 }

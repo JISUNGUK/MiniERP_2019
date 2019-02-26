@@ -12,7 +12,8 @@ namespace ChattingServer.Server
 {
     class MachineServer
     {
-        public static Hashtable machineList = new Hashtable();  
+        public static Hashtable machineTable = new Hashtable();  
+        public static List<MachineClientSocket> machineList = new List<MachineClientSocket>();
         private string ipaddress = "192.168.0.6";
         public void StartMessage()
         {
@@ -22,7 +23,7 @@ namespace ChattingServer.Server
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 4444);
                 serverListener.Start();
-                  //FTPServer.Logger.Text += "머신서버 가동>>>>\n";
+                  FTPServer.Logger.Text += "머신서버 가동>>>>\n";
                 
 
                 for (; ; )
@@ -31,10 +32,7 @@ namespace ChattingServer.Server
                     string machineName = null;
                     if (machineSocket.Connected)
                     {
-                        /*NetworkStream ns1 = machineSocket.GetStream();
-                       byte [] messagebyte = Encoding.UTF8.GetBytes("접속되셨어요");
-                        ns1.Write(messagebyte, 0, messagebyte.Length);
-                        ns1.Flush();*/
+                        
 
                         var ns = machineSocket.GetStream();                       
                         Byte[] byteFrom = new Byte[machineSocket.SendBufferSize];
@@ -44,20 +42,21 @@ namespace ChattingServer.Server
 
                         int index = machineName.IndexOf("\0");
                         machineName = machineName.Remove(index, machineName.Length - index);
-                          // FTPServer.Logger.Text += "기계접속을 감지했습니다\n";
-                        if (!machineList.Contains(machineName))
+                           FTPServer.Logger.Text += "기계접속을 감지했습니다\n";
+                        if (!machineTable.Contains(machineName))
                         {
 
-                            machineList.Add(machineName, machineSocket);//채팅참여자 관리
-                            //FTPServer.Logger.Text += "\n" + clientNickName + "\n";                           
+                            machineTable.Add(machineName, machineSocket);//머신 관리
+                            FTPServer.Logger.Text += "\n" + machineName+ "\n";                           
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
 
                          
-                            MachineClientSocket client = new MachineClientSocket(machineSocket, machineName, machineList);
+                            MachineClientSocket client = new MachineClientSocket(machineSocket, machineName, machineTable);
+                            machineList.Add(client);
                         }
                         else
                         {
-                            MachineClientSocket client = new  MachineClientSocket(machineSocket, machineName, machineList);
+                            MachineClientSocket client = new  MachineClientSocket(machineSocket, machineName, machineTable);
                            
 
                         }
