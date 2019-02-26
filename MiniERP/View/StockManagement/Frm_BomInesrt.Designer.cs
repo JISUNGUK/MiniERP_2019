@@ -28,155 +28,168 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_ItemSelect = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_ItemAdd = new System.Windows.Forms.Button();
+            this.btnItemDelete = new System.Windows.Forms.Button();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btn_ItemSelect);
-            this.panel1.Controls.Add(this.textBox8);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(345, 124);
-            this.panel1.TabIndex = 4;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(93, 88);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(202, 21);
-            this.numericUpDown1.TabIndex = 111;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(12, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 110;
-            this.label4.Text = "파트개수";
-            // 
-            // button7
-            // 
-            this.button7.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(301, 45);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(25, 25);
-            this.button7.TabIndex = 109;
-            this.button7.Text = "??";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(93, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 21);
-            this.textBox1.TabIndex = 108;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(12, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 107;
-            this.label2.Text = "파트번호";
             // 
             // btn_ItemSelect
             // 
             this.btn_ItemSelect.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.btn_ItemSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_ItemSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_ItemSelect.Location = new System.Drawing.Point(301, 4);
+            this.btn_ItemSelect.Location = new System.Drawing.Point(311, 10);
             this.btn_ItemSelect.Name = "btn_ItemSelect";
             this.btn_ItemSelect.Size = new System.Drawing.Size(25, 25);
             this.btn_ItemSelect.TabIndex = 106;
             this.btn_ItemSelect.Text = "??";
             this.btn_ItemSelect.UseVisualStyleBackColor = true;
+            this.btn_ItemSelect.Click += new System.EventHandler(this.btn_ItemSelect_Click);
             // 
-            // textBox8
+            // txtCode
             // 
-            this.textBox8.Location = new System.Drawing.Point(93, 6);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(202, 21);
-            this.textBox8.TabIndex = 105;
+            this.txtCode.Enabled = false;
+            this.txtCode.Font = new System.Drawing.Font("굴림", 10F);
+            this.txtCode.Location = new System.Drawing.Point(103, 12);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(202, 23);
+            this.txtCode.TabIndex = 105;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 10F);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(22, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(63, 14);
             this.label1.TabIndex = 104;
-            this.label1.Text = "품목번호";
+            this.label1.Text = "품목코드";
             // 
-            // button2
+            // btnInsert
             // 
-            this.button2.Location = new System.Drawing.Point(130, 161);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 23);
-            this.button2.TabIndex = 116;
-            this.button2.Text = "등록";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnInsert.Font = new System.Drawing.Font("굴림", 9F);
+            this.btnInsert.Location = new System.Drawing.Point(665, 383);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(102, 23);
+            this.btnInsert.TabIndex = 116;
+            this.btnInsert.Text = "등록";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column4,
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dataGridView1.Location = new System.Drawing.Point(25, 69);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(742, 308);
+            this.dataGridView1.TabIndex = 117;
+            // 
+            // btn_ItemAdd
+            // 
+            this.btn_ItemAdd.Location = new System.Drawing.Point(611, 40);
+            this.btn_ItemAdd.Name = "btn_ItemAdd";
+            this.btn_ItemAdd.Size = new System.Drawing.Size(75, 23);
+            this.btn_ItemAdd.TabIndex = 135;
+            this.btn_ItemAdd.Text = "파츠 추가";
+            this.btn_ItemAdd.UseVisualStyleBackColor = true;
+            this.btn_ItemAdd.Click += new System.EventHandler(this.btn_ItemAdd_Click);
+            // 
+            // btnItemDelete
+            // 
+            this.btnItemDelete.Location = new System.Drawing.Point(692, 40);
+            this.btnItemDelete.Name = "btnItemDelete";
+            this.btnItemDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnItemDelete.TabIndex = 136;
+            this.btnItemDelete.Text = "파츠 삭제";
+            this.btnItemDelete.UseVisualStyleBackColor = true;
+            this.btnItemDelete.Click += new System.EventHandler(this.btnItemDelete_Click);
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "";
+            this.Column4.Name = "Column4";
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column4.Width = 40;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "자재 코드";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "자재 이름";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column3.HeaderText = "필요수량";
+            this.Column3.Name = "Column3";
             // 
             // Frm_BomInesrt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(366, 198);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(792, 418);
+            this.Controls.Add(this.btnItemDelete);
+            this.Controls.Add(this.btn_ItemAdd);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCode);
+            this.Controls.Add(this.btn_ItemSelect);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_BomInesrt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bom 등록";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.Load += new System.EventHandler(this.Frm_BomInesrt_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_ItemSelect;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_ItemAdd;
+        private System.Windows.Forms.Button btnItemDelete;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

@@ -80,7 +80,7 @@ namespace MiniERP.View.BusinessManagement
 
         private void btn_ClerkInsert_Click(object sender, EventArgs e)
         {
-            Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert(clerks);
+            Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert();
             clerkInsert.ShowDialog();
             ReflashData();
         }
