@@ -56,7 +56,11 @@ namespace MiniERP.View
                 
             }
             else
+            { 
                 MessageBox.Show("아이디나 비밀번호가 정확하지 않습니다");
+                txt_id.Text = "";
+                txt_pw.Text = "";
+            }
         }
 
         private void Frm_LoginBox_FormClosed(object sender, FormClosedEventArgs e)

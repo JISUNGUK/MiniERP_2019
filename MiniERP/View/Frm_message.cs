@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
@@ -141,15 +142,11 @@ namespace MiniERP.View
         private void accessChatting()
         {
             try
-            {
-                client.SendTimeout = 1000;
-                client.Connect(serverip, 3333);
-                messagedao.Network = client.GetStream();
-                
-                //client.ReceiveTimeout = 1000;
-               
-               
-
+            {              
+               var access= client.BeginConnect(serverip, 3333,null,null);
+                //client.Connect(serverip, 3333);
+                var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+                messagedao.Network = client.GetStream();                                                 
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
