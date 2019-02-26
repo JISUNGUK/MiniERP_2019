@@ -70,7 +70,13 @@ namespace MiniERP.View
             if (logIn != DialogResult.OK)
             {
                 this.Close();
-            }            
+            }
+
+            RealTimeMonitor test = new RealTimeMonitor();
+            test.Show();
+
+
+
             InitializeComponent();
         }
 

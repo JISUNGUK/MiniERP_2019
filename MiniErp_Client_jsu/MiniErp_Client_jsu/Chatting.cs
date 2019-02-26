@@ -21,7 +21,7 @@ namespace MiniErp_Client_jsu
         }
 
         TcpClient client;
-        NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
+        NetworkStream stream = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
         
         string readData = null;
 
@@ -37,17 +37,17 @@ namespace MiniErp_Client_jsu
             {
                 System.Windows.Forms.MessageBox.Show("클라is null");
                 client = new TcpClient("192.168.0.6", 3333);
-                network = client.GetStream();
+                stream = client.GetStream();
 
                 byte[] name = Encoding.UTF8.GetBytes("기계1");
-                network.Write(name, 0, name.Length);
-                network.Flush();
+                stream.Write(name, 0, name.Length);
+                stream.Flush();
             }
             else if (client.Connected == false)
             {
                 System.Windows.Forms.MessageBox.Show("클라 재가동");
                 client = new TcpClient("192.168.0.6", 3333);
-                network = client.GetStream();
+                stream = client.GetStream();
             }
             System.Windows.Forms.MessageBox.Show(client.Connected.ToString());
 
@@ -63,8 +63,8 @@ namespace MiniErp_Client_jsu
         private void DisplayText(string text)
         {
             Byte[] outStream = Encoding.UTF8.GetBytes(text);
-            network.Write(outStream, 0, outStream.Length);
-            network.Flush();//스트림에 쓴후에 flush를 해야한다
+            stream.Write(outStream, 0, outStream.Length);
+            stream.Flush();//스트림에 쓴후에 flush를 해야한다
         }
 
 
@@ -79,12 +79,10 @@ namespace MiniErp_Client_jsu
             //  보내오는 메시지는 커멘드인지 확인을 하고 리스트에 저장함!
             while (true)
             {
-                network = client.GetStream();
+                stream = client.GetStream();
                 Byte[] byteFrom = new byte[client.SendBufferSize];
-                network.Read(byteFrom, 0, client.SendBufferSize);
+                stream.Read(byteFrom, 0, client.SendBufferSize);
                 readData = Encoding.UTF8.GetString(byteFrom);
-                System.Windows.Forms.MessageBox.Show(readData);
-
 
                 CommandChacker(readData);                   //  올바른커맨드 판별
             }
@@ -119,9 +117,9 @@ namespace MiniErp_Client_jsu
         //  메시지 보내기
         public void SendMsg(string msg)
         {
-            Byte[] bytefrom = Encoding.UTF8.GetBytes(msg);
-            network.Write(bytefrom, 0, bytefrom.Length);
-            network.Flush();
+            Byte[] byteFrom = Encoding.UTF8.GetBytes(msg);
+            stream.Write(byteFrom, 0, byteFrom.Length);
+            stream.Flush();
         }
 
 
@@ -129,12 +127,12 @@ namespace MiniErp_Client_jsu
         //  서버종료
         public void CloseSeverTest()
         {
-            byte[] msgtemp = Encoding.UTF8.GetBytes("접속종료합니다");
-            network.Write(msgtemp, 0, msgtemp.Length);
-            network.Flush();
+            byte[] msgTemp = Encoding.UTF8.GetBytes("접속종료합니다");
+            stream.Write(msgTemp, 0, msgTemp.Length);
+            stream.Flush();
 
             client.Close();
-            network.Close();
+            stream.Close();
 
             //Console.WriteLine("sever state : " + client.Connected.ToString());
         }

@@ -82,6 +82,7 @@
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(237, 21);
             this.txt_id.TabIndex = 4;
+            this.txt_id.Text = "5555";
             // 
             // txt_pw
             // 
@@ -90,6 +91,7 @@
             this.txt_pw.PasswordChar = '*';
             this.txt_pw.Size = new System.Drawing.Size(237, 21);
             this.txt_pw.TabIndex = 5;
+            this.txt_pw.Text = "5555";
             // 
             // autologin
             // 

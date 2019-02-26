@@ -61,6 +61,7 @@
     <Compile Include="Model\DAO\ClerkDAO.cs" />
     <Compile Include="Model\DAO\ItemDAO.cs" />
     <Compile Include="Model\DAO\Message\loginDao.cs" />
+    <Compile Include="Model\DAO\Message\Machine_Monitoring.cs" />
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
@@ -113,6 +114,12 @@
     </Compile>
     <Compile Include="View\Frm_MPDetails.Designer.cs">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RealTimeMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RealTimeMonitor.Designer.cs">
+      <DependentUpon>RealTimeMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StockManagement\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
@@ -298,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RealTimeMonitor.resx">
+      <DependentUpon>RealTimeMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ClerkInsert.resx">
       <DependentUpon>Frm_ClerkInsert.cs</DependentUpon>
