@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -75,12 +76,39 @@ namespace MiniERP.View
 
         private void Frm_LoginBox_Load(object sender, EventArgs e)
         {
+            
+
+          
+
             if (System.IO.File.Exists("login.txt"))
             {
-                FileStream fs = new FileStream("login.txt", FileMode.Open, FileAccess.Read);
-                StreamReader sr = new StreamReader(fs);
+                FileStream fsread = new FileStream("login.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                ICryptoTransform Decrypt = form1.outputloginFile().CreateDecryptor();
+                CryptoStream cryptostreamDecr = new CryptoStream(fsread, Decrypt, CryptoStreamMode.Read);
+              
+                StreamReader fsDecrypted = new StreamReader(cryptostreamDecr);
+                MessageBox.Show(fsDecrypted.CurrentEncoding.ToString());
                 int count = 0;
-                while (!sr.EndOfStream)
+                while(!fsDecrypted.EndOfStream)
+                {
+                    if (count == 0)
+                        txt_id.Text = fsDecrypted.ReadLine().Substring(3);
+                    else if (count == 1)
+                        txt_pw.Text = fsDecrypted.ReadLine().Substring(3);
+                    else
+                    {
+                        string logincheck = fsDecrypted.ReadLine().Substring(10);
+                        if (logincheck == "True")
+                            autologin.Checked = true;
+                        else
+                            autologin.Checked = false;
+                    }
+                    count++;
+                }           
+                fsDecrypted.Close();
+                //cryptostreamDecr.Close();
+                fsread.Close();              
+               /* while (!sr.EndOfStream)
                 {
                     if (count == 0)
                         txt_id.Text = sr.ReadLine().Substring(3);
@@ -98,7 +126,7 @@ namespace MiniERP.View
                 }
                 if(autologin.Checked)
                     btn_Login_Click(null, null);
-                fs.Close();
+                fs.Close();*/
             }
 
         }

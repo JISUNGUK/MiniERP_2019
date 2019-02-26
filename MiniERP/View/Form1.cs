@@ -473,7 +473,7 @@ namespace MiniERP.View
                 if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     frm_message.Close();
-                    outputloginFile();
+                    savelogin();
                     e.Cancel = false; // 폼 닫음  
                     closeBackground(@"taskkill /im  Minierp.exe /f");
 
@@ -491,14 +491,14 @@ namespace MiniERP.View
             }
         }
 
-        private void outputloginFile()
+        public DESCryptoServiceProvider outputloginFile()
         {
-            DESCryptoServiceProvider DES = new DESCryptoServiceProvider();
+            DESCryptoServiceProvider des = new DESCryptoServiceProvider();
             Byte[] keybyte = new byte[8];
             int i = 0;
             foreach (var item in ASCIIEncoding.ASCII.GetBytes("ccarayhua"))
             {
-                
+
                 keybyte[i++] = item;
                 if (i == 8)
                 {
@@ -517,10 +517,14 @@ namespace MiniERP.View
                     break;
                 }
             }
-            DES.Key = keybyte;
-            DES.IV = ivByte;
-            ICryptoTransform Encrypt = DES.CreateEncryptor();//암호객체 생성
-          
+            des.Key = keybyte;
+            des.IV = ivByte;
+            //암호객체 생성
+            return des;
+        }
+
+        public void savelogin()
+        { 
 
             if (save)
             {
@@ -535,25 +539,21 @@ namespace MiniERP.View
                     fs = new FileStream("login.txt", FileMode.Truncate, FileAccess.Write, FileShare.None);
 
                 }
+                ICryptoTransform Encrypt = outputloginFile().CreateEncryptor();
                 CryptoStream cryptostream = new CryptoStream(fs, Encrypt, CryptoStreamMode.Write);//해당파일을 암호화시킴
                 Byte[] bytelogin = new byte[fs.Length];
-                bytelogin = Encoding.UTF8.GetBytes("id:" + id + "\n" + "pw:" + pwd + "autologin:" + autologin);
+                bytelogin = Encoding.ASCII.GetBytes("id:" + id + "\n" + "pw:" + pwd + "\nautologin:" + autologin);
                 cryptostream.Write(bytelogin, 0, bytelogin.Length);
                 fs.Flush();
                 cryptostream.Close();
                 fs.Close();
-                //sr = new StreamWriter(fs);
-                //sr.WriteLine("id:" + id);
-                //sr.WriteLine("pw:" + pwd);
-                //sr.WriteLine("autologin:" + autologin);
-                //sr.Close();         
+                     
             }
 
         }
 
-        
 
-        private void closeBackground(string command)
+    private void closeBackground(string command)
         {
             ProcessStartInfo cmd = new ProcessStartInfo();
             Process process = new Process();
