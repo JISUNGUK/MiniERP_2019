@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
@@ -64,8 +65,14 @@
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
+    <Compile Include="Model\DAO\TradeDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
     <Compile Include="Model\DAO\Message\win32.cs" />
+    <Compile Include="Model\MiniErpDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiniErpDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="ToDoList_Detail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,6 +188,12 @@
     <Compile Include="View\StockManagement\Frm_WarehouseMovement.Designer.cs">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TradeManagement\Frm_ModifyTrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_ModifyTrade.Designer.cs">
+      <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TradeManagement\Frm_SellBuylInsert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +288,9 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
+    <None Include="Model\MiniErpDB.dbml.layout">
+      <DependentUpon>MiniErpDB.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +348,9 @@
     <EmbeddedResource Include="View\StockManagement\Frm_WarehouseMovement.resx">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\TradeManagement\Frm_ModifyTrade.resx">
+      <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_SellBuylInsert.resx">
       <DependentUpon>Frm_SellBuylInsert.cs</DependentUpon>
     </EmbeddedResource>
@@ -381,6 +400,11 @@
     <EmbeddedResource Include="View\TradeManagement\Frm_TradeList.resx">
       <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Model\MiniErpDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MiniErpDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -398,6 +422,7 @@
   <ItemGroup>
     <Folder Include="Interface\" />
     <Folder Include="View\AccountingManagement\" />
+    <Folder Include="View\Custom\" />
     <Folder Include="View\ProductionManagement\" />
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +437,9 @@
       <Project>{25aaac5e-fb90-4df6-abc4-804572d3e30e}</Project>
       <Name>ChattingServer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

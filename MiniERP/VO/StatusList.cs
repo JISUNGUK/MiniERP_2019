@@ -9,13 +9,44 @@ namespace MiniERP.VO
 {
     class StatusList
     {
-        public List<Status> GetStatus(string standard_menu)
+        List<Status> statusList = new List<Status>();
+        public StatusList(string standard_menu)
         {
-            List<Status> statusList = new List<Status>();
+            SetStatus(standard_menu);
+        }
+
+        public List<Status> GetStatus(string status)
+        {
+            List<Status> returnStatus = new List<Status>();
+            int no = 0;
+            
+            foreach (var item in statusList)
+            {
+                if (item.StatusStr.Equals(status))
+                {
+                    no = item.No;
+                    break;
+                }
+            }
+
+            foreach (var item in statusList)
+            {
+                if(item.No >= no)
+                {
+                    returnStatus.Add(item);
+                }
+            }
+
+            return returnStatus;
+        }
+
+        private void SetStatus(string standard_menu)
+        {
+            
             if(standard_menu == "판매")
             {
                 statusList.AddRange(new Status[]{
-                    new Status(1,"승인 전"),
+                    new Status(1,"승인전"),
                     new Status(2,"승인"),
                     new Status(3,"생산"),
                     new Status(4,"출하대기중"),
@@ -28,7 +59,7 @@ namespace MiniERP.VO
             else if(standard_menu == "구매")
             {
                 statusList.AddRange(new Status[]{
-                    new Status(1,"승인 전"),
+                    new Status(1,"승인전"),
                     new Status(2,"주문완료"),
                     new Status(3,"입고대기중"),
                     new Status(4,"입고완료"),
@@ -52,8 +83,6 @@ namespace MiniERP.VO
                     new Status(3,"거래처")
                 });
             }
-
-            return statusList;
         }
     }
 }

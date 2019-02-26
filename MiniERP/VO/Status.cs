@@ -20,23 +20,5 @@ namespace MiniERP.VO
             this.no = no;
             this.statusStr = statusStr;
         }
-
-        public int GetNo(string status)
-        {
-            if(statusStr == status)
-            {
-                return no;
-            }
-            return 0;
-        }
-
-        public string GetStatusStr(int number)
-        {
-            if(no == number)
-            {
-                return statusStr;
-            }
-            return String.Empty;
-        }
     }
 }
