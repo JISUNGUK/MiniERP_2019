@@ -12,37 +12,62 @@ namespace MiniErp_Client_jsu
 {
     class Command
     {
-        private string head;
+        private string head;                //  [command]
 
         public string Head
         {
             get { return head; }
             set { head = value; }
         }
-        private string command_String;
 
-        public string Command_String
+        private string name;                //  [pc1]
+
+        public string Name
         {
-            get { return command_String; }
-            set { command_String = value; }
+            get { return name; }
+            set { name = value; }
         }
 
-        public Command(string command_String)
+        private string command_Value;       //  프로그램종료
+
+        public string Command_Value
         {
-            this.head = command_String.Substring(command_String.IndexOf('['), command_String.IndexOf(']')+1);   //  명령어
-            this.command_String = command_String.Replace(this.head, "").Trim();
+            get { return command_Value; }
+            set { command_Value = value; }
+        }
+        private Chatting chatinfo;
+
+        private List<Barcode> barcodes;
+
+        public Command(string name, string command_Head, string command_Value,Chatting chatinfo,object barcodelist)
+        {
+            this.name = name;
+            this.head = command_Head;
+            this.command_Value = command_Value;
+            this.chatinfo = chatinfo;
+            this.barcodes = (List<Barcode>)barcodelist;
+        }
+        
+        //  바코드 리스트를 보내는 메소드
+        public void BarcodeMsgMaker(List<Barcode> barcodes)
+        {
+            StringBuilder temp = new StringBuilder();
+            foreach (var item in barcodes)
+            {
+                temp.AppendLine(item.Barcode_Code + "\t" + item.Barcode_Count);
+            }
+
+            chatinfo.SendMsg(temp.ToString());
         }
 
         public  void CommandRunning()
         {
-            if (this.head != "[command]")
-                return;
-            switch (this.command_String)
+            switch (this.command_Value)
             {
-                case "mbtest": System.Windows.Forms.MessageBox.Show("Test"); break;
+                case "test_module": System.Windows.Forms.MessageBox.Show("Test"); break;
                 case "exit": Application.Exit(); break;
                 case "restart": Application.Restart();  break;
-                case "logsand": break;
+                case "barcode": BarcodeMsgMaker(barcodes); break;
 
                 default:
                     break;

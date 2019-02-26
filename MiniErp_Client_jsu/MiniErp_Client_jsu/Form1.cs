@@ -26,7 +26,7 @@ namespace MiniErp_Client_jsu
         public Form1()
         {
             InitializeComponent();
-            chatting = new Chatting(machine.Ip, machine.Name);
+            chatting = new Chatting(machine.Ip, machine.Name,codes);
         }
 
         
@@ -70,14 +70,6 @@ namespace MiniErp_Client_jsu
             //    checkBox1.Checked = false;
             //}
 
-            #region command test 모듈
-            ////string testmsg = "[command] exit";
-            //string testmsg = "[command] restart";
-            //MessageBox.Show("Test");
-
-            //Command test = new Command(testmsg);
-            //test.CommandRunning(); 
-            #endregion
 
             #region erro test 모듈
             //Erro testErro = new Erro(1);
@@ -86,6 +78,13 @@ namespace MiniErp_Client_jsu
 
 
             chatting.Start();
+
+            string test = "[command][pc1] 서버종료";
+            test.Trim();
+            string temp = test.Substring(test.IndexOf("[command]"), "[command]".Length);
+            string temp2 = test.Substring(test.IndexOf("[pc1]"), "[pc1]".Length);
+            string temp3 = test.Replace(temp, "").Replace(temp2, "");
+            //MessageBox.Show(temp3);
 
         }
 
@@ -103,15 +102,15 @@ namespace MiniErp_Client_jsu
 
             foreach (var item in chatting.Command)
             {
-                MessageBox.Show(item);
+                MessageBox.Show(item.Name+"\t"+item.Command_Value);
             }
 
-            chatting.BarcodeMsgMaker(codes);
+            //chatting.BarcodeMsgMaker(codes);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            chatting.CloseSeverTest();
         }
     }
 }

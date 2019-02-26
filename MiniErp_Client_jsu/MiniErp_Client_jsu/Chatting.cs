@@ -12,17 +12,25 @@ namespace MiniErp_Client_jsu
     {
         private string ip;
         private string name;
+        object barcodeList;
 
-        public Chatting(string ipAddr, string name)
+        public Chatting(string ipAddr, string name,object barcodelist)
         {
             this.ip = ipAddr;   this.name = name;
+            this.barcodeList = barcodelist;
         }
 
         TcpClient client;
         NetworkStream network = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
+        
         string readData = null;
 
         Thread thread;
+
+        /// <summary>
+        /// 머신 클라이언트를 시작합니다.
+        /// 머신 서버와 접속합니다..
+        /// </summary>
         public void Start()
         {
             if (client == null)
@@ -37,6 +45,7 @@ namespace MiniErp_Client_jsu
             }
             else if (client.Connected == false)
             {
+                System.Windows.Forms.MessageBox.Show("클라 재가동");
                 client = new TcpClient("192.168.0.6", 3333);
                 network = client.GetStream();
             }
@@ -59,9 +68,9 @@ namespace MiniErp_Client_jsu
         }
 
 
-        List<string> command = new List<string>();
+        List<Command> command = new List<Command>();
         List<string> erro = new List<string>();
-        public List<string> Command { get { return command; } }
+        public List<Command> Command { get { return command; } }
         public List<string> Erro { get { return erro; } }
 
         private void getMsg()
@@ -75,21 +84,37 @@ namespace MiniErp_Client_jsu
                 network.Read(byteFrom, 0, client.SendBufferSize);
                 readData = Encoding.UTF8.GetString(byteFrom);
                 System.Windows.Forms.MessageBox.Show(readData);
-                command.Add(readData);
-            }
-        }
-        
-        //  바코드 리스트를 보내는 메소드
-        public void BarcodeMsgMaker(List<Barcode> barcodes)
-        {
-            StringBuilder temp = new StringBuilder();
-            foreach (var item in barcodes)
-            {
-                temp.AppendLine(item.Barcode_Code + "\t" + item.Barcode_Count);
-            }
 
-            SendMsg(temp.ToString());
+
+                CommandChacker(readData);                   //  올바른커맨드 판별
+            }
         }
+        /// <summary>
+        /// 올바른 command 인지 인식합니다.
+        /// 올바르다면 list에 추가함
+        /// </summary>
+        /// <param name="readData">서버에서 msg</param>
+        private void CommandChacker(string readData)
+        {
+            //string testMsg = "[command][pc1] 서버종료";
+            if (readData.Contains("[command]") != true && readData.Contains("[pc1]") != true) 
+            {
+                return;        
+                //  커맨드 조건을 통과함
+                //  올바른 조건 통과한 log 남길것.
+            }
+            string tempHead = readData.Substring(readData.IndexOf("[command]"), "[command]".Length);
+            string tempName = readData.Substring(readData.IndexOf("[pc1]"), "[pc1]".Length);
+            string tempValue = readData.Replace(tempHead, "").Replace(tempName, "").Replace("\0","").Trim();
+
+            Command tempCommand = new Command(tempHead, tempName, tempValue, this,barcodeList);
+            
+            command.Add(tempCommand);
+
+            tempCommand.CommandRunning();
+        }
+
+
 
         //  메시지 보내기
         public void SendMsg(string msg)
@@ -104,10 +129,16 @@ namespace MiniErp_Client_jsu
         //  서버종료
         public void CloseSeverTest()
         {
+            byte[] msgtemp = Encoding.UTF8.GetBytes("접속종료합니다");
+            network.Write(msgtemp, 0, msgtemp.Length);
+            network.Flush();
+
             client.Close();
             network.Close();
 
             //Console.WriteLine("sever state : " + client.Connected.ToString());
         }
+
+        
     }
 }
