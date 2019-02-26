@@ -61,7 +61,8 @@ namespace ChattingServer
                         {
                             ChatServer.chattingList[0].MessageBody += date + "보낸이:" + ClientNickName + Environment.NewLine + "메시지:"+receivestr +"\n";
                             ChatServer.Broadcast(receivestr, ClientNickName, false);
-                        }
+                                ServerForm.chattcount++;
+                            }
 
                     }
                 if(receivestr.Contains("방에 메시지를 보냅니다"))
@@ -81,8 +82,9 @@ namespace ChattingServer
                             else
                                 item.NicNames += ClientNickName;
                                 ChatServer.Multicast(message, ClientNickName, item, false);
-                            //FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
-                        }
+                                ServerForm.chattcount++;
+                                    //FTPServer.Logger.Text+="\n"+ClientNickName + "의 메시지:" + message;
+                                }
                     }
                 }
                

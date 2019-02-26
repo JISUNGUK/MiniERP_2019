@@ -155,6 +155,7 @@ namespace MiniERP.Model.DAO
                 }
                 else
                 {
+                   
                     if (roomList.SelectedItem == null || roomList.SelectedItem.ToString() == "전체")
                     {
                         ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + readData;

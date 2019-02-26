@@ -47,7 +47,7 @@ namespace ChattingServer
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                            //FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
+                            FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
 
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
@@ -78,7 +78,7 @@ namespace ChattingServer
 
                             Broadcast("접속 인원:" + memberList + "::", clientNickName, true);
                             Broadcast("방 목록:" + roomList + ";;", clientNickName, true);
-                            ServerForm.chattcount++;
+                            
                             ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, ChatServer.clientList);
                         }
                         else

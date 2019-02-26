@@ -177,6 +177,8 @@ namespace ChattingServer
 
         private void exportChatting_Click(object sender, EventArgs e)
         {
+            if(chattcount>0)
+            { 
             SaveFileDialog savefile = new SaveFileDialog();
            DialogResult dr= savefile.ShowDialog();
             if (dr != DialogResult.OK)
@@ -195,7 +197,13 @@ namespace ChattingServer
                 }
                 fs.Close();
             }
-            savefile.Dispose();
+                savefile.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("저장된 채팅내용이 없습니다");
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
