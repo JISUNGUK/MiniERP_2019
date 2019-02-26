@@ -640,7 +640,7 @@ namespace MiniERP.View
         private void MenuClickEvent(object sender, EventArgs e)
         {
             OpenForm(sender);
-            tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
+            //tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
         }
 
         private void Form1_LocationChanged(object sender, EventArgs e)
