@@ -50,7 +50,7 @@ namespace ChattingServer
                 }
                 else
                 {
-                    Logger.Text += string.Format("{0}>{1} is connected at [{2}].", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
+                    Logger.Text += string.Format("{0}>{1} 연결되었습니다 [{2}].\n", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace ChattingServer
                 }
                 else
                 {
-                    Logger.Text += string.Format("{0}>{1} is Disconnected at [{2}].", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
+                    Logger.Text += string.Format("{0}>{1} 연결이 끊겼습니다 [{2}].\n", Environment.NewLine, user, DateTime.Now.ToShortTimeString());
                 }
             }
         }
@@ -86,20 +86,16 @@ namespace ChattingServer
             foreach (UploadData file in files)
             {
                 System.IO.File.WriteAllBytes("Share\\"+ folderName+"\\" + file.Filename, file.File);
-                AddLog(string.Format("> 파일: {0} 업로드 되었습니다. 업로드폴더 {1}. by {2}",file.Filename,DateTime.Now.ToShortTimeString(),user));
+                AddLog(string.Format("> 파일: {0} 업로드 되었습니다. 업로드폴더 {1}. by {2}\n",file.Filename,DateTime.Now.ToShortTimeString(),user));
             }
 
             if (Update != null)
-                Update(user);
-            files.Clear();
-            System.GC.ReRegisterForFinalize(files);
- 
-
+                Update(user);           
         }
 
         public void Download(string user,string filename, out byte[] file,string folderName)
         {
-            file = new byte[1];
+            file = new byte[1024];
 
             if (!System.IO.Directory.Exists("Share\\"+folderName))
                 System.IO.Directory.CreateDirectory("Share\\" + folderName);
@@ -110,14 +106,13 @@ namespace ChattingServer
                 if (System.IO.File.Exists(the))
                 {
                     file = System.IO.File.ReadAllBytes(the);
-                    AddLog(string.Format("> 파일: {0} 다운로드 중입니다 다운로드폴더: {1}. 다운로드 한유저 {2}",(new System.IO.FileInfo(the)).Name,DateTime.Now.ToShortTimeString(),user));
+                    AddLog(string.Format("> 파일: {0} 다운로드 중입니다 다운로드폴더: {1}. 다운로드 한유저 {2}\n",(new System.IO.FileInfo(the)).Name,DateTime.Now.ToShortTimeString(),user));
                     break;
                 }
             }
             
             if (file.Length == 1)
-                file = null;
-            System.GC.ReRegisterForFinalize(file);
+                file = null;     
         }
 
         public void GetFiles(out List<FileInfo> files, string folderName)
@@ -134,7 +129,7 @@ namespace ChattingServer
             }
 
             files = list;
-            //System.GC.ReRegisterForFinalize(files);
+           
         }
 
 

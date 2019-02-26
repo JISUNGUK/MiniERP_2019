@@ -42,7 +42,7 @@ namespace MiniERP.View
 
         private void makeRoom_Click(object sender, EventArgs e)
         {
-            Form1 form = (Form1)this.Owner;
+            Frm_message form = (Frm_message)this.Owner;
             MessageDAO messageDao = form.Messagedao;
             if(messageDao.checkmessage(room.Text))
                 if (!String.IsNullOrEmpty(room.Text) && memberList.CheckedItems.Count > 0)

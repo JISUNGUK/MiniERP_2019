@@ -34,6 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.txt_pw = new System.Windows.Forms.TextBox();
+            this.autologin = new System.Windows.Forms.CheckBox();
+            this.savepwd = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -85,15 +87,40 @@
             // 
             this.txt_pw.Location = new System.Drawing.Point(88, 81);
             this.txt_pw.Name = "txt_pw";
+            this.txt_pw.PasswordChar = '*';
             this.txt_pw.Size = new System.Drawing.Size(237, 21);
             this.txt_pw.TabIndex = 5;
+            // 
+            // autologin
+            // 
+            this.autologin.AutoSize = true;
+            this.autologin.Enabled = false;
+            this.autologin.Location = new System.Drawing.Point(241, 119);
+            this.autologin.Name = "autologin";
+            this.autologin.Size = new System.Drawing.Size(84, 16);
+            this.autologin.TabIndex = 6;
+            this.autologin.Text = "자동로그인";
+            this.autologin.UseVisualStyleBackColor = true;
+            // 
+            // savepwd
+            // 
+            this.savepwd.AutoSize = true;
+            this.savepwd.Location = new System.Drawing.Point(88, 119);
+            this.savepwd.Name = "savepwd";
+            this.savepwd.Size = new System.Drawing.Size(96, 16);
+            this.savepwd.TabIndex = 7;
+            this.savepwd.Text = "입력정보저장";
+            this.savepwd.UseVisualStyleBackColor = true;
+            this.savepwd.CheckedChanged += new System.EventHandler(this.savepwd_CheckedChanged);
             // 
             // Frm_LoginBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(425, 112);
+            this.ClientSize = new System.Drawing.Size(425, 147);
+            this.Controls.Add(this.savepwd);
+            this.Controls.Add(this.autologin);
             this.Controls.Add(this.txt_pw);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label3);
@@ -107,6 +134,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "로그인";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_LoginBox_FormClosed);
+            this.Load += new System.EventHandler(this.Frm_LoginBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +148,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.TextBox txt_pw;
+        private System.Windows.Forms.CheckBox autologin;
+        private System.Windows.Forms.CheckBox savepwd;
     }
 }

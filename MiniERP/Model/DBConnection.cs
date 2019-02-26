@@ -14,7 +14,8 @@ namespace MiniERP.Model
 
         public DBConnection()
         {
-            con = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);            
         }
 
         #region 설정
@@ -82,8 +83,7 @@ namespace MiniERP.Model
             {
                 throw;
             }
-        }
-
+        }      
 
         /// <summary>
         /// 저장된 프로시저를 실행합니다. 영향받은 행의 갯수만 반환합니다.
@@ -177,7 +177,7 @@ namespace MiniERP.Model
 
             return result;
         }
+        
         #endregion
     }
 }
-

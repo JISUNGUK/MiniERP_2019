@@ -27,13 +27,26 @@ namespace MiniERP.View.BusinessManagement
             businesses.Clear();
             dataGridView1.DataSource = null;
             businesses = new BusinessDAO().GetBusiness(new Business());
-            dataGridView1.DataSource = businesses;
+            Display(businesses);
+        }
+
+        /// <summary>
+        /// 매개변수로 받은 List를 이용해 DataGridView에 내용을 출력합니다.
+        /// </summary>
+        /// <param name="listBusiness">DataGridView에 출력될 내용을 저장하고 있는 List입니다.</param>
+        private void Display(List<Business> listBusiness)
+        {
+            dataGridView1.DataSource = listBusiness;
             dataGridView1.Columns[0].HeaderText = "거래처코드";
             dataGridView1.Columns[1].HeaderText = "거래처명";
             dataGridView1.Columns[2].HeaderText = "거래처연락처";
             dataGridView1.Columns[3].HeaderText = "거래처주소";
             dataGridView1.Columns[4].HeaderText = "거래처이메일";
             dataGridView1.Columns[5].HeaderText = "거래처대표";
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataGridView1.Columns.Count;
+            }
         }
 
         public Frm_BusinessList()
@@ -44,19 +57,11 @@ namespace MiniERP.View.BusinessManagement
         private void Frm_BusinessList_Load(object sender, EventArgs e)
         {
             businesses = new BusinessDAO().GetBusiness(new Business());
-            dataGridView1.DataSource = businesses;
-            dataGridView1.Columns[0].HeaderText = "거래처코드";
-            dataGridView1.Columns[1].HeaderText = "거래처명";
-            dataGridView1.Columns[2].HeaderText = "거래처연락처";
-            dataGridView1.Columns[3].HeaderText = "거래처주소";
-            dataGridView1.Columns[4].HeaderText = "거래처이메일";
-            dataGridView1.Columns[5].HeaderText = "거래처대표";
+            Display(businesses);
         }
 
         private void btn_BusinessSelect_Click(object sender, EventArgs e)
         {
-            Frm_BusinessSelect Frm_businessSelect = new Frm_BusinessSelect();
-            Frm_businessSelect.ShowDialog();              
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -73,26 +78,20 @@ namespace MiniERP.View.BusinessManagement
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Frm_BusinessInsert businessInsert = new Frm_BusinessInsert(businesses);
-            businessInsert.ShowDialog();
-            ReflashData();
-        }
-
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            Business business = new Business
+            Business business = new Business()
             {
                 Code = txtCode.Text,
                 Name = txtName.Text,
                 Tel = txtTel.Text,
+                Addr = null,
                 Email = txtEmail.Text,
                 Presenter = txtPresenter.Text
             };
             selectBusinesses = new BusinessDAO().GetBusiness(business);
             pnl_serchbox.Visible = false;
-            dataGridView1.DataSource = selectBusinesses;
+            Display(selectBusinesses);
         }
 
         private void txtCodeOrName_Click(object sender, EventArgs e)
@@ -104,10 +103,16 @@ namespace MiniERP.View.BusinessManagement
         {
             if (MessageBox.Show("선택한 거래처를 삭제하시겠습니까?", "거래처 삭제", MessageBoxButtons.YesNo)== DialogResult.Yes)
             {
-                //MessageBox.Show(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                new BusinessDAO().DeleteBusiness(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                MessageBox.Show("해당 거래처가 삭제되었습니다.");
-                ReflashData();
+                try
+                {
+                    new BusinessDAO().DeleteBusiness(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    MessageBox.Show("해당 거래처가 삭제되었습니다.", "삭제 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReflashData();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("해당 거래처와 진행중인 거래가 있습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -124,19 +129,28 @@ namespace MiniERP.View.BusinessManagement
                     Presenter = ""
                 };
                 selectBusinesses = new BusinessDAO().GetBusiness(business);
-                dataGridView1.DataSource = selectBusinesses;
-                dataGridView1.Columns[0].HeaderText = "거래처코드";
-                dataGridView1.Columns[1].HeaderText = "거래처명";
-                dataGridView1.Columns[2].HeaderText = "거래처연락처";
-                dataGridView1.Columns[3].HeaderText = "거래처주소";
-                dataGridView1.Columns[4].HeaderText = "거래처이메일";
-                dataGridView1.Columns[5].HeaderText = "거래처대표";
+                Display(selectBusinesses);
             }
         }
 
-        private void textBox1_Click(object sender, EventArgs e)
+        private void btnSearchBusiness_Click(object sender, EventArgs e)
         {
-            txtCodeOrName.Clear();
+            Frm_BusinessSelect fbs = new Frm_BusinessSelect();
+            if (fbs.ShowDialog() == DialogResult.OK)
+            {
+                txtCode.Text = fbs.Business.Code;
+                txtName.Text = fbs.Business.Name;
+                txtTel.Text = fbs.Business.Tel;
+                txtEmail.Text = fbs.Business.Email;
+                txtPresenter.Text = fbs.Business.Presenter;
+            }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            Frm_BusinessInsert businessInsert = new Frm_BusinessInsert(businesses);
+            businessInsert.ShowDialog();
+            ReflashData();
         }
     }
 }

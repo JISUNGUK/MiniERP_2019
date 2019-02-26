@@ -27,7 +27,15 @@ namespace MiniERP.View.BusinessManagement
             clerks.Clear();
             dataGridView1.DataSource = null;
             clerks = new ClerkDAO().GetClerk(new Clerk());
+            Display(clerks);
+        }
 
+        /// <summary>
+        /// 매개변수로 받은 List를 이용해 DataGridView에 내용을 출력합니다.
+        /// </summary>
+        /// <param name="clerkList">DataGridView에 출력될 내용을 저장하고 있는 List입니다.</param>
+        private void Display(List<Clerk> clerkList)
+        {
             DataTable dataTable = new DataTable();
             DataColumn[] dataColumns = new DataColumn[3];
             dataColumns[0] = new DataColumn("사원코드");
@@ -35,7 +43,7 @@ namespace MiniERP.View.BusinessManagement
             dataColumns[2] = new DataColumn("직급");
             dataTable.Columns.AddRange(dataColumns);
 
-            foreach (var item in clerks)
+            foreach (var item in clerkList)
             {
                 DataRow dataRow = dataTable.NewRow();
                 dataRow[0] = item.Clerk_code;
@@ -45,6 +53,10 @@ namespace MiniERP.View.BusinessManagement
             }
 
             dataGridView1.DataSource = dataTable;
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataGridView1.Columns.Count;
+            }
         }
 
         public Frm_ClerkList()
@@ -77,23 +89,7 @@ namespace MiniERP.View.BusinessManagement
         {
             clerks = new ClerkDAO().GetClerk(new Clerk());
 
-            DataTable dataTable = new DataTable();
-            DataColumn[] dataColumns = new DataColumn[3];
-            dataColumns[0] = new DataColumn("사원코드");
-            dataColumns[1] = new DataColumn("사원명");
-            dataColumns[2] = new DataColumn("직급");
-            dataTable.Columns.AddRange(dataColumns);
-
-            foreach (var item in clerks)
-            {
-                DataRow dataRow = dataTable.NewRow();
-                dataRow[0] = item.Clerk_code;
-                dataRow[1] = item.Clerk_name;
-                dataRow[2] = item.Clerk_job;
-                dataTable.Rows.Add(dataRow);
-            }
-
-            dataGridView1.DataSource = dataTable;
+            Display(clerks);
         }
 
         private void txtCodeOrName_Click(object sender, EventArgs e)
@@ -114,23 +110,7 @@ namespace MiniERP.View.BusinessManagement
                 };
                 selectClerks = new ClerkDAO().GetClerk(clerk);
 
-                DataTable dataTable = new DataTable();
-                DataColumn[] dataColumns = new DataColumn[3];
-                dataColumns[0] = new DataColumn("사원코드");
-                dataColumns[1] = new DataColumn("사원명");
-                dataColumns[2] = new DataColumn("직급");
-                dataTable.Columns.AddRange(dataColumns);
-
-                foreach (var item in selectClerks)
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow[0] = item.Clerk_code;
-                    dataRow[1] = item.Clerk_name;
-                    dataRow[2] = item.Clerk_job;
-                    dataTable.Rows.Add(dataRow);
-                }
-
-                dataGridView1.DataSource = dataTable;
+                Display(selectClerks);
             }
         }
 
@@ -139,9 +119,16 @@ namespace MiniERP.View.BusinessManagement
             //MessageBox.Show(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             if (MessageBox.Show("선택한 사원을 삭제하시겠습니까?","사원 삭제", MessageBoxButtons.YesNo)== DialogResult.Yes)
             {
-                new ClerkDAO().DeleteClerk(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                MessageBox.Show("해당 사원이 삭제되었습니다.");
-                ReflashData();
+                try
+                {
+                    new ClerkDAO().DeleteClerk(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    MessageBox.Show("해당 사원이 삭제되었습니다.", "삭제 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReflashData();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("해당 사원이 담당중인 거래가 있습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -155,24 +142,18 @@ namespace MiniERP.View.BusinessManagement
                 Clerk_password = null
             };
             selectClerks = new ClerkDAO().GetClerk(clerk);
-
-            DataTable dataTable = new DataTable();
-            DataColumn[] dataColumns = new DataColumn[3];
-            dataColumns[0] = new DataColumn("사원코드");
-            dataColumns[1] = new DataColumn("사원명");
-            dataColumns[2] = new DataColumn("직급");
-            dataTable.Columns.AddRange(dataColumns);
-
-            foreach (var item in selectClerks)
-            {
-                DataRow dataRow = dataTable.NewRow();
-                dataRow[0] = item.Clerk_code;
-                dataRow[1] = item.Clerk_name;
-                dataRow[2] = item.Clerk_job;
-                dataTable.Rows.Add(dataRow);
-            }
             pnl_serchbox.Visible = false;
-            dataGridView1.DataSource = dataTable;
+            Display(selectClerks);
+        }
+
+        private void btnSearchClerk_Click(object sender, EventArgs e)
+        {
+            Frm_ClerkSelect fcs = new Frm_ClerkSelect();
+            if (fcs.ShowDialog() == DialogResult.OK)
+            {
+                txtName.Text = fcs.Clerk.Clerk_name;
+                cmbJob.Text = fcs.Clerk.Clerk_job;
+            }
         }
     }
 }

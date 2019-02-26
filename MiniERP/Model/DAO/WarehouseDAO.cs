@@ -11,14 +11,22 @@ namespace MiniERP.Model.DAO
     {
         List<Warehouse> warehouses;
 
-        public List<Warehouse> GetWarehouses()
+        public List<Warehouse> GetWarehouses(Warehouse warehouse)
         {
             warehouses = new List<Warehouse>();
             string storedProcedureName = "GET_WAREHOUSE";
 
             try
             {
-                SqlDataReader sr = new DBConnection().SelectQuery(storedProcedureName);
+                DBConnection con = new DBConnection();
+
+                SqlParameter[] sqlParameters = new SqlParameter[3]
+                {
+                    new SqlParameter("warehouse_code", warehouse.Warehouse_code),
+                    new SqlParameter("warehouse_name", warehouse.Warehouse_name),
+                    new SqlParameter("warehouse_standard", warehouse.Warehouse_standard)
+                };
+                SqlDataReader sr = con.ExecuteSelect(storedProcedureName, sqlParameters);
                 while(sr.Read())
                 {
                     warehouses.Add(new Warehouse
@@ -28,6 +36,7 @@ namespace MiniERP.Model.DAO
                         Warehouse_standard = sr["Warehouse_standard"].ToString()
                     });
                 }
+                con.Close();
                 return warehouses;
             }
             catch (Exception)

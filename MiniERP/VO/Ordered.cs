@@ -18,13 +18,17 @@ namespace MiniERP.VO
             get { return order_Code; }
             set { order_Code = value; }
         }
-        private string bussBusiness_Code;
+        private string business_code;
 
         public string Business_Code
         {
-            get { return bussBusiness_Code; }
-            set { bussBusiness_Code = value; }
+            get { return business_code; }
+            set { business_code = value; }
         }
+
+
+        private string business_name;
+        public string Business_name { get => business_name; set => business_name = value; }
 
     }
 }

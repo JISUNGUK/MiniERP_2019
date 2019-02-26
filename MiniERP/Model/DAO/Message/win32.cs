@@ -17,7 +17,7 @@ namespace MiniERP.Model.DAO
         [DllImport("shell32.dll")]
         public static extern IntPtr SHGetFileInfo(string pszPath,
                uint dwFileAttributes,
-               ref View.Form1.SHFILEINFO psfi,
+               ref View.Frm_message.SHFILEINFO psfi,
                uint cbSizeFileInfo,
                uint uFlags);
     }

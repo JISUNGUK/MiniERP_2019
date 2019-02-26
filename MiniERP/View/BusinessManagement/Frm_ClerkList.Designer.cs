@@ -30,7 +30,7 @@
         {
             this.pnl_serchbox = new System.Windows.Forms.Panel();
             this.cmbJob = new System.Windows.Forms.ComboBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnSearchClerk = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_serchbox.Controls.Add(this.cmbJob);
-            this.pnl_serchbox.Controls.Add(this.button7);
+            this.pnl_serchbox.Controls.Add(this.btnSearchClerk);
             this.pnl_serchbox.Controls.Add(this.txtName);
             this.pnl_serchbox.Controls.Add(this.label1);
             this.pnl_serchbox.Controls.Add(this.btnSelect);
@@ -79,18 +79,19 @@
             this.cmbJob.Size = new System.Drawing.Size(229, 20);
             this.cmbJob.TabIndex = 98;
             // 
-            // button7
+            // btnSearchClerk
             // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button7.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(348, 19);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(22, 23);
-            this.button7.TabIndex = 97;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnSearchClerk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSearchClerk.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btnSearchClerk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchClerk.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSearchClerk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSearchClerk.Location = new System.Drawing.Point(348, 19);
+            this.btnSearchClerk.Name = "btnSearchClerk";
+            this.btnSearchClerk.Size = new System.Drawing.Size(22, 23);
+            this.btnSearchClerk.TabIndex = 97;
+            this.btnSearchClerk.UseVisualStyleBackColor = true;
+            this.btnSearchClerk.Click += new System.EventHandler(this.btnSearchClerk_Click);
             // 
             // txtName
             // 
@@ -202,6 +203,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -209,6 +212,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 72);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(799, 506);
@@ -241,7 +246,7 @@
 
         private System.Windows.Forms.Panel pnl_serchbox;
         private System.Windows.Forms.ComboBox cmbJob;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnSearchClerk;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSelect;

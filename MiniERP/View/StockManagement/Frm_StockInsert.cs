@@ -47,27 +47,27 @@ namespace MiniERP.View.StockManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtCode.Text))
+            if (String.IsNullOrEmpty(txtCode.Text)) 
             {
-                MessageBox.Show("창고코드를 입력하지 않았습니다.");
+                MessageBox.Show("창고코드를 입력해주세요.", "창고코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCode.Focus();
             }
-            else if (String.IsNullOrEmpty(txtName.Text))
+            else if (String.IsNullOrEmpty(txtName.Text)) 
             {
-                MessageBox.Show("창고명을 입력하지 않았습니다.");
+                MessageBox.Show("창고명을 입력해주세요.", "창고명을 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtName.Focus();
             }
             else
             {
                 if (CheckWarehousecode(txtCode.Text))
                 {
-                    MessageBox.Show("이미 존재하는 창고코드입니다. 다른 창고코드를 입력해주세요.");
+                    MessageBox.Show("이미 존재하는 창고코드입니다. 다른 창고코드를 입력해주세요.", "코드가 중복됩니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCode.Focus();
                 }
                 else
                 {
                     string standard = "";
-                    if (rdoWarehouse.Checked)
+                    if (rdoWarehouse.Checked == true)
                     {
                         standard = rdoWarehouse.Text;
                     }
@@ -82,17 +82,27 @@ namespace MiniERP.View.StockManagement
                         Warehouse_standard = standard
                     };
 
-                    if (new WarehouseDAO().InsertWarehouse(wh) != -1)
+                    if (new WarehouseDAO().InsertWarehouse(wh) != 0)
                     {
-                        MessageBox.Show("새로운 창고(공장)을 등록했습니다.");
+                        MessageBox.Show("새로운 창고(공장)을 등록했습니다.", "등록 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("등록에 실패했습니다.");
+                        MessageBox.Show("등록에 실패했습니다.", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtCode.Text = txtName.Text = "";
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="Model\DAO\BusinessDAO.cs" />
     <Compile Include="Model\DAO\ClerkDAO.cs" />
+    <Compile Include="Model\DAO\ItemDAO.cs" />
+    <Compile Include="Model\DAO\Message\loginDao.cs" />
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
@@ -99,6 +101,12 @@
     </Compile>
     <Compile Include="View\Frm_LoginBox.Designer.cs">
       <DependentUpon>Frm_LoginBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Frm_message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_message.Designer.cs">
+      <DependentUpon>Frm_message.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Frm_MPDetails.cs">
       <SubType>Form</SubType>
@@ -227,12 +235,6 @@
     <Compile Include="View\LogisticsManagement\Frm_EstimateList.Designer.cs">
       <DependentUpon>Frm_EstimateList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BusinessManagement\Frm_OrderInsert.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\BusinessManagement\Frm_OrderInsert.Designer.cs">
-      <DependentUpon>Frm_OrderInsert.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\BusinessManagement\Frm_OrderList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,10 +262,18 @@
       <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </Compile>
     <Compile Include="VO\Barcode_Module.cs" />
+    <Compile Include="VO\BOM.cs" />
     <Compile Include="VO\Business.cs" />
     <Compile Include="VO\Clerk.cs" />
+    <Compile Include="VO\Distribution.cs" />
+    <Compile Include="VO\Item.cs" />
+    <Compile Include="VO\Manufacture.cs" />
     <Compile Include="VO\Ordered.cs" />
     <Compile Include="VO\SampleOrder.cs" />
+    <Compile Include="VO\Status.cs" />
+    <Compile Include="VO\StatusList.cs" />
+    <Compile Include="VO\Stock.cs" />
+    <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
@@ -282,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_LoginBox.resx">
       <DependentUpon>Frm_LoginBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_message.resx">
+      <DependentUpon>Frm_message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
@@ -345,9 +358,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LogisticsManagement\Frm_EstimateList.resx">
       <DependentUpon>Frm_EstimateList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\BusinessManagement\Frm_OrderInsert.resx">
-      <DependentUpon>Frm_OrderInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BusinessManagement\Frm_OrderList.resx">
       <DependentUpon>Frm_OrderList.cs</DependentUpon>

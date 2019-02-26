@@ -10,7 +10,7 @@ namespace MiniERP.Model.DAO
     class BusinessDAO
     {
         List<Business> businesses;
-
+        
         public List<Business> GetBusiness(Business business)
         {
             businesses = new List<Business>();
