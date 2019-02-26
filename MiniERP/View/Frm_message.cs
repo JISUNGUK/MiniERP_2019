@@ -200,7 +200,9 @@ namespace MiniERP.View
                 {
                     roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
                 }
-                ChatContent.Text += "\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                ChatContent.AppendText("\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine);
+                //ChatContent.se(0, ChatContent.Text.Length);//맨 마지막 선택...
+                ChatContent.ScrollToCaret();
                 message.Text = "";          
 
             }
