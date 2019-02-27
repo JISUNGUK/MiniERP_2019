@@ -85,10 +85,10 @@ namespace MiniERP.View
                 FileStream fsread = new FileStream("login.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                 ICryptoTransform Decrypt = form1.outputloginFile().CreateDecryptor();
                 CryptoStream cryptostreamDecr = new CryptoStream(fsread, Decrypt, CryptoStreamMode.Read);
-              
-                StreamReader fsDecrypted = new StreamReader(cryptostreamDecr);               
+
+                StreamReader fsDecrypted = new StreamReader(cryptostreamDecr);
                 int count = 0;
-                while(!fsDecrypted.EndOfStream)
+                while (!fsDecrypted.EndOfStream)
                 {
                     if (count == 0)
                         txt_id.Text = fsDecrypted.ReadLine().Substring(3);
@@ -103,27 +103,11 @@ namespace MiniERP.View
                             autologin.Checked = false;
                     }
                     count++;
-                }           
+                }
                 fsDecrypted.Close();
-                //cryptostreamDecr.Close();
-                fsread.Close();              
-               /* while (!sr.EndOfStream)
-                {
-                    if (count == 0)
-                        txt_id.Text = sr.ReadLine().Substring(3);
-                    else if (count == 1)
-                        txt_pw.Text = sr.ReadLine().Substring(3);
-                    else
-                    { 
-                        string logincheck = sr.ReadLine().Substring(10);
-                        if (logincheck == "True")
-                             autologin.Checked= true; 
-                        else
-                            autologin.Checked = false;
-                    }
-                    count++;
-                }*/
-                if(autologin.Checked)
+                fsread.Close();
+
+                if (autologin.Checked)
                     btn_Login_Click(null, null);
             }
 

@@ -76,7 +76,6 @@ namespace MiniERP.View.StockManagement
             if (String.IsNullOrEmpty(txtCode.Text))
             {
                 MessageBox.Show("품목코드를 입력해주세요.", "품목코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCode.Focus();
             }
             else if (dataGridView1.Rows.Count < 1)
             {
@@ -91,7 +90,7 @@ namespace MiniERP.View.StockManagement
                     {
                         MessageBox.Show("필요수량이 0인 항목이 있습니다.\n확인하시고 필요없다면 삭제해주세요.", "필요수량 확인", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         result = false;
-                        break;
+                        return;
                     }
                 }
                 if(result)
