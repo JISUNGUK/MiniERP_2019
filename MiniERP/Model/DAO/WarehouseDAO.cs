@@ -4,16 +4,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MiniERP;
 
 namespace MiniERP.Model.DAO
 {
     class WarehouseDAO
     {
-        List<Warehouse> warehouses;
+        List<MiniERP.Warehouse> warehouses;
 
-        public List<Warehouse> GetWarehouses(Warehouse warehouse)
+        public List<MiniERP.Warehouse> GetWarehouses(MiniERP.Warehouse warehouse)
         {
-            warehouses = new List<Warehouse>();
+            warehouses = new List<MiniERP.Warehouse>();
             string storedProcedureName = "GET_WAREHOUSE";
 
             try
@@ -29,7 +30,7 @@ namespace MiniERP.Model.DAO
                 SqlDataReader sr = con.ExecuteSelect(storedProcedureName, sqlParameters);
                 while(sr.Read())
                 {
-                    warehouses.Add(new Warehouse
+                    warehouses.Add(new MiniERP.Warehouse
                     {
                         Warehouse_code = sr["Warehouse_code"].ToString(),
                         Warehouse_name = sr["Warehouse_name"].ToString(),
@@ -45,7 +46,7 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public int InsertWarehouse(Warehouse warehouse)
+        public int InsertWarehouse(MiniERP.Warehouse warehouse)
         {
             string storedProcedureName = "InsertWarehouse";
 
