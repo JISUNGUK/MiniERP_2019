@@ -25,8 +25,6 @@ namespace MiniERP.View.TradeManagement
 
         private void Frm_ModifyTrade_Load(object sender, EventArgs e)
         {
-            txt_BusinessCode.Text = trade.Business_code;
-            txt_BusinessName.Text = trade.Business_name;
             txt_ClerkCode.Text = trade.Clerk_code;
             txt_ClerkName.Text = trade.Clerk_name;
             txt_WareCode.Text = trade.Warehouse_code;
@@ -51,29 +49,35 @@ namespace MiniERP.View.TradeManagement
             Form frm;
             if (((Button)sender).Name.Contains("Clerk"))
             {
-                frm = new Frm_ClerkSelect();
-                if (frm.ShowDialog() != DialogResult.Cancel)
+                if (trade.Trade_status!="취소")
                 {
-                    this.txt_ClerkCode.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_code;
-                    this.txt_ClerkName.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_name;
+                    frm = new Frm_ClerkSelect();
+                    if (frm.ShowDialog() != DialogResult.Cancel)
+                    {
+                        this.txt_ClerkCode.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_code;
+                        this.txt_ClerkName.Text = ((Frm_ClerkSelect)frm).Clerk.Clerk_name;
+                    } 
                 }
-            }
-            else if (((Button)sender).Name.Contains("Business"))
-            {
-                frm = new Frm_BusinessSelect();
-                if (frm.ShowDialog() != DialogResult.Cancel)
+                else
                 {
-                    this.txt_BusinessCode.Text = ((Frm_BusinessSelect)frm).Business.Code;
-                    this.txt_BusinessName.Text = ((Frm_BusinessSelect)frm).Business.Name;
+                    MessageBox.Show("담당자는 취소하기 전까지만 변경 가능합니다.");
                 }
             }
             else if (((Button)sender).Name.Contains("Warehouse"))
             {
-                frm = new Frm_WarehouseSelect();
-                if (frm.ShowDialog() != DialogResult.Cancel)
+
+                if (trade.Trade_status == "승인전" || trade.Trade_status == "승인" || trade.Trade_status == "생산")
                 {
-                    this.txt_WareCode.Text = ((Frm_WarehouseSelect)frm).Warehouse.Warehouse_code;
-                    this.txt_WareName.Text = ((Frm_WarehouseSelect)frm).Warehouse.Warehouse_name;
+                    frm = new Frm_WarehouseSelect();
+                    if (frm.ShowDialog() != DialogResult.Cancel)
+                    {
+                        this.txt_WareCode.Text = ((Frm_WarehouseSelect)frm).Warehouse.Warehouse_code;
+                        this.txt_WareName.Text = ((Frm_WarehouseSelect)frm).Warehouse.Warehouse_name;
+                    } 
+                }
+                else
+                {
+                    MessageBox.Show("현재 상태에서는 창고를 변경할 수 없습니다.");
                 }
             }
         }
@@ -84,8 +88,6 @@ namespace MiniERP.View.TradeManagement
             trade.Clerk_name = txt_ClerkName.Text;
             trade.Warehouse_code = txt_WareCode.Text;
             trade.Warehouse_name = txt_WareName.Text;
-            trade.Business_code = txt_BusinessCode.Text;
-            trade.Business_name = txt_BusinessName.Text;
             
             if (String.IsNullOrWhiteSpace(trade.Trade_status))
             {

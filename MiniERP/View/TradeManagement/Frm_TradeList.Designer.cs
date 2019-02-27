@@ -53,6 +53,7 @@
             this.total_fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trade_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.end_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnOutput = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnl_serchbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gViewTrade)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +77,7 @@
             this.pnl_serchbox.Controls.Add(this.txt_Item);
             this.pnl_serchbox.Location = new System.Drawing.Point(17, 39);
             this.pnl_serchbox.Name = "pnl_serchbox";
-            this.pnl_serchbox.Size = new System.Drawing.Size(788, 39);
+            this.pnl_serchbox.Size = new System.Drawing.Size(895, 39);
             this.pnl_serchbox.TabIndex = 49;
             this.pnl_serchbox.Visible = false;
             // 
@@ -84,7 +85,7 @@
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button7.Font = new System.Drawing.Font("굴림", 10F);
-            this.button7.Location = new System.Drawing.Point(691, 8);
+            this.button7.Location = new System.Drawing.Point(798, 8);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(82, 23);
             this.button7.TabIndex = 50;
@@ -232,12 +233,13 @@
             this.item_summary,
             this.total_fee,
             this.trade_status,
-            this.end_date});
+            this.end_date,
+            this.btnOutput});
             this.gViewTrade.Location = new System.Drawing.Point(17, 86);
             this.gViewTrade.Name = "gViewTrade";
             this.gViewTrade.RowHeadersVisible = false;
             this.gViewTrade.RowTemplate.Height = 23;
-            this.gViewTrade.Size = new System.Drawing.Size(788, 491);
+            this.gViewTrade.Size = new System.Drawing.Size(895, 491);
             this.gViewTrade.TabIndex = 37;
             this.gViewTrade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellClick);
             this.gViewTrade.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellDoubleClick);
@@ -290,11 +292,16 @@
             this.end_date.Name = "end_date";
             this.end_date.ReadOnly = true;
             // 
+            // btnOutput
+            // 
+            this.btnOutput.HeaderText = "전표출력";
+            this.btnOutput.Name = "btnOutput";
+            // 
             // Frm_TradeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 618);
+            this.ClientSize = new System.Drawing.Size(930, 618);
             this.Controls.Add(this.btn_Detail);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.max_date);
@@ -346,5 +353,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total_fee;
         private System.Windows.Forms.DataGridViewTextBoxColumn trade_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn end_date;
+        private System.Windows.Forms.DataGridViewButtonColumn btnOutput;
     }
 }

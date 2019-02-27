@@ -44,7 +44,10 @@ namespace ChattingServer
                 }
                 catch (Exception ee)
                 {
-                    
+                    ChatServer.clientList.Remove(clientNickName);                   
+                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
+                    break;
+
                 }
                 if(messageByte!=null)
                 { 
@@ -167,7 +170,7 @@ namespace ChattingServer
                             }
                         }
                         members = ChatServer.GetMember();
-                       FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
+                       //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
                         ChatServer.Broadcast("접속 인" +
                             "원:" + members + "::", ClientNickName, true);
                         break;

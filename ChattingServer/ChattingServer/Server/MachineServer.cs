@@ -56,7 +56,7 @@ namespace ChattingServer.Server
                         }
                         else
                         {
-                            MachineClientSocket client = new  MachineClientSocket(machineSocket, machineName, machineTable);
+                            Unicast("해당 기계는 이미 등록되어있습니다", machineSocket);  
                            
 
                         }
@@ -71,7 +71,46 @@ namespace ChattingServer.Server
 
             }//서버가 대기하기 시작함
 
+
+
         }
-        
+
+        public static void Unicast(string msg,TcpClient tcpclient)
+        {
+            try
+            {
+                NetworkStream ns = tcpclient.GetStream();
+                Byte[] msgByte = Encoding.UTF8.GetBytes(msg);
+                ns.Write(msgByte, 0, msgByte.Length);
+                ns.Flush();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public static void Broadcast(string msg, string machinename)
+        {
+            //throw new NotImplementedException();//지금 구현 부분 아니면 남겨둔다!!
+            string message = "";
+            foreach (var key in machineList)
+            {
+                TcpClient tcp = key.MachineSockets;
+                if (tcp.Connected)
+                {
+                    NetworkStream ns = tcp.GetStream();
+                    byte[] bytemsg = new byte[tcp.ReceiveBufferSize];                    
+                        bytemsg = Encoding.UTF8.GetBytes(msg);//메시지를 바이트배열로 저장                                       
+                      ns.Write(bytemsg, 0, bytemsg.Length);
+                    ns.Flush();
+
+                }
+            }
+
+        }
+
     }
 }

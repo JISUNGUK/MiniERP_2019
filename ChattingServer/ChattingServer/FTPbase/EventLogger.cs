@@ -18,10 +18,10 @@ namespace ChattingServer.FTPbase
             {
                 if (!EventLog.Exists("FTP File Sharing", "."))
                 {
-                    EventLog.CreateEventSource(new EventSourceCreationData("FTP File Sharing", "FTP File Sharing"));
+                    EventLog.CreateEventSource(new EventSourceCreationData("FTP파일 공유중", "FTP 파일 공유"));
                 }
 
-                EventLog.WriteEntry("FTP File Sharing", part + " : " + ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("FTP 파일 공유중", part + " : " + ex.Message, EventLogEntryType.Error);
             }
             catch { }
         }

@@ -22,7 +22,7 @@ namespace ChattingServer
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 3333);
                 serverListener.Start();
-                //FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
+                FTPServer.Logger.Text += "채팅서버 가동>>>>\n";
                 ChattingElement chattingAll = new ChattingElement();//전체 채팅방
                 chattingAll.RoomName = "전체";
 
@@ -42,12 +42,12 @@ namespace ChattingServer
 
                         int index = clientNickName.IndexOf("\0");
                         clientNickName = clientNickName.Remove(index, clientNickName.Length - index);
-                        //FTPServer.Logger.Text += "접속을 감지했습니다\n";
+                        FTPServer.Logger.Text += "채팅접속을 감지했습니다\n";
                         if (!clientList.Contains(clientNickName))
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                           // FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
+                            FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
 
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
@@ -83,8 +83,7 @@ namespace ChattingServer
                         }
                         else
                         {
-                            ChatClientSocket client = new ChatClientSocket(chatClientSocket, clientNickName, ChatServer.clientList);
-                           Unicast("해당 닉네임은 존재합니다 다른 이름으로 사용하세요", client, true);
+                            Unicast("해당 닉네임은 존재합니다", chatClientSocket);
 
                         }
 
@@ -215,7 +214,13 @@ namespace ChattingServer
 
             return rooms;
         }
-
+        public static void Unicast(string msg,TcpClient tcp)
+        {
+            NetworkStream ns = tcp.GetStream();
+            byte[] bytemsg = new byte[tcp.ReceiveBufferSize];
+            ns.Write(bytemsg, 0, bytemsg.Length);
+            ns.Flush();
+        }
         public static void Unicast(string msg, ChatClientSocket chat, bool isServerMsg)
         {
             //throw new NotImplementedException();//지금 구현 부분 아니면 남겨둔다!!

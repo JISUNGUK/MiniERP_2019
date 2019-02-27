@@ -34,10 +34,6 @@
             this.lab_Warehouse = new System.Windows.Forms.Label();
             this.txt_ClerkCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_BusinessName = new System.Windows.Forms.TextBox();
-            this.txt_BusinessCode = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btn_Business = new System.Windows.Forms.Button();
             this.btn_Warehouse = new System.Windows.Forms.Button();
             this.btn_Clerk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -105,48 +101,6 @@
             this.label2.TabIndex = 139;
             this.label2.Text = "담당자";
             // 
-            // txt_BusinessName
-            // 
-            this.txt_BusinessName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txt_BusinessName.Font = new System.Drawing.Font("굴림", 10F);
-            this.txt_BusinessName.Location = new System.Drawing.Point(193, 75);
-            this.txt_BusinessName.Name = "txt_BusinessName";
-            this.txt_BusinessName.ReadOnly = true;
-            this.txt_BusinessName.Size = new System.Drawing.Size(146, 23);
-            this.txt_BusinessName.TabIndex = 150;
-            // 
-            // txt_BusinessCode
-            // 
-            this.txt_BusinessCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txt_BusinessCode.Font = new System.Drawing.Font("굴림", 10F);
-            this.txt_BusinessCode.Location = new System.Drawing.Point(87, 75);
-            this.txt_BusinessCode.Name = "txt_BusinessCode";
-            this.txt_BusinessCode.ReadOnly = true;
-            this.txt_BusinessCode.Size = new System.Drawing.Size(100, 23);
-            this.txt_BusinessCode.TabIndex = 149;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 10F);
-            this.label3.Location = new System.Drawing.Point(18, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 14);
-            this.label3.TabIndex = 147;
-            this.label3.Text = "거래처";
-            // 
-            // btn_Business
-            // 
-            this.btn_Business.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.btn_Business.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Business.Font = new System.Drawing.Font("굴림", 10F);
-            this.btn_Business.Location = new System.Drawing.Point(347, 75);
-            this.btn_Business.Name = "btn_Business";
-            this.btn_Business.Size = new System.Drawing.Size(25, 25);
-            this.btn_Business.TabIndex = 148;
-            this.btn_Business.UseVisualStyleBackColor = true;
-            this.btn_Business.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
             // btn_Warehouse
             // 
             this.btn_Warehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
@@ -175,7 +129,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 10F);
-            this.label1.Location = new System.Drawing.Point(18, 119);
+            this.label1.Location = new System.Drawing.Point(18, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 14);
             this.label1.TabIndex = 151;
@@ -184,14 +138,14 @@
             // cmb_status
             // 
             this.cmb_status.FormattingEnabled = true;
-            this.cmb_status.Location = new System.Drawing.Point(87, 113);
+            this.cmb_status.Location = new System.Drawing.Point(87, 81);
             this.cmb_status.Name = "cmb_status";
             this.cmb_status.Size = new System.Drawing.Size(121, 20);
             this.cmb_status.TabIndex = 152;
             // 
             // btn_Update
             // 
-            this.btn_Update.Location = new System.Drawing.Point(297, 110);
+            this.btn_Update.Location = new System.Drawing.Point(297, 78);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(75, 23);
             this.btn_Update.TabIndex = 153;
@@ -203,14 +157,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 140);
+            this.ClientSize = new System.Drawing.Size(387, 110);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.cmb_status);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_BusinessName);
-            this.Controls.Add(this.txt_BusinessCode);
-            this.Controls.Add(this.btn_Business);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_WareName);
             this.Controls.Add(this.txt_ClerkName);
             this.Controls.Add(this.btn_Warehouse);
@@ -237,10 +187,6 @@
         private System.Windows.Forms.Button btn_Clerk;
         private System.Windows.Forms.TextBox txt_ClerkCode;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_BusinessName;
-        private System.Windows.Forms.TextBox txt_BusinessCode;
-        private System.Windows.Forms.Button btn_Business;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmb_status;
         private System.Windows.Forms.Button btn_Update;
