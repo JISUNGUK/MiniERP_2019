@@ -160,6 +160,7 @@ namespace MiniERP.View
                 thread.Start();
                 Thread ftptread = new Thread(FTPConnection);
                 ftptread.Start();
+                    reacess.Enabled = false;
                 }
 
 
@@ -168,6 +169,7 @@ namespace MiniERP.View
             {
 
                 MessageBox.Show("서버가 열려있지않습니다");
+                reacess.Enabled = true;
             }
 
 
@@ -187,8 +189,17 @@ namespace MiniERP.View
         private void sendMsg_Click(object sender, EventArgs e)
         {
             if(message.Text!="")
-            { 
-            Messagedao.SendChatMessage(message.Text, roomList);
+            {
+                try
+                {
+                    Messagedao.SendChatMessage(message.Text, roomList);
+                }
+                catch (Exception ee)
+                {
+
+                    MessageBox.Show(ee.Message);
+                    reacess.Enabled = true;
+                }
             string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
             if (roomList.SelectedIndex != -1)
             {
@@ -203,6 +214,7 @@ namespace MiniERP.View
             //ChatContent.se(0, ChatContent.Text.Length);//맨 마지막 선택...
             ChatContent.ScrollToCaret();
             message.Text = "";
+            
             }
 
             if (additionFile.Checked)
@@ -213,6 +225,7 @@ namespace MiniERP.View
                 threadFTP.Start();
               
             }
+            RefreshList();
 
 
         }
@@ -276,6 +289,7 @@ namespace MiniERP.View
                         Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
 
                         MessageBox.Show("성공적으로 파일을 업로드 했습니다");
+                       
                     }
 
 
@@ -283,8 +297,12 @@ namespace MiniERP.View
                 }
                 catch (SocketException soed)
                 {
-                    MessageBox.Show(soed.Message + "연결에서 문제가 생겼습니다");
+                    //MessageBox.Show(soed.Message + "연결에서 문제가 생겼습니다");
 
+                }
+                catch(NullReferenceException nulle)
+                {
+                    MessageBox.Show(nulle.Message+"ftp서버와 연결후 시작해주세요");
                 }
                 catch (Exception ee)
                 {
@@ -294,7 +312,7 @@ namespace MiniERP.View
 
             }
 
-            RefreshList();
+           
 
         }
 
@@ -418,8 +436,7 @@ namespace MiniERP.View
         {
             if (!GetConnection())//만약 ftpconnection이 되어있지않으면 ftp연결은 되지 않는다;
                 return;
-            else
-                MessageBox.Show("FTP서버와 연결이 잘 되었습니다");
+            
 
         }
 
@@ -456,7 +473,7 @@ namespace MiniERP.View
             {
                 connected = false;
                 ChannelServices.UnregisterChannel(channel);
-                MessageBox.Show("Cannot Connect to the Server", "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("FTP서버에 연결할수없습니다", "FTP파일공유", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return connected;
             }
 
@@ -469,12 +486,13 @@ namespace MiniERP.View
                 Server.Update += new UpdateHandler(handler.Server_Update);
 
                 Server.Connect(MachineInfo.GetJustIP());
+                RefreshList();
             }
             catch (Exception ex)
             {
                 connected = false;
                 ChannelServices.UnregisterChannel(channel);
-                MessageBox.Show(ex.Message, "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "FTP 파일 공유", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return connected;
@@ -482,7 +500,7 @@ namespace MiniERP.View
         }
         void handler_RefreshList(object sender, EventArgs e)
         {
-            MessageBox.Show("Please Refresh your list.", "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("파일목록을 갱신합니다.", "FTP파일공유", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -505,14 +523,26 @@ namespace MiniERP.View
 
         private void Frm_message_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (nicknamel.Text != "label5")
-                messagedao.SendMessage("접속종료합니다");
-            if (Server != null)
-            {
-                Server.Disconnect(serverip);
-            }
+                           
+                if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
 
-        }
+                    if (nicknamel.Text != "label5")
+                        messagedao.SendMessage("접속종료합니다");
+                    if (Server != null)
+                    {
+                        Server.Disconnect(serverip);
+                    }
+                    form.Close();
+                e.Cancel = false;
+                this.Dispose();
+                this.Close();
+                }
+                else
+                e.Cancel = true ;
+
+
+            }
 
         private void message_KeyUp_1(object sender, KeyEventArgs e)
         {
@@ -527,7 +557,7 @@ namespace MiniERP.View
         {
             messagedao = new MessageDAO();
             messagedao.Form = this.form;
-            accessChatting();
+            accessChatting();  
         }
 
         private void access_Click(object sender, EventArgs e)
@@ -536,6 +566,13 @@ namespace MiniERP.View
         }
 
         private void ServerFileListView_DoubleClick(object sender, EventArgs e)
+        {
+            Thread downloadThread = new Thread(DownloadFile);
+            downloadThread.Start();
+
+        }
+
+        private void DownloadFile()
         {
             if (ServerFileListView.SelectedItems.Count < 1)
                 return;
@@ -547,7 +584,7 @@ namespace MiniERP.View
             Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file, folderName);
 
             SaveFileDialog save = new SaveFileDialog();
-            save.Title = "It saves the downloaded file.";
+            save.Title = "다운로드 파일을 선택해주세요.";
             save.SupportMultiDottedExtensions = false;
             save.Filter = "All|*.*";
             save.FileName = ServerFileListView.SelectedItems[0].SubItems[2].Text;
@@ -557,7 +594,7 @@ namespace MiniERP.View
                 MessageBox.Show(ServerFileListView.SelectedItems[0].SubItems[2].Text + "이 다운로드 되었습니다.", "FTP File 공유중", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             save.Dispose();
-
+            RefreshList();
         }
 
         private void reacess_Click(object sender, EventArgs e)
@@ -566,6 +603,28 @@ namespace MiniERP.View
             { 
             messagedao = new MessageDAO();             
             accessChatting();
+            }
+        }
+
+        private void Frm_message_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.TopLevel = true;
+                form.WindowState = FormWindowState.Maximized;
+                //this.Location = new Point(form.Location.X + form.Width - 10, form.Location.Y);
+
+            }
+            else if (this.WindowState == FormWindowState.Normal)
+            {
+                //this.TopLevel = false;
+                //form.TopLevel = true;
+                form.WindowState = FormWindowState.Normal;
+                
+            }
+            else
+            { 
+                form.WindowState = FormWindowState.Minimized;
             }
         }
     }

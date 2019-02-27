@@ -54,5 +54,10 @@ namespace MiniERP.View.StockManagement
         {
             textBox10.Clear();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

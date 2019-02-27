@@ -71,7 +71,7 @@ namespace MiniERP.View
             if (logIn != DialogResult.OK)
             {
                 this.Close();
-            }            
+            }
             InitializeComponent();
         }
 
@@ -453,43 +453,27 @@ namespace MiniERP.View
         private void Form1_Load(object sender, EventArgs e)
         {
             OpenForm("MainPage");
+            this.WindowState = FormWindowState.Normal;
             frm_message = new Frm_message();
             frm_message.Form = this;
             frm_message.Nickname = this.nickname;
-            //frm_message.MdiParent = this;
-            //this.splitContainer2.Panel2.Controls.Add(frm_message);
-            frm_message.Dock = DockStyle.Fill;
-            frm_message.Show();
-            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y);
+            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y); frm_message.Show();         
+          
+            
         }
 
         #region 프로그램 종료시 대화상자 이벤트
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        public void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // 폼이 닫히기 전에 메세지 박스로 재확인
-            if (mboxchk) // 중복방지용 변수 true 면 mbox 실행
-            {
-                mboxchk = false;
-                if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    frm_message.Close();
-                    savelogin();
-                    e.Cancel = false; // 폼 닫음  
-                    closeBackground(@"taskkill /im  Minierp.exe /f");
 
-                    this.Dispose();
-                }
-                else // No 선택시 닫기 취소
-                {
-                    e.Cancel = true; // 폼 닫기 취소
-                }
-                mboxchk = true;
-            }
-            else
-            {
-                mboxchk = true;
-            }
-        }
+            savelogin();
+            //e.Cancel = false; // 폼 닫음  
+            closeBackground(@"taskkill /im  Minierp.exe /f");
+
+            this.Dispose();
+                                        
+}
+
 
         public DESCryptoServiceProvider outputloginFile()
         {
@@ -553,7 +537,7 @@ namespace MiniERP.View
         }
 
 
-    private void closeBackground(string command)
+    public void closeBackground(string command)
         {
             ProcessStartInfo cmd = new ProcessStartInfo();
             Process process = new Process();
@@ -619,21 +603,24 @@ namespace MiniERP.View
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
-            {
-               
-                    frm_message.Location = new Point(this.Width - frm_message.Width, this.Location.Y + 50);
+            {                                  
                 notify = false;
-                frm_message.Windowstate = "최대화";
+                if(frm_message!=null)
+                    frm_message.Windowstate = "최대화";
             }
             if (this.WindowState == FormWindowState.Normal)
             {
                 notify = false;
-                frm_message.Windowstate = "기본";
+                if (frm_message != null)
+                { 
+                    frm_message.Windowstate = "기본";
+                }
             }
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notify = true;
-                frm_message.Windowstate = "최소화";
+                if(frm_message!=null)
+                    frm_message.Windowstate = "최소화";
             }
         }
 
@@ -652,9 +639,13 @@ namespace MiniERP.View
             
         }
 
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        
+
+        private void 전표관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+       
     }
 }
