@@ -239,6 +239,7 @@
             this.gViewTrade.Name = "gViewTrade";
             this.gViewTrade.RowHeadersVisible = false;
             this.gViewTrade.RowTemplate.Height = 23;
+            this.gViewTrade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gViewTrade.Size = new System.Drawing.Size(895, 491);
             this.gViewTrade.TabIndex = 37;
             this.gViewTrade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellClick);

@@ -52,7 +52,7 @@ namespace ChattingServer.Message
                 {
                     MachineServer.machineTable.Remove(machineName);
                     MachineServer.machineList.Remove(this);                  
-                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from MachineclientSocket");
+                   
                     break;
                 }
                 if(messageByte!=null)
