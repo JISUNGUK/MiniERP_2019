@@ -295,6 +295,17 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
+    <EmbeddedResource Include="Excel\거래 원가 명세서.xlsx" />
+    <EmbeddedResource Include="Excel\견적서.xlsx" />
+    <EmbeddedResource Include="Excel\구매 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\납품 요청서.xlsx" />
+    <EmbeddedResource Include="Excel\매입전표.xlsx" />
+    <EmbeddedResource Include="Excel\생산 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\입고 확인서.xlsx" />
+    <EmbeddedResource Include="Excel\자재 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\자재 투입서.xlsx" />
+    <EmbeddedResource Include="Excel\제품 생산서.xlsx" />
+    <EmbeddedResource Include="Excel\출하 증명서.xlsx" />
     <None Include="Model\MiniErpDB.dbml.layout">
       <DependentUpon>MiniErpDB.dbml</DependentUpon>
     </None>
