@@ -186,105 +186,115 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(message.Text))
+            if(message.Text!="")
+            { 
+            Messagedao.SendChatMessage(message.Text, roomList);
+            string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
+            if (roomList.SelectedIndex != -1)
             {
-               
-                Messagedao.SendChatMessage(message.Text, roomList);
-                string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
-                if (roomList.SelectedIndex != -1)
-                {
-                    roomtable[roomList.SelectedItem.ToString()] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                roomtable[roomList.SelectedItem.ToString()] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
 
-                }
-                else
-                {
-                    roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
-                }
-                ChatContent.AppendText("\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine);
-                //ChatContent.se(0, ChatContent.Text.Length);//맨 마지막 선택...
-                ChatContent.ScrollToCaret();
-                message.Text = "";          
-
+            }
+            else
+            {
+                roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+            }
+            ChatContent.AppendText("\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine);
+            //ChatContent.se(0, ChatContent.Text.Length);//맨 마지막 선택...
+            ChatContent.ScrollToCaret();
+            message.Text = "";
             }
 
             if (additionFile.Checked)
             {
 
+                Thread threadFTP = new Thread(sendFTPfile);
+                threadFTP.TrySetApartmentState(ApartmentState.STA);
+                threadFTP.Start();
+              
+            }
 
-                List<UploadData> upload = new List<UploadData>(); //업로드할 파일들
 
-                OpenFileDialog openfile1 = new OpenFileDialog();
-                DialogResult dr = openfile1.ShowDialog();
-                openfile1.Multiselect = true;
-                openfile1.Filter = "All files (*.*)|*.*";
-                openfile1.FilterIndex = 2;
-                openfile1.RestoreDirectory = true;
+        }
 
-                if (dr == DialogResult.OK)
+        private void sendMessage()
+        {
+           
+        }
+
+        private void sendFTPfile()
+        {
+            List<UploadData> upload = new List<UploadData>(); //업로드할 파일들
+
+            OpenFileDialog openfile1 = new OpenFileDialog();
+            DialogResult dr = openfile1.ShowDialog();
+            openfile1.Multiselect = true;
+            openfile1.Filter = "All files (*.*)|*.*";
+            openfile1.FilterIndex = 2;
+            openfile1.RestoreDirectory = true;
+
+            if (dr == DialogResult.OK)
+            {
+                string filename = openfile1.FileName;
+                currentfileName = openfile1.FileName;
+                filelabel1.Text = openfile1.SafeFileName;
+
+                //파일 아이콘을 갖고오는 부분
+
+                SHFILEINFO shinfo = new SHFILEINFO();
+                Win32.SHGetFileInfo(filename, 0, ref shinfo, (uint)System.Runtime.InteropServices.Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
+                System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
+                fileImage.Image = (Image)myIcon.ToBitmap();
+
+
+                try
                 {
-                    string filename = openfile1.FileName;
-                    currentfileName = openfile1.FileName;
-                    filelabel1.Text = openfile1.SafeFileName;
-
-                    //파일 아이콘을 갖고오는 부분
-
-                    SHFILEINFO shinfo = new SHFILEINFO();
-                    Win32.SHGetFileInfo(filename, 0, ref shinfo, (uint)System.Runtime.InteropServices.Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
-                    System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
-                    fileImage.Image = (Image)myIcon.ToBitmap();
-
-
-                    try
+                    int uploadcount = 0;
+                    UploadData data = new UploadData();
+                    System.IO.FileInfo fileinfo = null;
+                    string folderName = "전체";
+                    foreach (string file in openfile1.FileNames)
                     {
-                        int uploadcount = 0;
-                        UploadData data = new UploadData();
-                        System.IO.FileInfo fileinfo = null;
-                        string folderName = "전체";
-                        foreach (string file in openfile1.FileNames)
+                        fileinfo = new System.IO.FileInfo(file);
+                        if (fileinfo.Length > 200000000)
                         {
-                            fileinfo = new System.IO.FileInfo(file);
-                            if (fileinfo.Length > 200000000)
-                            {
-                                MessageBox.Show("파일명: '" + file + "'은 사이즈가 200mb 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                continue;
-                            }
-
-                            data.Filename = file.Split('\\')[file.Split('\\').Length - 1];
-                            Byte[] arr = System.IO.File.ReadAllBytes(file);
-
-                            data.File = arr;
-                            upload.Add(data);
-                            if (roomList.SelectedIndex != -1)
-                                folderName = roomList.SelectedItem.ToString();
-                            uploadcount++;
-                        }
-                        if (uploadcount > 0)
-                        {
-                            Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-
-                            MessageBox.Show("성공적으로 파일을 업로드 했습니다");
+                            MessageBox.Show("파일명: '" + file + "'은 사이즈가 200mb 보다 큽니다 더 작은 파일을 선택해주세요.", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            continue;
                         }
 
+                        data.Filename = file.Split('\\')[file.Split('\\').Length - 1];
+                        Byte[] arr = System.IO.File.ReadAllBytes(file);
 
-
+                        data.File = arr;
+                        upload.Add(data);
+                        if (roomList.SelectedIndex != -1)
+                            folderName = roomList.SelectedItem.ToString();
+                        uploadcount++;
                     }
-                    catch (SocketException soed)
+                    if (uploadcount > 0)
                     {
-                        MessageBox.Show(soed.Message + "연결에서 문제가 생겼습니다");
+                        Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
 
+                        MessageBox.Show("성공적으로 파일을 업로드 했습니다");
                     }
-                    catch (Exception ee)
-                    {
-                        MessageBox.Show(ee.Message + "파일을 올리는 도중에 오류가 생겼습니다");
 
-                    }
+
+
+                }
+                catch (SocketException soed)
+                {
+                    MessageBox.Show(soed.Message + "연결에서 문제가 생겼습니다");
+
+                }
+                catch (Exception ee)
+                {
+                    //MessageBox.Show(ee.Message + "파일을 올리는 도중에 오류가 생겼습니다");
 
                 }
 
-                RefreshList();
-
             }
 
+            RefreshList();
 
         }
 

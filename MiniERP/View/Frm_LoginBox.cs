@@ -86,8 +86,7 @@ namespace MiniERP.View
                 ICryptoTransform Decrypt = form1.outputloginFile().CreateDecryptor();
                 CryptoStream cryptostreamDecr = new CryptoStream(fsread, Decrypt, CryptoStreamMode.Read);
               
-                StreamReader fsDecrypted = new StreamReader(cryptostreamDecr);
-                MessageBox.Show(fsDecrypted.CurrentEncoding.ToString());
+                StreamReader fsDecrypted = new StreamReader(cryptostreamDecr);               
                 int count = 0;
                 while(!fsDecrypted.EndOfStream)
                 {
