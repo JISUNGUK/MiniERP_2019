@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pc5 = new System.Windows.Forms.PictureBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pc4 = new System.Windows.Forms.PictureBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pc3 = new System.Windows.Forms.PictureBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txt_Log = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.부팅ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.추적ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.재부팅ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.투입자재개수ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pc2 = new System.Windows.Forms.PictureBox();
+            this.check_pc1 = new System.Windows.Forms.CheckBox();
+            this.pc1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_reBoot = new System.Windows.Forms.Button();
+            this.btn_Exit = new System.Windows.Forms.Button();
+            this.btn_inputCountRequest = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txt_Log = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pc5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -69,119 +68,179 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox5);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox5);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox4);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox4);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
             this.splitContainer1.Panel2.Controls.Add(this.txt_Log);
             this.splitContainer1.Size = new System.Drawing.Size(426, 579);
-            this.splitContainer1.SplitterDistance = 393;
+            this.splitContainer1.SplitterDistance = 383;
             this.splitContainer1.TabIndex = 20;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.checkBox5);
+            this.panel1.Controls.Add(this.pc5);
+            this.panel1.Controls.Add(this.checkBox4);
+            this.panel1.Controls.Add(this.pc4);
+            this.panel1.Controls.Add(this.checkBox3);
+            this.panel1.Controls.Add(this.pc3);
+            this.panel1.Controls.Add(this.checkBox2);
+            this.panel1.Controls.Add(this.pc2);
+            this.panel1.Controls.Add(this.check_pc1);
+            this.panel1.Controls.Add(this.pc1);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(420, 286);
+            this.panel1.TabIndex = 31;
             // 
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(293, 315);
+            this.checkBox5.Location = new System.Drawing.Point(288, 262);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(56, 16);
-            this.checkBox5.TabIndex = 29;
-            this.checkBox5.Text = "ready";
+            this.checkBox5.TabIndex = 39;
+            this.checkBox5.Text = "[pc5]";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // pictureBox5
+            // pc5
             // 
-            this.pictureBox5.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox5.Location = new System.Drawing.Point(293, 219);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(94, 89);
-            this.pictureBox5.TabIndex = 28;
-            this.pictureBox5.TabStop = false;
+            this.pc5.Location = new System.Drawing.Point(288, 166);
+            this.pc5.Name = "pc5";
+            this.pc5.Size = new System.Drawing.Size(94, 89);
+            this.pc5.TabIndex = 38;
+            this.pc5.TabStop = false;
+            this.pc5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pic_pc1_MouseClick);
             // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(167, 315);
+            this.checkBox4.Location = new System.Drawing.Point(162, 262);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(56, 16);
-            this.checkBox4.TabIndex = 27;
-            this.checkBox4.Text = "ready";
+            this.checkBox4.TabIndex = 37;
+            this.checkBox4.Text = "[pc4]";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
-            // pictureBox4
+            // pc4
             // 
-            this.pictureBox4.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox4.Location = new System.Drawing.Point(167, 219);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(94, 89);
-            this.pictureBox4.TabIndex = 26;
-            this.pictureBox4.TabStop = false;
+            this.pc4.Location = new System.Drawing.Point(162, 166);
+            this.pc4.Name = "pc4";
+            this.pc4.Size = new System.Drawing.Size(94, 89);
+            this.pc4.TabIndex = 36;
+            this.pc4.TabStop = false;
+            this.pc4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pic_pc1_MouseClick);
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(293, 158);
+            this.checkBox3.Location = new System.Drawing.Point(288, 105);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(56, 16);
-            this.checkBox3.TabIndex = 25;
-            this.checkBox3.Text = "ready";
+            this.checkBox3.TabIndex = 35;
+            this.checkBox3.Text = "[pc3]";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // pc3
             // 
-            this.pictureBox3.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox3.Location = new System.Drawing.Point(293, 62);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(94, 89);
-            this.pictureBox3.TabIndex = 24;
-            this.pictureBox3.TabStop = false;
+            this.pc3.Location = new System.Drawing.Point(288, 9);
+            this.pc3.Name = "pc3";
+            this.pc3.Size = new System.Drawing.Size(94, 89);
+            this.pc3.TabIndex = 34;
+            this.pc3.TabStop = false;
+            this.pc3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pic_pc1_MouseClick);
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(167, 158);
+            this.checkBox2.Location = new System.Drawing.Point(162, 105);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(56, 16);
-            this.checkBox2.TabIndex = 23;
-            this.checkBox2.Text = "ready";
+            this.checkBox2.TabIndex = 33;
+            this.checkBox2.Text = "[pc2]";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // pc2
             // 
-            this.pictureBox2.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox2.Location = new System.Drawing.Point(167, 62);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(94, 89);
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
+            this.pc2.Location = new System.Drawing.Point(162, 10);
+            this.pc2.Name = "pc2";
+            this.pc2.Size = new System.Drawing.Size(94, 89);
+            this.pc2.TabIndex = 32;
+            this.pc2.TabStop = false;
+            this.pc2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pic_pc1_MouseClick);
             // 
-            // checkBox1
+            // check_pc1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(39, 158);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(56, 16);
-            this.checkBox1.TabIndex = 21;
-            this.checkBox1.Text = "ready";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.check_pc1.AutoSize = true;
+            this.check_pc1.Location = new System.Drawing.Point(34, 105);
+            this.check_pc1.Name = "check_pc1";
+            this.check_pc1.Size = new System.Drawing.Size(56, 16);
+            this.check_pc1.TabIndex = 31;
+            this.check_pc1.Text = "[pc1]";
+            this.check_pc1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pc1
             // 
-            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 89);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.pc1.Location = new System.Drawing.Point(34, 9);
+            this.pc1.Name = "pc1";
+            this.pc1.Size = new System.Drawing.Size(94, 89);
+            this.pc1.TabIndex = 30;
+            this.pc1.TabStop = false;
+            this.pc1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pic_pc1_MouseClick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_reBoot);
+            this.groupBox1.Controls.Add(this.btn_Exit);
+            this.groupBox1.Controls.Add(this.btn_inputCountRequest);
+            this.groupBox1.Location = new System.Drawing.Point(12, 287);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(402, 83);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            // 
+            // btn_reBoot
+            // 
+            this.btn_reBoot.Location = new System.Drawing.Point(144, 54);
+            this.btn_reBoot.Name = "btn_reBoot";
+            this.btn_reBoot.Size = new System.Drawing.Size(113, 23);
+            this.btn_reBoot.TabIndex = 2;
+            this.btn_reBoot.Text = "재부팅";
+            this.btn_reBoot.UseVisualStyleBackColor = true;
+            this.btn_reBoot.Click += new System.EventHandler(this.btn_inputCountRequest_Click);
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.Location = new System.Drawing.Point(6, 54);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(113, 23);
+            this.btn_Exit.TabIndex = 1;
+            this.btn_Exit.Text = "종료";
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_inputCountRequest_Click);
+            // 
+            // btn_inputCountRequest
+            // 
+            this.btn_inputCountRequest.Location = new System.Drawing.Point(6, 20);
+            this.btn_inputCountRequest.Name = "btn_inputCountRequest";
+            this.btn_inputCountRequest.Size = new System.Drawing.Size(113, 23);
+            this.btn_inputCountRequest.TabIndex = 0;
+            this.btn_inputCountRequest.Text = "투입 자재 개수";
+            this.btn_inputCountRequest.UseVisualStyleBackColor = true;
+            this.btn_inputCountRequest.Click += new System.EventHandler(this.btn_inputCountRequest_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 21);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(426, 171);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // txt_Log
             // 
@@ -192,58 +251,6 @@
             this.txt_Log.Size = new System.Drawing.Size(426, 21);
             this.txt_Log.TabIndex = 0;
             this.txt_Log.TextChanged += new System.EventHandler(this.txt_Log_TextChanged);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.부팅ToolStripMenuItem,
-            this.추적ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 48);
-            // 
-            // 부팅ToolStripMenuItem
-            // 
-            this.부팅ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.재부팅ToolStripMenuItem,
-            this.종료ToolStripMenuItem});
-            this.부팅ToolStripMenuItem.Name = "부팅ToolStripMenuItem";
-            this.부팅ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.부팅ToolStripMenuItem.Text = "부팅";
-            // 
-            // 추적ToolStripMenuItem
-            // 
-            this.추적ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.투입자재개수ToolStripMenuItem});
-            this.추적ToolStripMenuItem.Name = "추적ToolStripMenuItem";
-            this.추적ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.추적ToolStripMenuItem.Text = "추적";
-            // 
-            // 재부팅ToolStripMenuItem
-            // 
-            this.재부팅ToolStripMenuItem.Name = "재부팅ToolStripMenuItem";
-            this.재부팅ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.재부팅ToolStripMenuItem.Text = "재부팅";
-            // 
-            // 종료ToolStripMenuItem
-            // 
-            this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
-            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.종료ToolStripMenuItem.Text = "종료";
-            // 
-            // 투입자재개수ToolStripMenuItem
-            // 
-            this.투입자재개수ToolStripMenuItem.Name = "투입자재개수ToolStripMenuItem";
-            this.투입자재개수ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.투입자재개수ToolStripMenuItem.Text = "투입 자재 개수";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(426, 161);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
             // 
             // RealTimeMonitor
             // 
@@ -256,17 +263,18 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RealTimeMonitor_FormClosing);
             this.Load += new System.EventHandler(this.RealTimeMonitor_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pc5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -274,23 +282,22 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txt_Log;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 부팅ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 추적ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 재부팅ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 종료ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 투입자재개수ToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btn_reBoot;
+        private System.Windows.Forms.Button btn_Exit;
+        private System.Windows.Forms.Button btn_inputCountRequest;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.PictureBox pc5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.PictureBox pc4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.PictureBox pc3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.PictureBox pc2;
+        private System.Windows.Forms.CheckBox check_pc1;
+        private System.Windows.Forms.PictureBox pc1;
     }
 }

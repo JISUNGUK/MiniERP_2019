@@ -31,10 +31,10 @@
             this.txt_Barcode = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txt_Log = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txt_Log = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -73,36 +73,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Err";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.txt_Log);
-            this.groupBox3.Location = new System.Drawing.Point(12, 197);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(319, 241);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Log";
-            // 
-            // txt_Log
-            // 
-            this.txt_Log.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_Log.Location = new System.Drawing.Point(3, 17);
-            this.txt_Log.Name = "txt_Log";
-            this.txt_Log.Size = new System.Drawing.Size(313, 221);
-            this.txt_Log.TabIndex = 0;
-            this.txt_Log.Text = "";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(238, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -114,6 +84,36 @@
             this.checkBox1.Text = "sever";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.txt_Log);
+            this.groupBox3.Location = new System.Drawing.Point(12, 197);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(319, 241);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Log";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(238, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txt_Log
+            // 
+            this.txt_Log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt_Log.Location = new System.Drawing.Point(3, 17);
+            this.txt_Log.Name = "txt_Log";
+            this.txt_Log.Size = new System.Drawing.Size(313, 221);
+            this.txt_Log.TabIndex = 0;
+            this.txt_Log.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -123,7 +123,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

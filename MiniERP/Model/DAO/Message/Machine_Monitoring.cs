@@ -14,41 +14,39 @@ namespace MiniERP.Model.DAO.Message
         TcpClient client;
         NetworkStream stream = default(NetworkStream);
         Thread thread;
-
+        object txtBox;
+        object penel;
+        
+        
         string ip = "192.168.0.6";
 
         string readData = null;
 
-        object txtBox;
-
-        public Machine_Monitoring(object txtBox)
+        public Machine_Monitoring(object txtBox,object penel)
         {
             this.txtBox = txtBox;
+            this.penel = penel;
         }
 
         public void Start()
         {
             if (client == null)
             {
-                //System.Windows.Forms.MessageBox.Show("클라is null");
-                client = new TcpClient("192.168.0.6", 3333);
+                client = new TcpClient("192.168.0.6", 4444);
                 stream = client.GetStream();
 
-                byte[] name = Encoding.UTF8.GetBytes("master");
+                byte[] name = Encoding.UTF8.GetBytes("master");     //  접속 닉네임? 주라고하드라 추후수정
                 stream.Write(name, 0, name.Length);
                 stream.Flush();
             }
             else if (client.Connected == false)
             {
-                //System.Windows.Forms.MessageBox.Show("클라 재가동");
-                client = new TcpClient("192.168.0.6", 3333);
+                client = new TcpClient("192.168.0.6", 4444);
                 stream = client.GetStream();
             }
-            ////System.Windows.Forms.MessageBox.Show(client.Connected.ToString());
 
             if (thread == null)
             {
-                //System.Windows.Forms.MessageBox.Show("쓰레드is null");
                 thread = new Thread(getMsg);
                 thread.Start();
             }
@@ -63,9 +61,8 @@ namespace MiniERP.Model.DAO.Message
                 stream.Read(byteFrom, 0, client.SendBufferSize);
                 readData = Encoding.UTF8.GetString(byteFrom);       //  getString
 
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(readData);
-                ((TextBox)txtBox).Text = sb.ToString();
+                ((TextBox)txtBox).Text = readData;
+
             }
         }
 
