@@ -18,25 +18,27 @@ namespace MiniERP.VO
         public List<Status> GetStatus(string status)
         {
             List<Status> returnStatus = new List<Status>();
-            int no = 0;
-            
-            foreach (var item in statusList)
+            if (status != "취소")
             {
-                if (item.StatusStr.Equals(status))
+                int no = 0;
+
+                foreach (var item in statusList)
                 {
-                    no = item.No;
-                    break;
+                    if (item.StatusStr.Equals(status))
+                    {
+                        no = item.No;
+                        break;
+                    }
+                }
+
+                foreach (var item in statusList)
+                {
+                    if (item.StatusStr == status || item.No == no + 1)
+                    {
+                        returnStatus.Add(item);
+                    }
                 }
             }
-
-            foreach (var item in statusList)
-            {
-                if(item.No >= no)
-                {
-                    returnStatus.Add(item);
-                }
-            }
-
             return returnStatus;
         }
 
@@ -48,12 +50,14 @@ namespace MiniERP.VO
                 statusList.AddRange(new Status[]{
                     new Status(1,"승인전"),
                     new Status(2,"승인"),
+                    new Status(2,"취소"),
                     new Status(3,"생산"),
-                    new Status(4,"출하대기중"),
-                    new Status(5,"출하완료"),
-                    new Status(6,"반품"),
-                    new Status(7,"완료"),
-                    new Status(8,"취소")
+                    new Status(3,"출하대기중"),
+                    new Status(3,"취소"),
+                    new Status(4,"출하완료"),
+                    new Status(4,"취소"),
+                    new Status(5,"반품"),
+                    new Status(5,"완료"),
                 });
             }
             else if(standard_menu == "구매")
@@ -61,10 +65,11 @@ namespace MiniERP.VO
                 statusList.AddRange(new Status[]{
                     new Status(1,"승인전"),
                     new Status(2,"주문완료"),
-                    new Status(3,"입고대기중"),
+                    new Status(2,"취소"),
+                    new Status(3,"입고대기"),
+                    new Status(3,"취소"),
                     new Status(4,"입고완료"),
-                    new Status(5,"완료"),
-                    new Status(6,"취소")
+                    new Status(5,"완료")
                 });
             }
             else if(standard_menu == "물류")
@@ -72,7 +77,9 @@ namespace MiniERP.VO
                 statusList.AddRange(new Status[]{
                     new Status(1,"대기"),
                     new Status(2,"출고"),
-                    new Status(3,"완료")
+                    new Status(2,"취소"),
+                    new Status(3,"완료"),
+                    new Status(3,"취소")
                 });
             }
             else if(standard_menu == "창고")
