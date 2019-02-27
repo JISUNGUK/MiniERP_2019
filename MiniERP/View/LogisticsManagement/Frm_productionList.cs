@@ -9,6 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+
+
+
+using Excel = Microsoft.Office.Interop.Excel;
+
+
 
 namespace MiniERP.View.LogisticsManagement
 {
@@ -65,5 +72,50 @@ namespace MiniERP.View.LogisticsManagement
             }
 
         }
+
+        private void exportExcel_Click(object sender, EventArgs e)
+        {
+            if(produceGrid.Rows.Count>0)
+            {
+                SaveFileDialog savefile = new SaveFileDialog();
+          DialogResult dr=savefile.ShowDialog();
+            if(dr==DialogResult.OK)
+                {
+                    Excel.Application excelApp = null;
+                    Excel.Workbook wb = null;
+                    Excel.Worksheet ws = null;
+                    
+                                        try
+                                        {
+                                            // Excel 첫번째 워크시트 가져오기                
+                                            excelApp = new Excel.Application();
+                                            wb = excelApp.Workbooks.Add();
+                                            ws = wb.Worksheets.get_Item(1) as Excel.Worksheet;
+
+                                            // 데이타 넣기
+                                            int r = 1;
+                                             foreach (var d in produceGrid.Rows)
+                                             {
+                                                 ws.Cells[r, 1] = d;
+                                                 r++;
+                                             }
+
+                                             // 엑셀파일 저장
+                                             wb.SaveAs(savefile.FileName+"생산계획서.xlxs", Excel.XlFileFormat.xlWorkbookNormal);
+                                             wb.Close(true);
+                                             excelApp.Quit();
+                                         }
+                                         finally
+                                         {
+                                             // Clean up
+                                             Marshal.ReleaseComObject(ws);
+                                            Marshal.ReleaseComObject(wb);
+                                                Marshal.ReleaseComObject(excelApp);
+                                         }
+                }
+
+
+            } 
+                    }
     }
 }

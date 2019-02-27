@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
+            this.exportExcel = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
@@ -61,24 +61,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.produceGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // exportExcel
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(339, 1024);
-            this.button4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(220, 40);
-            this.button4.TabIndex = 90;
-            this.button4.Text = "Excel로 내보내기";
-            this.button4.UseVisualStyleBackColor = true;
+            this.exportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exportExcel.Font = new System.Drawing.Font("굴림", 10F);
+            this.exportExcel.Location = new System.Drawing.Point(339, 1024);
+            this.exportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.exportExcel.Name = "exportExcel";
+            this.exportExcel.Size = new System.Drawing.Size(220, 40);
+            this.exportExcel.TabIndex = 90;
+            this.exportExcel.Text = "Excel로 내보내기";
+            this.exportExcel.UseVisualStyleBackColor = true;
+            this.exportExcel.Click += new System.EventHandler(this.exportExcel_Click);
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.Font = new System.Drawing.Font("굴림", 10F);
             this.button3.Location = new System.Drawing.Point(179, 1024);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button3.Margin = new System.Windows.Forms.Padding(5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(118, 40);
             this.button3.TabIndex = 89;
@@ -90,7 +91,7 @@
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button5.Font = new System.Drawing.Font("굴림", 10F);
             this.button5.Location = new System.Drawing.Point(19, 1024);
-            this.button5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button5.Margin = new System.Windows.Forms.Padding(5);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(118, 40);
             this.button5.TabIndex = 88;
@@ -119,7 +120,7 @@
             this.pnl_serchbox.Controls.Add(this.label5);
             this.pnl_serchbox.Controls.Add(this.label7);
             this.pnl_serchbox.Location = new System.Drawing.Point(19, 77);
-            this.pnl_serchbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnl_serchbox.Margin = new System.Windows.Forms.Padding(5);
             this.pnl_serchbox.Name = "pnl_serchbox";
             this.pnl_serchbox.Size = new System.Drawing.Size(1254, 205);
             this.pnl_serchbox.TabIndex = 87;
@@ -129,7 +130,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(464, 156);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(5);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(133, 25);
             this.checkBox3.TabIndex = 134;
@@ -140,7 +141,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(319, 158);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(5);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(133, 25);
             this.checkBox2.TabIndex = 133;
@@ -151,7 +152,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(165, 158);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(5);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(133, 25);
             this.checkBox1.TabIndex = 132;
@@ -164,7 +165,7 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.Font = new System.Drawing.Font("굴림", 10F);
             this.button7.Location = new System.Drawing.Point(1125, 33);
-            this.button7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button7.Margin = new System.Windows.Forms.Padding(5);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(39, 44);
             this.button7.TabIndex = 131;
@@ -176,7 +177,7 @@
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button11.Font = new System.Drawing.Font("굴림", 10F);
             this.button11.Location = new System.Drawing.Point(503, 35);
-            this.button11.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button11.Margin = new System.Windows.Forms.Padding(5);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(39, 44);
             this.button11.TabIndex = 129;
@@ -196,7 +197,7 @@
             // 
             this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.Location = new System.Drawing.Point(720, 103);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(5);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(394, 32);
             this.textBox7.TabIndex = 14;
@@ -204,7 +205,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(165, 98);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(5);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(326, 32);
             this.textBox6.TabIndex = 13;
@@ -213,7 +214,7 @@
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Location = new System.Drawing.Point(720, 40);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(5);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(394, 32);
             this.textBox5.TabIndex = 12;
@@ -242,7 +243,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(165, 42);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(326, 32);
             this.textBox3.TabIndex = 8;
@@ -251,7 +252,7 @@
             // 
             this.searchPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchPlan.Location = new System.Drawing.Point(1119, 158);
-            this.searchPlan.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.searchPlan.Margin = new System.Windows.Forms.Padding(5);
             this.searchPlan.Name = "searchPlan";
             this.searchPlan.Size = new System.Drawing.Size(118, 40);
             this.searchPlan.TabIndex = 6;
@@ -294,7 +295,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("굴림", 10F);
             this.button1.Location = new System.Drawing.Point(236, 77);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 40);
             this.button1.TabIndex = 86;
@@ -305,7 +306,7 @@
             // 
             this.button6.Font = new System.Drawing.Font("굴림", 10F);
             this.button6.Location = new System.Drawing.Point(19, 77);
-            this.button6.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button6.Margin = new System.Windows.Forms.Padding(5);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(30, 40);
             this.button6.TabIndex = 85;
@@ -327,7 +328,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("굴림", 10F);
             this.textBox2.Location = new System.Drawing.Point(324, 80);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(5);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(117, 34);
             this.textBox2.TabIndex = 83;
@@ -347,7 +348,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("굴림", 10F);
             this.button2.Location = new System.Drawing.Point(665, 23);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 40);
             this.button2.TabIndex = 81;
@@ -359,7 +360,7 @@
             // 
             this.produceCode.Font = new System.Drawing.Font("굴림", 10F);
             this.produceCode.Location = new System.Drawing.Point(19, 26);
-            this.produceCode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.produceCode.Margin = new System.Windows.Forms.Padding(5);
             this.produceCode.Name = "produceCode";
             this.produceCode.Size = new System.Drawing.Size(634, 34);
             this.produceCode.TabIndex = 80;
@@ -385,7 +386,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.produceGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.produceGrid.Location = new System.Drawing.Point(19, 128);
-            this.produceGrid.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.produceGrid.Margin = new System.Windows.Forms.Padding(5);
             this.produceGrid.Name = "produceGrid";
             this.produceGrid.RowTemplate.Height = 23;
             this.produceGrid.Size = new System.Drawing.Size(1256, 886);
@@ -396,7 +397,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 1082);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.exportExcel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.pnl_serchbox);
@@ -409,7 +410,7 @@
             this.Controls.Add(this.produceCode);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.produceGrid);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Frm_productionList";
             this.Text = "생산계획 조회";
             this.pnl_serchbox.ResumeLayout(false);
@@ -422,7 +423,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button exportExcel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel pnl_serchbox;
