@@ -41,5 +41,10 @@ namespace MiniERP.View.LogisticsManagement
         {
             textBox1.Clear();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

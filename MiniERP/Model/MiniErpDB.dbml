@@ -1,10 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ERP_INFO" Class="MiniErpDB" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=tokoyy.database.windows.net;Initial Catalog=ERP_INFO;Persist Security Info=True;User ID=GD" SettingsObjectName="MiniERP.Properties.Settings" SettingsPropertyName="ERP_INFOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Warehouse" Member="Warehouse">
+    <Type Name="Warehouse">
+      <Column Name="Warehouse_code" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Warehouse_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Warehouse_standard" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.MODIFY_TRADE" Method="MODIFY_TRADE">
     <Parameter Name="trade_code" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="clerk_code" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="warehouse_code" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="trade_status" Type="System.String" DbType="NVarChar(20)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GET_MANUFACTURE_DOC" Method="GET_MANUFACTURE_DOC">
+    <Parameter Name="Manufactdate" Parameter="manufactdate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="warehouse_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="GET_MANUFACTURE_DOCResult">
+      <Column Name="Item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Export" Method="Get_Export">
+    <Parameter Name="move_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="after_warehouse" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="Get_ExportResult">
+      <Column Name="before_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="after_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Import" Method="Get_Import">
+    <Parameter Name="move_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="before_warehouse" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="Get_ImportResult">
+      <Column Name="after_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="before_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_RESOURCES_PLAN" Method="GET_RESOURCES_PLAN">
+    <Parameter Name="ordere_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="GET_RESOURCES_PLANResult">
+      <Column Name="part_code" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="item_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="item_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_PURCHASE_PLAN" Method="GET_PURCHASE_PLAN">
+    <Parameter Name="ordere_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="GET_PURCHASE_PLANResult">
+      <Column Name="part_code" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="item_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="item_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_MANUFACTURE_PLAN" Method="GET_MANUFACTURE_PLAN">
+    <Parameter Name="order_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="GET_MANUFACTURE_PLANResult">
+      <Column Name="Item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_ORDER" Method="GET_ORDER">
+    <Parameter Name="Order_code" Parameter="order_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="GET_ORDERResult">
+      <Column Name="item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item_wrote_fee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>
