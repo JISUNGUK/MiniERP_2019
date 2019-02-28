@@ -84,25 +84,33 @@ namespace MiniERP.Model.DAO
 
         public void SendChatMessage(string sendMsg, ComboBox combo)
         {
-            if (sendMsg != "")
+            try
             {
-                if (combo.SelectedIndex != -1)
+                if (sendMsg != "")
                 {
-                    if (checkmessage(sendMsg))
+                    if (combo.SelectedIndex != -1)
                     {
-                        if (combo.SelectedItem.ToString() == "전체")
-                            SendMessage(sendMsg + "$$$$");
-                        else
-                            SendMessage(combo.SelectedItem.ToString() + "방에 메시지를 보냅니다" + sendMsg + "//");
+                        if (checkmessage(sendMsg))
+                        {
+                            if (combo.SelectedItem.ToString() == "전체")
+                                SendMessage(sendMsg + "$$$$");
+                            else
+                                SendMessage(combo.SelectedItem.ToString() + "방에 메시지를 보냅니다" + sendMsg + "//");
+
+                        }
 
                     }
+                    if (combo.SelectedIndex == -1)
+                    {
+                        SendMessage(sendMsg + "$$$$");
+                    }
+                    sendMsg = "";
+                }
+            }
+            catch (Exception)
+            {
 
-                }
-                if (combo.SelectedIndex == -1)
-                {
-                    SendMessage(sendMsg + "$$$$");
-                }
-                sendMsg = "";
+                throw;
             }
         }
 
@@ -144,8 +152,8 @@ namespace MiniERP.Model.DAO
                         if (roomList.SelectedItem.ToString() == roomname)
                         {
 
-                            ChatContent.Text = ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + message + "\n";
-                            ChatContent.SelectionStart = ChatContent.TextLength;
+                            ChatContent.AppendText(ChatContent.Text + "\n" + date + Environment.NewLine + ">>" + message + "\n");
+                            ChatContent.SelectionStart = ChatContent.Text.Length;//맨 마지막 선택...
                             ChatContent.ScrollToCaret();
 
 
@@ -184,6 +192,8 @@ namespace MiniERP.Model.DAO
                         popup.Click += Popup_Click;
                         popup.Popup();
                     }
+                    ChatContent.SelectionStart = ChatContent.Text.Length;//맨 마지막 선택...
+                    ChatContent.ScrollToCaret();
                 }
 
 

@@ -50,26 +50,25 @@ namespace ChattingServer.Message
                 }
                 catch (Exception ee)
                 {
-                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
+                    MachineServer.machineTable.Remove(machineName);
+                    MachineServer.machineList.Remove(this);                  
+                   
+                    break;
                 }
                 if(messageByte!=null)
-                { 
-                if (Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                 {
-                    string receivestr = Encoding.UTF8.GetString(messageByte).Replace("\0", "");
-                    string date = "보낸시간:" + DateTime.Now + "\n";
-                    if (receivestr.Contains("$$$$"))//서버에게 작업보고
+                    if (Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                     {
-                        int letterlastIndex = receivestr.IndexOf("$$$$");
-                        receivestr = receivestr.Substring(0, letterlastIndex);                        
-                            MachineServer.machineTable[0] += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
-                           //Server.Broadcast(receivestr, ClientNickName, false);
+                        string receivestr = Encoding.UTF8.GetString(messageByte).Replace("\0", "");
+                        string date = "보낸시간:" + DateTime.Now + "\n";                
+                        MachineServer.machineTable[0] += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
+                        FTPServer.Logger.Text += receivestr+"\n";
+                        MachineServer.Broadcast(receivestr, machineName);
 
-                    }                                                         
-                    else if (receivestr.Contains("접속종료합니다"))
-                    {
-                        MachineServer.machineTable.Remove(machineName);
-                        for(int i=0;i<MachineServer.machineList.Count;i++)
+                        if (receivestr.Contains("접속종료합니다"))
+                        {
+                            MachineServer.machineTable.Remove(machineName);
+                            for (int i = 0; i < MachineServer.machineList.Count; i++)
                             {
                                 if (MachineServer.machineList[i].MachineName == machineName)
                                 {
@@ -77,17 +76,16 @@ namespace ChattingServer.Message
                                     break;
                                 }
                             }
-                        FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
-                        break;
-                    }                
+                            //FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
+                            break;
+                        }
 
-                    
-                }
+                    }   
+                }                
                 }
 
 
             }
-        }
         
         /// <summary>
         /// 해당 머신에게 명령을 전송 
@@ -102,3 +100,4 @@ namespace ChattingServer.Message
         }
     }
 }
+

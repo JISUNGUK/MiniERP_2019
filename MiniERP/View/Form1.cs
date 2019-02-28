@@ -15,6 +15,7 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -28,7 +29,8 @@ namespace MiniERP.View
 
 
         public static bool notify = false;//알림이 오는지 선택            
-        Frm_message frm_message;//메시지창              
+        Frm_message frm_message;//메시지창          
+        RealTimeMonitor monitoring;     //  머신 모니터링 클라이언트
 
 
         /// <summary>
@@ -450,49 +452,67 @@ namespace MiniERP.View
         private void Form1_Load(object sender, EventArgs e)
         {
             OpenForm("MainPage");
+            this.WindowState = FormWindowState.Normal;
             frm_message = new Frm_message();
             frm_message.Form = this;
             frm_message.Nickname = this.nickname;
-            frm_message.MdiParent = this;
-            this.splitContainer2.Panel2.Controls.Add(frm_message);
-            frm_message.Dock = DockStyle.Fill;
-            frm_message.Show();
+            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y); frm_message.Show();
+
+            //monitoring = new RealTimeMonitor();
+            //monitoring.Show();           
         }
 
         #region 프로그램 종료시 대화상자 이벤트
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        public void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // 폼이 닫히기 전에 메세지 박스로 재확인
-            if (mboxchk) // 중복방지용 변수 true 면 mbox 실행
-            {
-                mboxchk = false;
-                if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    frm_message.Close();
-                    outputloginFile();
-                    e.Cancel = false; // 폼 닫음  
-                    closeBackground(@"taskkill /im  Minierp.exe /f");
 
-                    this.Dispose();
-                }
-                else // No 선택시 닫기 취소
-                {
-                    e.Cancel = true; // 폼 닫기 취소
-                }
-                mboxchk = true;
-            }
-            else
+            savelogin();
+            //e.Cancel = false; // 폼 닫음  
+            closeBackground(@"taskkill /im  Minierp.exe /f");
+
+            this.Dispose();
+                                        
+}
+
+
+        public DESCryptoServiceProvider outputloginFile()
+        {
+            DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+            Byte[] keybyte = new byte[8];
+            int i = 0;
+            foreach (var item in ASCIIEncoding.ASCII.GetBytes("ccarayhua"))
             {
-                mboxchk = true;
+
+                keybyte[i++] = item;
+                if (i == 8)
+                {
+                    i = 0;
+                    break;
+                }
             }
+            Byte[] ivByte = new byte[8];
+            foreach (var item in ASCIIEncoding.ASCII.GetBytes("sjw9433"))
+            {
+
+                ivByte[i++] = item;
+                if (i == 8)
+                {
+                    i = 0;
+                    break;
+                }
+            }
+            des.Key = keybyte;
+            des.IV = ivByte;
+            //암호객체 생성
+            return des;
         }
 
-        private void outputloginFile()
-        {
-            if(save)
+        public void savelogin()
+        { 
+
+            if (save)
             {
                 FileStream fs=null;
-                StreamWriter sr=null;
             if (!System.IO.File.Exists("login.txt"))
                 {
                    fs = new FileStream("login.txt", FileMode.Create, FileAccess.Write, FileShare.None);
@@ -503,20 +523,21 @@ namespace MiniERP.View
                     fs = new FileStream("login.txt", FileMode.Truncate, FileAccess.Write, FileShare.None);
 
                 }
-                sr = new StreamWriter(fs);
-                sr.WriteLine("id:" + id);
-                sr.WriteLine("pw:" + pwd);
-                sr.WriteLine("autologin:" + autologin);
-                sr.Close();
+                ICryptoTransform Encrypt = outputloginFile().CreateEncryptor();
+                CryptoStream cryptostream = new CryptoStream(fs, Encrypt, CryptoStreamMode.Write);//해당파일을 암호화시킴
+                Byte[] bytelogin = new byte[fs.Length];
+                bytelogin = Encoding.ASCII.GetBytes("id:" + id + "\n" + "pw:" + pwd + "\nautologin:" + autologin);
+                cryptostream.Write(bytelogin, 0, bytelogin.Length);
+                fs.Flush();
+                cryptostream.Close();
                 fs.Close();
-
+                     
             }
 
         }
 
-        
 
-        private void closeBackground(string command)
+    public void closeBackground(string command)
         {
             ProcessStartInfo cmd = new ProcessStartInfo();
             Process process = new Process();
@@ -582,26 +603,49 @@ namespace MiniERP.View
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
-            {
+            {                                  
                 notify = false;
-                frm_message.Windowstate = "최대화";
+                if(frm_message!=null)
+                    frm_message.Windowstate = "최대화";
             }
             if (this.WindowState == FormWindowState.Normal)
             {
                 notify = false;
-                frm_message.Windowstate = "기본";
+                if (frm_message != null)
+                { 
+                    frm_message.Windowstate = "기본";
+                }
             }
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notify = true;
-                frm_message.Windowstate = "최소화";
+                if(frm_message!=null)
+                    frm_message.Windowstate = "최소화";
             }
         }
 
         private void MenuClickEvent(object sender, EventArgs e)
         {
             OpenForm(sender);
-            tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
+            //tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
         }
+
+        private void Form1_LocationChanged(object sender, EventArgs e)
+        {
+            if(frm_message!=null)
+            { 
+            frm_message.Location = new Point(this.Location.X+this.Width-10, this.Location.Y);
+            }
+            
+        }
+
+        
+
+        private void 전표관리ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

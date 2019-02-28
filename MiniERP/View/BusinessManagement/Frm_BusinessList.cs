@@ -148,7 +148,7 @@ namespace MiniERP.View.BusinessManagement
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            Frm_BusinessInsert businessInsert = new Frm_BusinessInsert(businesses);
+            Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
             businessInsert.ShowDialog();
             ReflashData();
         }

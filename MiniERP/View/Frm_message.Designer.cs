@@ -149,9 +149,9 @@
             // 
             // particiRoom
             // 
-            this.particiRoom.Location = new System.Drawing.Point(284, 65);
+            this.particiRoom.Location = new System.Drawing.Point(277, 68);
             this.particiRoom.Name = "particiRoom";
-            this.particiRoom.Size = new System.Drawing.Size(75, 26);
+            this.particiRoom.Size = new System.Drawing.Size(75, 23);
             this.particiRoom.TabIndex = 38;
             this.particiRoom.Text = "방참가";
             this.particiRoom.UseVisualStyleBackColor = true;
@@ -204,7 +204,7 @@
             // rmRoom
             // 
             this.rmRoom.Enabled = false;
-            this.rmRoom.Location = new System.Drawing.Point(188, 65);
+            this.rmRoom.Location = new System.Drawing.Point(181, 68);
             this.rmRoom.Name = "rmRoom";
             this.rmRoom.Size = new System.Drawing.Size(90, 23);
             this.rmRoom.TabIndex = 30;
@@ -215,7 +215,7 @@
             // 
             // mkRoom
             // 
-            this.mkRoom.Location = new System.Drawing.Point(115, 65);
+            this.mkRoom.Location = new System.Drawing.Point(108, 68);
             this.mkRoom.Name = "mkRoom";
             this.mkRoom.Size = new System.Drawing.Size(67, 23);
             this.mkRoom.TabIndex = 29;
@@ -316,7 +316,7 @@
             // 
             // reacess
             // 
-            this.reacess.Location = new System.Drawing.Point(329, 4);
+            this.reacess.Location = new System.Drawing.Point(357, 4);
             this.reacess.Name = "reacess";
             this.reacess.Size = new System.Drawing.Size(75, 23);
             this.reacess.TabIndex = 56;
@@ -328,8 +328,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 846);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(486, 846);
             this.Controls.Add(this.reacess);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
@@ -355,11 +354,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.memberList);
             this.Controls.Add(this.roomName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frm_message";
             this.Text = "Frm_message";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_message_FormClosing);
             this.Load += new System.EventHandler(this.Frm_message_Load);
+            this.Resize += new System.EventHandler(this.Frm_message_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.fileImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

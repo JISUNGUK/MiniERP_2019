@@ -36,9 +36,14 @@
     <Reference Include="BarcodeStandard, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BarcodeLib.2.2.1\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
@@ -57,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\DAO\BomDAO.cs" />
     <Compile Include="Model\DAO\BusinessDAO.cs" />
     <Compile Include="Model\DAO\ClerkDAO.cs" />
     <Compile Include="Model\DAO\ItemDAO.cs" />
@@ -65,8 +71,14 @@
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
+    <Compile Include="Model\DAO\TradeDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
     <Compile Include="Model\DAO\Message\win32.cs" />
+    <Compile Include="Model\MiniErpDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiniErpDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="ToDoList_Detail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +132,12 @@
     </Compile>
     <Compile Include="View\RealTimeMonitor.Designer.cs">
       <DependentUpon>RealTimeMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_BomDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_BomDetail.Designer.cs">
+      <DependentUpon>Frm_BomDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StockManagement\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
@@ -187,6 +205,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_WarehouseMovement.Designer.cs">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_ModifyTrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_ModifyTrade.Designer.cs">
+      <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TradeManagement\Frm_SellBuylInsert.cs">
       <SubType>Form</SubType>
@@ -282,6 +306,21 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
+    <EmbeddedResource Include="Excel\거래 원가 명세서.xlsx" />
+    <EmbeddedResource Include="Excel\견적서.xlsx" />
+    <EmbeddedResource Include="Excel\구매 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\납품 요청서.xlsx" />
+    <EmbeddedResource Include="Excel\매입전표.xlsx" />
+    <EmbeddedResource Include="Excel\생산 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\입고 확인서.xlsx" />
+    <EmbeddedResource Include="Excel\자재 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\자재 투입서.xlsx" />
+    <EmbeddedResource Include="Excel\제품 생산서.xlsx" />
+    <EmbeddedResource Include="Excel\출하 증명서.xlsx" />
+    <None Include="Model\MiniErpDB.dbml.layout">
+      <DependentUpon>MiniErpDB.dbml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RealTimeMonitor.resx">
       <DependentUpon>RealTimeMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockManagement\Frm_BomDetail.resx">
+      <DependentUpon>Frm_BomDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ClerkInsert.resx">
       <DependentUpon>Frm_ClerkInsert.cs</DependentUpon>
@@ -341,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_WarehouseMovement.resx">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TradeManagement\Frm_ModifyTrade.resx">
+      <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_SellBuylInsert.resx">
       <DependentUpon>Frm_SellBuylInsert.cs</DependentUpon>
@@ -391,6 +436,11 @@
     <EmbeddedResource Include="View\TradeManagement\Frm_TradeList.resx">
       <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Model\MiniErpDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MiniErpDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -408,6 +458,7 @@
   <ItemGroup>
     <Folder Include="Interface\" />
     <Folder Include="View\AccountingManagement\" />
+    <Folder Include="View\Custom\" />
     <Folder Include="View\ProductionManagement\" />
   </ItemGroup>
   <ItemGroup>
@@ -423,6 +474,29 @@
       <Project>{25aaac5e-fb90-4df6-abc4-804572d3e30e}</Project>
       <Name>ChattingServer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

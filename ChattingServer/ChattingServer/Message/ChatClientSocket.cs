@@ -44,7 +44,10 @@ namespace ChattingServer
                 }
                 catch (Exception ee)
                 {
-                    
+                    ChatServer.clientList.Remove(clientNickName);                   
+                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
+                    break;
+
                 }
                 if(messageByte!=null)
                 { 
@@ -52,7 +55,7 @@ namespace ChattingServer
                 {
                string receivestr= Encoding.UTF8.GetString(messageByte).Replace("\0","");
                     string date = "보낸시간:" + DateTime.Now + "\n";
-                        FTPServer.Logger.Text +="들어온 메시지:"+ receivestr+"\n";
+                        //FTPServer.Logger.Text +="들어온 메시지:"+ receivestr+"\n";
                     if (receivestr.Contains("$$$$"))//전체에게 전송되는 메시지
                 { 
                int letterlastIndex= receivestr.IndexOf("$$$$");
@@ -167,7 +170,7 @@ namespace ChattingServer
                             }
                         }
                         members = ChatServer.GetMember();
-                       FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
+                       //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 접속 종료했습니다\n";
                         ChatServer.Broadcast("접속 인" +
                             "원:" + members + "::", ClientNickName, true);
                         break;

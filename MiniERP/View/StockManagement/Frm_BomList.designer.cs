@@ -32,29 +32,25 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_EstimateSelect = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtPartCode = new System.Windows.Forms.TextBox();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnItemSearch = new System.Windows.Forms.Button();
+            this.txtItemCode = new System.Windows.Forms.TextBox();
+            this.btnPartSearch = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtCodeOrName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnl_serchbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,17 +92,6 @@
             this.textBox2.Size = new System.Drawing.Size(76, 23);
             this.textBox2.TabIndex = 112;
             // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("굴림", 10F);
-            this.label9.Location = new System.Drawing.Point(580, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(180, 14);
-            this.label9.TabIndex = 110;
-            this.label9.Text = "2019/01/01 ~ 2019/01/25";
-            // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -117,40 +102,43 @@
             this.button4.TabIndex = 109;
             this.button4.Text = "Excel로 내보내기";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Font = new System.Drawing.Font("굴림", 10F);
-            this.button3.Location = new System.Drawing.Point(114, 585);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 108;
-            this.button3.Text = "선택삭제";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnDelete.Location = new System.Drawing.Point(114, 585);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 108;
+            this.btnDelete.Text = "선택삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // button5
+            // btnInsert
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Font = new System.Drawing.Font("굴림", 10F);
-            this.button5.Location = new System.Drawing.Point(12, 585);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 107;
-            this.button5.Text = "신규";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnInsert.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnInsert.Location = new System.Drawing.Point(12, 585);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.TabIndex = 107;
+            this.btnInsert.Text = "신규";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // button1
+            // btnSelect
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("굴림", 10F);
-            this.button1.Location = new System.Drawing.Point(712, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 23);
-            this.button1.TabIndex = 91;
-            this.button1.Text = "검색";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnSelect.Location = new System.Drawing.Point(712, 63);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(82, 23);
+            this.btnSelect.TabIndex = 91;
+            this.btnSelect.Text = "검색";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // label5
             // 
@@ -163,84 +151,69 @@
             this.label5.TabIndex = 82;
             this.label5.Text = "파트번호";
             // 
-            // btn_EstimateSelect
+            // txtPartCode
             // 
-            this.btn_EstimateSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_EstimateSelect.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.btn_EstimateSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_EstimateSelect.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_EstimateSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_EstimateSelect.Location = new System.Drawing.Point(688, 26);
-            this.btn_EstimateSelect.Name = "btn_EstimateSelect";
-            this.btn_EstimateSelect.Size = new System.Drawing.Size(22, 23);
-            this.btn_EstimateSelect.TabIndex = 90;
-            this.btn_EstimateSelect.UseVisualStyleBackColor = true;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(494, 27);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(181, 21);
-            this.textBox7.TabIndex = 87;
+            this.txtPartCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPartCode.Location = new System.Drawing.Point(494, 27);
+            this.txtPartCode.Name = "txtPartCode";
+            this.txtPartCode.ReadOnly = true;
+            this.txtPartCode.Size = new System.Drawing.Size(181, 21);
+            this.txtPartCode.TabIndex = 87;
             // 
             // pnl_serchbox
             // 
             this.pnl_serchbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_serchbox.Controls.Add(this.button7);
-            this.pnl_serchbox.Controls.Add(this.textBox1);
-            this.pnl_serchbox.Controls.Add(this.numericUpDown1);
-            this.pnl_serchbox.Controls.Add(this.label1);
-            this.pnl_serchbox.Controls.Add(this.button1);
+            this.pnl_serchbox.Controls.Add(this.btnItemSearch);
+            this.pnl_serchbox.Controls.Add(this.txtItemCode);
+            this.pnl_serchbox.Controls.Add(this.btnSelect);
             this.pnl_serchbox.Controls.Add(this.label5);
-            this.pnl_serchbox.Controls.Add(this.btn_EstimateSelect);
-            this.pnl_serchbox.Controls.Add(this.textBox7);
+            this.pnl_serchbox.Controls.Add(this.btnPartSearch);
+            this.pnl_serchbox.Controls.Add(this.txtPartCode);
             this.pnl_serchbox.Controls.Add(this.label6);
             this.pnl_serchbox.Location = new System.Drawing.Point(12, 44);
             this.pnl_serchbox.Name = "pnl_serchbox";
-            this.pnl_serchbox.Size = new System.Drawing.Size(799, 119);
+            this.pnl_serchbox.Size = new System.Drawing.Size(799, 91);
             this.pnl_serchbox.TabIndex = 106;
             this.pnl_serchbox.Visible = false;
             // 
-            // button7
+            // btnItemSearch
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(356, 24);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(22, 23);
-            this.button7.TabIndex = 97;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnItemSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnItemSearch.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btnItemSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnItemSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnItemSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnItemSearch.Location = new System.Drawing.Point(356, 24);
+            this.btnItemSearch.Name = "btnItemSearch";
+            this.btnItemSearch.Size = new System.Drawing.Size(22, 23);
+            this.btnItemSearch.TabIndex = 97;
+            this.btnItemSearch.UseVisualStyleBackColor = true;
+            this.btnItemSearch.Click += new System.EventHandler(this.btnItemSearch_Click);
             // 
-            // textBox1
+            // txtItemCode
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(114, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 21);
-            this.textBox1.TabIndex = 96;
+            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemCode.Location = new System.Drawing.Point(114, 26);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.ReadOnly = true;
+            this.txtItemCode.Size = new System.Drawing.Size(236, 21);
+            this.txtItemCode.TabIndex = 96;
             // 
-            // numericUpDown1
+            // btnPartSearch
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(114, 60);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(236, 21);
-            this.numericUpDown1.TabIndex = 95;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(21, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 94;
-            this.label1.Text = "개      수";
+            this.btnPartSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPartSearch.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btnPartSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPartSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPartSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnPartSearch.Location = new System.Drawing.Point(688, 26);
+            this.btnPartSearch.Name = "btnPartSearch";
+            this.btnPartSearch.Size = new System.Drawing.Size(22, 23);
+            this.btnPartSearch.TabIndex = 90;
+            this.btnPartSearch.UseVisualStyleBackColor = true;
+            this.btnPartSearch.Click += new System.EventHandler(this.btnPartSearch_Click);
             // 
             // label6
             // 
@@ -252,26 +225,27 @@
             this.label6.TabIndex = 67;
             this.label6.Text = "품목번호";
             // 
-            // button9
+            // btnSearch
             // 
-            this.button9.Font = new System.Drawing.Font("굴림", 10F);
-            this.button9.Location = new System.Drawing.Point(423, 12);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(82, 23);
-            this.button9.TabIndex = 105;
-            this.button9.Text = "검색";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btnSearch.Font = new System.Drawing.Font("굴림", 10F);
+            this.btnSearch.Location = new System.Drawing.Point(423, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(82, 23);
+            this.btnSearch.TabIndex = 105;
+            this.btnSearch.Text = "검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // textBox10
+            // txtCodeOrName
             // 
-            this.textBox10.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox10.Location = new System.Drawing.Point(12, 12);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(405, 23);
-            this.textBox10.TabIndex = 104;
-            this.textBox10.Text = "BOM 번호 및 품목명을 입력하세요.";
-            this.textBox10.Click += new System.EventHandler(this.textBox10_Click);
+            this.txtCodeOrName.Font = new System.Drawing.Font("굴림", 10F);
+            this.txtCodeOrName.Location = new System.Drawing.Point(12, 12);
+            this.txtCodeOrName.Name = "txtCodeOrName";
+            this.txtCodeOrName.Size = new System.Drawing.Size(405, 23);
+            this.txtCodeOrName.TabIndex = 104;
+            this.txtCodeOrName.Text = "BOM 번호 및 품목명을 입력하세요.";
+            this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
+            this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
             // 
             // label8
             // 
@@ -285,6 +259,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -294,25 +271,35 @@
             this.Column2,
             this.Column3});
             this.dataGridView1.Location = new System.Drawing.Point(12, 73);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(799, 506);
             this.dataGridView1.TabIndex = 103;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "품목번호";
+            this.Column1.HeaderText = "품목코드";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "파츠번호";
+            this.Column2.HeaderText = "품목이름";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "파츠개수";
+            this.Column3.HeaderText = "조회";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Frm_BomList
             // 
@@ -324,20 +311,19 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtCodeOrName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Frm_BomList";
             this.Text = "BOM 조회";
+            this.Load += new System.EventHandler(this.Frm_BomList_Load);
             this.Click += new System.EventHandler(this.Frm_BomList_Click);
             this.pnl_serchbox.ResumeLayout(false);
             this.pnl_serchbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -350,26 +336,23 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btn_EstimateSelect;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button btnPartSearch;
+        private System.Windows.Forms.TextBox txtPartCode;
         private System.Windows.Forms.Panel pnl_serchbox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtCodeOrName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnItemSearch;
+        private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn Column3;
     }
 }

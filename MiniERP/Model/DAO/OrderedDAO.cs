@@ -63,8 +63,9 @@ namespace MiniERP.Model.DAO
 
             return sampleOrders;
         }
+
         /// <summary>
-        /// 
+        /// 주문등록 함수
         /// </summary>
         /// <param name="business_code">거래처번호</param>
         /// <param name="clerk_code">담당자(사원)번호</param>

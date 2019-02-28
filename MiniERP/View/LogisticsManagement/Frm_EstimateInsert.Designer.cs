@@ -46,9 +46,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(10, 21);
+            this.label6.Location = new System.Drawing.Point(16, 37);
+            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(94, 21);
             this.label6.TabIndex = 41;
             this.label6.Text = "주문번호";
             // 
@@ -56,9 +57,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(10, 60);
+            this.label9.Location = new System.Drawing.Point(16, 105);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.Size = new System.Drawing.Size(94, 21);
             this.label9.TabIndex = 64;
             this.label9.Text = "품      목";
             // 
@@ -66,58 +68,66 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(10, 97);
+            this.label2.Location = new System.Drawing.Point(16, 170);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(94, 21);
             this.label2.TabIndex = 67;
             this.label2.Text = "품목개수";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 18);
+            this.textBox1.Location = new System.Drawing.Point(176, 32);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 21);
+            this.textBox1.Size = new System.Drawing.Size(414, 32);
             this.textBox1.TabIndex = 68;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(112, 95);
+            this.numericUpDown1.Location = new System.Drawing.Point(176, 166);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(265, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(416, 32);
             this.numericUpDown1.TabIndex = 69;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 57);
+            this.textBox2.Location = new System.Drawing.Point(176, 100);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(105, 21);
+            this.textBox2.Size = new System.Drawing.Size(163, 32);
             this.textBox2.TabIndex = 70;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(302, 132);
+            this.button2.Location = new System.Drawing.Point(475, 231);
+            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(118, 40);
             this.button2.TabIndex = 72;
             this.button2.Text = "취소";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(65, 132);
+            this.button1.Location = new System.Drawing.Point(102, 231);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(118, 40);
             this.button1.TabIndex = 71;
             this.button1.Text = "등록";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
             this.button4.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(383, 14);
+            this.button4.Location = new System.Drawing.Point(602, 24);
+            this.button4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(25, 25);
+            this.button4.Size = new System.Drawing.Size(39, 44);
             this.button4.TabIndex = 73;
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -125,25 +135,27 @@
             // 
             this.button3.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(383, 54);
+            this.button3.Location = new System.Drawing.Point(602, 94);
+            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 25);
+            this.button3.Size = new System.Drawing.Size(39, 44);
             this.button3.TabIndex = 74;
             this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(223, 57);
+            this.textBox3.Location = new System.Drawing.Point(350, 100);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(154, 21);
+            this.textBox3.Size = new System.Drawing.Size(240, 32);
             this.textBox3.TabIndex = 75;
             // 
             // Frm_EstimateInsert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(420, 177);
+            this.ClientSize = new System.Drawing.Size(660, 310);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
@@ -156,6 +168,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_EstimateInsert";

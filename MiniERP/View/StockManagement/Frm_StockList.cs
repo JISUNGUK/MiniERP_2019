@@ -68,7 +68,7 @@ namespace MiniERP.View.StockManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Frm_StockInsert stockInsert = new Frm_StockInsert(warehouses);
+            Frm_StockInsert stockInsert = new Frm_StockInsert();
             stockInsert.ShowDialog();
             ReflashData();
         }
@@ -162,6 +162,11 @@ namespace MiniERP.View.StockManagement
                     rdoFactory.Checked = true;
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,16 +34,18 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btn_Insert = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gViewTrade = new System.Windows.Forms.DataGridView();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clerk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.business = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalfee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.rdo_buy = new System.Windows.Forms.RadioButton();
+            this.rdo_sell = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.gViewTrade)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,80 +113,98 @@
             this.btn_Insert.UseVisualStyleBackColor = true;
             this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
-            // dataGridView1
+            // gViewTrade
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gViewTrade.AllowUserToAddRows = false;
+            this.gViewTrade.AllowUserToDeleteRows = false;
+            this.gViewTrade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(23, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(788, 503);
-            this.dataGridView1.TabIndex = 24;
+            this.gViewTrade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gViewTrade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.code,
+            this.clerk,
+            this.business,
+            this.summary,
+            this.totalfee,
+            this.status,
+            this.warehouse});
+            this.gViewTrade.Location = new System.Drawing.Point(23, 74);
+            this.gViewTrade.Name = "gViewTrade";
+            this.gViewTrade.RowHeadersVisible = false;
+            this.gViewTrade.RowTemplate.Height = 23;
+            this.gViewTrade.Size = new System.Drawing.Size(788, 503);
+            this.gViewTrade.TabIndex = 24;
+            this.gViewTrade.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellDoubleClick);
             // 
-            // Column1
+            // code
             // 
-            this.Column1.HeaderText = "구매번호";
-            this.Column1.Name = "Column1";
+            this.code.HeaderText = "주문번호";
+            this.code.Name = "code";
             // 
-            // Column2
+            // clerk
             // 
-            this.Column2.HeaderText = "거래처";
-            this.Column2.Name = "Column2";
+            this.clerk.HeaderText = "담당자";
+            this.clerk.Name = "clerk";
             // 
-            // Column3
+            // business
             // 
-            this.Column3.HeaderText = "품목";
-            this.Column3.Name = "Column3";
+            this.business.HeaderText = "거래처";
+            this.business.Name = "business";
             // 
-            // Column4
+            // summary
             // 
-            this.Column4.HeaderText = "금액";
-            this.Column4.Name = "Column4";
+            this.summary.HeaderText = "품목";
+            this.summary.Name = "summary";
             // 
-            // Column5
+            // totalfee
             // 
-            this.Column5.HeaderText = "입고창고";
-            this.Column5.Name = "Column5";
+            this.totalfee.HeaderText = "금액";
+            this.totalfee.Name = "totalfee";
+            // 
+            // status
+            // 
+            this.status.HeaderText = "상태";
+            this.status.Name = "status";
+            // 
+            // warehouse
+            // 
+            this.warehouse.HeaderText = "출고창고";
+            this.warehouse.Name = "warehouse";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rdo_buy);
+            this.groupBox1.Controls.Add(this.rdo_sell);
             this.groupBox1.Location = new System.Drawing.Point(23, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(121, 35);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             // 
-            // radioButton2
+            // rdo_buy
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(65, 13);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 16);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "구매";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdo_buy.AutoSize = true;
+            this.rdo_buy.Location = new System.Drawing.Point(65, 13);
+            this.rdo_buy.Name = "rdo_buy";
+            this.rdo_buy.Size = new System.Drawing.Size(47, 16);
+            this.rdo_buy.TabIndex = 1;
+            this.rdo_buy.Text = "구매";
+            this.rdo_buy.UseVisualStyleBackColor = true;
+            this.rdo_buy.CheckedChanged += new System.EventHandler(this.rdo_CheckedChanged);
             // 
-            // radioButton1
+            // rdo_sell
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 16);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "판매";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdo_sell.AutoSize = true;
+            this.rdo_sell.Checked = true;
+            this.rdo_sell.Location = new System.Drawing.Point(6, 13);
+            this.rdo_sell.Name = "rdo_sell";
+            this.rdo_sell.Size = new System.Drawing.Size(47, 16);
+            this.rdo_sell.TabIndex = 0;
+            this.rdo_sell.TabStop = true;
+            this.rdo_sell.Text = "판매";
+            this.rdo_sell.UseVisualStyleBackColor = true;
+            this.rdo_sell.CheckedChanged += new System.EventHandler(this.rdo_CheckedChanged);
             // 
             // Frm_SellBuyList
             // 
@@ -198,10 +218,11 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_Insert);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gViewTrade);
             this.Name = "Frm_SellBuyList";
             this.Text = "판매/구매조회";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Frm_SellBuyList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gViewTrade)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -217,14 +238,16 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_Insert;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridView gViewTrade;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdo_buy;
+        private System.Windows.Forms.RadioButton rdo_sell;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clerk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn business;
+        private System.Windows.Forms.DataGridViewTextBoxColumn summary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalfee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouse;
     }
 }

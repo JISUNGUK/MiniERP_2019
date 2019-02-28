@@ -98,5 +98,23 @@ namespace MiniERP.Model.DAO
                 throw;
             }
         }
+
+        public bool CheckBusinessCode(string businessCode)
+        {
+            string storedProcedureName = "Check_BusinessData";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("business_code", businessCode)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                return con.ExecuteSelect(storedProcedureName, sqlParameters).HasRows;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

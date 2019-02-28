@@ -140,6 +140,7 @@
             this.Name = "Frm_ClerkInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "사원등록";
+            this.Load += new System.EventHandler(this.Frm_ClerkInsert_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
