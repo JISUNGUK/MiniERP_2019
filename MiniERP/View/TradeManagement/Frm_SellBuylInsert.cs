@@ -229,11 +229,13 @@ namespace MiniERP.View.TradeManagement
                     order.InsertOrdered(txt_BusinessCode.Text, txt_ClerkCode.Text, txt_WareCode.Text, standard, code, count);
                     MessageBox.Show("주문완료");
                 }
-                catch (Exception)
+                catch (Exception x)
                 {
+                    MessageBox.Show(x.Message);
                     MessageBox.Show("DB오류발생");
                 }
             }
+            this.Close();
         }
 
         /// <summary>

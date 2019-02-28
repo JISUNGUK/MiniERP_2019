@@ -71,6 +71,9 @@ namespace MiniERP.View
             {
                 this.Close();
             }
+
+            
+
             InitializeComponent();
         }
 
@@ -381,6 +384,11 @@ namespace MiniERP.View
                     Add_CloseBtn(clerklist); // 폼에 닫기 버튼 생성
                     break;
 
+                case "품목 출력":
+                    Frm_PrintDisplay frm_Print = new Frm_PrintDisplay();
+                    frm_Print.ShowDialog();
+                    break;
+
                 case "품목 등록":
                     {
                         Frm_ItemInsert itemInsert = new Frm_ItemInsert();
@@ -406,6 +414,10 @@ namespace MiniERP.View
                     clerkInsert.Show();  // 폼 실행
                     tabChk = true;
                     break;
+
+
+              
+
                 default:
                     MessageBox.Show("해당 폼이 없습니다.");
                     tabControl1.SelectedTab = tabControl1.TabPages[0];
@@ -455,19 +467,15 @@ namespace MiniERP.View
             this.WindowState = FormWindowState.Normal;
             frm_message = new Frm_message();
             frm_message.Form = this;
-
-            frm_message.Nickname = this.nickname;            
-            frm_message.Show();
-            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y);
-
-
-
-
             frm_message.Nickname = this.nickname;
-            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y); frm_message.Show();
+            frm_message.StartPosition = FormStartPosition.Manual;
+            frm_message.Location = new Point(this.Location.X + this.Width-10, this.Location.Y); frm_message.Show();
 
-      
-
+            monitoring = new RealTimeMonitor();
+            monitoring.StartPosition = FormStartPosition.Manual;
+            monitoring.Location = new Point(this.Location.X+10, this.Location.Y + this.Height);
+            monitoring.Show();
+            
         }
 
         #region 프로그램 종료시 대화상자 이벤트

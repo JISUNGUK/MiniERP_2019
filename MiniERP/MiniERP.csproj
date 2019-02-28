@@ -136,6 +136,12 @@
     <Compile Include="View\Frm_MPDetails.Designer.cs">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Frm_PrintDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_PrintDisplay.Designer.cs">
+      <DependentUpon>Frm_PrintDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RealTimeMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,39 +333,17 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
-    <EmbeddedResource Include="Resources\거래 원가 명세서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\견적서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\구매 계획서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\납품 요청서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\매입전표.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\생산 계획서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\입고 확인서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\자재 계획서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\자재 투입서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\제품 생산서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\출하 증명서.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\거래 원가 명세서.xlsx" />
+    <EmbeddedResource Include="Resources\견적서.xlsx" />
+    <EmbeddedResource Include="Resources\구매 계획서.xlsx" />
+    <EmbeddedResource Include="Resources\납품 요청서.xlsx" />
+    <EmbeddedResource Include="Resources\매입전표.xlsx" />
+    <EmbeddedResource Include="Resources\생산 계획서.xlsx" />
+    <EmbeddedResource Include="Resources\입고 확인서.xlsx" />
+    <EmbeddedResource Include="Resources\자재 계획서.xlsx" />
+    <EmbeddedResource Include="Resources\자재 투입서.xlsx" />
+    <EmbeddedResource Include="Resources\제품 생산서.xlsx" />
+    <EmbeddedResource Include="Resources\출하 증명서.xlsx" />
     <None Include="Model\MiniErpDB.dbml.layout">
       <DependentUpon>MiniErpDB.dbml</DependentUpon>
       <SubType>Designer</SubType>
@@ -390,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_PrintDisplay.resx">
+      <DependentUpon>Frm_PrintDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RealTimeMonitor.resx">
       <DependentUpon>RealTimeMonitor.cs</DependentUpon>
