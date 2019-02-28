@@ -138,7 +138,7 @@ namespace MiniErp_Client_jsu
         //  서버종료
         public void CloseSeverTest()
         {
-            byte[] msgTemp = Encoding.UTF8.GetBytes(this.name+"접속종료합니다");       //[pc1]접속종료합니다.
+            byte[] msgTemp = Encoding.UTF8.GetBytes("[command]"+this.name+"is endconnecting");       //[pc1]접속종료합니다.
             stream.Write(msgTemp, 0, msgTemp.Length);
             stream.Flush();
 

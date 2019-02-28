@@ -411,6 +411,7 @@
     <Folder Include="View\ProductionManagement\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\icon_client.png" />
     <Content Include="Image\닫기버튼.jpg" />
     <Content Include="Image\최대화 버튼.jpg" />
     <None Include="Resources\MaxSizeIcon.png" />
