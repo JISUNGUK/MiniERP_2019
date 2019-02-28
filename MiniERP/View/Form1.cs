@@ -382,7 +382,7 @@ namespace MiniERP.View
                     }
                 case "창고 등록":
                     {
-                        Frm_StockInsert stockInsert = new Frm_StockInsert();
+                        StockManagement.Frm_StockInsert stockInsert = new StockManagement.Frm_StockInsert();
 
                         stockInsert.Show();  // 폼 실행
                         break;

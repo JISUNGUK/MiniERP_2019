@@ -71,6 +71,7 @@
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
+    <Compile Include="Model\DAO\StockDAO.cs" />
     <Compile Include="Model\DAO\TradeDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
     <Compile Include="Model\DAO\Message\win32.cs" />
@@ -227,6 +228,12 @@
     <Compile Include="View\StockManagement\Frm_WarehouseUpdate.Designer.cs">
       <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TradeManagement\Frm_StockInsertReal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_StockInsertReal.Designer.cs">
+      <DependentUpon>Frm_StockInsertReal.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TradeManagement\Frm_ModifyTrade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +314,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\TradeManagement\Frm_StockListReal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_StockListReal.Designer.cs">
+      <DependentUpon>Frm_StockListReal.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TradeManagement\Frm_TradeList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -414,6 +427,9 @@
     <EmbeddedResource Include="View\StockManagement\Frm_WarehouseUpdate.resx">
       <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\TradeManagement\Frm_StockInsertReal.resx">
+      <DependentUpon>Frm_StockInsertReal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_ModifyTrade.resx">
       <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,6 +479,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\TradeManagement\Frm_StockListReal.resx">
+      <DependentUpon>Frm_StockListReal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_TradeList.resx">
       <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </EmbeddedResource>

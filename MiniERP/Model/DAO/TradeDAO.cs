@@ -80,7 +80,15 @@ namespace MiniERP.Model.DAO
         public int UpdateTrade(Trade trade)
         {
             MiniErpDB miniErpDB = new MiniErpDB();
-            return miniErpDB.MODIFY_TRADE(trade.Trade_code,trade.Clerk_code,trade.Warehouse_code,trade.Trade_status);
+
+            try
+            {
+                return miniErpDB.MODIFY_TRADE(trade.Trade_code, trade.Clerk_code, trade.Warehouse_code, trade.Trade_status);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }
