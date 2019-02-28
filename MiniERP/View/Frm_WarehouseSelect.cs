@@ -13,8 +13,8 @@ namespace MiniERP.View
 {
     public partial class Frm_WarehouseSelect : Form
     {
-        private List<Warehouse> warehouses;
-        private Warehouse warehouse;
+        private List<Warehouse> warehouses; // 모든 창고(공장) 목록을 저장할 리스트입니다.
+        private Warehouse warehouse; // 선택한 창고(공장)을 저장할 객체입니다.
 
         public Warehouse Warehouse { get => warehouse; set => warehouse = value; }
 
@@ -22,10 +22,21 @@ namespace MiniERP.View
         {
             InitializeComponent();
         }
+        public Frm_WarehouseSelect(Warehouse warehouse) : this()
+        {
+            this.warehouse = warehouse;
+        }
 
         private void Frm_WarehouseSelect_Load(object sender, EventArgs e)
         {
-            warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
+            if (warehouse == null)
+            {
+                warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
+            }
+            else
+            {
+                warehouses = new WarehouseDAO().GetWarehouses(warehouse);
+            }
             Display();
         }
 
@@ -88,7 +99,7 @@ namespace MiniERP.View
 
         private void txtName_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btnSearch_Click(null, null);
             }

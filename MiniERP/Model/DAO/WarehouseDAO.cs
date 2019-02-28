@@ -66,9 +66,24 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public bool UpdateWarehouse()
+        public int UpdateWarehouse(Warehouse warehouse)
         {
-            throw new NotImplementedException();
+            string storedProcedureName = "UpdateWarehouse";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("Warehouse_code", warehouse.Warehouse_code),
+                new SqlParameter("Warehouse_name", warehouse.Warehouse_name),
+                new SqlParameter("Warehouse_standard", warehouse.Warehouse_standard)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public int DeleteWarehouse(string warehouse_code)
