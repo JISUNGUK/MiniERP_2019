@@ -29,9 +29,8 @@ namespace MiniERP.View
 
 
         public static bool notify = false;//알림이 오는지 선택            
-        Frm_message frm_message;//메시지창              
-
-
+        Frm_message frm_message;//메시지창          
+        RealTimeMonitor monitoring;     //  머신 모니터링 클라이언트
 
 
         /// <summary>
@@ -444,10 +443,19 @@ namespace MiniERP.View
             this.WindowState = FormWindowState.Normal;
             frm_message = new Frm_message();
             frm_message.Form = this;
+
+            frm_message.Nickname = this.nickname;            
+            frm_message.Show();
+            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y);
+
+
+
+
             frm_message.Nickname = this.nickname;
-            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y); frm_message.Show();         
-          
-            
+            frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y); frm_message.Show();
+
+      
+
         }
 
         #region 프로그램 종료시 대화상자 이벤트

@@ -68,6 +68,687 @@ namespace MiniERP.Model
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), trade_code, clerk_code, warehouse_code, trade_status);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_MANUFACTURE_DOC")]
+		public ISingleResult<GET_MANUFACTURE_DOCResult> GET_MANUFACTURE_DOC([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Manufactdate", DbType="Date")] System.Nullable<System.DateTime> manufactdate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string warehouse_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), manufactdate, warehouse_code);
+			return ((ISingleResult<GET_MANUFACTURE_DOCResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Get_Export")]
+		public ISingleResult<Get_ExportResult> Get_Export([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> move_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string after_warehouse)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), move_date, after_warehouse);
+			return ((ISingleResult<Get_ExportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Get_Import")]
+		public ISingleResult<Get_ImportResult> Get_Import([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> move_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string before_warehouse)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), move_date, before_warehouse);
+			return ((ISingleResult<Get_ImportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_RESOURCES_PLAN")]
+		public ISingleResult<GET_RESOURCES_PLANResult> GET_RESOURCES_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string ordere_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordere_code);
+			return ((ISingleResult<GET_RESOURCES_PLANResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_PURCHASE_PLAN")]
+		public ISingleResult<GET_PURCHASE_PLANResult> GET_PURCHASE_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string ordere_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordere_code);
+			return ((ISingleResult<GET_PURCHASE_PLANResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_MANUFACTURE_PLAN")]
+		public ISingleResult<GET_MANUFACTURE_PLANResult> GET_MANUFACTURE_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string order_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
+			return ((ISingleResult<GET_MANUFACTURE_PLANResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_ORDER")]
+		public ISingleResult<GET_ORDERResult> GET_ORDER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_code", DbType="NVarChar(20)")] string order_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
+			return ((ISingleResult<GET_ORDERResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class GET_MANUFACTURE_DOCResult
+	{
+		
+		private string _Item_code;
+		
+		private string _item_name;
+		
+		private string _item_standard;
+		
+		private int _Distribution_count;
+		
+		public GET_MANUFACTURE_DOCResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Item_code
+		{
+			get
+			{
+				return this._Item_code;
+			}
+			set
+			{
+				if ((this._Item_code != value))
+				{
+					this._Item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string item_name
+		{
+			get
+			{
+				return this._item_name;
+			}
+			set
+			{
+				if ((this._item_name != value))
+				{
+					this._item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
+		public string item_standard
+		{
+			get
+			{
+				return this._item_standard;
+			}
+			set
+			{
+				if ((this._item_standard != value))
+				{
+					this._item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
+		public int Distribution_count
+		{
+			get
+			{
+				return this._Distribution_count;
+			}
+			set
+			{
+				if ((this._Distribution_count != value))
+				{
+					this._Distribution_count = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Get_ExportResult
+	{
+		
+		private string _before_warehouse;
+		
+		private string _after_warehouse;
+		
+		private string _item_name;
+		
+		private int _Distribution_count;
+		
+		private string _item_standard;
+		
+		public Get_ExportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_before_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string before_warehouse
+		{
+			get
+			{
+				return this._before_warehouse;
+			}
+			set
+			{
+				if ((this._before_warehouse != value))
+				{
+					this._before_warehouse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_after_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string after_warehouse
+		{
+			get
+			{
+				return this._after_warehouse;
+			}
+			set
+			{
+				if ((this._after_warehouse != value))
+				{
+					this._after_warehouse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string item_name
+		{
+			get
+			{
+				return this._item_name;
+			}
+			set
+			{
+				if ((this._item_name != value))
+				{
+					this._item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
+		public int Distribution_count
+		{
+			get
+			{
+				return this._Distribution_count;
+			}
+			set
+			{
+				if ((this._Distribution_count != value))
+				{
+					this._Distribution_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
+		public string item_standard
+		{
+			get
+			{
+				return this._item_standard;
+			}
+			set
+			{
+				if ((this._item_standard != value))
+				{
+					this._item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Get_ImportResult
+	{
+		
+		private string _after_warehouse;
+		
+		private string _before_warehouse;
+		
+		private string _item_name;
+		
+		private int _Distribution_count;
+		
+		private string _item_standard;
+		
+		public Get_ImportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_after_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string after_warehouse
+		{
+			get
+			{
+				return this._after_warehouse;
+			}
+			set
+			{
+				if ((this._after_warehouse != value))
+				{
+					this._after_warehouse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_before_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string before_warehouse
+		{
+			get
+			{
+				return this._before_warehouse;
+			}
+			set
+			{
+				if ((this._before_warehouse != value))
+				{
+					this._before_warehouse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string item_name
+		{
+			get
+			{
+				return this._item_name;
+			}
+			set
+			{
+				if ((this._item_name != value))
+				{
+					this._item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
+		public int Distribution_count
+		{
+			get
+			{
+				return this._Distribution_count;
+			}
+			set
+			{
+				if ((this._Distribution_count != value))
+				{
+					this._Distribution_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
+		public string item_standard
+		{
+			get
+			{
+				return this._item_standard;
+			}
+			set
+			{
+				if ((this._item_standard != value))
+				{
+					this._item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_RESOURCES_PLANResult
+	{
+		
+		private string _part_code;
+		
+		private string _item_name;
+		
+		private System.Nullable<int> _item_count;
+		
+		private string _item_standard;
+		
+		public GET_RESOURCES_PLANResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_part_code", DbType="NVarChar(20)")]
+		public string part_code
+		{
+			get
+			{
+				return this._part_code;
+			}
+			set
+			{
+				if ((this._part_code != value))
+				{
+					this._part_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50)")]
+		public string item_name
+		{
+			get
+			{
+				return this._item_name;
+			}
+			set
+			{
+				if ((this._item_name != value))
+				{
+					this._item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_count", DbType="Int")]
+		public System.Nullable<int> item_count
+		{
+			get
+			{
+				return this._item_count;
+			}
+			set
+			{
+				if ((this._item_count != value))
+				{
+					this._item_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
+		public string item_standard
+		{
+			get
+			{
+				return this._item_standard;
+			}
+			set
+			{
+				if ((this._item_standard != value))
+				{
+					this._item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_PURCHASE_PLANResult
+	{
+		
+		private string _part_code;
+		
+		private string _item_name;
+		
+		private System.Nullable<int> _item_count;
+		
+		private string _item_standard;
+		
+		public GET_PURCHASE_PLANResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_part_code", DbType="NVarChar(20)")]
+		public string part_code
+		{
+			get
+			{
+				return this._part_code;
+			}
+			set
+			{
+				if ((this._part_code != value))
+				{
+					this._part_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50)")]
+		public string item_name
+		{
+			get
+			{
+				return this._item_name;
+			}
+			set
+			{
+				if ((this._item_name != value))
+				{
+					this._item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_count", DbType="Int")]
+		public System.Nullable<int> item_count
+		{
+			get
+			{
+				return this._item_count;
+			}
+			set
+			{
+				if ((this._item_count != value))
+				{
+					this._item_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
+		public string item_standard
+		{
+			get
+			{
+				return this._item_standard;
+			}
+			set
+			{
+				if ((this._item_standard != value))
+				{
+					this._item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_MANUFACTURE_PLANResult
+	{
+		
+		private string _Item_code;
+		
+		private string _Item_name;
+		
+		private System.Nullable<int> _M;
+		
+		private string _Item_standard;
+		
+		public GET_MANUFACTURE_PLANResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Item_code
+		{
+			get
+			{
+				return this._Item_code;
+			}
+			set
+			{
+				if ((this._Item_code != value))
+				{
+					this._Item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_name
+		{
+			get
+			{
+				return this._Item_name;
+			}
+			set
+			{
+				if ((this._Item_name != value))
+				{
+					this._Item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M", DbType="Int")]
+		public System.Nullable<int> M
+		{
+			get
+			{
+				return this._M;
+			}
+			set
+			{
+				if ((this._M != value))
+				{
+					this._M = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
+		public string Item_standard
+		{
+			get
+			{
+				return this._Item_standard;
+			}
+			set
+			{
+				if ((this._Item_standard != value))
+				{
+					this._Item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_ORDERResult
+	{
+		
+		private string _item_code;
+		
+		private string _Item_name;
+		
+		private int _Item_count;
+		
+		private int _Item_wrote_fee;
+		
+		private string _Item_standard;
+		
+		private string _Item_unit;
+		
+		public GET_ORDERResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string item_code
+		{
+			get
+			{
+				return this._item_code;
+			}
+			set
+			{
+				if ((this._item_code != value))
+				{
+					this._item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_name
+		{
+			get
+			{
+				return this._Item_name;
+			}
+			set
+			{
+				if ((this._Item_name != value))
+				{
+					this._Item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_count", DbType="Int NOT NULL")]
+		public int Item_count
+		{
+			get
+			{
+				return this._Item_count;
+			}
+			set
+			{
+				if ((this._Item_count != value))
+				{
+					this._Item_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_wrote_fee", DbType="Int NOT NULL")]
+		public int Item_wrote_fee
+		{
+			get
+			{
+				return this._Item_wrote_fee;
+			}
+			set
+			{
+				if ((this._Item_wrote_fee != value))
+				{
+					this._Item_wrote_fee = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
+		public string Item_standard
+		{
+			get
+			{
+				return this._Item_standard;
+			}
+			set
+			{
+				if ((this._Item_standard != value))
+				{
+					this._Item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_unit", DbType="NVarChar(20)")]
+		public string Item_unit
+		{
+			get
+			{
+				return this._Item_unit;
+			}
+			set
+			{
+				if ((this._Item_unit != value))
+				{
+					this._Item_unit = value;
+				}
+			}
+		}
 	}
 }
 #pragma warning restore 1591

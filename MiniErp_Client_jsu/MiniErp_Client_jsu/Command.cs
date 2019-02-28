@@ -35,6 +35,7 @@ namespace MiniErp_Client_jsu
             get { return command_Value; }
             set { command_Value = value; }
         }
+
         private Chatting chatinfo;
 
         private List<Barcode> barcodes;
@@ -46,6 +47,11 @@ namespace MiniErp_Client_jsu
             this.command_Value = command_Value;
             this.chatinfo = chatinfo;
             this.barcodes = (List<Barcode>)barcodelist;
+        }
+
+        public Command(string command_Value)
+        {
+            this.command_Value = command_Value;
         }
         
         //  바코드 리스트를 보내는 메소드

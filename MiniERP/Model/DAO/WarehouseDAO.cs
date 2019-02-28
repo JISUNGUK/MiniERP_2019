@@ -4,16 +4,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MiniERP;
 
 namespace MiniERP.Model.DAO
 {
     class WarehouseDAO
     {
-        List<Warehouse> warehouses;
+        List<MiniERP.Warehouse> warehouses;
 
-        public List<Warehouse> GetWarehouses(Warehouse warehouse)
+        public List<MiniERP.Warehouse> GetWarehouses(MiniERP.Warehouse warehouse)
         {
-            warehouses = new List<Warehouse>();
+            warehouses = new List<MiniERP.Warehouse>();
             string storedProcedureName = "GET_WAREHOUSE";
 
             try
@@ -29,7 +30,7 @@ namespace MiniERP.Model.DAO
                 SqlDataReader sr = con.ExecuteSelect(storedProcedureName, sqlParameters);
                 while(sr.Read())
                 {
-                    warehouses.Add(new Warehouse
+                    warehouses.Add(new MiniERP.Warehouse
                     {
                         Warehouse_code = sr["Warehouse_code"].ToString(),
                         Warehouse_name = sr["Warehouse_name"].ToString(),
@@ -45,7 +46,7 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public int InsertWarehouse(Warehouse warehouse)
+        public int InsertWarehouse(MiniERP.Warehouse warehouse)
         {
             string storedProcedureName = "InsertWarehouse";
 
@@ -66,9 +67,24 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public bool UpdateWarehouse()
+        public int UpdateWarehouse(Warehouse warehouse)
         {
-            throw new NotImplementedException();
+            string storedProcedureName = "UpdateWarehouse";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("Warehouse_code", warehouse.Warehouse_code),
+                new SqlParameter("Warehouse_name", warehouse.Warehouse_name),
+                new SqlParameter("Warehouse_standard", warehouse.Warehouse_standard)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public int DeleteWarehouse(string warehouse_code)

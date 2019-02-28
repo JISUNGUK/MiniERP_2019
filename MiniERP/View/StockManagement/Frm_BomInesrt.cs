@@ -14,6 +14,10 @@ namespace MiniERP.View.StockManagement
 {
     public partial class Frm_BomInesrt : Form
     {
+        private DialogResult dialogResult = DialogResult.None; // 등록하기 버튼을 누른 후 예를 눌렀는지 아니오를 눌렀는지 판별하기 위한 변수입니다.
+
+        public DialogResult DialogResult1 { get => dialogResult; set => dialogResult = value; }
+
         public Frm_BomInesrt()
         {
             InitializeComponent();
@@ -45,7 +49,7 @@ namespace MiniERP.View.StockManagement
         {
             for (int i = 1; i < dataGridView1.Columns.Count; i++)
             {
-                dataGridView1.Columns[i].Width = dataGridView1.Size.Width / dataGridView1.Columns.Count;
+                dataGridView1.Columns[i].Width = dataGridView1.Size.Width  / dataGridView1.Columns.Count - 1;
             }
         }
 
@@ -93,7 +97,8 @@ namespace MiniERP.View.StockManagement
                         return;
                     }
                 }
-                if(result)
+                
+                if(result && MessageBox.Show("BOM을 등록하시겠습니까?", "BOM 등록", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string itemCode = txtCode.Text;
                     string partCode = String.Empty; // 파츠의 코드(구분 문자열 : |)
@@ -110,6 +115,7 @@ namespace MiniERP.View.StockManagement
                     if (new BomDAO().InsertBom(itemCode, partCode, partCount) != 0)
                     {
                         MessageBox.Show("새로운 품목의 BOM을 등록했습니다.", "등록 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dialogResult = DialogResult.Yes;
                         this.Close();
                     }
                     else

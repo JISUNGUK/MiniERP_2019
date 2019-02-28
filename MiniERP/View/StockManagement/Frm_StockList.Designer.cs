@@ -38,7 +38,6 @@
             this.rdoFactory = new System.Windows.Forms.RadioButton();
             this.rdoWarehouse = new System.Windows.Forms.RadioButton();
             this.rdoAll = new System.Windows.Forms.RadioButton();
-            this.btnSearchWarehouse = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSearchWarehouse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_serchbox.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +68,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(799, 526);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // btn_serch
             // 
@@ -101,7 +102,6 @@
             this.button4.TabIndex = 13;
             this.button4.Text = "Excel로 내보내기";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnDelete
             // 
@@ -182,17 +182,6 @@
             this.rdoAll.Text = "전체";
             this.rdoAll.UseVisualStyleBackColor = true;
             // 
-            // btnSearchWarehouse
-            // 
-            this.btnSearchWarehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.btnSearchWarehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearchWarehouse.Location = new System.Drawing.Point(315, 23);
-            this.btnSearchWarehouse.Name = "btnSearchWarehouse";
-            this.btnSearchWarehouse.Size = new System.Drawing.Size(25, 25);
-            this.btnSearchWarehouse.TabIndex = 9;
-            this.btnSearchWarehouse.UseVisualStyleBackColor = true;
-            this.btnSearchWarehouse.Click += new System.EventHandler(this.btnSearchWarehouse_Click);
-            // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -255,6 +244,17 @@
             this.label1.Size = new System.Drawing.Size(57, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "검색 기능";
+            // 
+            // btnSearchWarehouse
+            // 
+            this.btnSearchWarehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.btnSearchWarehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchWarehouse.Location = new System.Drawing.Point(315, 23);
+            this.btnSearchWarehouse.Name = "btnSearchWarehouse";
+            this.btnSearchWarehouse.Size = new System.Drawing.Size(25, 25);
+            this.btnSearchWarehouse.TabIndex = 9;
+            this.btnSearchWarehouse.UseVisualStyleBackColor = true;
+            this.btnSearchWarehouse.Click += new System.EventHandler(this.btnSearchWarehouse_Click);
             // 
             // Frm_StockList
             // 

@@ -52,7 +52,7 @@ namespace ChattingServer.Message
                 {
                     MachineServer.machineTable.Remove(machineName);
                     MachineServer.machineList.Remove(this);                  
-                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from MachineclientSocket");
+                   
                     break;
                 }
                 if(messageByte!=null)
@@ -65,7 +65,7 @@ namespace ChattingServer.Message
                         FTPServer.Logger.Text += receivestr+"\n";
                         MachineServer.Broadcast(receivestr, machineName);
 
-                        if (receivestr.Contains("접속종료합니다"))
+                        if (receivestr.Contains("endconnecting"))
                         {
                             MachineServer.machineTable.Remove(machineName);
                             for (int i = 0; i < MachineServer.machineList.Count; i++)
