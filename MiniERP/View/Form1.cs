@@ -462,10 +462,12 @@ namespace MiniERP.View
 
 
 
+
             frm_message.Nickname = this.nickname;
             frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y); frm_message.Show();
 
       
+
         }
 
         #region 프로그램 종료시 대화상자 이벤트
