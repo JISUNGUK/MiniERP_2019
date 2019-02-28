@@ -31,8 +31,6 @@ namespace MiniERP.View
         Frm_message frm_message;//메시지창              
 
 
-
-
         /// <summary>
         /// 접속할 서버객체
         /// </summary>      
@@ -71,12 +69,6 @@ namespace MiniERP.View
             {
                 this.Close();
             }
-
-            RealTimeMonitor test = new RealTimeMonitor();
-            test.Show();
-
-
-
             InitializeComponent();
         }
 
