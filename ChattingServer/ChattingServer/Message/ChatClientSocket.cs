@@ -44,8 +44,7 @@ namespace ChattingServer
                 }
                 catch (Exception ee)
                 {
-                    ChatServer.clientList.Remove(clientNickName);                   
-                    System.Windows.Forms.MessageBox.Show("해당 클라이언트와 연결이 끊겼습니다.from ChatclientSocket");
+                    ChatServer.clientList.Remove(clientNickName);                                    
                     break;
 
                 }

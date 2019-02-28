@@ -16,5 +16,10 @@ namespace MiniERP.View.LogisticsManagement
         {
             InitializeComponent();
         }
+
+        private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

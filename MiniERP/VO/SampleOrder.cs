@@ -10,6 +10,7 @@ namespace MiniERP.VO
     {
         private string order_Code;
 
+
         public string Order_Code
         {
             get { return order_Code; }
@@ -47,6 +48,13 @@ namespace MiniERP.VO
             get { return item_Wrote_Fee; }
             set { item_Wrote_Fee = value; }
         }
+
+        public string Item_unit { get => item_unit; set => item_unit = value; }
+        public string Item_standard { get => item_standard; set => item_standard = value; }
+
+        private string item_unit;
+
+        private string item_standard;
 
 
 

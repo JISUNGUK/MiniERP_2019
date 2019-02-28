@@ -65,7 +65,7 @@ namespace ChattingServer.Message
                         FTPServer.Logger.Text += receivestr+"\n";
                         MachineServer.Broadcast(receivestr, machineName);
 
-                        if (receivestr.Contains("접속종료합니다"))
+                        if (receivestr.Contains("endconnecting"))
                         {
                             MachineServer.machineTable.Remove(machineName);
                             for (int i = 0; i < MachineServer.machineList.Count; i++)

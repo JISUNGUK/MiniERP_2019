@@ -80,6 +80,8 @@
       <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Item_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Item_wrote_fee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Item_unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

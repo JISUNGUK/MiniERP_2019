@@ -767,6 +767,10 @@ namespace MiniERP.Model
 		
 		private int _Item_wrote_fee;
 		
+		private string _Item_standard;
+		
+		private string _Item_unit;
+		
 		public GET_ORDERResult()
 		{
 		}
@@ -831,6 +835,38 @@ namespace MiniERP.Model
 				if ((this._Item_wrote_fee != value))
 				{
 					this._Item_wrote_fee = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
+		public string Item_standard
+		{
+			get
+			{
+				return this._Item_standard;
+			}
+			set
+			{
+				if ((this._Item_standard != value))
+				{
+					this._Item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_unit", DbType="NVarChar(20)")]
+		public string Item_unit
+		{
+			get
+			{
+				return this._Item_unit;
+			}
+			set
+			{
+				if ((this._Item_unit != value))
+				{
+					this._Item_unit = value;
 				}
 			}
 		}

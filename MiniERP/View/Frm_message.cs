@@ -141,11 +141,12 @@ namespace MiniERP.View
 
         private void accessChatting()
         {
+            IAsyncResult access = null;
             try
             {              
-               var access= client.BeginConnect(serverip, 3333,null,null);
+               access= client.BeginConnect(serverip, 3333,null,null);
                 //client.Connect(serverip, 3333);
-                var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+                var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(100));
                 messagedao.Network = client.GetStream();                                                 
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
@@ -160,7 +161,7 @@ namespace MiniERP.View
                 thread.Start();
                 Thread ftptread = new Thread(FTPConnection);
                 ftptread.Start();
-                    reacess.Enabled = false;
+                    //reacess.Enabled = false;
                 }
 
 
@@ -168,8 +169,8 @@ namespace MiniERP.View
             catch (Exception ee)
             {
 
-                MessageBox.Show("서버가 열려있지않습니다");
-                reacess.Enabled = true;
+                MessageBox.Show("서버가 열려있지않습니다 채팅프로그램을 사용하시려면 프로그램을 재시작 해주세요");               
+                //reacess.Enabled = true;
             }
 
 
@@ -198,7 +199,7 @@ namespace MiniERP.View
                 {
 
                     MessageBox.Show(ee.Message);
-                    reacess.Enabled = true;
+                    //reacess.Enabled = true;
                 }
             string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
             if (roomList.SelectedIndex != -1)

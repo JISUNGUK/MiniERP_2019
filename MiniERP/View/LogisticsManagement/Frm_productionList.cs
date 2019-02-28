@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Runtime.InteropServices;
 
 
 
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 
 
 
@@ -21,8 +23,7 @@ namespace MiniERP.View.LogisticsManagement
 {
     public partial class Frm_productionList : Form
     {
-        MiniErpDB miniErp = new MiniErpDB();
-        private bool chkbox = false;
+        MiniErpDB miniErp = new MiniErpDB();       
 
         public Frm_productionList()
         {
@@ -30,39 +31,19 @@ namespace MiniERP.View.LogisticsManagement
             produceGrid.Columns.Add("item_code","품목코드");
             produceGrid.Columns.Add("item_name", "품목명");
             produceGrid.Columns.Add("item_standard", "품목규격");
-            produceGrid.Columns.Add("M", "책정가");
+            produceGrid.Columns.Add("M", "단가");
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (chkbox)
-            {
-                pnl_serchbox.Visible = true;
-                chkbox = false;
-            }
-            else
-            {
-                pnl_serchbox.Visible = false;
-                chkbox = true;
-            }
-        }
+        
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            produceCode.Clear();
-        }
-
-        private void textBox1_Click(object sender, EventArgs e)
-        {
-            produceCode.Clear();
-        }
+        
 
         private void searchPlan_Click(object sender, EventArgs e)
         {
             int i = 0;
             produceGrid.DataSource = null;
-            foreach (var item in miniErp.GET_MANUFACTURE_PLAN(produceCode.Text))
+            foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
             {                
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
@@ -79,29 +60,30 @@ namespace MiniERP.View.LogisticsManagement
             {
                 SaveFileDialog savefile = new SaveFileDialog();
           DialogResult dr=savefile.ShowDialog();
-            if(dr==DialogResult.OK)
+          savefile.FileName = "생산계획서.xls";
+                if (dr==DialogResult.OK)
                 {
-                    Excel.Application excelApp = null;
-                    Excel.Workbook wb = null;
-                    Excel.Worksheet ws = null;
+                    Application excelApp = null;
+                    Workbook wb = null;
+                    Worksheet ws = null;
                     
                                         try
                                         {
                                             // Excel 첫번째 워크시트 가져오기                
-                                            excelApp = new Excel.Application();
-                                            wb = excelApp.Workbooks.Add();
-                                            ws = wb.Worksheets.get_Item(1) as Excel.Worksheet;
+                                            excelApp = new Application();
+                        wb = excelApp.Workbooks.Open(@"D:\erpmini\MiniERP\Resources\생산 계획서.xlsx");
+                                            ws = wb.Worksheets.get_Item(1) as Worksheet;
 
                                             // 데이타 넣기
                                             int r = 1;
-                                             foreach (var d in produceGrid.Rows)
+                                             foreach (DataGridViewRow data in produceGrid.Rows)
                                              {
-                                                 ws.Cells[r, 1] = d;
+                                               //  ws.Cells[r, 1] = data[];
                                                  r++;
                                              }
 
                                              // 엑셀파일 저장
-                                             wb.SaveAs(savefile.FileName+"생산계획서.xlxs", Excel.XlFileFormat.xlWorkbookNormal);
+                                             wb.SaveAs(savefile.FileName, XlFileFormat.xlWorkbookNormal);
                                              wb.Close(true);
                                              excelApp.Quit();
                                          }
@@ -117,5 +99,16 @@ namespace MiniERP.View.LogisticsManagement
 
             } 
                     }
+
+        private void Frm_productionList_Resize(object sender, EventArgs e)
+        {
+            button11.Location = new System.Drawing.Point(ordercode.Width + ordercode.Location.X + 5, ordercode.Location.Y);
+            button7.Location = new System.Drawing.Point(textBox5.Width + textBox5.Location.X + 5, textBox5.Location.Y);
+        }
+
+        private void Frm_productionList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
