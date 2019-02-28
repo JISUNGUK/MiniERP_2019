@@ -131,6 +131,13 @@ namespace MiniERP.Model
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), warehouse_code, item_code);
 			return ((ISingleResult<GET_STOCKResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_DISTRIBUTION")]
+		public ISingleResult<GET_DISTRIBUTIONResult> GET_DISTRIBUTION([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> low_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> max_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string before_warehouse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string after_warehouse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string item_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowsPerPage", DbType="Int")] System.Nullable<int> rowsPerPage)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), low_date, max_date, before_warehouse, after_warehouse, item_code, status, pageNumber, rowsPerPage);
+			return ((ISingleResult<GET_DISTRIBUTIONResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GET_MANUFACTURE_DOCResult
@@ -876,6 +883,140 @@ namespace MiniERP.Model
 				if ((this._Stock_count != value))
 				{
 					this._Stock_count = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_DISTRIBUTIONResult
+	{
+		
+		private string _Distribution_code;
+		
+		private string _Before_warehouse;
+		
+		private string _After_warehouse;
+		
+		private string _Item_code;
+		
+		private string _Item_name;
+		
+		private int _Distribution_count;
+		
+		private string _Distribution_status;
+		
+		public GET_DISTRIBUTIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Distribution_code
+		{
+			get
+			{
+				return this._Distribution_code;
+			}
+			set
+			{
+				if ((this._Distribution_code != value))
+				{
+					this._Distribution_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Before_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Before_warehouse
+		{
+			get
+			{
+				return this._Before_warehouse;
+			}
+			set
+			{
+				if ((this._Before_warehouse != value))
+				{
+					this._Before_warehouse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_After_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string After_warehouse
+		{
+			get
+			{
+				return this._After_warehouse;
+			}
+			set
+			{
+				if ((this._After_warehouse != value))
+				{
+					this._After_warehouse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Item_code
+		{
+			get
+			{
+				return this._Item_code;
+			}
+			set
+			{
+				if ((this._Item_code != value))
+				{
+					this._Item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_name
+		{
+			get
+			{
+				return this._Item_name;
+			}
+			set
+			{
+				if ((this._Item_name != value))
+				{
+					this._Item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
+		public int Distribution_count
+		{
+			get
+			{
+				return this._Distribution_count;
+			}
+			set
+			{
+				if ((this._Distribution_count != value))
+				{
+					this._Distribution_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_status", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Distribution_status
+		{
+			get
+			{
+				return this._Distribution_status;
+			}
+			set
+			{
+				if ((this._Distribution_status != value))
+				{
+					this._Distribution_status = value;
 				}
 			}
 		}

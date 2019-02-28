@@ -36,9 +36,10 @@ namespace MiniERP.View
         private string currentfileName;
         string readData = "";
         private string nickname;
-        private string serverip = "192.168.0.6";
+        private string serverip = "192.168.0.8";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
         private Form1 form;
+        private RealTimeMonitor monitor;
 
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
         private string ownedRoom = "";
@@ -68,6 +69,7 @@ namespace MiniERP.View
         public NetworkStream Network { get => network; set => network = value; }
         public string Windowstate { get => windowstate; set => windowstate = value; }
         public Form1 Form { get => form; set => form = value; }
+        public RealTimeMonitor Monitor { get => monitor; set => monitor = value; }
 
         internal DialogResult logIn;          //  로그인 체커부
 
@@ -613,6 +615,7 @@ namespace MiniERP.View
             {
                 this.TopLevel = true;
                 form.WindowState = FormWindowState.Maximized;
+               
                 //this.Location = new Point(form.Location.X + form.Width - 10, form.Location.Y);
 
             }
@@ -620,12 +623,17 @@ namespace MiniERP.View
             {
                 //this.TopLevel = false;
                 //form.TopLevel = true;
-                form.WindowState = FormWindowState.Normal;
-                
+                if(form!=null)
+                { 
+                    form.WindowState = FormWindowState.Normal;
+                }
+                if(monitor!=null)
+                    monitor.WindowState = FormWindowState.Normal;
             }
             else
             { 
                 form.WindowState = FormWindowState.Minimized;
+                monitor.WindowState = FormWindowState.Minimized;
             }
         }
     }

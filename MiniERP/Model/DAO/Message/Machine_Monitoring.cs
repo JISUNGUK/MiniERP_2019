@@ -32,7 +32,7 @@ namespace MiniERP.Model.DAO.Message
         {
             if (client == null)
             {
-                client = new TcpClient("192.168.0.6", 4444);
+                client = new TcpClient("192.168.0.8", 4444);
                 stream = client.GetStream();
 
                 byte[] name = Encoding.UTF8.GetBytes("master");     //  접속 닉네임? 주라고하드라 추후수정
@@ -41,7 +41,7 @@ namespace MiniERP.Model.DAO.Message
             }
             else if (client.Connected == false)
             {
-                client = new TcpClient("192.168.0.6", 4444);
+                client = new TcpClient("192.168.0.8", 4444);
                 stream = client.GetStream();
             }
 

@@ -110,8 +110,13 @@ namespace MiniERP.View.LogisticsManagement
 
         private void Frm_productionList_Resize(object sender, EventArgs e)
         {
-            button11.Location = new System.Drawing.Point(ordercode.Width + ordercode.Location.X + 5, ordercode.Location.Y);
-            button7.Location = new System.Drawing.Point(itemcode.Width + itemcode.Location.X + 5, itemcode.Location.Y);
+            orderSearch.Location = new System.Drawing.Point(ordercode.Width + ordercode.Location.X + 5, ordercode.Location.Y);          
+            label1.Location = new System.Drawing.Point(label5.Location.X, label5.Location.Y + label5.Height * 3);
+            itemcode.Location = new System.Drawing.Point(ordercode.Location.X, label1.Location.Y);
+            label8.Location = new System.Drawing.Point(searchPlan.Location.X, label1.Location.Y);
+            itemSearch.Location = new System.Drawing.Point(orderSearch.Location.X, label1.Location.Y);
+            itemcount.Location = new System.Drawing.Point(searchPlan.Location.X + searchPlan.Width, label8.Location.Y);
+            
         }
 
         private void Frm_productionList_Load(object sender, EventArgs e)
@@ -120,6 +125,16 @@ namespace MiniERP.View.LogisticsManagement
         }
 
         private void btnFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemSearch_Click(object sender, EventArgs e)
         {
 
         }
