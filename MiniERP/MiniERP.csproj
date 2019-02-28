@@ -36,6 +36,10 @@
     <Reference Include="BarcodeStandard, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BarcodeLib.2.2.1\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -63,6 +67,7 @@
     <Compile Include="Model\DAO\ClerkDAO.cs" />
     <Compile Include="Model\DAO\ItemDAO.cs" />
     <Compile Include="Model\DAO\Message\loginDao.cs" />
+    <Compile Include="Model\DAO\Message\Machine_Monitoring.cs" />
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
@@ -127,6 +132,12 @@
     </Compile>
     <Compile Include="View\Frm_MPDetails.Designer.cs">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RealTimeMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RealTimeMonitor.Designer.cs">
+      <DependentUpon>RealTimeMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StockManagement\Frm_BomDetail.cs">
       <SubType>Form</SubType>
@@ -313,8 +324,20 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
+    <EmbeddedResource Include="Excel\거래 원가 명세서.xlsx" />
+    <EmbeddedResource Include="Excel\견적서.xlsx" />
+    <EmbeddedResource Include="Excel\구매 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\납품 요청서.xlsx" />
+    <EmbeddedResource Include="Excel\매입전표.xlsx" />
+    <EmbeddedResource Include="Excel\생산 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\입고 확인서.xlsx" />
+    <EmbeddedResource Include="Excel\자재 계획서.xlsx" />
+    <EmbeddedResource Include="Excel\자재 투입서.xlsx" />
+    <EmbeddedResource Include="Excel\제품 생산서.xlsx" />
+    <EmbeddedResource Include="Excel\출하 증명서.xlsx" />
     <None Include="Model\MiniErpDB.dbml.layout">
       <DependentUpon>MiniErpDB.dbml</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <EmbeddedResource Include="ToDoList_Detail.resx">
       <DependentUpon>ToDoList_Detail.cs</DependentUpon>
@@ -342,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RealTimeMonitor.resx">
+      <DependentUpon>RealTimeMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_BomDetail.resx">
       <DependentUpon>Frm_BomDetail.cs</DependentUpon>
@@ -463,6 +489,7 @@
     <Folder Include="View\ProductionManagement\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\icon_client.png" />
     <Content Include="Image\닫기버튼.jpg" />
     <Content Include="Image\최대화 버튼.jpg" />
     <None Include="Resources\MaxSizeIcon.png" />
@@ -477,6 +504,26 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

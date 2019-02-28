@@ -10,7 +10,7 @@ namespace MiniErp_Client_jsu
 {
     class Machine
     {
-        private string name = "[머신1]";
+        private string name = "[pc1]";
 
         public string Name
         {
@@ -18,7 +18,7 @@ namespace MiniErp_Client_jsu
             set { name = value; }
         }
 
-        private string ip = "192.168.0.240";
+        private string ip = "192.168.0.6";
 
         public string Ip
         {
@@ -28,11 +28,11 @@ namespace MiniErp_Client_jsu
 
         public Machine()
         {
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            KeyValueConfigurationCollection keyValue = config.AppSettings.Settings;
+            //Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //KeyValueConfigurationCollection keyValue = config.AppSettings.Settings;
 
-            keyValue.Add("name", name);
-            config.Save();
+            //keyValue.Add("name", name);
+            //config.Save();
         }
         
     }

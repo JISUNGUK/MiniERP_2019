@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniERP.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,12 @@ namespace MiniERP.View.LogisticsManagement
         {
             Frm_BusinessSelect businessSelect = new Frm_BusinessSelect();
             businessSelect.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MiniErpDB minierp = new MiniErpDB();
+           // minierp.GET_ORDER("");
         }
     }
 }

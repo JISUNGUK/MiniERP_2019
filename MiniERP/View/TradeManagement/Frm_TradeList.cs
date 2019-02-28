@@ -35,9 +35,14 @@ namespace MiniERP.View.TradeManagement
             TradeDAO tradeDAO = new TradeDAO();
             trades = tradeDAO.GetTrade(low_date.Value,max_date.Value,null);
             gViewTrade.Rows.Clear();
+            string button="";
             foreach (var item in trades)
             {
-                gViewTrade.Rows.Add(item.Trade_standard, item.Trade_code, item.Clerk_name, item.Business_name, item.Item_summary, item.Total_fee, item.Trade_status,item.End_date);
+                if (item.Trade_standard == "판매")
+                    button = "매출전표";
+                else
+                    button = "매입전표";
+                gViewTrade.Rows.Add(item.Trade_standard, item.Trade_code, item.Clerk_name, item.Business_name, item.Item_summary, item.Total_fee, item.Trade_status,item.End_date,button);
             }
         }
 
@@ -48,7 +53,11 @@ namespace MiniERP.View.TradeManagement
 
         private void gViewTrade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           if(gViewTrade.CurrentCell.ColumnIndex==8)
+            {
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.ShowDialog();
+            }
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
