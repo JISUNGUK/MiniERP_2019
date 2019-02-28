@@ -77,13 +77,6 @@ namespace MiniERP.View
             InitializeComponent();
         }
 
-
-
-
-
-
-
-
         #region MDI 패널에 폼 불러오기 메서드
         private void OpenForm(object menuName)
         {

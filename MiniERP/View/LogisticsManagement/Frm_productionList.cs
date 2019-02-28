@@ -57,26 +57,26 @@ namespace MiniERP.View.LogisticsManagement
 
         private void exportExcel_Click(object sender, EventArgs e)
         {
-            if(produceGrid.Rows.Count>0)
+            if (produceGrid.Rows.Count > 0)
             {
                 SaveFileDialog savefile = new SaveFileDialog();
-          DialogResult dr=savefile.ShowDialog();
-          savefile.FileName = "생산계획서.xls";
-                if (dr==DialogResult.OK)
+                DialogResult dr = savefile.ShowDialog();
+                savefile.FileName = "생산계획서.xls";
+                if (dr == DialogResult.OK)
                 {
                     Application excelApp = null;
                     Workbook wb = null;
                     Worksheet ws = null;
-                    
-                                        try
-                                        {
-                                            // Excel 첫번째 워크시트 가져오기                
-                                            excelApp = new Application();
-                        wb = excelApp.Workbooks.Open(@"D:\erpmini\MiniERP\Resources\생산 계획서.xlsx");
-                                            ws = wb.Worksheets.get_Item(1) as Worksheet;
 
-                                            // 데이타 넣기
-                                            int r = 1;
+                    try
+                    {
+                        // Excel 첫번째 워크시트 가져오기                
+                        excelApp = new Application();
+                        wb = excelApp.Workbooks.Open(@"D:\erpmini\MiniERP\Resources\생산 계획서.xlsx");
+                        ws = wb.Worksheets.get_Item(1) as Worksheet;
+
+                        // 데이타 넣기
+                        int r = 1;
                         ws.Cells[10, 4] = order_code.Remove(order_code.IndexOf("_"));
                         ws.Cells[10, 19] = order_code;
                         foreach (DataGridViewRow data in produceGrid.Rows)
@@ -90,21 +90,21 @@ namespace MiniERP.View.LogisticsManagement
 
                         // 엑셀파일 저장
                         wb.SaveAs(savefile.FileName, XlFileFormat.xlWorkbookNormal);
-                                             wb.Close(true);
-                                             excelApp.Quit();
-                                         }
-                                         finally
-                                         {
-                                             // Clean up
-                                             Marshal.ReleaseComObject(ws);
-                                            Marshal.ReleaseComObject(wb);
-                                                Marshal.ReleaseComObject(excelApp);
-                                         }
+                        wb.Close(true);
+                        excelApp.Quit();
+                    }
+                    finally
+                    {
+                        // Clean up
+                        Marshal.ReleaseComObject(ws);
+                        Marshal.ReleaseComObject(wb);
+                        Marshal.ReleaseComObject(excelApp);
+                    }
                 }
 
 
-            } 
-                    }
+            }
+        }
 
         private void Frm_productionList_Resize(object sender, EventArgs e)
         {
