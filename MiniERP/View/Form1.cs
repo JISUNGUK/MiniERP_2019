@@ -514,7 +514,7 @@ namespace MiniERP.View
             frm_message.Form = this;
             frm_message.Nickname = this.nickname;
             frm_message.StartPosition = FormStartPosition.Manual;
-           
+            frm_message.Size = new Size(frm_message.Size.Width, 868);
             frm_message.Show();
             frm_message.Location = new Point(this.Location.X + this.Width - 10, this.Location.Y);
             monitoring = new RealTimeMonitor();
@@ -689,10 +689,6 @@ namespace MiniERP.View
             //tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
         }
 
-        private void Form1_LocationChanged(object sender, EventArgs e)
-        {
-            
-            
-        }
+       
     }
 }

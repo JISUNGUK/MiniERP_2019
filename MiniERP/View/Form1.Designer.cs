@@ -42,6 +42,7 @@ namespace MiniERP.View
             this.견적서조회ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.생산계획서조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.입고확인서조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.물류조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.재고관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.기초등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.품목등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +74,6 @@ namespace MiniERP.View
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.물류조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -152,23 +152,30 @@ namespace MiniERP.View
             // 견적서조회ToolStripMenuItem1
             // 
             this.견적서조회ToolStripMenuItem1.Name = "견적서조회ToolStripMenuItem1";
-            this.견적서조회ToolStripMenuItem1.Size = new System.Drawing.Size(288, 34);
+            this.견적서조회ToolStripMenuItem1.Size = new System.Drawing.Size(258, 34);
             this.견적서조회ToolStripMenuItem1.Text = "견적서 조회";
             this.견적서조회ToolStripMenuItem1.Click += new System.EventHandler(this.MenuClickEvent);
             // 
             // 생산계획서조회ToolStripMenuItem
             // 
             this.생산계획서조회ToolStripMenuItem.Name = "생산계획서조회ToolStripMenuItem";
-            this.생산계획서조회ToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.생산계획서조회ToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
             this.생산계획서조회ToolStripMenuItem.Text = "생산계획서 조회";
             this.생산계획서조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);
             // 
             // 입고확인서조회ToolStripMenuItem
             // 
             this.입고확인서조회ToolStripMenuItem.Name = "입고확인서조회ToolStripMenuItem";
-            this.입고확인서조회ToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.입고확인서조회ToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
             this.입고확인서조회ToolStripMenuItem.Text = "입고확인서 조회";
             this.입고확인서조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);
+            // 
+            // 물류조회ToolStripMenuItem
+            // 
+            this.물류조회ToolStripMenuItem.Name = "물류조회ToolStripMenuItem";
+            this.물류조회ToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
+            this.물류조회ToolStripMenuItem.Text = "물류 조회";
+            this.물류조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);
             // 
             // 재고관리ToolStripMenuItem
             // 
@@ -394,7 +401,7 @@ namespace MiniERP.View
             this.tabControl1.Margin = new System.Windows.Forms.Padding(5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1835, 1074);
+            this.tabControl1.Size = new System.Drawing.Size(1835, 1090);
             this.tabControl1.TabIndex = 7;
             // 
             // splitContainer1
@@ -412,24 +419,17 @@ namespace MiniERP.View
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1835, 1124);
+            this.splitContainer1.Size = new System.Drawing.Size(1835, 1140);
             this.splitContainer1.SplitterDistance = 43;
             this.splitContainer1.SplitterWidth = 7;
             this.splitContainer1.TabIndex = 8;
-            // 
-            // 물류조회ToolStripMenuItem
-            // 
-            this.물류조회ToolStripMenuItem.Name = "물류조회ToolStripMenuItem";
-            this.물류조회ToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
-            this.물류조회ToolStripMenuItem.Text = "물류 조회";
-            this.물류조회ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1835, 1124);
+            this.ClientSize = new System.Drawing.Size(1835, 1140);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStripContainer1);
@@ -442,7 +442,6 @@ namespace MiniERP.View
             this.Text = "MiniErp_Project";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.LocationChanged += new System.EventHandler(this.Form1_LocationChanged);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

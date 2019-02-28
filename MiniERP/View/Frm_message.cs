@@ -124,6 +124,8 @@ namespace MiniERP.View
             }
         }
 
+       
+
         /// <summary>
         /// 서버에서 받은 메시지를 채팅창에 추가
         /// </summary>
@@ -290,8 +292,10 @@ namespace MiniERP.View
                     if (uploadcount > 0)
                     {
                         Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-
                         MessageBox.Show("성공적으로 파일을 업로드 했습니다");
+                        RefreshList();
+
+                       
                        
                     }
 
@@ -573,10 +577,16 @@ namespace MiniERP.View
             Thread downloadThread = new Thread(DownloadFile);
             downloadThread.Start();
 
+
+
         }
 
         private void DownloadFile()
         {
+        if(ServerFileListView.InvokeRequired)
+                this.Invoke(new MethodInvoker(DownloadFile));
+        else
+            { 
             if (ServerFileListView.SelectedItems.Count < 1)
                 return;
 
@@ -598,6 +608,7 @@ namespace MiniERP.View
             }
             save.Dispose();
             RefreshList();
+            }
         }
 
         private void reacess_Click(object sender, EventArgs e)
