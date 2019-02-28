@@ -75,9 +75,24 @@ namespace MiniERP.Model.DAO
             }
         }
 
-        public bool UpdateClerk()
+        public int UpdateClerk(Clerk clerk)
         {
-            throw new NotImplementedException();
+            string storedProcedureName = "UpdateClerk";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("Clerk_code",clerk.Clerk_code),
+                new SqlParameter("Clerk_name",clerk.Clerk_name),
+                new SqlParameter("Clerk_job",clerk.Clerk_job)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public int DeleteClerk(string clerk_code)

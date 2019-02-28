@@ -94,6 +94,12 @@
     <Compile Include="View\BusinessManagement\Frm_ClerkList.Designer.cs">
       <DependentUpon>Frm_ClerkList.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\BusinessManagement\Frm_ClerkUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BusinessManagement\Frm_ClerkUpdate.Designer.cs">
+      <DependentUpon>Frm_ClerkUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_BomDetail.Designer.cs">
       <DependentUpon>Frm_BomDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_BomUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_BomUpdate.Designer.cs">
+      <DependentUpon>Frm_BomUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StockManagement\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
@@ -208,6 +220,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_WarehouseMovement.Designer.cs">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_WarehouseUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_WarehouseUpdate.Designer.cs">
+      <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TradeManagement\Frm_ModifyTrade.cs">
       <SubType>Form</SubType>
@@ -330,6 +348,9 @@
     <EmbeddedResource Include="View\BusinessManagement\Frm_ClerkList.resx">
       <DependentUpon>Frm_ClerkList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\BusinessManagement\Frm_ClerkUpdate.resx">
+      <DependentUpon>Frm_ClerkUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmDashBoard.resx">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_BomDetail.resx">
       <DependentUpon>Frm_BomDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockManagement\Frm_BomUpdate.resx">
+      <DependentUpon>Frm_BomUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ClerkInsert.resx">
       <DependentUpon>Frm_ClerkInsert.cs</DependentUpon>
@@ -386,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_WarehouseMovement.resx">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockManagement\Frm_WarehouseUpdate.resx">
+      <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_ModifyTrade.resx">
       <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
