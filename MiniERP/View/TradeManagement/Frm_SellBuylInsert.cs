@@ -234,6 +234,7 @@ namespace MiniERP.View.TradeManagement
                     MessageBox.Show("DB오류발생");
                 }
             }
+            this.Close();
         }
 
         /// <summary>

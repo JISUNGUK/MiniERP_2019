@@ -33,6 +33,14 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.gView_Order = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalfee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Cleaner = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,14 +67,6 @@
             this.txt_BusinessName = new System.Windows.Forms.TextBox();
             this.txt_BusinessCode = new System.Windows.Forms.TextBox();
             this.lab_TotalPrice = new System.Windows.Forms.Label();
-            this.select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalfee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gView_Order)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +125,56 @@
             this.gView_Order.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gView_Order_CellValueChanged);
             this.gView_Order.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gView_Order_RowsRemoved);
             // 
+            // select
+            // 
+            this.select.HeaderText = "선택";
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.select.Width = 40;
+            // 
+            // code
+            // 
+            this.code.HeaderText = "품목코드";
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "품목명";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "단위";
+            this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
+            // 
+            // standard
+            // 
+            this.standard.HeaderText = "규격";
+            this.standard.Name = "standard";
+            this.standard.ReadOnly = true;
+            // 
+            // count
+            // 
+            this.count.HeaderText = "수량";
+            this.count.Name = "count";
+            // 
+            // fee
+            // 
+            this.fee.HeaderText = "단가";
+            this.fee.Name = "fee";
+            this.fee.ReadOnly = true;
+            // 
+            // totalfee
+            // 
+            this.totalfee.HeaderText = "총액";
+            this.totalfee.Name = "totalfee";
+            this.totalfee.ReadOnly = true;
+            // 
             // btn_Cleaner
             // 
             this.btn_Cleaner.Font = new System.Drawing.Font("굴림", 10F);
@@ -138,6 +188,7 @@
             // 
             // btn_Save
             // 
+            this.btn_Save.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_Save.Font = new System.Drawing.Font("굴림", 10F);
             this.btn_Save.Location = new System.Drawing.Point(21, 386);
             this.btn_Save.Name = "btn_Save";
@@ -391,56 +442,6 @@
             this.lab_TotalPrice.Name = "lab_TotalPrice";
             this.lab_TotalPrice.Size = new System.Drawing.Size(0, 16);
             this.lab_TotalPrice.TabIndex = 141;
-            // 
-            // select
-            // 
-            this.select.HeaderText = "선택";
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.select.Width = 40;
-            // 
-            // code
-            // 
-            this.code.HeaderText = "품목코드";
-            this.code.Name = "code";
-            this.code.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "품목명";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // unit
-            // 
-            this.unit.HeaderText = "단위";
-            this.unit.Name = "unit";
-            this.unit.ReadOnly = true;
-            // 
-            // standard
-            // 
-            this.standard.HeaderText = "규격";
-            this.standard.Name = "standard";
-            this.standard.ReadOnly = true;
-            // 
-            // count
-            // 
-            this.count.HeaderText = "수량";
-            this.count.Name = "count";
-            // 
-            // fee
-            // 
-            this.fee.HeaderText = "단가";
-            this.fee.Name = "fee";
-            this.fee.ReadOnly = true;
-            // 
-            // totalfee
-            // 
-            this.totalfee.HeaderText = "총액";
-            this.totalfee.Name = "totalfee";
-            this.totalfee.ReadOnly = true;
             // 
             // Frm_SellBuyInsert
             // 

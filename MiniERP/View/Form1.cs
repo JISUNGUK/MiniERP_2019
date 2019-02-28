@@ -74,14 +74,7 @@ namespace MiniERP.View
             }
             InitializeComponent();
         }
-
-
-
-
-
-
-
-
+        
         #region MDI 패널에 폼 불러오기 메서드
         private void OpenForm(object menuName)
         {
@@ -413,11 +406,6 @@ namespace MiniERP.View
                     break;
             }
             tabChk = false;
-        }
-
-        private void CloseForm(object test)
-        {
-
         }
 
         private void tsm_Accountregistration_Click(object sender, EventArgs e)
