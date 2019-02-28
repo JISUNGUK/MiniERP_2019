@@ -30,9 +30,6 @@ namespace MiniERP.Model
 		
     #region 확장성 메서드 정의
     partial void OnCreated();
-    partial void InsertWarehouse(Warehouse instance);
-    partial void UpdateWarehouse(Warehouse instance);
-    partial void DeleteWarehouse(Warehouse instance);
     #endregion
 		
 		public MiniErpDB() : 
@@ -63,14 +60,6 @@ namespace MiniERP.Model
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Warehouse> Warehouse
-		{
-			get
-			{
-				return this.GetTable<Warehouse>();
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MODIFY_TRADE")]
@@ -127,116 +116,6 @@ namespace MiniERP.Model
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
 			return ((ISingleResult<GET_ORDERResult>)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Warehouse")]
-	public partial class Warehouse : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Warehouse_code;
-		
-		private string _Warehouse_name;
-		
-		private string _Warehouse_standard;
-		
-    #region 확장성 메서드 정의
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnWarehouse_codeChanging(string value);
-    partial void OnWarehouse_codeChanged();
-    partial void OnWarehouse_nameChanging(string value);
-    partial void OnWarehouse_nameChanged();
-    partial void OnWarehouse_standardChanging(string value);
-    partial void OnWarehouse_standardChanged();
-    #endregion
-		
-		public Warehouse()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Warehouse_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Warehouse_code
-		{
-			get
-			{
-				return this._Warehouse_code;
-			}
-			set
-			{
-				if ((this._Warehouse_code != value))
-				{
-					this.OnWarehouse_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Warehouse_code = value;
-					this.SendPropertyChanged("Warehouse_code");
-					this.OnWarehouse_codeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Warehouse_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Warehouse_name
-		{
-			get
-			{
-				return this._Warehouse_name;
-			}
-			set
-			{
-				if ((this._Warehouse_name != value))
-				{
-					this.OnWarehouse_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Warehouse_name = value;
-					this.SendPropertyChanged("Warehouse_name");
-					this.OnWarehouse_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Warehouse_standard", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Warehouse_standard
-		{
-			get
-			{
-				return this._Warehouse_standard;
-			}
-			set
-			{
-				if ((this._Warehouse_standard != value))
-				{
-					this.OnWarehouse_standardChanging(value);
-					this.SendPropertyChanging();
-					this._Warehouse_standard = value;
-					this.SendPropertyChanged("Warehouse_standard");
-					this.OnWarehouse_standardChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
