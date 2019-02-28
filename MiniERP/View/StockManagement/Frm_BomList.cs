@@ -149,9 +149,18 @@ namespace MiniERP.View.StockManagement
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            Frm_BomUpdate fbu = new Frm_BomUpdate(new BOM()
+            {
+                Item_code = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                Item_name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString()
+            });
+            fbu.ShowDialog();
+            if (fbu.DialogResult1 == DialogResult.Yes)
+            {
+                Display(new BOM());
+            }
         }
     }
 }

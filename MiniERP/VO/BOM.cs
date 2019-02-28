@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniERP.VO
 {
-    class BOM
+    public class BOM
     {
         private string item_code;
         private string item_name;

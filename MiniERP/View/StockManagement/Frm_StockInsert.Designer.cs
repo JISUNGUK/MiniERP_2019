@@ -31,7 +31,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.rdoFactory = new System.Windows.Forms.RadioButton();
@@ -74,16 +73,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("굴림", 10F);
-            this.button1.Location = new System.Drawing.Point(430, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "코드생성";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("굴림", 10F);
@@ -97,7 +86,7 @@
             this.txtCode.Font = new System.Drawing.Font("굴림", 10F);
             this.txtCode.Location = new System.Drawing.Point(99, 5);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(317, 23);
+            this.txtCode.Size = new System.Drawing.Size(406, 23);
             this.txtCode.TabIndex = 16;
             // 
             // rdoFactory
@@ -163,7 +152,6 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.rdoFactory);
@@ -187,7 +175,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.RadioButton rdoFactory;

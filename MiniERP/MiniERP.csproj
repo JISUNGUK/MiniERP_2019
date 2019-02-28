@@ -74,6 +74,9 @@
     <Compile Include="Model\DAO\TradeDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
     <Compile Include="Model\DAO\Message\win32.cs" />
+    <Compile Include="Model\MiniErpDB.cs">
+      <DependentUpon>MiniErpDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Model\MiniErpDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +93,12 @@
     </Compile>
     <Compile Include="View\BusinessManagement\Frm_ClerkList.Designer.cs">
       <DependentUpon>Frm_ClerkList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BusinessManagement\Frm_ClerkUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BusinessManagement\Frm_ClerkUpdate.Designer.cs">
+      <DependentUpon>Frm_ClerkUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmDashBoard.cs">
       <SubType>Form</SubType>
@@ -144,6 +153,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_BomDetail.Designer.cs">
       <DependentUpon>Frm_BomDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_BomUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_BomUpdate.Designer.cs">
+      <DependentUpon>Frm_BomUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StockManagement\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
@@ -211,6 +226,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_WarehouseMovement.Designer.cs">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_WarehouseUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_WarehouseUpdate.Designer.cs">
+      <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TradeManagement\Frm_ModifyTrade.cs">
       <SubType>Form</SubType>
@@ -312,17 +333,17 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
-    <EmbeddedResource Include="Excel\거래 원가 명세서.xlsx" />
-    <EmbeddedResource Include="Excel\견적서.xlsx" />
-    <EmbeddedResource Include="Excel\구매 계획서.xlsx" />
-    <EmbeddedResource Include="Excel\납품 요청서.xlsx" />
-    <EmbeddedResource Include="Excel\매입전표.xlsx" />
-    <EmbeddedResource Include="Excel\생산 계획서.xlsx" />
-    <EmbeddedResource Include="Excel\입고 확인서.xlsx" />
-    <EmbeddedResource Include="Excel\자재 계획서.xlsx" />
-    <EmbeddedResource Include="Excel\자재 투입서.xlsx" />
-    <EmbeddedResource Include="Excel\제품 생산서.xlsx" />
-    <EmbeddedResource Include="Excel\출하 증명서.xlsx" />
+    <EmbeddedResource Include="Resources\거래 원가 명세서.xlsx" />
+    <EmbeddedResource Include="Resources\견적서.xlsx" />
+    <EmbeddedResource Include="Resources\구매 계획서.xlsx" />
+    <EmbeddedResource Include="Resources\납품 요청서.xlsx" />
+    <EmbeddedResource Include="Resources\매입전표.xlsx" />
+    <EmbeddedResource Include="Resources\생산 계획서.xlsx" />
+    <EmbeddedResource Include="Resources\입고 확인서.xlsx" />
+    <EmbeddedResource Include="Resources\자재 계획서.xlsx" />
+    <EmbeddedResource Include="Resources\자재 투입서.xlsx" />
+    <EmbeddedResource Include="Resources\제품 생산서.xlsx" />
+    <EmbeddedResource Include="Resources\출하 증명서.xlsx" />
     <None Include="Model\MiniErpDB.dbml.layout">
       <DependentUpon>MiniErpDB.dbml</DependentUpon>
       <SubType>Designer</SubType>
@@ -332,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\BusinessManagement\Frm_ClerkList.resx">
       <DependentUpon>Frm_ClerkList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BusinessManagement\Frm_ClerkUpdate.resx">
+      <DependentUpon>Frm_ClerkUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmDashBoard.resx">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
@@ -359,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_BomDetail.resx">
       <DependentUpon>Frm_BomDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockManagement\Frm_BomUpdate.resx">
+      <DependentUpon>Frm_BomUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ClerkInsert.resx">
       <DependentUpon>Frm_ClerkInsert.cs</DependentUpon>
@@ -392,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_WarehouseMovement.resx">
       <DependentUpon>Frm_WarehouseMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockManagement\Frm_WarehouseUpdate.resx">
+      <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_ModifyTrade.resx">
       <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
@@ -465,6 +495,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Excel\" />
     <Folder Include="Interface\" />
     <Folder Include="View\AccountingManagement\" />
     <Folder Include="View\Custom\" />
@@ -492,15 +523,6 @@
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
       <VersionMinor>4</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>

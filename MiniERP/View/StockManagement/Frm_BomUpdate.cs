@@ -12,15 +12,22 @@ using MiniERP.VO;
 
 namespace MiniERP.View.StockManagement
 {
-    public partial class Frm_BomInesrt : Form
+    public partial class Frm_BomUpdate : Form
     {
-        private DialogResult dialogResult = DialogResult.None; // 등록하기 버튼을 누른 후 예를 눌렀는지 아니오를 눌렀는지 판별하기 위한 변수입니다.
+        private List<BOM> boms; // DataGridView에 출력할 파츠의 코드, 이름, 소요량을 저장할 리스트입니다.
+        private BOM bom; // 부모폼으로부터 받아오는 bom객체입니다.
+        private DialogResult dialogResult = DialogResult.None; // 수정버튼을 누른 뒤 '예'를 눌렀는지 '아니오'를 눌렀는지 판별하기위한 변수입니다.
 
         public DialogResult DialogResult1 { get => dialogResult; set => dialogResult = value; }
 
-        public Frm_BomInesrt()
+        public Frm_BomUpdate()
         {
             InitializeComponent();
+        }
+
+        public Frm_BomUpdate(BOM bom) : this()
+        {
+            this.bom = bom;
         }
 
         /// <summary>
@@ -45,21 +52,17 @@ namespace MiniERP.View.StockManagement
             }
         }
 
-        private void Frm_BomInesrt_Load(object sender, EventArgs e)
+        private void Frm_BomUpdate_Load(object sender, EventArgs e)
         {
+            txtCode.Text = bom.Item_code + "(" + bom.Item_name + ")";
+            boms = new BomDAO().GetBomDetail(bom.Item_code);
             for (int i = 1; i < dataGridView1.Columns.Count; i++)
             {
-                dataGridView1.Columns[i].Width = dataGridView1.Size.Width  / dataGridView1.Columns.Count - 1;
+                dataGridView1.Columns[i].Width = (dataGridView1.Size.Width - 40) / dataGridView1.Columns.Count - 1;
             }
-        }
-
-        private void btn_ItemAdd_Click(object sender, EventArgs e)
-        {
-            Frm_ItemSelect frm = new Frm_ItemSelect();
-            if (frm.ShowDialog() != DialogResult.Cancel)
+            foreach (var item in boms)
             {
-                Item item = frm.SelectItem;
-                SetGridView(item);
+                dataGridView1.Rows.Add(false, item.Part_code, item.Part_name, item.Part_count);
             }
         }
 
@@ -75,13 +78,19 @@ namespace MiniERP.View.StockManagement
             }
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btn_ItemAdd_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtCode.Text))
+            Frm_ItemSelect frm = new Frm_ItemSelect();
+            if (frm.ShowDialog() != DialogResult.Cancel)
             {
-                MessageBox.Show("품목코드를 입력해주세요.", "품목코드를 입력하지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Item item = frm.SelectItem;
+                SetGridView(item);
             }
-            else if (dataGridView1.Rows.Count < 1)
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count < 1)
             {
                 MessageBox.Show("파츠를 1개 이상 등록해주세요.", "파츠가 등록되지 않았습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -97,10 +106,9 @@ namespace MiniERP.View.StockManagement
                         return;
                     }
                 }
-                
-                if(result && MessageBox.Show("BOM을 등록하시겠습니까?", "BOM 등록", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (result && MessageBox.Show("BOM을 수정하시겠습니까?", "BOM 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string itemCode = txtCode.Text;
+                    string itemCode = bom.Item_code;
                     string partCode = String.Empty; // 파츠의 코드(구분 문자열 : |)
                     string partCount = String.Empty; // 파츠의 개수(구분 문자열 : |)
 
@@ -114,24 +122,15 @@ namespace MiniERP.View.StockManagement
 
                     if (new BomDAO().InsertBom(itemCode, partCode, partCount) != 0)
                     {
-                        MessageBox.Show("새로운 품목의 BOM을 등록했습니다.", "등록 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dialogResult = DialogResult.Yes;
+                        MessageBox.Show("BOM을 수정했습니다.", "수정 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult1 = DialogResult.Yes;
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("등록에 실패했습니다.", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("수정에 실패했습니다.", "수정 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-        }
-
-        private void btn_ItemSelect_Click(object sender, EventArgs e)
-        {
-            Frm_ItemSelect fis = new Frm_ItemSelect();
-            if (fis.ShowDialog() == DialogResult.OK)
-            {
-                txtCode.Text = fis.SelectItem.Item_code;
             }
         }
     }
