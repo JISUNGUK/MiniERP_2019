@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_StockListReal));
             this.gVIewStock = new System.Windows.Forms.DataGridView();
+            this.warehouse_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouse_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_serch = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txt_WareName = new System.Windows.Forms.TextBox();
@@ -40,12 +46,6 @@
             this.txt_ItemCode = new System.Windows.Forms.TextBox();
             this.btn_Item = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.warehouse_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouse_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gVIewStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,72 +69,6 @@
             this.gVIewStock.RowHeadersVisible = false;
             this.gVIewStock.RowTemplate.Height = 23;
             this.gVIewStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            // 
-            // btn_serch
-            // 
-            resources.ApplyResources(this.btn_serch, "btn_serch");
-            this.btn_serch.Name = "btn_serch";
-            this.btn_serch.UseVisualStyleBackColor = true;
-            this.btn_serch.Click += new System.EventHandler(this.btn_serch_Click);
-            // 
-            // btnInsert
-            // 
-            resources.ApplyResources(this.btnInsert, "btnInsert");
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // txt_WareName
-            // 
-            this.txt_WareName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.txt_WareName, "txt_WareName");
-            this.txt_WareName.Name = "txt_WareName";
-            this.txt_WareName.ReadOnly = true;
-            // 
-            // btn_Warehouse
-            // 
-            this.btn_Warehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            resources.ApplyResources(this.btn_Warehouse, "btn_Warehouse");
-            this.btn_Warehouse.Name = "btn_Warehouse";
-            this.btn_Warehouse.UseVisualStyleBackColor = true;
-            // 
-            // txt_WareCode
-            // 
-            this.txt_WareCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.txt_WareCode, "txt_WareCode");
-            this.txt_WareCode.Name = "txt_WareCode";
-            this.txt_WareCode.ReadOnly = true;
-            // 
-            // lab_Warehouse
-            // 
-            resources.ApplyResources(this.lab_Warehouse, "lab_Warehouse");
-            this.lab_Warehouse.Name = "lab_Warehouse";
-            // 
-            // txt_ItemName
-            // 
-            this.txt_ItemName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.txt_ItemName, "txt_ItemName");
-            this.txt_ItemName.Name = "txt_ItemName";
-            this.txt_ItemName.ReadOnly = true;
-            // 
-            // txt_ItemCode
-            // 
-            this.txt_ItemCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.txt_ItemCode, "txt_ItemCode");
-            this.txt_ItemCode.Name = "txt_ItemCode";
-            this.txt_ItemCode.ReadOnly = true;
-            // 
-            // btn_Item
-            // 
-            this.btn_Item.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            resources.ApplyResources(this.btn_Item, "btn_Item");
-            this.btn_Item.Name = "btn_Item";
-            this.btn_Item.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
             // 
             // warehouse_code
             // 
@@ -172,7 +106,75 @@
             this.item_count.Name = "item_count";
             this.item_count.ReadOnly = true;
             // 
-            // Frm_StockList
+            // btn_serch
+            // 
+            resources.ApplyResources(this.btn_serch, "btn_serch");
+            this.btn_serch.Name = "btn_serch";
+            this.btn_serch.UseVisualStyleBackColor = true;
+            this.btn_serch.Click += new System.EventHandler(this.btn_serch_Click);
+            // 
+            // btnInsert
+            // 
+            resources.ApplyResources(this.btnInsert, "btnInsert");
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // txt_WareName
+            // 
+            this.txt_WareName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.txt_WareName, "txt_WareName");
+            this.txt_WareName.Name = "txt_WareName";
+            this.txt_WareName.ReadOnly = true;
+            // 
+            // btn_Warehouse
+            // 
+            this.btn_Warehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            resources.ApplyResources(this.btn_Warehouse, "btn_Warehouse");
+            this.btn_Warehouse.Name = "btn_Warehouse";
+            this.btn_Warehouse.UseVisualStyleBackColor = true;
+            this.btn_Warehouse.Click += new System.EventHandler(this.btn_Text_Click);
+            // 
+            // txt_WareCode
+            // 
+            this.txt_WareCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.txt_WareCode, "txt_WareCode");
+            this.txt_WareCode.Name = "txt_WareCode";
+            this.txt_WareCode.ReadOnly = true;
+            // 
+            // lab_Warehouse
+            // 
+            resources.ApplyResources(this.lab_Warehouse, "lab_Warehouse");
+            this.lab_Warehouse.Name = "lab_Warehouse";
+            // 
+            // txt_ItemName
+            // 
+            this.txt_ItemName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.txt_ItemName, "txt_ItemName");
+            this.txt_ItemName.Name = "txt_ItemName";
+            this.txt_ItemName.ReadOnly = true;
+            // 
+            // txt_ItemCode
+            // 
+            this.txt_ItemCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.txt_ItemCode, "txt_ItemCode");
+            this.txt_ItemCode.Name = "txt_ItemCode";
+            this.txt_ItemCode.ReadOnly = true;
+            // 
+            // btn_Item
+            // 
+            this.btn_Item.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            resources.ApplyResources(this.btn_Item, "btn_Item");
+            this.btn_Item.Name = "btn_Item";
+            this.btn_Item.UseVisualStyleBackColor = true;
+            this.btn_Item.Click += new System.EventHandler(this.btn_Text_Click);
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // Frm_StockListReal
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -187,7 +189,7 @@
             this.Controls.Add(this.gVIewStock);
             this.Controls.Add(this.btn_serch);
             this.Controls.Add(this.btnInsert);
-            this.Name = "Frm_StockList";
+            this.Name = "Frm_StockListReal";
             ((System.ComponentModel.ISupportInitialize)(this.gVIewStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
