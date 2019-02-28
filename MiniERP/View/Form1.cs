@@ -397,7 +397,7 @@ namespace MiniERP.View
                     }
                 case "창고 등록":
                     {
-                        Frm_StockInsert stockInsert = new Frm_StockInsert();
+                        StockManagement.Frm_StockInsert stockInsert = new StockManagement.Frm_StockInsert();
 
                         stockInsert.Show();  // 폼 실행
                         break;
@@ -415,8 +415,28 @@ namespace MiniERP.View
                     tabChk = true;
                     break;
 
+                case "재고 조회":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
 
-              
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_StockListReal stockListReal = new Frm_StockListReal();
+                    stockListReal.ControlBox = false; // 컨트롤 상자 없애기
+                    stockListReal.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    stockListReal.MdiParent = this; // MDI 설정
+                    stockListReal.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(stockListReal); // 판넬에 설정한 폼 넣기
+                    stockListReal.Show();  // 폼 실행
+                    #endregion
+                    Add_CloseBtn(stockListReal); // 폼에 닫기 버튼 생성
+                    tabChk = true;
+                    break;
 
                 default:
                     MessageBox.Show("해당 폼이 없습니다.");
@@ -654,14 +674,5 @@ namespace MiniERP.View
             }
             
         }
-
-        
-
-        private void 전표관리ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }

@@ -117,6 +117,20 @@ namespace MiniERP.Model
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
 			return ((ISingleResult<GET_ORDERResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SET_STOCK_ITEM")]
+		public int SET_STOCK_ITEM([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string item_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string warehouse_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> stock_count)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), item_code, warehouse_code, stock_count);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_STOCK")]
+		public ISingleResult<GET_STOCKResult> GET_STOCK([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string warehouse_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string item_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), warehouse_code, item_code);
+			return ((ISingleResult<GET_STOCKResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GET_MANUFACTURE_DOCResult
@@ -746,6 +760,122 @@ namespace MiniERP.Model
 				if ((this._Item_unit != value))
 				{
 					this._Item_unit = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_STOCKResult
+	{
+		
+		private string _Item_code;
+		
+		private string _Item_name;
+		
+		private string _Warehouse_code;
+		
+		private string _Warehouse_name;
+		
+		private string _Item_standard;
+		
+		private int _Stock_count;
+		
+		public GET_STOCKResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Item_code
+		{
+			get
+			{
+				return this._Item_code;
+			}
+			set
+			{
+				if ((this._Item_code != value))
+				{
+					this._Item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_name
+		{
+			get
+			{
+				return this._Item_name;
+			}
+			set
+			{
+				if ((this._Item_name != value))
+				{
+					this._Item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Warehouse_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Warehouse_code
+		{
+			get
+			{
+				return this._Warehouse_code;
+			}
+			set
+			{
+				if ((this._Warehouse_code != value))
+				{
+					this._Warehouse_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Warehouse_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Warehouse_name
+		{
+			get
+			{
+				return this._Warehouse_name;
+			}
+			set
+			{
+				if ((this._Warehouse_name != value))
+				{
+					this._Warehouse_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
+		public string Item_standard
+		{
+			get
+			{
+				return this._Item_standard;
+			}
+			set
+			{
+				if ((this._Item_standard != value))
+				{
+					this._Item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_count", DbType="Int NOT NULL")]
+		public int Stock_count
+		{
+			get
+			{
+				return this._Stock_count;
+			}
+			set
+			{
+				if ((this._Stock_count != value))
+				{
+					this._Stock_count = value;
 				}
 			}
 		}
