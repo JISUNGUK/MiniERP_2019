@@ -127,6 +127,12 @@
     <Compile Include="View\Frm_MPDetails.Designer.cs">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Frm_PrintDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_PrintDisplay.Designer.cs">
+      <DependentUpon>Frm_PrintDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RealTimeMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_PrintDisplay.resx">
+      <DependentUpon>Frm_PrintDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RealTimeMonitor.resx">
       <DependentUpon>RealTimeMonitor.cs</DependentUpon>

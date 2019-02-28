@@ -328,7 +328,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 846);
+            this.ClientSize = new System.Drawing.Size(486, 860);
             this.Controls.Add(this.reacess);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
@@ -355,6 +355,7 @@
             this.Controls.Add(this.memberList);
             this.Controls.Add(this.roomName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Frm_message";
             this.Text = "Frm_message";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_message_FormClosing);
