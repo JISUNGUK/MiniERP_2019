@@ -32,24 +32,24 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkCase = new System.Windows.Forms.CheckBox();
+            this.chkFrag = new System.Windows.Forms.CheckBox();
+            this.chkMob = new System.Windows.Forms.CheckBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.itemcode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.ordercode = new System.Windows.Forms.TextBox();
             this.searchPlan = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.produceGrid = new System.Windows.Forms.DataGridView();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnFind = new System.Windows.Forms.Button();
             this.pnl_serchbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produceGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // exportExcel
@@ -91,16 +91,15 @@
             this.pnl_serchbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_serchbox.Controls.Add(this.checkBox3);
-            this.pnl_serchbox.Controls.Add(this.checkBox2);
-            this.pnl_serchbox.Controls.Add(this.checkBox1);
+            this.pnl_serchbox.Controls.Add(this.btnFind);
+            this.pnl_serchbox.Controls.Add(this.numericUpDown1);
+            this.pnl_serchbox.Controls.Add(this.chkCase);
+            this.pnl_serchbox.Controls.Add(this.chkFrag);
+            this.pnl_serchbox.Controls.Add(this.chkMob);
             this.pnl_serchbox.Controls.Add(this.button7);
             this.pnl_serchbox.Controls.Add(this.button11);
             this.pnl_serchbox.Controls.Add(this.label11);
-            this.pnl_serchbox.Controls.Add(this.textBox7);
-            this.pnl_serchbox.Controls.Add(this.textBox6);
-            this.pnl_serchbox.Controls.Add(this.textBox5);
-            this.pnl_serchbox.Controls.Add(this.label9);
+            this.pnl_serchbox.Controls.Add(this.itemcode);
             this.pnl_serchbox.Controls.Add(this.label8);
             this.pnl_serchbox.Controls.Add(this.ordercode);
             this.pnl_serchbox.Controls.Add(this.searchPlan);
@@ -108,45 +107,45 @@
             this.pnl_serchbox.Controls.Add(this.label5);
             this.pnl_serchbox.Location = new System.Drawing.Point(12, 12);
             this.pnl_serchbox.Name = "pnl_serchbox";
-            this.pnl_serchbox.Size = new System.Drawing.Size(799, 150);
+            this.pnl_serchbox.Size = new System.Drawing.Size(795, 150);
             this.pnl_serchbox.TabIndex = 87;
             // 
-            // checkBox3
+            // chkCase
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(289, 112);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(86, 16);
-            this.checkBox3.TabIndex = 134;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkCase.AutoSize = true;
+            this.chkCase.Location = new System.Drawing.Point(289, 112);
+            this.chkCase.Name = "chkCase";
+            this.chkCase.Size = new System.Drawing.Size(60, 16);
+            this.chkCase.TabIndex = 134;
+            this.chkCase.Text = "케이스";
+            this.chkCase.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkFrag
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(197, 112);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(86, 16);
-            this.checkBox2.TabIndex = 133;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkFrag.AutoSize = true;
+            this.chkFrag.Location = new System.Drawing.Point(197, 112);
+            this.chkFrag.Name = "chkFrag";
+            this.chkFrag.Size = new System.Drawing.Size(48, 16);
+            this.chkFrag.TabIndex = 133;
+            this.chkFrag.Text = "부품";
+            this.chkFrag.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkMob
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(105, 112);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 16);
-            this.checkBox1.TabIndex = 132;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkMob.AutoSize = true;
+            this.chkMob.Location = new System.Drawing.Point(105, 112);
+            this.chkMob.Name = "chkMob";
+            this.chkMob.Size = new System.Drawing.Size(60, 16);
+            this.chkMob.TabIndex = 132;
+            this.chkMob.Text = "휴대폰";
+            this.chkMob.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
             this.button7.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.Font = new System.Drawing.Font("굴림", 10F);
-            this.button7.Location = new System.Drawing.Point(746, 37);
+            this.button7.Location = new System.Drawing.Point(334, 59);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(25, 25);
             this.button7.TabIndex = 131;
@@ -157,7 +156,7 @@
             this.button11.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button11.Font = new System.Drawing.Font("굴림", 10F);
-            this.button11.Location = new System.Drawing.Point(320, 14);
+            this.button11.Location = new System.Drawing.Point(334, 14);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(25, 25);
             this.button11.TabIndex = 129;
@@ -172,43 +171,19 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "규격";
             // 
-            // textBox7
+            // itemcode
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(458, 86);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(252, 21);
-            this.textBox7.TabIndex = 14;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(105, 76);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(209, 21);
-            this.textBox6.TabIndex = 13;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(467, 37);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(252, 21);
-            this.textBox5.TabIndex = 12;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 76);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "품목이름";
+            this.itemcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemcode.Location = new System.Drawing.Point(101, 59);
+            this.itemcode.Name = "itemcode";
+            this.itemcode.Size = new System.Drawing.Size(209, 21);
+            this.itemcode.TabIndex = 12;
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(387, 86);
+            this.label8.Location = new System.Drawing.Point(371, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 12);
             this.label8.TabIndex = 10;
@@ -216,7 +191,7 @@
             // 
             // ordercode
             // 
-            this.ordercode.Location = new System.Drawing.Point(105, 16);
+            this.ordercode.Location = new System.Drawing.Point(105, 14);
             this.ordercode.Name = "ordercode";
             this.ordercode.Size = new System.Drawing.Size(209, 21);
             this.ordercode.TabIndex = 8;
@@ -224,7 +199,7 @@
             // searchPlan
             // 
             this.searchPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchPlan.Location = new System.Drawing.Point(716, 113);
+            this.searchPlan.Location = new System.Drawing.Point(373, 16);
             this.searchPlan.Name = "searchPlan";
             this.searchPlan.Size = new System.Drawing.Size(75, 23);
             this.searchPlan.TabIndex = 6;
@@ -236,7 +211,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(387, 37);
+            this.label1.Location = new System.Drawing.Point(14, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 3;
@@ -245,7 +220,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 16);
+            this.label5.Location = new System.Drawing.Point(18, 14);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 2;
@@ -260,14 +235,32 @@
             this.produceGrid.Location = new System.Drawing.Point(12, 164);
             this.produceGrid.Name = "produceGrid";
             this.produceGrid.RowTemplate.Height = 23;
-            this.produceGrid.Size = new System.Drawing.Size(799, 416);
+            this.produceGrid.Size = new System.Drawing.Size(795, 416);
             this.produceGrid.TabIndex = 78;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(451, 64);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(252, 21);
+            this.numericUpDown1.TabIndex = 135;
+            // 
+            // btnFind
+            // 
+            this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFind.Location = new System.Drawing.Point(628, 102);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(75, 23);
+            this.btnFind.TabIndex = 136;
+            this.btnFind.Text = "찾기";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // Frm_productionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 621);
+            this.ClientSize = new System.Drawing.Size(819, 621);
             this.Controls.Add(this.exportExcel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button5);
@@ -280,6 +273,7 @@
             this.pnl_serchbox.ResumeLayout(false);
             this.pnl_serchbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produceGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,21 +284,20 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel pnl_serchbox;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkCase;
+        private System.Windows.Forms.CheckBox chkFrag;
+        private System.Windows.Forms.CheckBox chkMob;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox itemcode;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox ordercode;
         private System.Windows.Forms.Button searchPlan;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView produceGrid;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

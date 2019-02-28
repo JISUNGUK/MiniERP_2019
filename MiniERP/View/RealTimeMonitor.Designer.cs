@@ -68,15 +68,15 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.richTextBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.txt_Log);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer1.Panel2.Controls.Add(this.txt_Log);
-            this.splitContainer1.Size = new System.Drawing.Size(426, 579);
-            this.splitContainer1.SplitterDistance = 383;
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer1.Size = new System.Drawing.Size(1168, 211);
+            this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 20;
             // 
             // panel1
@@ -91,16 +91,16 @@
             this.panel1.Controls.Add(this.pc2);
             this.panel1.Controls.Add(this.check_pc1);
             this.panel1.Controls.Add(this.pc1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 286);
+            this.panel1.Size = new System.Drawing.Size(647, 130);
             this.panel1.TabIndex = 31;
             // 
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.Enabled = false;
-            this.checkBox5.Location = new System.Drawing.Point(288, 262);
+            this.checkBox5.Location = new System.Drawing.Point(532, 106);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(56, 16);
             this.checkBox5.TabIndex = 39;
@@ -114,7 +114,7 @@
             this.pc5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pc5.Enabled = false;
             this.pc5.Image = global::MiniERP.Properties.Resources.icon_client;
-            this.pc5.Location = new System.Drawing.Point(288, 166);
+            this.pc5.Location = new System.Drawing.Point(532, 10);
             this.pc5.Name = "pc5";
             this.pc5.Size = new System.Drawing.Size(94, 89);
             this.pc5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,7 +126,7 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Enabled = false;
-            this.checkBox4.Location = new System.Drawing.Point(162, 262);
+            this.checkBox4.Location = new System.Drawing.Point(406, 106);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(56, 16);
             this.checkBox4.TabIndex = 37;
@@ -140,7 +140,7 @@
             this.pc4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pc4.Enabled = false;
             this.pc4.Image = global::MiniERP.Properties.Resources.icon_client;
-            this.pc4.Location = new System.Drawing.Point(162, 166);
+            this.pc4.Location = new System.Drawing.Point(406, 10);
             this.pc4.Name = "pc4";
             this.pc4.Size = new System.Drawing.Size(94, 89);
             this.pc4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,15 +230,15 @@
             this.groupBox1.Controls.Add(this.btn_reBoot);
             this.groupBox1.Controls.Add(this.btn_Exit);
             this.groupBox1.Controls.Add(this.btn_inputCountRequest);
-            this.groupBox1.Location = new System.Drawing.Point(12, 316);
+            this.groupBox1.Location = new System.Drawing.Point(12, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 54);
+            this.groupBox1.Size = new System.Drawing.Size(1144, 44);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             // 
             // btn_reBoot
             // 
-            this.btn_reBoot.Location = new System.Drawing.Point(283, 20);
+            this.btn_reBoot.Location = new System.Drawing.Point(274, 15);
             this.btn_reBoot.Name = "btn_reBoot";
             this.btn_reBoot.Size = new System.Drawing.Size(113, 23);
             this.btn_reBoot.TabIndex = 2;
@@ -248,7 +248,7 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(144, 20);
+            this.btn_Exit.Location = new System.Drawing.Point(146, 15);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(113, 23);
             this.btn_Exit.TabIndex = 1;
@@ -258,7 +258,7 @@
             // 
             // btn_inputCountRequest
             // 
-            this.btn_inputCountRequest.Location = new System.Drawing.Point(6, 20);
+            this.btn_inputCountRequest.Location = new System.Drawing.Point(6, 15);
             this.btn_inputCountRequest.Name = "btn_inputCountRequest";
             this.btn_inputCountRequest.Size = new System.Drawing.Size(113, 23);
             this.btn_inputCountRequest.TabIndex = 0;
@@ -268,21 +268,19 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 21);
+            this.richTextBox1.Location = new System.Drawing.Point(665, 39);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(426, 171);
+            this.richTextBox1.Size = new System.Drawing.Size(491, 102);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // txt_Log
             // 
-            this.txt_Log.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_Log.Enabled = false;
-            this.txt_Log.Location = new System.Drawing.Point(0, 0);
+            this.txt_Log.Location = new System.Drawing.Point(665, 12);
             this.txt_Log.Name = "txt_Log";
-            this.txt_Log.Size = new System.Drawing.Size(426, 21);
+            this.txt_Log.Size = new System.Drawing.Size(491, 21);
             this.txt_Log.TabIndex = 0;
             this.txt_Log.TextChanged += new System.EventHandler(this.txt_Log_TextChanged);
             // 
@@ -290,15 +288,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 579);
+            this.ClientSize = new System.Drawing.Size(1168, 211);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RealTimeMonitor";
             this.Text = "RealTimeMonitor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RealTimeMonitor_FormClosing);
             this.Load += new System.EventHandler(this.RealTimeMonitor_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

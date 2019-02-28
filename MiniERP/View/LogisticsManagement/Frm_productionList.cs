@@ -32,7 +32,7 @@ namespace MiniERP.View.LogisticsManagement
             produceGrid.Columns.Add("item_code","품목코드");
             produceGrid.Columns.Add("item_name", "품목명");
             produceGrid.Columns.Add("item_standard", "품목규격");
-            produceGrid.Columns.Add("M", "단가");
+            produceGrid.Columns.Add("M", "수량");
 
         }
 
@@ -57,7 +57,8 @@ namespace MiniERP.View.LogisticsManagement
 
         private void exportExcel_Click(object sender, EventArgs e)
         {
-            if(produceGrid.Rows.Count>0)
+           
+            if (produceGrid.Rows.Count>0)
             {
                 SaveFileDialog savefile = new SaveFileDialog();
           DialogResult dr=savefile.ShowDialog();
@@ -72,19 +73,20 @@ namespace MiniERP.View.LogisticsManagement
                                         {
                                             // Excel 첫번째 워크시트 가져오기                
                                             excelApp = new Application();
-                        wb = excelApp.Workbooks.Open(@"D:\erpmini\MiniERP\Resources\생산 계획서.xlsx");
+                        MessageBox.Show(System.Environment.CurrentDirectory);
+                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory+"\\resources"+"\\구매 계획서.xlsx");
                                             ws = wb.Worksheets.get_Item(1) as Worksheet;
 
                                             // 데이타 넣기
-                                            int r = 1;
+                                            int r = 13;
                         ws.Cells[10, 4] = order_code.Remove(order_code.IndexOf("_"));
                         ws.Cells[10, 19] = order_code;
                         foreach (DataGridViewRow data in produceGrid.Rows)
                         {
-                            ws.Cells[r, 2] = data.Cells[1].Value;
-                            ws.Cells[r, 8] = data.Cells[0].Value;
-                            ws.Cells[r, 14] = data.Cells[5].Value;
-                            ws.Cells[r, 20] = data.Cells[2].Value;
+                            ws.Cells[r, 2] = data.Cells[0].Value;
+                            ws.Cells[r, 6] = data.Cells[1].Value;
+                            ws.Cells[r, 14] = data.Cells[2].Value;
+                            ws.Cells[r, 20] = data.Cells[3].Value;
                             r++;
                         }
 
@@ -109,10 +111,15 @@ namespace MiniERP.View.LogisticsManagement
         private void Frm_productionList_Resize(object sender, EventArgs e)
         {
             button11.Location = new System.Drawing.Point(ordercode.Width + ordercode.Location.X + 5, ordercode.Location.Y);
-            button7.Location = new System.Drawing.Point(textBox5.Width + textBox5.Location.X + 5, textBox5.Location.Y);
+            button7.Location = new System.Drawing.Point(itemcode.Width + itemcode.Location.X + 5, itemcode.Location.Y);
         }
 
         private void Frm_productionList_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
         {
 
         }

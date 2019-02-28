@@ -17,7 +17,13 @@ namespace MiniERP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Form1 form = new Form1();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new System.Drawing.Point(262, 8);
+
+            Application.Run(form);
+
         }
     }
 }

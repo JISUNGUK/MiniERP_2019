@@ -52,7 +52,7 @@ namespace MiniERP.VO
                     new Status(2,"승인"),
                     new Status(2,"취소"),
                     new Status(3,"생산"),
-                    new Status(3,"출하대기중"),
+                    new Status(3,"출하대기"),
                     new Status(3,"취소"),
                     new Status(4,"출하완료"),
                     new Status(4,"취소"),
