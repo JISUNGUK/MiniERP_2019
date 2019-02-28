@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ERP_INFO" Class="MiniErpDB" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=tokoyy.database.windows.net;Initial Catalog=ERP_INFO;Persist Security Info=True;User ID=GD" SettingsObjectName="MiniERP.Properties.Settings" SettingsPropertyName="ERP_INFOConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Warehouse" Member="Warehouse">
-    <Type Name="Warehouse">
-      <Column Name="Warehouse_code" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Warehouse_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Warehouse_standard" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Function Name="dbo.MODIFY_TRADE" Method="MODIFY_TRADE">
     <Parameter Name="trade_code" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="clerk_code" Type="System.String" DbType="NVarChar(20)" />

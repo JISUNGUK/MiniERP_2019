@@ -1,12 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MiniErpDB">
   <DataContextMoniker Name="/MiniErpDB" />
-  <nestedChildShapes>
-    <classShape Id="919620e7-6c64-4c8c-ad38-a404c0f85609" absoluteBounds="5, 2.125, 2, 1.3862939453125">
-      <DataClassMoniker Name="/MiniErpDB/Warehouse" />
-      <nestedChildShapes>
-        <elementListCompartment Id="47aa06e7-c215-4208-b7f9-fdb8f87e5b5e" absoluteBounds="5.015, 2.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-  </nestedChildShapes>
 </ordesignerObjectsDiagram>

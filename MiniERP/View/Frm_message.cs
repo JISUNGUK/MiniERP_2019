@@ -146,7 +146,7 @@ namespace MiniERP.View
             {              
                access= client.BeginConnect(serverip, 3333,null,null);
                 //client.Connect(serverip, 3333);
-                var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(100));
+                var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
                 messagedao.Network = client.GetStream();                                                 
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성

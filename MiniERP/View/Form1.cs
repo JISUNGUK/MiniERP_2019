@@ -455,19 +455,17 @@ namespace MiniERP.View
             this.WindowState = FormWindowState.Normal;
             frm_message = new Frm_message();
             frm_message.Form = this;
-<<<<<<< HEAD
+
             frm_message.Nickname = this.nickname;            
             frm_message.Show();
             frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y);
 
 
-=======
+
             frm_message.Nickname = this.nickname;
             frm_message.Location = new Point(this.Location.X + this.Width, this.Location.Y); frm_message.Show();
 
-            //monitoring = new RealTimeMonitor();
-            //monitoring.Show();           
->>>>>>> 9382189531c60c5a80b0bf7b8d6a8a5efbbff52a
+      
         }
 
         #region 프로그램 종료시 대화상자 이벤트
