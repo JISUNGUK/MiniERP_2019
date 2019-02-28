@@ -61,7 +61,7 @@
             // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(357, 690);
+            this.Refresh.Location = new System.Drawing.Point(408, 626);
             this.Refresh.Name = "Refresh";
             this.Refresh.Size = new System.Drawing.Size(87, 23);
             this.Refresh.TabIndex = 44;
@@ -72,7 +72,7 @@
             // additionFile
             // 
             this.additionFile.AutoSize = true;
-            this.additionFile.Location = new System.Drawing.Point(317, 645);
+            this.additionFile.Location = new System.Drawing.Point(317, 626);
             this.additionFile.Margin = new System.Windows.Forms.Padding(2);
             this.additionFile.Name = "additionFile";
             this.additionFile.Size = new System.Drawing.Size(96, 16);
@@ -89,11 +89,11 @@
             this.Size});
             this.ServerFileListView.FullRowSelect = true;
             this.ServerFileListView.GridLines = true;
-            this.ServerFileListView.Location = new System.Drawing.Point(34, 719);
+            this.ServerFileListView.Location = new System.Drawing.Point(58, 666);
             this.ServerFileListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ServerFileListView.MultiSelect = false;
             this.ServerFileListView.Name = "ServerFileListView";
-            this.ServerFileListView.Size = new System.Drawing.Size(446, 336);
+            this.ServerFileListView.Size = new System.Drawing.Size(436, 336);
             this.ServerFileListView.TabIndex = 42;
             this.ServerFileListView.UseCompatibleStateImageBehavior = false;
             this.ServerFileListView.View = System.Windows.Forms.View.Details;
@@ -121,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 704);
+            this.label4.Location = new System.Drawing.Point(0, 677);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 41;
@@ -130,7 +130,7 @@
             // fileImage
             // 
             this.fileImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.fileImage.Location = new System.Drawing.Point(110, 635);
+            this.fileImage.Location = new System.Drawing.Point(44, 621);
             this.fileImage.Name = "fileImage";
             this.fileImage.Size = new System.Drawing.Size(39, 39);
             this.fileImage.TabIndex = 40;
@@ -168,7 +168,7 @@
             // filel
             // 
             this.filel.AutoSize = true;
-            this.filel.Location = new System.Drawing.Point(41, 676);
+            this.filel.Location = new System.Drawing.Point(85, 624);
             this.filel.Name = "filel";
             this.filel.Size = new System.Drawing.Size(61, 12);
             this.filel.TabIndex = 34;
@@ -272,7 +272,7 @@
             // filelabel1
             // 
             this.filelabel1.AutoSize = true;
-            this.filelabel1.Location = new System.Drawing.Point(108, 677);
+            this.filelabel1.Location = new System.Drawing.Point(152, 624);
             this.filelabel1.Name = "filelabel1";
             this.filelabel1.Size = new System.Drawing.Size(0, 12);
             this.filelabel1.TabIndex = 45;
@@ -317,7 +317,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 846);
+            this.ClientSize = new System.Drawing.Size(507, 1010);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -343,6 +343,7 @@
             this.Controls.Add(this.memberList);
             this.Controls.Add(this.roomName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Frm_message";
             this.Text = "Frm_message";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_message_FormClosing);
