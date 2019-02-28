@@ -23,6 +23,7 @@ namespace MiniERP.View.LogisticsManagement
 {
     public partial class Frm_productionList : Form
     {
+        private string order_code = "";
         MiniErpDB miniErp = new MiniErpDB();       
 
         public Frm_productionList()
@@ -76,14 +77,19 @@ namespace MiniERP.View.LogisticsManagement
 
                                             // 데이타 넣기
                                             int r = 1;
-                                             foreach (DataGridViewRow data in produceGrid.Rows)
-                                             {
-                                               //  ws.Cells[r, 1] = data[];
-                                                 r++;
-                                             }
+                        ws.Cells[10, 4] = order_code.Remove(order_code.IndexOf("_"));
+                        ws.Cells[10, 19] = order_code;
+                        foreach (DataGridViewRow data in produceGrid.Rows)
+                        {
+                            ws.Cells[r, 2] = data.Cells[1].Value;
+                            ws.Cells[r, 8] = data.Cells[0].Value;
+                            ws.Cells[r, 14] = data.Cells[5].Value;
+                            ws.Cells[r, 20] = data.Cells[2].Value;
+                            r++;
+                        }
 
-                                             // 엑셀파일 저장
-                                             wb.SaveAs(savefile.FileName, XlFileFormat.xlWorkbookNormal);
+                        // 엑셀파일 저장
+                        wb.SaveAs(savefile.FileName, XlFileFormat.xlWorkbookNormal);
                                              wb.Close(true);
                                              excelApp.Quit();
                                          }

@@ -33,7 +33,7 @@ namespace MiniErp_Client_jsu
 
         private void txt_Barcode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 string temp = txt_Barcode.Text;
                 txt_Barcode.Clear();
@@ -55,37 +55,12 @@ namespace MiniErp_Client_jsu
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    machine = new Machine();
-            //    machine.Setting();
-            //    if (machine.SeverState()==true)
-            //    {
-            //        checkBox1.Checked = true;
-            //        txt_Log.Text += "sever connection ok";
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    checkBox1.Checked = false;
-            //}
-
-
             #region erro test 모듈
             //Erro testErro = new Erro(1);
             //MessageBox.Show(testErro.Erro_Code + "\n" + testErro.Head + testErro.Erro_String);
             #endregion
 
-
             chatting.Start();
-
-            string test = "[command][pc1] 서버종료";
-            test.Trim();
-            string temp = test.Substring(test.IndexOf("[command]"), "[command]".Length);
-            string temp2 = test.Substring(test.IndexOf("[pc1]"), "[pc1]".Length);
-            string temp3 = test.Replace(temp, "").Replace(temp2, "");
-            //MessageBox.Show(temp3);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -99,13 +74,6 @@ namespace MiniErp_Client_jsu
             txt_Log.Text = sb.ToString();
 
             this.txt_Barcode.Focus();
-
-            foreach (var item in chatting.Command)
-            {
-                MessageBox.Show(item.Name+"\t"+item.Command_Value);
-            }
-
-            //chatting.BarcodeMsgMaker(codes);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
