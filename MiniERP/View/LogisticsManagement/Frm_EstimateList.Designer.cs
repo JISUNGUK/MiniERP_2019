@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.sampleOrder = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
+            this.exportExcel = new System.Windows.Forms.Button();
             this.orderBtn = new System.Windows.Forms.Button();
             this.btn_search = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,17 +50,18 @@
             this.sampleOrder.Size = new System.Drawing.Size(1773, 895);
             this.sampleOrder.TabIndex = 91;
             // 
-            // button4
+            // exportExcel
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(1405, 9);
-            this.button4.Margin = new System.Windows.Forms.Padding(5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(220, 40);
-            this.button4.TabIndex = 132;
-            this.button4.Text = "Excel로 내보내기";
-            this.button4.UseVisualStyleBackColor = true;
+            this.exportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exportExcel.Font = new System.Drawing.Font("굴림", 10F);
+            this.exportExcel.Location = new System.Drawing.Point(1405, 9);
+            this.exportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.exportExcel.Name = "exportExcel";
+            this.exportExcel.Size = new System.Drawing.Size(220, 40);
+            this.exportExcel.TabIndex = 132;
+            this.exportExcel.Text = "Excel로 내보내기";
+            this.exportExcel.UseVisualStyleBackColor = true;
+            this.exportExcel.Click += new System.EventHandler(this.exportExcel_Click);
             // 
             // orderBtn
             // 
@@ -73,6 +74,7 @@
             this.orderBtn.Size = new System.Drawing.Size(39, 37);
             this.orderBtn.TabIndex = 133;
             this.orderBtn.UseVisualStyleBackColor = true;
+            this.orderBtn.Click += new System.EventHandler(this.orderBtn_Click_1);
             // 
             // btn_search
             // 
@@ -110,7 +112,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1811, 1026);
             this.Controls.Add(this.orderedCode);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.exportExcel);
             this.Controls.Add(this.orderBtn);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.label5);
@@ -127,7 +129,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView sampleOrder;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button exportExcel;
         private System.Windows.Forms.Button orderBtn;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Label label5;

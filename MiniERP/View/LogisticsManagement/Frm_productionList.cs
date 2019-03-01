@@ -45,7 +45,8 @@ namespace MiniERP.View.LogisticsManagement
             int i = 0;
             produceGrid.DataSource = null;
             foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
-            {
+            { 
+
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
                 produceGrid.Rows[i].Cells[2].Value = item.Item_standard;
@@ -110,12 +111,7 @@ namespace MiniERP.View.LogisticsManagement
 
         private void Frm_productionList_Resize(object sender, EventArgs e)
         {
-            orderSearch.Location = new System.Drawing.Point(ordercode.Width + ordercode.Location.X + 5, ordercode.Location.Y);
-            label1.Location = new System.Drawing.Point(label5.Location.X, label5.Location.Y + label5.Height * 3);
-            itemcode.Location = new System.Drawing.Point(ordercode.Location.X, label1.Location.Y);
-            label8.Location = new System.Drawing.Point(searchPlan.Location.X, label1.Location.Y);
-            itemSearch.Location = new System.Drawing.Point(orderSearch.Location.X, label1.Location.Y);
-            itemcount.Location = new System.Drawing.Point(searchPlan.Location.X + searchPlan.Width, label8.Location.Y);
+          
 
         }
 

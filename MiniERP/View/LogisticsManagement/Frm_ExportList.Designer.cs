@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.exportGrid = new System.Windows.Forms.DataGridView();
             this.btnExport = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.move_date = new System.Windows.Forms.DateTimePicker();
             this.warehouseBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.warehouseCode = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.exportGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // exportGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 183);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 34;
-            this.dataGridView1.Size = new System.Drawing.Size(1786, 881);
-            this.dataGridView1.TabIndex = 139;
+            this.exportGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.exportGrid.Location = new System.Drawing.Point(12, 183);
+            this.exportGrid.Name = "exportGrid";
+            this.exportGrid.RowTemplate.Height = 34;
+            this.exportGrid.Size = new System.Drawing.Size(1786, 881);
+            this.exportGrid.TabIndex = 139;
             // 
             // btnExport
             // 
@@ -56,6 +56,7 @@
             this.btnExport.TabIndex = 153;
             this.btnExport.Text = "Excel로 내보내기";
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click_1);
             // 
             // label2
             // 
@@ -74,6 +75,7 @@
             this.btnSearch.TabIndex = 151;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // label1
             // 
@@ -84,12 +86,12 @@
             this.label1.TabIndex = 148;
             this.label1.Text = "이동날짜";
             // 
-            // dateTimePicker1
+            // move_date
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(117, 120);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 32);
-            this.dateTimePicker1.TabIndex = 147;
+            this.move_date.Location = new System.Drawing.Point(117, 120);
+            this.move_date.Name = "move_date";
+            this.move_date.Size = new System.Drawing.Size(200, 32);
+            this.move_date.TabIndex = 147;
             // 
             // warehouseBtn
             // 
@@ -102,13 +104,14 @@
             this.warehouseBtn.Size = new System.Drawing.Size(39, 37);
             this.warehouseBtn.TabIndex = 152;
             this.warehouseBtn.UseVisualStyleBackColor = true;
+            this.warehouseBtn.Click += new System.EventHandler(this.warehouseBtn_Click_1);
             // 
-            // textBox1
+            // warehouseCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 32);
-            this.textBox1.TabIndex = 150;
+            this.warehouseCode.Location = new System.Drawing.Point(117, 23);
+            this.warehouseCode.Name = "warehouseCode";
+            this.warehouseCode.Size = new System.Drawing.Size(200, 32);
+            this.warehouseCode.TabIndex = 150;
             // 
             // Frm_ExportList
             // 
@@ -119,27 +122,28 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.move_date);
             this.Controls.Add(this.warehouseBtn);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.warehouseCode);
+            this.Controls.Add(this.exportGrid);
             this.Name = "Frm_ExportList";
             this.Text = "출고확인서 조회";
+            this.Load += new System.EventHandler(this.Frm_ExportList_Load);
             this.Resize += new System.EventHandler(this.Frm_ExportList_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exportGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView exportGrid;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker move_date;
         private System.Windows.Forms.Button warehouseBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox warehouseCode;
     }
 }
