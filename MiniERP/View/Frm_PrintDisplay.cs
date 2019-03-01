@@ -66,7 +66,7 @@ namespace MiniERP.View
                 if (item.Item_code == dataGridView1.SelectedRows[0].Cells["아이템코드"].Value.ToString())
                 {
                     pictureBox1.Image = null;
-                    pictureBox1.Image = barcode.MakeBarcode(item.Item_code, true, new Size(300, 30));
+                    pictureBox1.Image = barcode.MakeBarcode(item.Item_code, true, new Size(300, 50));
                     break;
                 }
                 
@@ -86,6 +86,36 @@ namespace MiniERP.View
             {
                 btn_Search_Click(null, null);
             }
+        }
+
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("저장완료");
+            imageList1.Images.Add(pictureBox1.Image);
+        }
+
+        private void btn_Print_Click(object sender, EventArgs e)
+        {
+            //PrintPreviewDialog pv = new PrintPreviewDialog();
+            //pv.Document = Print
+
+            Bitmap bmap = new Bitmap(imageList1.Images[0].Width, imageList1.Images[0].Height);
+            Graphics g = Graphics.FromImage(bmap);
+            int y = 0;
+            foreach (Image item in imageList1.Images)
+            {
+                g.DrawImage(item, new Point(0, y));
+                
+                y += 55;
+            }
+            g.Save();
+
+            bmap.Save(@"C:\Users\GD17\Desktop\구디\image.png");
+            MessageBox.Show("완료");
+
+
+
         }
     }
 }

@@ -44,39 +44,38 @@ namespace MiniERP.View
         {
             Frm_message form = (Frm_message)this.Owner;
             MessageDAO messageDao = form.Messagedao;
-            if(messageDao.checkmessage(room.Text))
+            if (messageDao.checkmessage(room.Text))
                 if (!String.IsNullOrEmpty(room.Text) && memberList.CheckedItems.Count > 0)
-            {
-                string members = "";
-                int count = 0;
-                foreach (var item in memberList.CheckedItems)
                 {
-                    if (count != 0)
-                        members += "," + item;
-                    else
-                        members += item;
-                    count++;
-                }
-                try
-                {
-                    //form.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
-                    messageDao.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
-                        if (form.OwnedRoom != "")
+                    string members = "";
+                    int count = 0;
+                    foreach (var item in memberList.CheckedItems)
                     {
-                        form.OwnedRoom += "," + room.Text;
+                        if (count != 0)
+                            members += "," + item;
+                        else
+                            members += item;
+                        count++;
                     }
-                    else
-                        form.OwnedRoom += room.Text;
-                    this.Close();
-                    
+                    try
+                    {
+                        //form.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
+                        messageDao.SendMessage("방을 만듭니다 방명:" + room.Text + "인원:" + members + "//");
+                        if (form.OwnedRoom != "")
+                        {
+                            form.OwnedRoom += "," + room.Text;
+                        }
+                        else
+                            form.OwnedRoom += room.Text;
+                        this.Close();
 
-                }
-                catch (Exception ee)
-                {
 
-                    MessageBox.Show("방을 만들지 못했습니다");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("방을 만들지 못했습니다");
+                    }
                 }
-            }
 
 
 

@@ -46,7 +46,6 @@ namespace MiniERP.View
 
         private Panel panel_mdi;
         private bool tabChk = true; // 탭페이지 중복검사용 - true 중복 , false 중복 X
-        private bool mboxchk = true; // 메세지 박스 실행 방지용
 
         private int tabSelcted_Index = 0; // 선택한 탭의 인덱스 값을 저장합니다. 디폴트 = 0 ( 메인 페이지 )
         private string id;//로그인시 입력할 사원id
@@ -76,13 +75,6 @@ namespace MiniERP.View
 
             InitializeComponent();
         }
-
-
-
-
-
-
-
 
         #region MDI 패널에 폼 불러오기 메서드
         private void OpenForm(object menuName)
@@ -561,6 +553,7 @@ namespace MiniERP.View
             frm_message.Size = new Size(frm_message.Size.Width, 870);
             frm_message.Show();
             frm_message.Location = new Point(this.Location.X + this.Width - 10, this.Location.Y);
+
             monitoring = new RealTimeMonitor();
             monitoring.StartPosition = FormStartPosition.Manual;
             monitoring.Location = new Point(this.Location.X+10, this.Location.Y + this.Height);
