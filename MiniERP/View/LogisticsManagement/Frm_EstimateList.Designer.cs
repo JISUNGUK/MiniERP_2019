@@ -44,7 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sampleOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sampleOrder.Location = new System.Drawing.Point(19, 72);
-            this.sampleOrder.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.sampleOrder.Margin = new System.Windows.Forms.Padding(5);
             this.sampleOrder.Name = "sampleOrder";
             this.sampleOrder.RowTemplate.Height = 23;
             this.sampleOrder.Size = new System.Drawing.Size(1773, 895);
@@ -54,7 +54,7 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(1405, 16);
+            this.button4.Location = new System.Drawing.Point(1405, 9);
             this.button4.Margin = new System.Windows.Forms.Padding(5);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(220, 40);
@@ -115,7 +115,7 @@
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.sampleOrder);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Frm_EstimateList";
             this.Text = "견적서 조회";
             this.Resize += new System.EventHandler(this.Frm_EstimateList_Resize);

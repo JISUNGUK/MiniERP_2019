@@ -36,5 +36,7 @@ namespace MiniERP.View.LogisticsManagement
         {
 
         }
+
+      
     }
 }

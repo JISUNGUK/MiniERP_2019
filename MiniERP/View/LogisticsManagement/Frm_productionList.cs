@@ -157,5 +157,9 @@ namespace MiniERP.View.LogisticsManagement
                     itemcode.Text = fis.SelectItem.Item_code;
             }
         }
+
+       
+
+      
     }
 }

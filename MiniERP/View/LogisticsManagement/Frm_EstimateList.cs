@@ -144,7 +144,7 @@ namespace MiniERP.View.LogisticsManagement
        
         private void Frm_EstimateList_Resize(object sender, EventArgs e)
         {
-            button4.Location = new System.Drawing.Point(btn_search.Location.X + btn_search.Width + 5, btn_search.Location.Y);
+           // button4.Location = new System.Drawing.Point(btn_search.Location.X + btn_search.Width + 5, btn_search.Location.Y);
         }
 
         private void orderBtn_Click(object sender, EventArgs e)
