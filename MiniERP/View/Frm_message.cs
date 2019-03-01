@@ -124,7 +124,7 @@ namespace MiniERP.View
             }
         }
 
-       
+
 
         /// <summary>
         /// 서버에서 받은 메시지를 채팅창에 추가
@@ -150,33 +150,32 @@ namespace MiniERP.View
         {
             IAsyncResult access = null;
             try
-            {              
-               access= client.BeginConnect(serverip, 3333,null,null);
+            {
+                access = client.BeginConnect(serverip, 3333, null, null);
                 //client.Connect(serverip, 3333);
                 var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
-                messagedao.Network = client.GetStream();                                                 
+                messagedao.Network = client.GetStream();
                 Messagedao.Client = client;
                 roomtable = new Hashtable();//처음 서버에 접속했을때 방목록을 처음 생성
                 roomtable.Add("전체", "");
                 //Msg();
-                if(client.Connected)
-                { 
-                Network = client.GetStream();
-                Messagedao.SendMessage(nickname);                
-                nicknamel.Text = nickname;
-                Thread thread = new Thread(getMsg);
-                thread.Start();
-                Thread ftptread = new Thread(FTPConnection);
-                ftptread.Start();
+                if (client.Connected)
+                {
+                    Network = client.GetStream();
+                    Messagedao.SendMessage(nickname);
+                    nicknamel.Text = nickname;
+                    Thread thread = new Thread(getMsg);
+                    thread.Start();
+                    Thread ftptread = new Thread(FTPConnection);
+                    ftptread.Start();
                     //reacess.Enabled = false;
                 }
 
 
             }
-            catch (Exception ee)
+            catch (Exception)
             {
-
-                MessageBox.Show("서버가 열려있지않습니다 채팅프로그램을 사용하시려면 프로그램을 재시작 해주세요");               
+                MessageBox.Show("서버가 열려있지않습니다 채팅프로그램을 사용하시려면 프로그램을 재시작 해주세요");
                 //reacess.Enabled = true;
             }
 
@@ -196,7 +195,7 @@ namespace MiniERP.View
 
         private void sendMsg_Click(object sender, EventArgs e)
         {
-            if(message.Text!="")
+            if (message.Text != "")
             {
                 try
                 {
@@ -208,21 +207,21 @@ namespace MiniERP.View
                     MessageBox.Show(ee.Message);
                     //reacess.Enabled = true;
                 }
-            string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
-            if (roomList.SelectedIndex != -1)
-            {
-                roomtable[roomList.SelectedItem.ToString()] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                string date = Environment.NewLine + "보낸 시간:" + DateTime.Now + Environment.NewLine;
+                if (roomList.SelectedIndex != -1)
+                {
+                    roomtable[roomList.SelectedItem.ToString()] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
 
-            }
-            else
-            {
-                roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
-            }
-            ChatContent.AppendText("\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine);
-            //ChatContent.se(0, ChatContent.Text.Length);//맨 마지막 선택...
-            ChatContent.ScrollToCaret();
-            message.Text = "";
-            
+                }
+                else
+                {
+                    roomtable["전체"] += date + "\n<<자신 메시지:" + message.Text + Environment.NewLine;
+                }
+                ChatContent.AppendText("\n" + date + "\n<<자신 메시지:" + message.Text + Environment.NewLine);
+                //ChatContent.se(0, ChatContent.Text.Length);//맨 마지막 선택...
+                ChatContent.ScrollToCaret();
+                message.Text = "";
+
             }
 
             if (additionFile.Checked)
@@ -231,7 +230,7 @@ namespace MiniERP.View
                 Thread threadFTP = new Thread(sendFTPfile);
                 threadFTP.TrySetApartmentState(ApartmentState.STA);
                 threadFTP.Start();
-              
+
             }
             RefreshList();
 
@@ -240,7 +239,7 @@ namespace MiniERP.View
 
         private void sendMessage()
         {
-           
+
         }
 
         private void sendFTPfile()
@@ -295,35 +294,29 @@ namespace MiniERP.View
                     if (uploadcount > 0)
                     {
                         Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
-                        MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true },"성공적으로 파일을 업로드 했습니다","FTP파일전송",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, "성공적으로 파일을 업로드 했습니다", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshList();
 
-                       
-                       
+
+
                     }
 
 
 
                 }
-                catch (SocketException soed)
+                catch (SocketException)
                 {
                     //MessageBox.Show(soed.Message + "연결에서 문제가 생겼습니다");
-
                 }
-                catch(NullReferenceException nulle)
+                catch (NullReferenceException nulle)
                 {
-                    MessageBox.Show(nulle.Message+"ftp서버와 연결후 시작해주세요");
+                    MessageBox.Show(nulle.Message + "ftp서버와 연결후 시작해주세요");
                 }
-                catch (Exception ee)
+                catch (Exception)
                 {
                     //MessageBox.Show(ee.Message + "파일을 올리는 도중에 오류가 생겼습니다");
-
                 }
-
             }
-
-           
-
         }
 
         private void Server_posted(string fileName)
@@ -446,7 +439,7 @@ namespace MiniERP.View
         {
             if (!GetConnection())//만약 ftpconnection이 되어있지않으면 ftp연결은 되지 않는다;
                 return;
-            
+
 
         }
 
@@ -533,26 +526,26 @@ namespace MiniERP.View
 
         private void Frm_message_FormClosing(object sender, FormClosingEventArgs e)
         {
-                           
-                if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
 
-                    if (nicknamel.Text != "label5")
-                        messagedao.SendMessage("접속종료합니다");
-                    if (Server != null)
-                    {
-                        Server.Disconnect(serverip);
-                    }
-                    form.Close();
+            if (MessageBox.Show("프로그램을 종료하시겠습니까?", "확인 메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                if (nicknamel.Text != "label5")
+                    messagedao.SendMessage("접속종료합니다");
+                if (Server != null)
+                {
+                    Server.Disconnect(serverip);
+                }
+                form.Close();
                 e.Cancel = false;
                 this.Dispose();
                 this.Close();
-                }
-                else
-                e.Cancel = true ;
-
-
             }
+            else
+                e.Cancel = true;
+
+
+        }
 
         private void message_KeyUp_1(object sender, KeyEventArgs e)
         {
@@ -568,7 +561,7 @@ namespace MiniERP.View
         {
             messagedao = new MessageDAO();
             messagedao.Form = this.form;
-            accessChatting();  
+            accessChatting();
         }
 
         private void access_Click(object sender, EventArgs e)
@@ -590,35 +583,35 @@ namespace MiniERP.View
         /// </summary>
         private void DownloadFile()
         {
-        if(ServerFileListView.InvokeRequired)
+            if (ServerFileListView.InvokeRequired)
                 this.Invoke(new MethodInvoker(DownloadFile));
-        else
-            { 
-            if (ServerFileListView.SelectedItems.Count < 1)
-                return;
-
-            byte[] file;
-            string folderName = "전체";
-            if (roomList.SelectedIndex != -1)
-                folderName = roomList.SelectedItem.ToString();
-            Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file, folderName);
-
-            SaveFileDialog save = new SaveFileDialog();
-            save.Title = "다운로드 파일을 선택해주세요.";
-            save.SupportMultiDottedExtensions = false;
-            save.Filter = "All|*.*";
-            save.FileName = ServerFileListView.SelectedItems[0].SubItems[2].Text;
-            if (save.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+            else
             {
-                System.IO.File.WriteAllBytes(save.FileName, file);
+                if (ServerFileListView.SelectedItems.Count < 1)
+                    return;
+
+                byte[] file;
+                string folderName = "전체";
+                if (roomList.SelectedIndex != -1)
+                    folderName = roomList.SelectedItem.ToString();
+                Server.Download(MachineInfo.GetJustIP(), ServerFileListView.SelectedItems[0].SubItems[2].Text, out file, folderName);
+
+                SaveFileDialog save = new SaveFileDialog();
+                save.Title = "다운로드 파일을 선택해주세요.";
+                save.SupportMultiDottedExtensions = false;
+                save.Filter = "All|*.*";
+                save.FileName = ServerFileListView.SelectedItems[0].SubItems[2].Text;
+                if (save.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+                {
+                    System.IO.File.WriteAllBytes(save.FileName, file);
                     MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, "성공적으로 파일을 다운로드 했습니다", "FTP파일다운로드", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            save.Dispose();
-            RefreshList();
+                save.Dispose();
+                RefreshList();
             }
         }
 
-       
+
 
         /// <summary>
         /// 해당 메시지 폼을 최소화 혹은 일반화 시켰을때 발생 최대화는 허용 안해줬으며
@@ -628,23 +621,22 @@ namespace MiniERP.View
         /// <param name="e"></param>
         private void Frm_message_Resize(object sender, EventArgs e)
         {
-            
+
             if (this.WindowState == FormWindowState.Normal)
             {
-                
-                if (form!=null)
-                { 
+
+                if (form != null)
+                {
                     form.WindowState = FormWindowState.Normal;
                 }
-                if(monitor!=null)
+                if (monitor != null)
                     monitor.WindowState = FormWindowState.Normal;
             }
             else
-            { 
+            {
                 form.WindowState = FormWindowState.Minimized;
                 monitor.WindowState = FormWindowState.Minimized;
             }
         }
     }
 }
- 

@@ -50,7 +50,6 @@ namespace MiniERP.Model.DAO
             {
                 throw;
             }
-            return stocks;
         }
     }
 }
