@@ -29,8 +29,5 @@ namespace MiniErp_Client_jsu
             get { return barcode_Count; }
             set { barcode_Count = value; }
         }
-
-        
-
     }
 }

@@ -60,7 +60,9 @@ namespace MiniErp_Client_jsu
             //MessageBox.Show(testErro.Erro_Code + "\n" + testErro.Head + testErro.Erro_String);
             #endregion
 
-            chatting.Start();
+            if (chatting.Start())
+                chk_Server.Checked = true;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

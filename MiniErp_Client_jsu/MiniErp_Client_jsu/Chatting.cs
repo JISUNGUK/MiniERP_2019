@@ -11,42 +11,51 @@ namespace MiniErp_Client_jsu
 {
     class Chatting
     {
+        #region 멤버 변수
+        TcpClient client;
+        NetworkStream stream = default(NetworkStream);              //  기본값 할당(해당 객체의 기본값 참조형은 null)
+        Thread thread;                                              //  서버 쓰레드
+        string readData = null;                                     //  서버의 메시지
+
         private string ip;
         private string name;
-        object barcodeList;
+        object barcodeList;                                         //  바코드정보를 담는 리스트
+
+        List<Command> command = new List<Command>();                //  명령어 리스트
+        List<string> erro = new List<string>();                     //  에러 리스트
+        public List<Command> Command { get { return command; } }
+        public List<string> Erro { get { return erro; } }
+        #endregion
 
         public Chatting(string ipAddr, string name, object barcodelist)
         {
             this.ip = ipAddr; this.name = name;
             this.barcodeList = barcodelist;
-            //System.Windows.Forms.MessageBox.Show(ip, name);
         }
 
-        TcpClient client;
-        NetworkStream stream = default(NetworkStream);//기본값 할당(해당 객체의 기본값 참조형은 null)
 
-        string readData = null;
-
-        Thread thread;
 
         /// <summary>
         /// 머신 클라이언트를 시작합니다.
         /// 머신 서버와 접속합니다..
         /// </summary>
-        public void Start()
+        public bool Start()
         {
+            IAsyncResult access = null;
             try
             {
                 if (client == null)
                 {
-                    client = new TcpClient(this.ip, 4444);
+                    access = client.BeginConnect(this.ip, 4444, null, null);
+                    var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(0.5));
                     stream = client.GetStream();
 
                     SendMsg(this.name);          //  접속클라이언트 이름 보냄
                 }
                 else if (client.Connected == false)
                 {
-                    client = new TcpClient(this.ip, 4444);
+                    access = client.BeginConnect(this.ip, 4444, null, null);
+                    var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(0.5));
                     stream = client.GetStream();
                 }
 
@@ -57,11 +66,11 @@ namespace MiniErp_Client_jsu
                     if (client.Connected)
                         SendMsg("[command]" + this.name + "is connecting");     //접속성공했다면 메시지
                 }
+                return true;
             }
             catch (Exception)
             {
-                MessageBox.Show("접속실패");
-                Application.Exit();
+                return false;
             }
         }
 
@@ -69,19 +78,14 @@ namespace MiniErp_Client_jsu
         {
             Byte[] outStream = Encoding.UTF8.GetBytes(text);
             stream.Write(outStream, 0, outStream.Length);
-            stream.Flush();//스트림에 쓴후에 flush를 해야한다
+            stream.Flush();
         }
 
-
-        List<Command> command = new List<Command>();
-        List<string> erro = new List<string>();
-        public List<Command> Command { get { return command; } }
-        public List<string> Erro { get { return erro; } }
-
+        /// <summary>
+        /// 서버가 보내오는 메시지를 수신합니다.    쓰레드호출 메서드
+        /// </summary>
         private void getMsg()
         {
-            //  서버가 보내준 메시지를 받음!!!
-            //  보내오는 메시지는 커멘드인지 확인을 하고 리스트에 저장함!
             while (true)
             {
                 stream = client.GetStream();
@@ -93,6 +97,7 @@ namespace MiniErp_Client_jsu
                 CommandChacker(readData);                   //  올바른커맨드 판별
             }
         }
+
         /// <summary>
         /// 올바른 command 인지 인식합니다.
         /// 올바르다면 list에 추가함
@@ -102,30 +107,23 @@ namespace MiniErp_Client_jsu
         {
             //string testMsg = "[command][pc1] 서버종료";
             if (readData.Contains("[command]") != true || readData.Contains("[pc1]") != true)
-            {
                 return;
-                //  커맨드 조건을 통과함
-                //  올바른 조건 통과한 log 남길것.
-            }
-            else if (readData.Contains("접속") == true)
-            {
+            else if (readData.Contains("접속") == true)   //  서버접속시 접속이라고 보내기에 이를 무시
                 return;
-            }
 
             string tempHead = readData.Substring(readData.IndexOf("[command]"), "[command]".Length);
             string tempName = readData.Substring(readData.IndexOf(this.name), this.name.Length);
             string tempValue = readData.Replace(tempHead, "").Replace(tempName, "").Replace("\0","").Trim();
 
+            //  임시커맨드 객체 생성후 리스트에 삽입, 그 후 커맨드 실행함
             Command tempCommand = new Command(tempHead, tempName, tempValue, this, barcodeList);
-            
-            command.Add(tempCommand);
-
+            command.Add(new Command(tempHead, tempName, tempValue, this, barcodeList));
             tempCommand.CommandRunning();
         }
 
-
-
-        //  메시지 보내기
+        /// <summary>
+        /// 메시지 보내기
+        /// </summary>
         public void SendMsg(string msg)
         {
             Byte[] byteFrom = Encoding.UTF8.GetBytes(msg);
@@ -133,17 +131,19 @@ namespace MiniErp_Client_jsu
             stream.Flush();
         }
 
-
-
         //  서버종료
         public void CloseSeverTest()
         {
-            byte[] msgTemp = Encoding.UTF8.GetBytes("[command]"+this.name+"is endconnecting");       //[pc1]접속종료합니다.
-            stream.Write(msgTemp, 0, msgTemp.Length);
-            stream.Flush();
-
-            client.Close();
-            stream.Close();
+            // ex) [command][pc1]is endconnecting
+            if (client != null)
+            {
+                byte[] msgTemp = Encoding.UTF8.GetBytes("[command]" + this.name + "is endconnecting");
+                stream.Write(msgTemp, 0, msgTemp.Length);
+                stream.Flush();
+                client.Close();
+                stream.Close();
+            }
+           
         }
 
         
