@@ -40,52 +40,58 @@
             // roomName
             // 
             this.roomName.AutoSize = true;
-            this.roomName.Location = new System.Drawing.Point(13, 31);
+            this.roomName.Location = new System.Drawing.Point(20, 54);
+            this.roomName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.roomName.Name = "roomName";
-            this.roomName.Size = new System.Drawing.Size(45, 12);
+            this.roomName.Size = new System.Drawing.Size(80, 21);
             this.roomName.TabIndex = 0;
             this.roomName.Text = "방 이름";
             // 
             // room
             // 
-            this.room.Location = new System.Drawing.Point(65, 31);
+            this.room.Location = new System.Drawing.Point(102, 54);
+            this.room.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.room.Name = "room";
-            this.room.Size = new System.Drawing.Size(198, 21);
+            this.room.Size = new System.Drawing.Size(309, 32);
             this.room.TabIndex = 1;
             // 
             // roomList
             // 
             this.roomList.FormattingEnabled = true;
-            this.roomList.ItemHeight = 12;
-            this.roomList.Location = new System.Drawing.Point(15, 82);
+            this.roomList.ItemHeight = 21;
+            this.roomList.Location = new System.Drawing.Point(24, 144);
+            this.roomList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.roomList.Name = "roomList";
             this.roomList.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.roomList.Size = new System.Drawing.Size(128, 160);
+            this.roomList.Size = new System.Drawing.Size(199, 277);
             this.roomList.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 67);
+            this.label1.Location = new System.Drawing.Point(20, 117);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 12);
+            this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "방 목록";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 67);
+            this.label2.Location = new System.Drawing.Point(226, 117);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 12);
+            this.label2.Size = new System.Drawing.Size(122, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "참가자 목록";
             // 
             // makeRoom
             // 
-            this.makeRoom.Location = new System.Drawing.Point(116, 273);
+            this.makeRoom.Location = new System.Drawing.Point(182, 478);
+            this.makeRoom.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.makeRoom.Name = "makeRoom";
-            this.makeRoom.Size = new System.Drawing.Size(75, 23);
+            this.makeRoom.Size = new System.Drawing.Size(118, 40);
             this.makeRoom.TabIndex = 6;
             this.makeRoom.Text = "방 만들기";
             this.makeRoom.UseVisualStyleBackColor = true;
@@ -94,16 +100,17 @@
             // memberList
             // 
             this.memberList.FormattingEnabled = true;
-            this.memberList.Location = new System.Drawing.Point(164, 82);
+            this.memberList.Location = new System.Drawing.Point(258, 144);
+            this.memberList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.memberList.Name = "memberList";
-            this.memberList.Size = new System.Drawing.Size(140, 164);
+            this.memberList.Size = new System.Drawing.Size(218, 274);
             this.memberList.TabIndex = 5;
             // 
             // Frm_MakeRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 308);
+            this.ClientSize = new System.Drawing.Size(497, 539);
             this.Controls.Add(this.makeRoom);
             this.Controls.Add(this.memberList);
             this.Controls.Add(this.label2);
@@ -111,8 +118,9 @@
             this.Controls.Add(this.roomList);
             this.Controls.Add(this.room);
             this.Controls.Add(this.roomName);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Frm_MakeRoom";
-            this.Text = "                                            ";
+            this.Text = "방을 만듭니다                              ";
             this.Load += new System.EventHandler(this.Frm_MakeRoom_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

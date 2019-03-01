@@ -398,18 +398,18 @@ namespace MiniERP.View
                 case "창고 등록":
                     {
                         StockManagement.Frm_StockInsert stockInsert = new StockManagement.Frm_StockInsert();
-
                         stockInsert.Show();  // 폼 실행
                         break;
                     }
                 case "거래처 등록":
                     {
                         Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
-                        businessInsert.Show();
+                        businessInsert.Show();                        
                         break;
                     }
 
                 case "사원 등록":
+                    
                     Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert();
                     clerkInsert.Show();  // 폼 실행
                     tabChk = true;
@@ -438,6 +438,75 @@ namespace MiniERP.View
                     tabChk = true;
                     break;
 
+
+                case "물류 조회":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                   Frm_DistributionList distributionList = new Frm_DistributionList();
+                    distributionList.ControlBox = false; // 컨트롤 상자 없애기
+                    distributionList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    distributionList.MdiParent = this; // MDI 설정
+                    distributionList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(distributionList); // 판넬에 설정한 폼 넣기
+                    distributionList.Show();  // 폼 실행
+                    #endregion
+                    Add_CloseBtn(distributionList); // 폼에 닫기 버튼 생성
+                    tabChk = true;
+                    break;
+
+                case "입고확인서 조회":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_ImportList importList = new Frm_ImportList();
+                    importList.ControlBox = false; // 컨트롤 상자 없애기
+                    importList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    importList.MdiParent = this; // MDI 설정
+                    importList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(importList); // 판넬에 설정한 폼 넣기
+                    importList.Show();  // 폼 실행
+                    #endregion
+                    Add_CloseBtn(importList); // 폼에 닫기 버튼 생성
+                    tabChk = true;
+                    break;
+                case "출고확인서 조회":
+                    #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
+                    panel_mdi = new Panel();
+                    panel_mdi.Name = "testno1";
+                    tabControl1.TabPages.Add(menuName.ToString(), menuName.ToString());
+                    tabControl1.TabPages[menuName.ToString()].Controls.Add(panel_mdi);
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].Dock = DockStyle.Fill;
+                    tabControl1.TabPages[menuName.ToString()].Controls[panel_mdi.Name].BackColor = Color.AliceBlue;
+                    #endregion
+
+                    #region 판넬에 넣을 폼 객체 생성 -> 폼 스타일 설정 -> 판넬에 폼을 MDI 로 출력
+                    Frm_ExportList exportList = new Frm_ExportList();
+                    exportList.ControlBox = false; // 컨트롤 상자 없애기
+                    exportList.FormBorderStyle = FormBorderStyle.None; // 폼 테투리 삭제
+                    exportList.MdiParent = this; // MDI 설정
+                    exportList.Dock = DockStyle.Fill; // Dock 스타일 설정 Fill
+                    panel_mdi.Controls.Add(exportList); // 판넬에 설정한 폼 넣기
+                    exportList.Show();  // 폼 실행
+                    #endregion
+                    Add_CloseBtn(exportList); // 폼에 닫기 버튼 생성
+                    tabChk = true;
+                    break;
+
                 default:
                     MessageBox.Show("해당 폼이 없습니다.");
                     tabControl1.SelectedTab = tabControl1.TabPages[0];
@@ -461,7 +530,7 @@ namespace MiniERP.View
         private void Add_CloseBtn(Form formtest) // !! 주의 조회 폼에서만 사용할것
         {
             Button closebtn = new Button(); // 버튼 생성
-            closebtn.Location = new Point(740, 12); // 위치고정 ( 변경하지말 것 )
+            closebtn.Location = new Point(1130, 12); // 위치고정 ( 변경하지말 것 )
             closebtn.Anchor = AnchorStyles.Right; // 이거 쓸모 없음 ㅡㅡ
             closebtn.Image = Properties.Resources.CloseIcon; // 리소스 폴더내 이미지 파일을 사용
             closebtn.ImageAlign = ContentAlignment.MiddleCenter;
@@ -489,12 +558,15 @@ namespace MiniERP.View
             frm_message.Form = this;
             frm_message.Nickname = this.nickname;
             frm_message.StartPosition = FormStartPosition.Manual;
-            frm_message.Location = new Point(this.Location.X + this.Width-10, this.Location.Y); frm_message.Show();
-
+            frm_message.Size = new Size(frm_message.Size.Width, 870);
+            frm_message.Show();
+            frm_message.Location = new Point(this.Location.X + this.Width - 10, this.Location.Y);
             monitoring = new RealTimeMonitor();
             monitoring.StartPosition = FormStartPosition.Manual;
             monitoring.Location = new Point(this.Location.X+10, this.Location.Y + this.Height);
             monitoring.Show();
+            frm_message.Monitor = monitoring;
+
             
         }
 
@@ -638,12 +710,7 @@ namespace MiniERP.View
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-            {                                  
-                notify = false;
-                if(frm_message!=null)
-                    frm_message.Windowstate = "최대화";
-            }
+            
             if (this.WindowState == FormWindowState.Normal)
             {
                 notify = false;
@@ -674,5 +741,6 @@ namespace MiniERP.View
             }
             
         }
+       
     }
 }

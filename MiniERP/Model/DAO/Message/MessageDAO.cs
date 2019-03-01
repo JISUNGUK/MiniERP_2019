@@ -2,6 +2,7 @@ using MiniERP.View;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -140,8 +141,10 @@ namespace MiniERP.Model.DAO
                     if (MiniERP.View.Form1.notify)
                     {
                         popup = new PopupNotifier();
+                        popup.Image = Properties.Resources.message;
+                        popup.ImageSize = new Size(50, 50);
                         popup.Delay = 1000;
-                        popup.TitleText = "방:" + roomname + "메시지//";
+                        popup.TitleText = "방:" + roomname + "메시지";
                         popup.ContentText = message;
                         popup.Click += Popup_Click;
                         popup.Popup();
@@ -186,6 +189,9 @@ namespace MiniERP.Model.DAO
                     if (MiniERP.View.Form1.notify)
                     {
                         popup = new PopupNotifier();
+                        // popup.Image = Image.FromFile(System.Environment.CurrentDirectory + "\\resources" + "\\message.png");
+                        popup.Image = Properties.Resources.message;
+                        popup.ImageSize = new Size(50, 50);
                         popup.Delay = 1000;
                         popup.TitleText = "방:" + "전체" + "메시지";
                         popup.ContentText = readData;

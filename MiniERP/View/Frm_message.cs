@@ -36,9 +36,10 @@ namespace MiniERP.View
         private string currentfileName;
         string readData = "";
         private string nickname;
-        private string serverip = "192.168.0.6";
+        private string serverip = "192.168.0.8";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
         private Form1 form;
+        private RealTimeMonitor monitor;
 
         Hashtable roomtable;//방이름과 방의 메시지내용으로 구성
         private string ownedRoom = "";
@@ -68,6 +69,7 @@ namespace MiniERP.View
         public NetworkStream Network { get => network; set => network = value; }
         public string Windowstate { get => windowstate; set => windowstate = value; }
         public Form1 Form { get => form; set => form = value; }
+        public RealTimeMonitor Monitor { get => monitor; set => monitor = value; }
 
         internal DialogResult logIn;          //  로그인 체커부
 
@@ -122,6 +124,8 @@ namespace MiniERP.View
             }
         }
 
+       
+
         /// <summary>
         /// 서버에서 받은 메시지를 채팅창에 추가
         /// </summary>
@@ -139,6 +143,9 @@ namespace MiniERP.View
             }
         }
 
+        /// <summary>
+        /// 채팅서버및 FTP서버에 접속함
+        /// </summary>
         private void accessChatting()
         {
             IAsyncResult access = null;
@@ -288,8 +295,10 @@ namespace MiniERP.View
                     if (uploadcount > 0)
                     {
                         Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
+                        MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true },"성공적으로 파일을 업로드 했습니다","FTP파일전송",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        RefreshList();
 
-                        MessageBox.Show("성공적으로 파일을 업로드 했습니다");
+                       
                        
                     }
 
@@ -428,7 +437,7 @@ namespace MiniERP.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "FTP File Sharing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "FTP 파일 공유중", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -554,6 +563,7 @@ namespace MiniERP.View
             }
         }
 
+
         private void Frm_message_Load(object sender, EventArgs e)
         {
             messagedao = new MessageDAO();
@@ -571,10 +581,19 @@ namespace MiniERP.View
             Thread downloadThread = new Thread(DownloadFile);
             downloadThread.Start();
 
+
+
         }
 
+        /// <summary>
+        /// FTP다운로드를 실행하여 로컬컴퓨터에 해당 파일을 다운로드함
+        /// </summary>
         private void DownloadFile()
         {
+        if(ServerFileListView.InvokeRequired)
+                this.Invoke(new MethodInvoker(DownloadFile));
+        else
+            { 
             if (ServerFileListView.SelectedItems.Count < 1)
                 return;
 
@@ -592,41 +611,40 @@ namespace MiniERP.View
             if (save.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
             {
                 System.IO.File.WriteAllBytes(save.FileName, file);
-                MessageBox.Show(ServerFileListView.SelectedItems[0].SubItems[2].Text + "이 다운로드 되었습니다.", "FTP File 공유중", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                    MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, "성공적으로 파일을 다운로드 했습니다", "FTP파일다운로드", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             save.Dispose();
             RefreshList();
-        }
-
-        private void reacess_Click(object sender, EventArgs e)
-        {
-        if(messagedao.Network==null)
-            { 
-            messagedao = new MessageDAO();             
-            accessChatting();
             }
         }
 
+       
+
+        /// <summary>
+        /// 해당 메시지 폼을 최소화 혹은 일반화 시켰을때 발생 최대화는 허용 안해줬으며
+        /// 화면 모드를 변경할때 세 폼이 같이 변경됨
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Frm_message_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
+            
+            if (this.WindowState == FormWindowState.Normal)
             {
-                this.TopLevel = true;
-                form.WindowState = FormWindowState.Maximized;
-                //this.Location = new Point(form.Location.X + form.Width - 10, form.Location.Y);
-
-            }
-            else if (this.WindowState == FormWindowState.Normal)
-            {
-                //this.TopLevel = false;
-                //form.TopLevel = true;
-                form.WindowState = FormWindowState.Normal;
                 
+                if (form!=null)
+                { 
+                    form.WindowState = FormWindowState.Normal;
+                }
+                if(monitor!=null)
+                    monitor.WindowState = FormWindowState.Normal;
             }
             else
             { 
                 form.WindowState = FormWindowState.Minimized;
+                monitor.WindowState = FormWindowState.Minimized;
             }
         }
     }
 }
+ 

@@ -31,14 +31,14 @@ namespace MiniERP.View.LogisticsManagement
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (ordercode.Text != "")
+            if (orderedCode.Text != "")
             {
                 sampleList.Clear();
                
                 foreach (var item in Outputorder())
                 {
                     SampleOrder so = new SampleOrder();
-                    orderCode = ordercode.Text;
+                    orderCode = orderedCode.Text;
                     so.Item_Code = item.item_code;
                     so.Item_Count = item.Item_count;
                     so.Item_Name = item.Item_name;
@@ -76,7 +76,7 @@ namespace MiniERP.View.LogisticsManagement
           
 
             //폼의 컨트롤들의 상태를 보고 컨트롤들에 유효 값이 있을시 조건에 추가
-            var result = from im in erpdb.GET_ORDER(ordercode.Text)
+            var result = from im in erpdb.GET_ORDER(orderedCode.Text)
                          where condition
                          select im;
 
@@ -107,7 +107,7 @@ namespace MiniERP.View.LogisticsManagement
                         int r = 13;//열번호
                         // Excel 첫번째 워크시트 가져오기                
                         excelApp = new Microsoft.Office.Interop.Excel.Application();
-                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources" + "\\견적서.xlsx");
+                        wb = excelApp.Workbooks.Add(Properties.Resources.견적서);
                         ws = wb.Worksheets.get_Item(1) as Worksheet;
 
                         // 데이타 넣기
@@ -144,7 +144,7 @@ namespace MiniERP.View.LogisticsManagement
        
         private void Frm_EstimateList_Resize(object sender, EventArgs e)
         {
-            button4.Location = new System.Drawing.Point(btn_search.Location.X + btn_search.Width + 5, btn_search.Location.Y);
+           // button4.Location = new System.Drawing.Point(btn_search.Location.X + btn_search.Width + 5, btn_search.Location.Y);
         }
 
         private void orderBtn_Click(object sender, EventArgs e)
@@ -152,6 +152,29 @@ namespace MiniERP.View.LogisticsManagement
             Frm_ItemSelect frmI = new Frm_ItemSelect();
             frmI.Owner = this;
             frmI.Show();           
+        }
+
+        private void orderBtn_Click_1(object sender, EventArgs e)
+        {
+            Frm_OrderSelect order = new Frm_OrderSelect();
+            if(order.ShowDialog() == DialogResult.OK)
+            {
+             if(order.SelectOrder.Order_Code!=null)
+                    orderedCode.Text = order.SelectOrder.Order_Code;
+            }
+
+           
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

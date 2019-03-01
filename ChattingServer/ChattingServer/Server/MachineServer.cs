@@ -14,7 +14,7 @@ namespace ChattingServer.Server
     {
         public static Hashtable machineTable = new Hashtable();  
         public static List<MachineClientSocket> machineList = new List<MachineClientSocket>();
-        private string ipaddress = "192.168.0.6";
+        private string ipaddress = "192.168.0.8";
         public void StartMessage()
         {
 
