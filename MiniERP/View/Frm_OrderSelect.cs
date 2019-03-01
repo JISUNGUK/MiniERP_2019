@@ -61,7 +61,7 @@ namespace MiniERP.View
         {
             foreach (var order in orders)
             {
-                if (order.Order_Code == dataGridView1.SelectedRows[0].Cells["아이템코드"].Value.ToString())
+                if (order.Order_Code == dataGridView1.SelectedRows[0].Cells["주문코드"].Value.ToString())
                 {
                     selectorder = new Ordered()
                     {

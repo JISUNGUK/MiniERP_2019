@@ -49,7 +49,6 @@ namespace MiniERP.View.LogisticsManagement
             produceGrid.DataSource = null;
             foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
             { 
-                
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
                 produceGrid.Rows[i].Cells[2].Value = item.Item_standard                    ;

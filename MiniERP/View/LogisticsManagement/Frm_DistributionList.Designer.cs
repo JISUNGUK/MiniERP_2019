@@ -49,7 +49,7 @@
             this.awButton = new System.Windows.Forms.Button();
             this.bwButton = new System.Windows.Forms.Button();
             this.itemBtn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.exportExcel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.statusTabs.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -255,17 +255,18 @@
             this.itemBtn.UseVisualStyleBackColor = true;
             this.itemBtn.Click += new System.EventHandler(this.itemBtn_Click);
             // 
-            // button4
+            // exportExcel
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(1425, 72);
-            this.button4.Margin = new System.Windows.Forms.Padding(5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(220, 40);
-            this.button4.TabIndex = 135;
-            this.button4.Text = "Excel로 내보내기";
-            this.button4.UseVisualStyleBackColor = true;
+            this.exportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exportExcel.Font = new System.Drawing.Font("굴림", 10F);
+            this.exportExcel.Location = new System.Drawing.Point(1425, 72);
+            this.exportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.exportExcel.Name = "exportExcel";
+            this.exportExcel.Size = new System.Drawing.Size(220, 40);
+            this.exportExcel.TabIndex = 135;
+            this.exportExcel.Text = "Excel로 내보내기";
+            this.exportExcel.UseVisualStyleBackColor = true;
+            this.exportExcel.Click += new System.EventHandler(this.exportExcel_Click);
             // 
             // btnSearch
             // 
@@ -275,7 +276,6 @@
             this.btnSearch.TabIndex = 136;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Frm_DistributionList
             // 
@@ -283,7 +283,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 1091);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.exportExcel);
             this.Controls.Add(this.distributionGrid);
             this.Controls.Add(this.awButton);
             this.Controls.Add(this.bwButton);
@@ -334,7 +334,7 @@
         private System.Windows.Forms.Button bwButton;
         private System.Windows.Forms.Button awButton;
         private System.Windows.Forms.DataGridView distributionGrid;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button exportExcel;
         private System.Windows.Forms.Button btnSearch;
     }
 }

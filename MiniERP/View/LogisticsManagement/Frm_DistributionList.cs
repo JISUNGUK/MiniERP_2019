@@ -54,7 +54,7 @@ namespace MiniERP.View.LogisticsManagement
 
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void exportExcel_Click(object sender, EventArgs e)
         {
 
         }

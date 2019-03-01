@@ -95,7 +95,7 @@
             this.ServerFileListView.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.ServerFileListView.MultiSelect = false;
             this.ServerFileListView.Name = "ServerFileListView";
-            this.ServerFileListView.Size = new System.Drawing.Size(670, 585);
+            this.ServerFileListView.Size = new System.Drawing.Size(670, 277);
             this.ServerFileListView.TabIndex = 42;
             this.ServerFileListView.UseCompatibleStateImageBehavior = false;
             this.ServerFileListView.View = System.Windows.Forms.View.Details;

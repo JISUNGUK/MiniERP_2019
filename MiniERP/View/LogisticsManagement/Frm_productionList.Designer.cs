@@ -185,7 +185,7 @@
             // searchPlan
             // 
             this.searchPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchPlan.Location = new System.Drawing.Point(615, 36);
+            this.searchPlan.Location = new System.Drawing.Point(1153, 38);
             this.searchPlan.Margin = new System.Windows.Forms.Padding(5);
             this.searchPlan.Name = "searchPlan";
             this.searchPlan.Size = new System.Drawing.Size(118, 40);
@@ -227,7 +227,7 @@
             this.panel1.Controls.Add(this.itemcount);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Location = new System.Drawing.Point(19, 86);
+            this.panel1.Location = new System.Drawing.Point(24, 113);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1252, 167);
             this.panel1.TabIndex = 152;
