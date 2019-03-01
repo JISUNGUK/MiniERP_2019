@@ -95,6 +95,8 @@
       <Column Name="Stock_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+<<<<<<< HEAD
+=======
   <Function Name="dbo.GET_DISTRIBUTION" Method="GET_DISTRIBUTION">
     <Parameter Name="low_date" Type="System.DateTime" DbType="Date" />
     <Parameter Name="max_date" Type="System.DateTime" DbType="Date" />
@@ -114,4 +116,5 @@
       <Column Name="Distribution_status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+>>>>>>> 13094043bfb015c0baf3164f4bb0ace2e2075135
 </Database>

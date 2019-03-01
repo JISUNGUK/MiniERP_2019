@@ -36,28 +36,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pbxImage = new System.Windows.Forms.PictureBox();
             this.txtComment = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtStandard = new System.Windows.Forms.TextBox();
             this.txtUnit = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnImageSearch = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.cmbClass = new System.Windows.Forms.ComboBox();
             this.txtGroup = new System.Windows.Forms.TextBox();
             this.mTxtFee = new System.Windows.Forms.MaskedTextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.pbxImage = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 12);
+            this.label1.Location = new System.Drawing.Point(187, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(470, 12);
+            this.label2.Location = new System.Drawing.Point(187, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
@@ -75,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(187, 39);
+            this.label3.Location = new System.Drawing.Point(187, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 2;
@@ -84,7 +84,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(470, 39);
+            this.label4.Location = new System.Drawing.Point(187, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 3;
@@ -93,7 +93,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(187, 69);
+            this.label5.Location = new System.Drawing.Point(187, 139);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 4;
@@ -102,7 +102,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(187, 95);
+            this.label6.Location = new System.Drawing.Point(187, 170);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 5;
@@ -111,7 +111,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(187, 127);
+            this.label8.Location = new System.Drawing.Point(187, 201);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 7;
@@ -120,33 +120,23 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 197);
+            this.label9.Location = new System.Drawing.Point(10, 232);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 8;
             this.label9.Text = "비고";
             // 
-            // pbxImage
-            // 
-            this.pbxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxImage.Location = new System.Drawing.Point(12, 12);
-            this.pbxImage.Name = "pbxImage";
-            this.pbxImage.Size = new System.Drawing.Size(150, 150);
-            this.pbxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxImage.TabIndex = 9;
-            this.pbxImage.TabStop = false;
-            // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(12, 212);
+            this.txtComment.Location = new System.Drawing.Point(12, 247);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(701, 57);
+            this.txtComment.Size = new System.Drawing.Size(449, 57);
             this.txtComment.TabIndex = 10;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(189, 275);
+            this.btnRegister.Location = new System.Drawing.Point(63, 320);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 11;
@@ -156,23 +146,13 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(436, 275);
+            this.btnCancel.Location = new System.Drawing.Point(310, 320);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(436, 121);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 25);
-            this.button3.TabIndex = 17;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // txtCode
             // 
@@ -183,38 +163,28 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(529, 9);
+            this.txtName.Location = new System.Drawing.Point(246, 43);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(184, 21);
             this.txtName.TabIndex = 19;
             // 
             // txtStandard
             // 
-            this.txtStandard.Location = new System.Drawing.Point(246, 36);
+            this.txtStandard.Location = new System.Drawing.Point(246, 74);
             this.txtStandard.Name = "txtStandard";
             this.txtStandard.Size = new System.Drawing.Size(184, 21);
             this.txtStandard.TabIndex = 20;
             // 
             // txtUnit
             // 
-            this.txtUnit.Location = new System.Drawing.Point(529, 36);
+            this.txtUnit.Location = new System.Drawing.Point(246, 105);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(184, 21);
             this.txtUnit.TabIndex = 21;
             // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(436, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(25, 25);
-            this.button4.TabIndex = 22;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // btnImageSearch
             // 
-            this.btnImageSearch.Location = new System.Drawing.Point(33, 168);
+            this.btnImageSearch.Location = new System.Drawing.Point(31, 196);
             this.btnImageSearch.Name = "btnImageSearch";
             this.btnImageSearch.Size = new System.Drawing.Size(107, 23);
             this.btnImageSearch.TabIndex = 23;
@@ -234,37 +204,66 @@
             "자재",
             "반제품",
             "완제품"});
-            this.cmbClass.Location = new System.Drawing.Point(246, 66);
+            this.cmbClass.Location = new System.Drawing.Point(246, 136);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.Size = new System.Drawing.Size(184, 20);
             this.cmbClass.TabIndex = 24;
             // 
             // txtGroup
             // 
-            this.txtGroup.Location = new System.Drawing.Point(246, 124);
+            this.txtGroup.Location = new System.Drawing.Point(246, 198);
             this.txtGroup.Name = "txtGroup";
             this.txtGroup.Size = new System.Drawing.Size(184, 21);
             this.txtGroup.TabIndex = 16;
             // 
             // mTxtFee
             // 
-            this.mTxtFee.Location = new System.Drawing.Point(246, 92);
+            this.mTxtFee.Location = new System.Drawing.Point(246, 167);
             this.mTxtFee.Mask = "999999999999";
             this.mTxtFee.Name = "mTxtFee";
-            this.mTxtFee.Size = new System.Drawing.Size(184, 21);
+            this.mTxtFee.Size = new System.Drawing.Size(81, 21);
             this.mTxtFee.TabIndex = 25;
             this.mTxtFee.ValidatingType = typeof(int);
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Location = new System.Drawing.Point(436, 195);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(25, 25);
+            this.button3.TabIndex = 17;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // pbxImage
+            // 
+            this.pbxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxImage.Location = new System.Drawing.Point(12, 12);
+            this.pbxImage.Name = "pbxImage";
+            this.pbxImage.Size = new System.Drawing.Size(150, 178);
+            this.pbxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImage.TabIndex = 9;
+            this.pbxImage.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(333, 170);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 12);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "(원)";
             // 
             // Frm_ItemInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(727, 310);
+            this.ClientSize = new System.Drawing.Size(473, 357);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.mTxtFee);
             this.Controls.Add(this.cmbClass);
             this.Controls.Add(this.btnImageSearch);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.txtUnit);
             this.Controls.Add(this.txtStandard);
             this.Controls.Add(this.txtName);
@@ -315,11 +314,11 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtStandard;
         private System.Windows.Forms.TextBox txtUnit;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnImageSearch;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox cmbClass;
         private System.Windows.Forms.TextBox txtGroup;
         private System.Windows.Forms.MaskedTextBox mTxtFee;
+        private System.Windows.Forms.Label label7;
     }
 }

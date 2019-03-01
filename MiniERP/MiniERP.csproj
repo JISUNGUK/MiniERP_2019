@@ -185,6 +185,12 @@
     <Compile Include="View\StockManagement\Frm_BomUpdate.Designer.cs">
       <DependentUpon>Frm_BomUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StockManagement\Frm_ItemInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_ItemInfo.Designer.cs">
+      <DependentUpon>Frm_ItemInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StockManagement\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -449,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ClerkInsert.resx">
       <DependentUpon>Frm_ClerkInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockManagement\Frm_ItemInfo.resx">
+      <DependentUpon>Frm_ItemInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ItemInsert.resx">
       <DependentUpon>Frm_ItemInsert.cs</DependentUpon>

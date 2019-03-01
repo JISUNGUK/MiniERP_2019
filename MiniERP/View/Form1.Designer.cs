@@ -205,6 +205,7 @@ namespace MiniERP.View
             this.사원등록ToolStripMenuItem,
             this.창고등록ToolStripMenuItem});
             this.기초등록ToolStripMenuItem.Name = "기초등록ToolStripMenuItem";
+            this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.기초등록ToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.기초등록ToolStripMenuItem.Text = "기초 등록";
             // 
@@ -241,6 +242,7 @@ namespace MiniERP.View
             this.bOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bOM조회ToolStripMenuItem});
             this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bOMToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.bOMToolStripMenuItem.Text = "BOM";
             // 
@@ -257,6 +259,7 @@ namespace MiniERP.View
             this.창고조회ToolStripMenuItem,
             this.창고이동ToolStripMenuItem});
             this.창고관리ToolStripMenuItem.Name = "창고관리ToolStripMenuItem";
+            this.창고관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.창고관리ToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.창고관리ToolStripMenuItem.Text = "창고 관리";
             // 
@@ -277,6 +280,7 @@ namespace MiniERP.View
             // 재고ToolStripMenuItem
             // 
             this.재고ToolStripMenuItem.Name = "재고ToolStripMenuItem";
+            this.재고ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.재고ToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.재고ToolStripMenuItem.Text = "재고 조회";
             this.재고ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);
@@ -319,6 +323,7 @@ namespace MiniERP.View
             this.전표조회ToolStripMenuItem,
             this.전표인새ㅗToolStripMenuItem});
             this.전표관리ToolStripMenuItem.Name = "전표관리ToolStripMenuItem";
+            this.전표관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.전표관리ToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.전표관리ToolStripMenuItem.Text = "전표 관리";
             // 
@@ -370,6 +375,7 @@ namespace MiniERP.View
             // 견적서분석ToolStripMenuItem
             // 
             this.견적서분석ToolStripMenuItem.Name = "견적서분석ToolStripMenuItem";
+            this.견적서분석ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.견적서분석ToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.견적서분석ToolStripMenuItem.Text = "견적 조회";
             this.견적서분석ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);
@@ -379,12 +385,14 @@ namespace MiniERP.View
             this.출력ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.품목ToolStripMenuItem});
             this.출력ToolStripMenuItem.Name = "출력ToolStripMenuItem";
+            this.출력ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.출력ToolStripMenuItem.Size = new System.Drawing.Size(67, 34);
             this.출력ToolStripMenuItem.Text = "출력";
             // 
             // 품목ToolStripMenuItem
             // 
             this.품목ToolStripMenuItem.Name = "품목ToolStripMenuItem";
+            this.품목ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.품목ToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.품목ToolStripMenuItem.Text = "품목 출력";
             this.품목ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);

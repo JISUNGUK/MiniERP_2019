@@ -403,7 +403,6 @@ namespace MiniERP.View
                     }
                 case "거래처 등록":
                     {
-                        
                         Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
                         businessInsert.Show();                        
                         break;
@@ -439,6 +438,7 @@ namespace MiniERP.View
                     tabChk = true;
                     break;
 
+
                 case "물류 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
@@ -461,6 +461,7 @@ namespace MiniERP.View
                     Add_CloseBtn(distributionList); // 폼에 닫기 버튼 생성
                     tabChk = true;
                     break;
+
                 case "입고확인서 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
                     panel_mdi = new Panel();
@@ -505,7 +506,6 @@ namespace MiniERP.View
                     Add_CloseBtn(exportList); // 폼에 닫기 버튼 생성
                     tabChk = true;
                     break;
-
 
                 default:
                     MessageBox.Show("해당 폼이 없습니다.");
@@ -733,6 +733,14 @@ namespace MiniERP.View
             //tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
         }
 
+        private void Form1_LocationChanged(object sender, EventArgs e)
+        {
+            if(frm_message!=null)
+            { 
+            frm_message.Location = new Point(this.Location.X+this.Width-10, this.Location.Y);
+            }
+            
+        }
        
     }
 }

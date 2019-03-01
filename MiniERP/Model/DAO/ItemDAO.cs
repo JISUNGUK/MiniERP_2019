@@ -39,7 +39,6 @@ namespace MiniERP.Model.DAO
                     item.Item_class = sr["Item_class"].ToString();
                     item.Item_fee = Int32.Parse(sr["Item_fee"].ToString());
                     item.Stock_count = Int32.Parse(sr["Stock_count"].ToString());
-                    // item.Item_image
                     item.Item_group = sr["Item_group"].ToString();
                     item.Item_comment = sr["Item_comment"].ToString();
                     items.Add(item);
@@ -86,6 +85,103 @@ namespace MiniERP.Model.DAO
             {
                 throw;
             }
+        }
+
+        public int DeleteItem(string itemCode)
+        {
+            string storedProcedureName = "DeleteItem";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("item_code", itemCode)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                return con.ExecuteNonQuery(storedProcedureName, sqlParameters);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 등록하려는 Item의 code가 이미 Item테이블에 존재하는지 확인하는 메서드입니다.
+        /// </summary>
+        /// <param name="itemCode">새롭게 등록할 Item의 code입니다.</param>
+        /// <returns>결과 행이 존재하면 true, 그렇지 않으면 false를 반환합니다.</returns>
+        public bool CheckItemData(string itemCode)
+        {
+            string storedProcedureName = "Check_ItemData";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("item_code", itemCode)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                return con.ExecuteSelect(storedProcedureName, sqlParameters).HasRows;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 아이템코드와 정확하게 일치하는 아이템1개의 정보를 반환하는 메서드입니다.
+        /// </summary>
+        /// <param name="itemCode">정보를 보기 위한 Item의 code입니다.</param>
+        /// <returns>아이템코드와 정확하게 일치하는 아이템1개의 정보를 반환합니다.</returns>
+        public Item GetItemByCode(string itemCode)
+        {
+            string storedProcedureName = "GET_ItemByCode";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("item_code", itemCode)
+            };
+            DBConnection con = new DBConnection();
+            try
+            {
+                SqlDataReader sr = con.ExecuteSelect(storedProcedureName, sqlParameters);
+                Item item = new Item();
+                while (sr.Read())
+                {
+                    item.Item_code = sr["Item_code"].ToString();
+                    item.Item_code = sr["Item_code"].ToString();
+                    item.Item_name = sr["Item_name"].ToString();
+                    item.Item_standard = sr["Item_standard"].ToString();
+                    item.Item_unit = sr["Item_unit"].ToString();
+                    item.Item_class = sr["Item_class"].ToString();
+                    item.Item_fee = Int32.Parse(sr["Item_fee"].ToString());
+                    try
+                    {
+                        item.Item_image = ConvertByteArrayToImage((byte[])sr["Item_image"]);
+                    }
+                    catch (Exception)
+                    {
+                        item.Item_image = null;
+                    }
+                    item.Item_group = sr["Item_group"].ToString();
+                    item.Item_comment = sr["Item_comment"].ToString();
+                }
+                return item;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// byte[]을 Image타입으로 변환하는 메서드입니다.
+        /// </summary>
+        /// <param name="imageBytes">이미지파일에 대한 byte[] 입니다.</param>
+        /// <returns>Image객체를 반환합니다.</returns>
+        private Image ConvertByteArrayToImage(byte[] imageBytes)
+        {
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            return Image.FromStream(ms, true);
         }
     }
 }
