@@ -33,26 +33,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.beforeWarehouse = new System.Windows.Forms.TextBox();
+            this.afterWarehouse = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.itemCode = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.statusTabs = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.status = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.orderBtn = new System.Windows.Forms.Button();
+            this.distributionGrid = new System.Windows.Forms.DataGridView();
+            this.awButton = new System.Windows.Forms.Button();
+            this.bwButton = new System.Windows.Forms.Button();
+            this.itemBtn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.statusTabs.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distributionGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -96,19 +97,19 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "창고";
             // 
-            // textBox1
+            // beforeWarehouse
             // 
-            this.textBox1.Location = new System.Drawing.Point(1022, 160);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 32);
-            this.textBox1.TabIndex = 5;
+            this.beforeWarehouse.Location = new System.Drawing.Point(1022, 160);
+            this.beforeWarehouse.Name = "beforeWarehouse";
+            this.beforeWarehouse.Size = new System.Drawing.Size(200, 32);
+            this.beforeWarehouse.TabIndex = 5;
             // 
-            // textBox2
+            // afterWarehouse
             // 
-            this.textBox2.Location = new System.Drawing.Point(1398, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 32);
-            this.textBox2.TabIndex = 6;
+            this.afterWarehouse.Location = new System.Drawing.Point(1398, 160);
+            this.afterWarehouse.Name = "afterWarehouse";
+            this.afterWarehouse.Size = new System.Drawing.Size(200, 32);
+            this.afterWarehouse.TabIndex = 6;
             // 
             // label4
             // 
@@ -128,12 +129,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "품목코드";
             // 
-            // textBox3
+            // itemCode
             // 
-            this.textBox3.Location = new System.Drawing.Point(133, 154);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 32);
-            this.textBox3.TabIndex = 9;
+            this.itemCode.Location = new System.Drawing.Point(133, 154);
+            this.itemCode.Name = "itemCode";
+            this.itemCode.Size = new System.Drawing.Size(200, 32);
+            this.itemCode.TabIndex = 9;
             // 
             // label6
             // 
@@ -146,7 +147,7 @@
             // 
             // statusTabs
             // 
-            this.statusTabs.Controls.Add(this.tabPage1);
+            this.statusTabs.Controls.Add(this.status);
             this.statusTabs.Controls.Add(this.tabPage2);
             this.statusTabs.Controls.Add(this.tabPage3);
             this.statusTabs.Controls.Add(this.tabPage4);
@@ -156,15 +157,15 @@
             this.statusTabs.Size = new System.Drawing.Size(322, 209);
             this.statusTabs.TabIndex = 1;
             // 
-            // tabPage1
+            // status
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 31);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(314, 174);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "구매";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.status.Location = new System.Drawing.Point(4, 31);
+            this.status.Name = "status";
+            this.status.Padding = new System.Windows.Forms.Padding(3);
+            this.status.Size = new System.Drawing.Size(314, 174);
+            this.status.TabIndex = 0;
+            this.status.Text = "구매";
+            this.status.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -206,50 +207,53 @@
             this.listBox1.Size = new System.Drawing.Size(301, 151);
             this.listBox1.TabIndex = 0;
             // 
-            // dataGridView1
+            // distributionGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 372);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 34;
-            this.dataGridView1.Size = new System.Drawing.Size(1783, 691);
-            this.dataGridView1.TabIndex = 134;
+            this.distributionGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.distributionGrid.Location = new System.Drawing.Point(16, 372);
+            this.distributionGrid.Name = "distributionGrid";
+            this.distributionGrid.RowTemplate.Height = 34;
+            this.distributionGrid.Size = new System.Drawing.Size(1783, 691);
+            this.distributionGrid.TabIndex = 134;
             // 
-            // button2
+            // awButton
             // 
-            this.button2.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Font = new System.Drawing.Font("굴림", 10F);
-            this.button2.Location = new System.Drawing.Point(1606, 157);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(39, 37);
-            this.button2.TabIndex = 133;
-            this.button2.UseVisualStyleBackColor = true;
+            this.awButton.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.awButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.awButton.Font = new System.Drawing.Font("굴림", 10F);
+            this.awButton.Location = new System.Drawing.Point(1606, 157);
+            this.awButton.Margin = new System.Windows.Forms.Padding(5);
+            this.awButton.Name = "awButton";
+            this.awButton.Size = new System.Drawing.Size(39, 37);
+            this.awButton.TabIndex = 133;
+            this.awButton.UseVisualStyleBackColor = true;
+            this.awButton.Click += new System.EventHandler(this.awButton_Click);
             // 
-            // button1
+            // bwButton
             // 
-            this.button1.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Font = new System.Drawing.Font("굴림", 10F);
-            this.button1.Location = new System.Drawing.Point(1230, 160);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 37);
-            this.button1.TabIndex = 132;
-            this.button1.UseVisualStyleBackColor = true;
+            this.bwButton.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.bwButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bwButton.Font = new System.Drawing.Font("굴림", 10F);
+            this.bwButton.Location = new System.Drawing.Point(1230, 160);
+            this.bwButton.Margin = new System.Windows.Forms.Padding(5);
+            this.bwButton.Name = "bwButton";
+            this.bwButton.Size = new System.Drawing.Size(39, 37);
+            this.bwButton.TabIndex = 132;
+            this.bwButton.UseVisualStyleBackColor = true;
+            this.bwButton.Click += new System.EventHandler(this.bwButton_Click);
             // 
-            // orderBtn
+            // itemBtn
             // 
-            this.orderBtn.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.orderBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.orderBtn.Font = new System.Drawing.Font("굴림", 10F);
-            this.orderBtn.Location = new System.Drawing.Point(341, 154);
-            this.orderBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.orderBtn.Name = "orderBtn";
-            this.orderBtn.Size = new System.Drawing.Size(39, 37);
-            this.orderBtn.TabIndex = 130;
-            this.orderBtn.UseVisualStyleBackColor = true;
+            this.itemBtn.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
+            this.itemBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.itemBtn.Font = new System.Drawing.Font("굴림", 10F);
+            this.itemBtn.Location = new System.Drawing.Point(341, 154);
+            this.itemBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.itemBtn.Name = "itemBtn";
+            this.itemBtn.Size = new System.Drawing.Size(39, 37);
+            this.itemBtn.TabIndex = 130;
+            this.itemBtn.UseVisualStyleBackColor = true;
+            this.itemBtn.Click += new System.EventHandler(this.itemBtn_Click);
             // 
             // button4
             // 
@@ -263,23 +267,34 @@
             this.button4.Text = "Excel로 내보내기";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(1230, 72);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(144, 40);
+            this.btnSearch.TabIndex = 136;
+            this.btnSearch.Text = "검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // Frm_DistributionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 1091);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.distributionGrid);
+            this.Controls.Add(this.awButton);
+            this.Controls.Add(this.bwButton);
             this.Controls.Add(this.statusTabs);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.orderBtn);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.itemBtn);
+            this.Controls.Add(this.itemCode);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.afterWarehouse);
+            this.Controls.Add(this.beforeWarehouse);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label2);
@@ -290,7 +305,7 @@
             this.Text = "물류조회";
             this.statusTabs.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distributionGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,22 +318,23 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox beforeWarehouse;
+        private System.Windows.Forms.TextBox afterWarehouse;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button orderBtn;
+        private System.Windows.Forms.TextBox itemCode;
+        private System.Windows.Forms.Button itemBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabControl statusTabs;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage status;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button bwButton;
+        private System.Windows.Forms.Button awButton;
+        private System.Windows.Forms.DataGridView distributionGrid;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
