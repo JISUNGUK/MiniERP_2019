@@ -39,5 +39,10 @@ namespace MiniERP.View.StockManagement
             txtGroup.Text = item.Item_group;
             txtComment.Text = item.Item_comment;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
