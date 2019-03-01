@@ -363,6 +363,17 @@
     <EmbeddedResource Include="Resources\자재 투입서.xlsx" />
     <EmbeddedResource Include="Resources\제품 생산서.xlsx" />
     <EmbeddedResource Include="Resources\출하 증명서.xlsx" />
+    <None Include="Excel\거래 원가 명세서.xlsx" />
+    <None Include="Excel\견적서.xlsx" />
+    <None Include="Excel\구매 계획서.xlsx" />
+    <None Include="Excel\납품 요청서.xlsx" />
+    <None Include="Excel\매입전표.xlsx" />
+    <None Include="Excel\생산 계획서.xlsx" />
+    <None Include="Excel\입고 확인서.xlsx" />
+    <None Include="Excel\자재 계획서.xlsx" />
+    <None Include="Excel\자재 투입서.xlsx" />
+    <None Include="Excel\제품 생산서.xlsx" />
+    <None Include="Excel\출하 증명서.xlsx" />
     <None Include="Model\MiniErpDB.dbml.layout">
       <DependentUpon>MiniErpDB.dbml</DependentUpon>
       <SubType>Designer</SubType>
@@ -488,7 +499,7 @@
       <DependentUpon>Frm_WarehouseSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -523,7 +534,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Excel\" />
     <Folder Include="Interface\" />
     <Folder Include="View\AccountingManagement\" />
     <Folder Include="View\Custom\" />
@@ -533,6 +543,7 @@
     <Content Include="Image\icon_client.png" />
     <Content Include="Image\닫기버튼.jpg" />
     <Content Include="Image\최대화 버튼.jpg" />
+    <EmbeddedResource Include="Resources\message.png" />
     <None Include="Resources\MaxSizeIcon.png" />
     <None Include="Resources\CloseIcon.png" />
     <None Include="Resources\SerchIcon.png" />

@@ -103,7 +103,7 @@ namespace MiniERP.View
         /// 리치텍스트박스 변경시 일어날 메소드
         /// </summary>
         private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
+         {
             ServerStateChecker();
         }
         /// <summary>

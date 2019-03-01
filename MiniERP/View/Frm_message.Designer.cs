@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_message));
             this.Refresh = new System.Windows.Forms.Button();
             this.additionFile = new System.Windows.Forms.CheckBox();
             this.ServerFileListView = new System.Windows.Forms.ListView();
@@ -340,7 +341,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(743, 582);
+            this.ClientSize = new System.Drawing.Size(863, 1166);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -366,6 +367,7 @@
             this.Controls.Add(this.memberList);
             this.Controls.Add(this.roomName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "Frm_message";

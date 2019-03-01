@@ -24,6 +24,7 @@ namespace MiniERP.View.LogisticsManagement
     public partial class Frm_productionList : Form
     {
         private string order_code = "";
+        private int rowcount = 0;//생산계획이 하나라도 있는지 확인
         MiniErpDB miniErp = new MiniErpDB();       
 
         public Frm_productionList()
@@ -42,14 +43,17 @@ namespace MiniERP.View.LogisticsManagement
 
         private void searchPlan_Click(object sender, EventArgs e)
         {
+            rowcount = 0;
             int i = 0;
             produceGrid.DataSource = null;
             foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
-            {                
+            { 
+                
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
                 produceGrid.Rows[i].Cells[2].Value = item.Item_standard                    ;
                 produceGrid.Rows[i].Cells[3].Value = item.M;
+                rowcount++;
                 i++;
             }
 
@@ -58,11 +62,12 @@ namespace MiniERP.View.LogisticsManagement
         private void exportExcel_Click(object sender, EventArgs e)
         {
            
-            if (produceGrid.Rows.Count>0)
+            if (rowcount>0)
             {
+                DateTime dt = DateTime.Now;
                 SaveFileDialog savefile = new SaveFileDialog();
           DialogResult dr=savefile.ShowDialog();
-          savefile.FileName = "생산계획서.xls";
+          savefile.FileName = dt.Day+""+dt.Hour+""+dt.Minute+ "생산계획서.xls";
                 if (dr==DialogResult.OK)
                 {
                     Application excelApp = null;
@@ -74,7 +79,7 @@ namespace MiniERP.View.LogisticsManagement
                                             // Excel 첫번째 워크시트 가져오기                
                                             excelApp = new Application();
                         MessageBox.Show(System.Environment.CurrentDirectory);
-                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory+"\\resources"+"\\구매 계획서.xlsx");
+                        wb = excelApp.Workbooks.Add(Properties.Resources.생산_계획서);
                                             ws = wb.Worksheets.get_Item(1) as Worksheet;
 
                                             // 데이타 넣기

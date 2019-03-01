@@ -107,7 +107,7 @@ namespace MiniERP.View.LogisticsManagement
                         int r = 13;//열번호
                         // Excel 첫번째 워크시트 가져오기                
                         excelApp = new Microsoft.Office.Interop.Excel.Application();
-                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources" + "\\견적서.xlsx");
+                        wb = excelApp.Workbooks.Add(Properties.Resources.견적서);
                         ws = wb.Worksheets.get_Item(1) as Worksheet;
 
                         // 데이타 넣기
