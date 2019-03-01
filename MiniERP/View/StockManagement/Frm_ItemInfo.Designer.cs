@@ -55,6 +55,7 @@
             this.mTxtFee.Location = new System.Drawing.Point(247, 169);
             this.mTxtFee.Mask = "999999999999";
             this.mTxtFee.Name = "mTxtFee";
+            this.mTxtFee.ReadOnly = true;
             this.mTxtFee.Size = new System.Drawing.Size(85, 21);
             this.mTxtFee.TabIndex = 46;
             this.mTxtFee.ValidatingType = typeof(int);
@@ -62,6 +63,7 @@
             // cmbClass
             // 
             this.cmbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbClass.Enabled = false;
             this.cmbClass.FormattingEnabled = true;
             this.cmbClass.Items.AddRange(new object[] {
             "자재",
@@ -76,6 +78,7 @@
             // 
             this.txtUnit.Location = new System.Drawing.Point(247, 107);
             this.txtUnit.Name = "txtUnit";
+            this.txtUnit.ReadOnly = true;
             this.txtUnit.Size = new System.Drawing.Size(184, 21);
             this.txtUnit.TabIndex = 43;
             // 
@@ -83,6 +86,7 @@
             // 
             this.txtStandard.Location = new System.Drawing.Point(247, 76);
             this.txtStandard.Name = "txtStandard";
+            this.txtStandard.ReadOnly = true;
             this.txtStandard.Size = new System.Drawing.Size(184, 21);
             this.txtStandard.TabIndex = 42;
             // 
@@ -90,6 +94,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(247, 45);
             this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(184, 21);
             this.txtName.TabIndex = 41;
             // 
@@ -97,6 +102,7 @@
             // 
             this.txtCode.Location = new System.Drawing.Point(247, 11);
             this.txtCode.Name = "txtCode";
+            this.txtCode.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(184, 21);
             this.txtCode.TabIndex = 40;
             // 
@@ -104,6 +110,7 @@
             // 
             this.txtGroup.Location = new System.Drawing.Point(247, 200);
             this.txtGroup.Name = "txtGroup";
+            this.txtGroup.ReadOnly = true;
             this.txtGroup.Size = new System.Drawing.Size(184, 21);
             this.txtGroup.TabIndex = 38;
             // 
@@ -112,6 +119,7 @@
             this.txtComment.Location = new System.Drawing.Point(13, 249);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
+            this.txtComment.ReadOnly = true;
             this.txtComment.Size = new System.Drawing.Size(418, 57);
             this.txtComment.TabIndex = 35;
             // 

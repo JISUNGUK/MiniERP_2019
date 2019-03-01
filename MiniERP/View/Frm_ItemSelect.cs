@@ -96,7 +96,6 @@ namespace MiniERP.View
                         Item_class = item.Item_class,
                         Item_fee = item.Item_fee,
                         Stock_count = item.Stock_count,
-                        //Item_image = item.Item_image,
                         Item_group = item.Item_group,
                         Item_comment = item.Item_comment
                     };
@@ -131,7 +130,7 @@ namespace MiniERP.View
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Frm_ItemInfo fii = new Frm_ItemInfo(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            Frm_ItemInfo fii = new Frm_ItemInfo(new ItemDAO().GetItemByCode(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
             fii.ShowDialog();
         }
     }
