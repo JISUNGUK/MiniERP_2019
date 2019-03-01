@@ -24,31 +24,31 @@ namespace MiniERP.View.LogisticsManagement
     public partial class Frm_productionList : Form
     {
         private string order_code = "";
-        MiniErpDB miniErp = new MiniErpDB();       
+        MiniErpDB miniErp = new MiniErpDB();
 
         public Frm_productionList()
         {
             InitializeComponent();
-            produceGrid.Columns.Add("item_code","품목코드");
+            produceGrid.Columns.Add("item_code", "품목코드");
             produceGrid.Columns.Add("item_name", "품목명");
             produceGrid.Columns.Add("item_standard", "품목규격");
-            produceGrid.Columns.Add("M", "단가");
+            produceGrid.Columns.Add("M", "수량");
 
         }
 
-        
 
-        
+
+
 
         private void searchPlan_Click(object sender, EventArgs e)
         {
             int i = 0;
             produceGrid.DataSource = null;
             foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
-            {                
+            {
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
-                produceGrid.Rows[i].Cells[2].Value = item.Item_standard                    ;
+                produceGrid.Rows[i].Cells[2].Value = item.Item_standard;
                 produceGrid.Rows[i].Cells[3].Value = item.M;
                 i++;
             }
@@ -57,6 +57,7 @@ namespace MiniERP.View.LogisticsManagement
 
         private void exportExcel_Click(object sender, EventArgs e)
         {
+
             if (produceGrid.Rows.Count > 0)
             {
                 SaveFileDialog savefile = new SaveFileDialog();
@@ -72,19 +73,20 @@ namespace MiniERP.View.LogisticsManagement
                     {
                         // Excel 첫번째 워크시트 가져오기                
                         excelApp = new Application();
-                        wb = excelApp.Workbooks.Open(@"D:\erpmini\MiniERP\Resources\생산 계획서.xlsx");
+                        MessageBox.Show(System.Environment.CurrentDirectory);
+                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources" + "\\구매 계획서.xlsx");
                         ws = wb.Worksheets.get_Item(1) as Worksheet;
 
                         // 데이타 넣기
-                        int r = 1;
+                        int r = 13;
                         ws.Cells[10, 4] = order_code.Remove(order_code.IndexOf("_"));
                         ws.Cells[10, 19] = order_code;
                         foreach (DataGridViewRow data in produceGrid.Rows)
                         {
-                            ws.Cells[r, 2] = data.Cells[1].Value;
-                            ws.Cells[r, 8] = data.Cells[0].Value;
-                            ws.Cells[r, 14] = data.Cells[5].Value;
-                            ws.Cells[r, 20] = data.Cells[2].Value;
+                            ws.Cells[r, 2] = data.Cells[0].Value;
+                            ws.Cells[r, 6] = data.Cells[1].Value;
+                            ws.Cells[r, 14] = data.Cells[2].Value;
+                            ws.Cells[r, 20] = data.Cells[3].Value;
                             r++;
                         }
 
@@ -108,11 +110,31 @@ namespace MiniERP.View.LogisticsManagement
 
         private void Frm_productionList_Resize(object sender, EventArgs e)
         {
-            button11.Location = new System.Drawing.Point(ordercode.Width + ordercode.Location.X + 5, ordercode.Location.Y);
-            button7.Location = new System.Drawing.Point(textBox5.Width + textBox5.Location.X + 5, textBox5.Location.Y);
+            orderSearch.Location = new System.Drawing.Point(ordercode.Width + ordercode.Location.X + 5, ordercode.Location.Y);
+            label1.Location = new System.Drawing.Point(label5.Location.X, label5.Location.Y + label5.Height * 3);
+            itemcode.Location = new System.Drawing.Point(ordercode.Location.X, label1.Location.Y);
+            label8.Location = new System.Drawing.Point(searchPlan.Location.X, label1.Location.Y);
+            itemSearch.Location = new System.Drawing.Point(orderSearch.Location.X, label1.Location.Y);
+            itemcount.Location = new System.Drawing.Point(searchPlan.Location.X + searchPlan.Width, label8.Location.Y);
+
         }
 
         private void Frm_productionList_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemSearch_Click(object sender, EventArgs e)
         {
 
         }

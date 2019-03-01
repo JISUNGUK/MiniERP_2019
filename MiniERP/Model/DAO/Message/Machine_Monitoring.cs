@@ -15,43 +15,40 @@ namespace MiniERP.Model.DAO.Message
         NetworkStream stream = default(NetworkStream);
         Thread thread;
         object txtBox;
-        object penel;
         
         
         string ip = "192.168.0.6";
 
         string readData = null;
 
-        public Machine_Monitoring(object txtBox,object penel)
+        public Machine_Monitoring(object txtBox)
         {
             this.txtBox = txtBox;
-            this.penel = penel;
         }
 
         public void Start()
         {
-            if (client == null)
+            IAsyncResult access = null;
+            try
             {
-                client = new TcpClient("192.168.0.6", 4444);
+                access = client.BeginConnect("192.168.0.8", 4444, null, null);
+                var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+
                 stream = client.GetStream();
 
                 byte[] name = Encoding.UTF8.GetBytes("master");     //  접속 닉네임? 주라고하드라 추후수정
                 stream.Write(name, 0, name.Length);
                 stream.Flush();
-            }
-            else if (client.Connected == false)
-            {
-                client = new TcpClient("192.168.0.6", 4444);
-                stream = client.GetStream();
-            }
 
-            if (thread == null)
-            {
                 thread = new Thread(getMsg);
                 thread.Start();
             }
+            catch (Exception)
+            {
+                return;
+            }
         }
-        
+
         private void getMsg()
         {
             while (true)

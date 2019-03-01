@@ -66,13 +66,6 @@ namespace MiniERP.View.StockManagement
             rdoAll.Checked = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Frm_StockInsert stockInsert = new Frm_StockInsert();
-            stockInsert.ShowDialog();
-            ReflashData();
-        }
-
         private void Frm_StockList_Load(object sender, EventArgs e)
         {
             warehouses = new WarehouseDAO().GetWarehouses(new Warehouse());
@@ -175,6 +168,13 @@ namespace MiniERP.View.StockManagement
                     ReflashData();
                 }
             }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            Frm_StockInsert stockInsert = new Frm_StockInsert();
+            stockInsert.ShowDialog();
+            ReflashData();
         }
     }
 }

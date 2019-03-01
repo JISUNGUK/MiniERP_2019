@@ -22,9 +22,7 @@ namespace MiniERP.View
 
         private void RealTimeMonitor_Load(object sender, EventArgs e)
         {
-            //  채팅에서 받는 서버 연결 확인 후 콤보박스 불들어 와줘야함
-
-            machine_Server = new Machine_Monitoring(txt_Log,panel1);
+            machine_Server = new Machine_Monitoring(txt_Log);
             machine_Server.Start();
             
         }
@@ -32,7 +30,6 @@ namespace MiniERP.View
         private void txt_Log_TextChanged(object sender, EventArgs e)
         {
             txt_Log.SelectionStart = txt_Log.Text.Length;
-
             richTextBox1.AppendText(txt_Log.Text + Environment.NewLine);
 
             //ClientConnectingCheck(txt_Log.Text);
@@ -103,7 +100,7 @@ namespace MiniERP.View
         /// 리치텍스트박스 변경시 일어날 메소드
         /// </summary>
         private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
+         {
             ServerStateChecker();
         }
         /// <summary>

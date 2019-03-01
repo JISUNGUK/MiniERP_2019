@@ -71,6 +71,7 @@
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
+    <Compile Include="Model\DAO\StockDAO.cs" />
     <Compile Include="Model\DAO\TradeDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
     <Compile Include="Model\DAO\Message\win32.cs" />
@@ -136,11 +137,35 @@
     <Compile Include="View\Frm_MPDetails.Designer.cs">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Frm_OrderSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_OrderSelect.Designer.cs">
+      <DependentUpon>Frm_OrderSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Frm_PrintDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Frm_PrintDisplay.Designer.cs">
       <DependentUpon>Frm_PrintDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_DistributionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_DistributionList.Designer.cs">
+      <DependentUpon>Frm_DistributionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ExportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ExportList.Designer.cs">
+      <DependentUpon>Frm_ExportList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ImportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ImportList.Designer.cs">
+      <DependentUpon>Frm_ImportList.cs</DependentUpon>
     </Compile>
     <Compile Include="View\RealTimeMonitor.cs">
       <SubType>Form</SubType>
@@ -159,6 +184,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_BomUpdate.Designer.cs">
       <DependentUpon>Frm_BomUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_ItemInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockManagement\Frm_ItemInfo.Designer.cs">
+      <DependentUpon>Frm_ItemInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StockManagement\Frm_ItemInsert.cs">
       <SubType>Form</SubType>
@@ -232,6 +263,12 @@
     </Compile>
     <Compile Include="View\StockManagement\Frm_WarehouseUpdate.Designer.cs">
       <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_StockInsertReal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_StockInsertReal.Designer.cs">
+      <DependentUpon>Frm_StockInsertReal.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TradeManagement\Frm_ModifyTrade.cs">
       <SubType>Form</SubType>
@@ -313,6 +350,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\TradeManagement\Frm_StockListReal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TradeManagement\Frm_StockListReal.Designer.cs">
+      <DependentUpon>Frm_StockListReal.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TradeManagement\Frm_TradeList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +387,17 @@
     <EmbeddedResource Include="Resources\자재 투입서.xlsx" />
     <EmbeddedResource Include="Resources\제품 생산서.xlsx" />
     <EmbeddedResource Include="Resources\출하 증명서.xlsx" />
+    <None Include="Excel\거래 원가 명세서.xlsx" />
+    <None Include="Excel\견적서.xlsx" />
+    <None Include="Excel\구매 계획서.xlsx" />
+    <None Include="Excel\납품 요청서.xlsx" />
+    <None Include="Excel\매입전표.xlsx" />
+    <None Include="Excel\생산 계획서.xlsx" />
+    <None Include="Excel\입고 확인서.xlsx" />
+    <None Include="Excel\자재 계획서.xlsx" />
+    <None Include="Excel\자재 투입서.xlsx" />
+    <None Include="Excel\제품 생산서.xlsx" />
+    <None Include="Excel\출하 증명서.xlsx" />
     <None Include="Model\MiniErpDB.dbml.layout">
       <DependentUpon>MiniErpDB.dbml</DependentUpon>
       <SubType>Designer</SubType>
@@ -375,8 +429,20 @@
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_OrderSelect.resx">
+      <DependentUpon>Frm_OrderSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_PrintDisplay.resx">
       <DependentUpon>Frm_PrintDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_DistributionList.resx">
+      <DependentUpon>Frm_DistributionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_ExportList.resx">
+      <DependentUpon>Frm_ExportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_ImportList.resx">
+      <DependentUpon>Frm_ImportList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RealTimeMonitor.resx">
       <DependentUpon>RealTimeMonitor.cs</DependentUpon>
@@ -389,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ClerkInsert.resx">
       <DependentUpon>Frm_ClerkInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockManagement\Frm_ItemInfo.resx">
+      <DependentUpon>Frm_ItemInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_ItemInsert.resx">
       <DependentUpon>Frm_ItemInsert.cs</DependentUpon>
@@ -422,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_WarehouseUpdate.resx">
       <DependentUpon>Frm_WarehouseUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TradeManagement\Frm_StockInsertReal.resx">
+      <DependentUpon>Frm_StockInsertReal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_ModifyTrade.resx">
       <DependentUpon>Frm_ModifyTrade.cs</DependentUpon>
@@ -463,7 +535,7 @@
       <DependentUpon>Frm_WarehouseSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -472,6 +544,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\TradeManagement\Frm_StockListReal.resx">
+      <DependentUpon>Frm_StockListReal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\TradeManagement\Frm_TradeList.resx">
       <DependentUpon>Frm_TradeList.cs</DependentUpon>
     </EmbeddedResource>
@@ -495,7 +570,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Excel\" />
     <Folder Include="Interface\" />
     <Folder Include="View\AccountingManagement\" />
     <Folder Include="View\Custom\" />
@@ -505,6 +579,7 @@
     <Content Include="Image\icon_client.png" />
     <Content Include="Image\닫기버튼.jpg" />
     <Content Include="Image\최대화 버튼.jpg" />
+    <EmbeddedResource Include="Resources\message.png" />
     <None Include="Resources\MaxSizeIcon.png" />
     <None Include="Resources\CloseIcon.png" />
     <None Include="Resources\SerchIcon.png" />

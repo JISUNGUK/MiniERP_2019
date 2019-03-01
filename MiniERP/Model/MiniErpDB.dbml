@@ -77,4 +77,44 @@
       <Column Name="Item_unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SET_STOCK_ITEM" Method="SET_STOCK_ITEM">
+    <Parameter Name="item_code" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="warehouse_code" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="stock_count" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GET_STOCK" Method="GET_STOCK">
+    <Parameter Name="warehouse_code" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="item_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="GET_STOCKResult">
+      <Column Name="Item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Warehouse_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Warehouse_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Stock_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+<<<<<<< HEAD
+=======
+  <Function Name="dbo.GET_DISTRIBUTION" Method="GET_DISTRIBUTION">
+    <Parameter Name="low_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="max_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="before_warehouse" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="after_warehouse" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="item_code" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RowsPerPage" Parameter="rowsPerPage" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GET_DISTRIBUTIONResult">
+      <Column Name="Distribution_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Before_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="After_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Distribution_status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+>>>>>>> 13094043bfb015c0baf3164f4bb0ace2e2075135
 </Database>

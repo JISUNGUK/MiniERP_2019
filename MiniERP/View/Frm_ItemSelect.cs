@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiniERP.VO;
+using MiniERP.View.StockManagement;
 
 namespace MiniERP.View
 {
@@ -95,7 +96,6 @@ namespace MiniERP.View
                         Item_class = item.Item_class,
                         Item_fee = item.Item_fee,
                         Stock_count = item.Stock_count,
-                        //Item_image = item.Item_image,
                         Item_group = item.Item_group,
                         Item_comment = item.Item_comment
                     };
@@ -108,6 +108,30 @@ namespace MiniERP.View
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("선택한 아이템을 삭제하시겠습니까?", "아이템 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    new ItemDAO().DeleteItem(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    MessageBox.Show("선택된 아이템이 삭제되었습니다.", "삭제 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    items = new ItemDAO().GetItems("");
+                    Display();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("선택된 아이템의 재고가 있습니다.\n삭제할 수 없습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Frm_ItemInfo fii = new Frm_ItemInfo(new ItemDAO().GetItemByCode(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            fii.ShowDialog();
         }
     }
 }
