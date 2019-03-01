@@ -137,6 +137,12 @@
     <Compile Include="View\Frm_MPDetails.Designer.cs">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Frm_OrderSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Frm_OrderSelect.Designer.cs">
+      <DependentUpon>Frm_OrderSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Frm_PrintDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,18 @@
     </Compile>
     <Compile Include="View\LogisticsManagement\Frm_DistributionList.Designer.cs">
       <DependentUpon>Frm_DistributionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ExportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ExportList.Designer.cs">
+      <DependentUpon>Frm_ExportList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ImportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogisticsManagement\Frm_ImportList.Designer.cs">
+      <DependentUpon>Frm_ImportList.cs</DependentUpon>
     </Compile>
     <Compile Include="View\RealTimeMonitor.cs">
       <SubType>Form</SubType>
@@ -405,11 +423,20 @@
     <EmbeddedResource Include="View\Frm_MPDetails.resx">
       <DependentUpon>Frm_MPDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Frm_OrderSelect.resx">
+      <DependentUpon>Frm_OrderSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_PrintDisplay.resx">
       <DependentUpon>Frm_PrintDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LogisticsManagement\Frm_DistributionList.resx">
       <DependentUpon>Frm_DistributionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_ExportList.resx">
+      <DependentUpon>Frm_ExportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogisticsManagement\Frm_ImportList.resx">
+      <DependentUpon>Frm_ImportList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RealTimeMonitor.resx">
       <DependentUpon>RealTimeMonitor.cs</DependentUpon>

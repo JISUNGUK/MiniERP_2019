@@ -31,14 +31,14 @@ namespace MiniERP.View.LogisticsManagement
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (ordercode.Text != "")
+            if (orderedCode.Text != "")
             {
                 sampleList.Clear();
                
                 foreach (var item in Outputorder())
                 {
                     SampleOrder so = new SampleOrder();
-                    orderCode = ordercode.Text;
+                    orderCode = orderedCode.Text;
                     so.Item_Code = item.item_code;
                     so.Item_Count = item.Item_count;
                     so.Item_Name = item.Item_name;
@@ -76,7 +76,7 @@ namespace MiniERP.View.LogisticsManagement
           
 
             //폼의 컨트롤들의 상태를 보고 컨트롤들에 유효 값이 있을시 조건에 추가
-            var result = from im in erpdb.GET_ORDER(ordercode.Text)
+            var result = from im in erpdb.GET_ORDER(orderedCode.Text)
                          where condition
                          select im;
 
@@ -152,6 +152,29 @@ namespace MiniERP.View.LogisticsManagement
             Frm_ItemSelect frmI = new Frm_ItemSelect();
             frmI.Owner = this;
             frmI.Show();           
+        }
+
+        private void orderBtn_Click_1(object sender, EventArgs e)
+        {
+            Frm_OrderSelect order = new Frm_OrderSelect();
+            if(order.ShowDialog() == DialogResult.OK)
+            {
+             if(order.SelectOrder.Order_Code!=null)
+                    orderedCode.Text = order.SelectOrder.Order_Code;
+            }
+
+           
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
