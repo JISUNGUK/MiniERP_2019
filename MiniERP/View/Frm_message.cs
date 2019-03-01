@@ -296,9 +296,6 @@ namespace MiniERP.View
                         Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
                         MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, "성공적으로 파일을 업로드 했습니다", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshList();
-
-
-
                     }
 
 
