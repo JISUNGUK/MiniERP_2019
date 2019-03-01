@@ -15,8 +15,7 @@ namespace MiniERP.View
     {
         Barcode_Module barcode = new Barcode_Module();
         List<Item> items = new List<Item>();
-        
-        
+
         public Frm_PrintDisplay()
         {
             InitializeComponent();
@@ -75,10 +74,8 @@ namespace MiniERP.View
                     pictureBox1.Image = barcode.MakeBarcode(item.Item_code, true, new Size(300, 50));
                     break;
                 }
-                
             }
         }
-        
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
