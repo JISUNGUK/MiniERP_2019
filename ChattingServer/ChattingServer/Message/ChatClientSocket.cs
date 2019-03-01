@@ -42,7 +42,7 @@ namespace ChattingServer
                     ns.Read(messageByte, 0, ChatClientSockets.ReceiveBufferSize);
                     }
                 }
-                catch (Exception ee)
+                catch (Exception)
                 {
                     ChatServer.clientList.Remove(clientNickName);                                    
                     break;

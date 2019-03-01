@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_message));
-            this.Refresh = new System.Windows.Forms.Button();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.additionFile = new System.Windows.Forms.CheckBox();
             this.ServerFileListView = new System.Windows.Forms.ListView();
             this.Row = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ComputerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Filename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.form_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_RoomName = new System.Windows.Forms.Label();
             this.particiRoom = new System.Windows.Forms.Button();
@@ -60,24 +60,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.fileImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // Refresh
+            // btn_Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(496, 1196);
-            this.Refresh.Margin = new System.Windows.Forms.Padding(5);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(137, 40);
-            this.Refresh.TabIndex = 44;
-            this.Refresh.Text = "새로고침";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            this.btn_Refresh.Location = new System.Drawing.Point(316, 683);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(87, 23);
+            this.btn_Refresh.TabIndex = 44;
+            this.btn_Refresh.Text = "새로고침";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // additionFile
             // 
             this.additionFile.AutoSize = true;
-            this.additionFile.Location = new System.Drawing.Point(496, 1127);
-            this.additionFile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.additionFile.Location = new System.Drawing.Point(316, 644);
+            this.additionFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.additionFile.Name = "additionFile";
-            this.additionFile.Size = new System.Drawing.Size(162, 25);
+            this.additionFile.Size = new System.Drawing.Size(96, 16);
             this.additionFile.TabIndex = 43;
             this.additionFile.Text = "파일첨부여부";
             this.additionFile.UseVisualStyleBackColor = true;
@@ -88,14 +87,14 @@
             this.Row,
             this.ComputerName,
             this.Filename,
-            this.Size});
+            this.form_Size});
             this.ServerFileListView.FullRowSelect = true;
             this.ServerFileListView.GridLines = true;
-            this.ServerFileListView.Location = new System.Drawing.Point(69, 1255);
-            this.ServerFileListView.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ServerFileListView.Location = new System.Drawing.Point(44, 717);
+            this.ServerFileListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ServerFileListView.MultiSelect = false;
             this.ServerFileListView.Name = "ServerFileListView";
-            this.ServerFileListView.Size = new System.Drawing.Size(670, 277);
+            this.ServerFileListView.Size = new System.Drawing.Size(428, 160);
             this.ServerFileListView.TabIndex = 42;
             this.ServerFileListView.UseCompatibleStateImageBehavior = false;
             this.ServerFileListView.View = System.Windows.Forms.View.Details;
@@ -115,18 +114,17 @@
             this.Filename.Text = "파일명";
             this.Filename.Width = 248;
             // 
-            // Size
+            // form_Size
             // 
-            this.Size.Text = "용량 (KB)";
-            this.Size.Width = 124;
+            this.form_Size.Text = "용량 (KB)";
+            this.form_Size.Width = 124;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 1185);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(41, 677);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 21);
+            this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 41;
             this.label4.Text = "파일목록";
             // 
@@ -134,19 +132,17 @@
             // 
             this.lbl_RoomName.AutoSize = true;
             this.lbl_RoomName.Font = new System.Drawing.Font("굴림", 12F);
-            this.lbl_RoomName.Location = new System.Drawing.Point(176, 159);
-            this.lbl_RoomName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbl_RoomName.Location = new System.Drawing.Point(112, 91);
             this.lbl_RoomName.Name = "lbl_RoomName";
-            this.lbl_RoomName.Size = new System.Drawing.Size(226, 28);
+            this.lbl_RoomName.Size = new System.Drawing.Size(130, 16);
             this.lbl_RoomName.TabIndex = 39;
             this.lbl_RoomName.Text = "방이름 여기 출력";
             // 
             // particiRoom
             // 
-            this.particiRoom.Location = new System.Drawing.Point(435, 119);
-            this.particiRoom.Margin = new System.Windows.Forms.Padding(5);
+            this.particiRoom.Location = new System.Drawing.Point(277, 68);
             this.particiRoom.Name = "particiRoom";
-            this.particiRoom.Size = new System.Drawing.Size(118, 40);
+            this.particiRoom.Size = new System.Drawing.Size(75, 23);
             this.particiRoom.TabIndex = 38;
             this.particiRoom.Text = "방참가";
             this.particiRoom.UseVisualStyleBackColor = true;
@@ -155,29 +151,26 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(321, -504);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(204, -288);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 21);
+            this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 36;
             this.label3.Text = "사용자이름";
             // 
             // filel
             // 
             this.filel.AutoSize = true;
-            this.filel.Location = new System.Drawing.Point(134, 1092);
-            this.filel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.filel.Location = new System.Drawing.Point(85, 624);
             this.filel.Name = "filel";
-            this.filel.Size = new System.Drawing.Size(108, 21);
+            this.filel.Size = new System.Drawing.Size(61, 12);
             this.filel.TabIndex = 34;
             this.filel.Text = "첨부 파일:";
             // 
             // sendMsg
             // 
-            this.sendMsg.Location = new System.Drawing.Point(498, 1046);
-            this.sendMsg.Margin = new System.Windows.Forms.Padding(5);
+            this.sendMsg.Location = new System.Drawing.Point(317, 598);
             this.sendMsg.Name = "sendMsg";
-            this.sendMsg.Size = new System.Drawing.Size(121, 40);
+            this.sendMsg.Size = new System.Drawing.Size(77, 23);
             this.sendMsg.TabIndex = 33;
             this.sendMsg.Text = "전송";
             this.sendMsg.UseVisualStyleBackColor = true;
@@ -185,29 +178,26 @@
             // 
             // message
             // 
-            this.message.Location = new System.Drawing.Point(69, 1050);
-            this.message.Margin = new System.Windows.Forms.Padding(5);
+            this.message.Location = new System.Drawing.Point(44, 600);
             this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(417, 32);
+            this.message.Size = new System.Drawing.Size(267, 21);
             this.message.TabIndex = 32;
             this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp_1);
             // 
             // ChatContent
             // 
-            this.ChatContent.Location = new System.Drawing.Point(68, 360);
-            this.ChatContent.Margin = new System.Windows.Forms.Padding(5);
+            this.ChatContent.Location = new System.Drawing.Point(43, 206);
             this.ChatContent.Name = "ChatContent";
-            this.ChatContent.Size = new System.Drawing.Size(565, 657);
+            this.ChatContent.Size = new System.Drawing.Size(361, 377);
             this.ChatContent.TabIndex = 31;
             this.ChatContent.Text = "";
             // 
             // rmRoom
             // 
             this.rmRoom.Enabled = false;
-            this.rmRoom.Location = new System.Drawing.Point(284, 119);
-            this.rmRoom.Margin = new System.Windows.Forms.Padding(5);
+            this.rmRoom.Location = new System.Drawing.Point(181, 68);
             this.rmRoom.Name = "rmRoom";
-            this.rmRoom.Size = new System.Drawing.Size(141, 40);
+            this.rmRoom.Size = new System.Drawing.Size(90, 23);
             this.rmRoom.TabIndex = 30;
             this.rmRoom.Text = "방제거";
             this.rmRoom.UseVisualStyleBackColor = true;
@@ -216,10 +206,9 @@
             // 
             // mkRoom
             // 
-            this.mkRoom.Location = new System.Drawing.Point(170, 119);
-            this.mkRoom.Margin = new System.Windows.Forms.Padding(5);
+            this.mkRoom.Location = new System.Drawing.Point(108, 68);
             this.mkRoom.Name = "mkRoom";
-            this.mkRoom.Size = new System.Drawing.Size(105, 40);
+            this.mkRoom.Size = new System.Drawing.Size(67, 23);
             this.mkRoom.TabIndex = 29;
             this.mkRoom.Text = "방생성";
             this.mkRoom.UseVisualStyleBackColor = true;
@@ -228,126 +217,115 @@
             // roomList
             // 
             this.roomList.FormattingEnabled = true;
-            this.roomList.Location = new System.Drawing.Point(173, 74);
-            this.roomList.Margin = new System.Windows.Forms.Padding(5);
+            this.roomList.Location = new System.Drawing.Point(110, 42);
             this.roomList.Name = "roomList";
-            this.roomList.Size = new System.Drawing.Size(370, 29);
+            this.roomList.Size = new System.Drawing.Size(237, 20);
             this.roomList.TabIndex = 28;
             this.roomList.SelectedIndexChanged += new System.EventHandler(this.roomList_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(352, -457);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(224, -261);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 21);
+            this.label2.Size = new System.Drawing.Size(45, 12);
             this.label2.TabIndex = 27;
             this.label2.Text = "방 목록";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(321, -313);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(204, -179);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 21);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 26;
             this.label1.Text = "사용자목록";
             // 
             // memberList
             // 
             this.memberList.FormattingEnabled = true;
-            this.memberList.ItemHeight = 21;
-            this.memberList.Location = new System.Drawing.Point(173, 217);
-            this.memberList.Margin = new System.Windows.Forms.Padding(5);
+            this.memberList.ItemHeight = 12;
+            this.memberList.Location = new System.Drawing.Point(110, 124);
             this.memberList.Name = "memberList";
             this.memberList.ScrollAlwaysVisible = true;
-            this.memberList.Size = new System.Drawing.Size(197, 130);
+            this.memberList.Size = new System.Drawing.Size(127, 76);
             this.memberList.TabIndex = 25;
             // 
             // roomName
             // 
             this.roomName.AutoSize = true;
             this.roomName.Font = new System.Drawing.Font("굴림", 12F);
-            this.roomName.Location = new System.Drawing.Point(64, 159);
-            this.roomName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.roomName.Location = new System.Drawing.Point(41, 91);
             this.roomName.Name = "roomName";
-            this.roomName.Size = new System.Drawing.Size(105, 28);
+            this.roomName.Size = new System.Drawing.Size(61, 16);
             this.roomName.TabIndex = 24;
             this.roomName.Text = "방 이름";
             // 
             // filelabel1
             // 
             this.filelabel1.AutoSize = true;
-            this.filelabel1.Location = new System.Drawing.Point(239, 1092);
-            this.filelabel1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.filelabel1.Location = new System.Drawing.Point(152, 624);
             this.filelabel1.Name = "filelabel1";
-            this.filelabel1.Size = new System.Drawing.Size(0, 21);
+            this.filelabel1.Size = new System.Drawing.Size(0, 12);
             this.filelabel1.TabIndex = 45;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 26);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Location = new System.Drawing.Point(36, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 21);
+            this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 54;
             this.label6.Text = "사용자이름";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(88, 74);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Location = new System.Drawing.Point(56, 42);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 21);
+            this.label7.Size = new System.Drawing.Size(45, 12);
             this.label7.TabIndex = 49;
             this.label7.Text = "방 목록";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(57, 217);
-            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label8.Location = new System.Drawing.Point(36, 124);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 21);
+            this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 48;
             this.label8.Text = "사용자목록";
             // 
             // nicknamel
             // 
             this.nicknamel.AutoSize = true;
-            this.nicknamel.Location = new System.Drawing.Point(170, 26);
-            this.nicknamel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.nicknamel.Location = new System.Drawing.Point(108, 15);
             this.nicknamel.Name = "nicknamel";
-            this.nicknamel.Size = new System.Drawing.Size(58, 21);
+            this.nicknamel.Size = new System.Drawing.Size(38, 12);
             this.nicknamel.TabIndex = 55;
             this.nicknamel.Text = "label5";
             // 
             // fileImage
             // 
             this.fileImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.fileImage.Location = new System.Drawing.Point(69, 1087);
-            this.fileImage.Margin = new System.Windows.Forms.Padding(5);
+            this.fileImage.Location = new System.Drawing.Point(44, 621);
             this.fileImage.Name = "fileImage";
-            this.fileImage.Size = new System.Drawing.Size(59, 65);
+            this.fileImage.Size = new System.Drawing.Size(39, 39);
             this.fileImage.TabIndex = 40;
             this.fileImage.TabStop = false;
             // 
             // Frm_message
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(863, 1166);
+            this.ClientSize = new System.Drawing.Size(549, 604);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.filelabel1);
-            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.additionFile);
             this.Controls.Add(this.ServerFileListView);
             this.Controls.Add(this.label4);
@@ -368,7 +346,6 @@
             this.Controls.Add(this.roomName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "Frm_message";
             this.Text = "메시지";
@@ -383,13 +360,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.CheckBox additionFile;
         private System.Windows.Forms.ListView ServerFileListView;
         private System.Windows.Forms.ColumnHeader Row;
         private System.Windows.Forms.ColumnHeader ComputerName;
         private System.Windows.Forms.ColumnHeader Filename;
-        private System.Windows.Forms.ColumnHeader Size;
+        private System.Windows.Forms.ColumnHeader form_Size;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox fileImage;
         private System.Windows.Forms.Label lbl_RoomName;
