@@ -127,6 +127,7 @@
             // exportExcel
             // 
             this.exportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exportExcel.Font = new System.Drawing.Font("굴림", 10F);
             this.exportExcel.Location = new System.Drawing.Point(1407, 24);
             this.exportExcel.Margin = new System.Windows.Forms.Padding(5);
@@ -153,6 +154,7 @@
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search.Location = new System.Drawing.Point(571, 20);
             this.btn_search.Margin = new System.Windows.Forms.Padding(5);
             this.btn_search.Name = "btn_search";
@@ -191,6 +193,7 @@
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.sampleOrder);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Frm_EstimateList";
             this.Text = "견적서 조회";
