@@ -198,6 +198,7 @@ namespace MiniERP.View.LogisticsManagement
                         Marshal.ReleaseComObject(ws);
                         Marshal.ReleaseComObject(wb);
                         Marshal.ReleaseComObject(excelApp);
+                        MessageBox.Show("엑셀 파일로 모두 출력했습니다");
                     }
                 }
 

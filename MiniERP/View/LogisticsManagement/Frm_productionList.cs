@@ -54,6 +54,8 @@ namespace MiniERP.View.LogisticsManagement
                 produceGrid.Rows[i].Cells[3].Value = item.M;
                 i++;
             }
+            if(i==0)
+                MessageBox.Show("찾으시는 주문에 대한 생산계획이 없습니다");
 
         }
 
@@ -103,6 +105,7 @@ namespace MiniERP.View.LogisticsManagement
                         Marshal.ReleaseComObject(ws);
                         Marshal.ReleaseComObject(wb);
                         Marshal.ReleaseComObject(excelApp);
+                        MessageBox.Show("엑셀 파일로 모두 출력했습니다");
                     }
                 }
 

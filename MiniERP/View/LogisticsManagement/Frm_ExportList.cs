@@ -50,7 +50,7 @@ namespace MiniERP.View.LogisticsManagement
             {
                
                 DataGridViewRow dr = new DataGridViewRow();
-                dr.CreateCells(exportGrid, item.afterName, item.Distribution_count, item.item_name, item.item_standard);
+                dr.CreateCells(exportGrid, item.afterName, item.item_name, item.Distribution_count,  item.item_standard);
                 exportGrid.Rows.Add(dr);
             } 
         }
@@ -84,9 +84,9 @@ namespace MiniERP.View.LogisticsManagement
                         foreach (DataGridViewRow data in exportGrid.Rows)
                         {
                             ws.Cells[r, 2] = data.Cells[0].Value;
-                            ws.Cells[r, 7] = data.Cells[2].Value;
-                            ws.Cells[r, 12] = data.Cells[1].Value;
-                            ws.Cells[r, 17] = data.Cells[3].Value;
+                            ws.Cells[r, 7] = data.Cells[1].Value;
+                            ws.Cells[r, 12] = data.Cells[3].Value;
+                            ws.Cells[r, 17] = data.Cells[2].Value;
                             r++;
                         }
 
@@ -101,6 +101,7 @@ namespace MiniERP.View.LogisticsManagement
                         Marshal.ReleaseComObject(ws);
                         Marshal.ReleaseComObject(wb);
                         Marshal.ReleaseComObject(excelApp);
+                        MessageBox.Show("엑셀 파일로 모두 출력했습니다");
                     }
                 }
 
@@ -111,9 +112,10 @@ namespace MiniERP.View.LogisticsManagement
         private void Frm_ExportList_Load(object sender, EventArgs e)
         {
             exportGrid.Columns.Add("after_warehouse", "도착창고");
-            exportGrid.Columns.Add("Distribution_count", "수량");
+            
             exportGrid.Columns.Add("item_name", "품목명");
-            exportGrid.Columns.Add("item_standard", "품목규격");
+            exportGrid.Columns.Add("Distribution_count", "수량");
+            exportGrid.Columns.Add("item_standard", "규격");
         }
     }
 }
