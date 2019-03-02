@@ -76,20 +76,6 @@ namespace MiniERP.Model
 			return ((ISingleResult<GET_MANUFACTURE_DOCResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Get_Export")]
-		public ISingleResult<Get_ExportResult> Get_Export([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> move_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string after_warehouse)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), move_date, after_warehouse);
-			return ((ISingleResult<Get_ExportResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Get_Import")]
-		public ISingleResult<Get_ImportResult> Get_Import([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> move_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string before_warehouse)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), move_date, before_warehouse);
-			return ((ISingleResult<Get_ImportResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_RESOURCES_PLAN")]
 		public ISingleResult<GET_RESOURCES_PLANResult> GET_RESOURCES_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string ordere_code)
 		{
@@ -102,13 +88,6 @@ namespace MiniERP.Model
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordere_code);
 			return ((ISingleResult<GET_PURCHASE_PLANResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_MANUFACTURE_PLAN")]
-		public ISingleResult<GET_MANUFACTURE_PLANResult> GET_MANUFACTURE_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string order_code)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
-			return ((ISingleResult<GET_MANUFACTURE_PLANResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_ORDER")]
@@ -137,6 +116,27 @@ namespace MiniERP.Model
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), low_date, max_date, before_warehouse, after_warehouse, item_code, status, pageNumber, rowsPerPage);
 			return ((ISingleResult<GET_DISTRIBUTIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Get_Export")]
+		public ISingleResult<Get_ExportResult> Get_Export([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> move_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string before_warehouse)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), move_date, before_warehouse);
+			return ((ISingleResult<Get_ExportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Get_Import")]
+		public ISingleResult<Get_ImportResult> Get_Import([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> move_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string after_warehouse)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), move_date, after_warehouse);
+			return ((ISingleResult<Get_ImportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_MANUFACTURE_PLAN")]
+		public ISingleResult<GET_MANUFACTURE_PLANResult> GET_MANUFACTURE_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string order_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
+			return ((ISingleResult<GET_MANUFACTURE_PLANResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -215,202 +215,6 @@ namespace MiniERP.Model
 				if ((this._Distribution_count != value))
 				{
 					this._Distribution_count = value;
-				}
-			}
-		}
-	}
-	
-	public partial class Get_ExportResult
-	{
-		
-		private string _before_warehouse;
-		
-		private string _after_warehouse;
-		
-		private string _item_name;
-		
-		private int _Distribution_count;
-		
-		private string _item_standard;
-		
-		public Get_ExportResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_before_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string before_warehouse
-		{
-			get
-			{
-				return this._before_warehouse;
-			}
-			set
-			{
-				if ((this._before_warehouse != value))
-				{
-					this._before_warehouse = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_after_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string after_warehouse
-		{
-			get
-			{
-				return this._after_warehouse;
-			}
-			set
-			{
-				if ((this._after_warehouse != value))
-				{
-					this._after_warehouse = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string item_name
-		{
-			get
-			{
-				return this._item_name;
-			}
-			set
-			{
-				if ((this._item_name != value))
-				{
-					this._item_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
-		public int Distribution_count
-		{
-			get
-			{
-				return this._Distribution_count;
-			}
-			set
-			{
-				if ((this._Distribution_count != value))
-				{
-					this._Distribution_count = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
-		public string item_standard
-		{
-			get
-			{
-				return this._item_standard;
-			}
-			set
-			{
-				if ((this._item_standard != value))
-				{
-					this._item_standard = value;
-				}
-			}
-		}
-	}
-	
-	public partial class Get_ImportResult
-	{
-		
-		private string _after_warehouse;
-		
-		private string _before_warehouse;
-		
-		private string _item_name;
-		
-		private int _Distribution_count;
-		
-		private string _item_standard;
-		
-		public Get_ImportResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_after_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string after_warehouse
-		{
-			get
-			{
-				return this._after_warehouse;
-			}
-			set
-			{
-				if ((this._after_warehouse != value))
-				{
-					this._after_warehouse = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_before_warehouse", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string before_warehouse
-		{
-			get
-			{
-				return this._before_warehouse;
-			}
-			set
-			{
-				if ((this._before_warehouse != value))
-				{
-					this._before_warehouse = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string item_name
-		{
-			get
-			{
-				return this._item_name;
-			}
-			set
-			{
-				if ((this._item_name != value))
-				{
-					this._item_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
-		public int Distribution_count
-		{
-			get
-			{
-				return this._Distribution_count;
-			}
-			set
-			{
-				if ((this._Distribution_count != value))
-				{
-					this._Distribution_count = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
-		public string item_standard
-		{
-			get
-			{
-				return this._item_standard;
-			}
-			set
-			{
-				if ((this._item_standard != value))
-				{
-					this._item_standard = value;
 				}
 			}
 		}
@@ -571,86 +375,6 @@ namespace MiniERP.Model
 				if ((this._item_standard != value))
 				{
 					this._item_standard = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GET_MANUFACTURE_PLANResult
-	{
-		
-		private string _Item_code;
-		
-		private string _Item_name;
-		
-		private System.Nullable<int> _M;
-		
-		private string _Item_standard;
-		
-		public GET_MANUFACTURE_PLANResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Item_code
-		{
-			get
-			{
-				return this._Item_code;
-			}
-			set
-			{
-				if ((this._Item_code != value))
-				{
-					this._Item_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Item_name
-		{
-			get
-			{
-				return this._Item_name;
-			}
-			set
-			{
-				if ((this._Item_name != value))
-				{
-					this._Item_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M", DbType="Int")]
-		public System.Nullable<int> M
-		{
-			get
-			{
-				return this._M;
-			}
-			set
-			{
-				if ((this._M != value))
-				{
-					this._M = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
-		public string Item_standard
-		{
-			get
-			{
-				return this._Item_standard;
-			}
-			set
-			{
-				if ((this._Item_standard != value))
-				{
-					this._Item_standard = value;
 				}
 			}
 		}
@@ -1017,6 +741,264 @@ namespace MiniERP.Model
 				if ((this._Distribution_status != value))
 				{
 					this._Distribution_status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Get_ExportResult
+	{
+		
+		private string _afterName;
+		
+		private string _item_name;
+		
+		private int _Distribution_count;
+		
+		private string _item_standard;
+		
+		public Get_ExportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_afterName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string afterName
+		{
+			get
+			{
+				return this._afterName;
+			}
+			set
+			{
+				if ((this._afterName != value))
+				{
+					this._afterName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string item_name
+		{
+			get
+			{
+				return this._item_name;
+			}
+			set
+			{
+				if ((this._item_name != value))
+				{
+					this._item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
+		public int Distribution_count
+		{
+			get
+			{
+				return this._Distribution_count;
+			}
+			set
+			{
+				if ((this._Distribution_count != value))
+				{
+					this._Distribution_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
+		public string item_standard
+		{
+			get
+			{
+				return this._item_standard;
+			}
+			set
+			{
+				if ((this._item_standard != value))
+				{
+					this._item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Get_ImportResult
+	{
+		
+		private string _beforeName;
+		
+		private string _item_name;
+		
+		private int _Distribution_count;
+		
+		private string _item_standard;
+		
+		public Get_ImportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_beforeName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string beforeName
+		{
+			get
+			{
+				return this._beforeName;
+			}
+			set
+			{
+				if ((this._beforeName != value))
+				{
+					this._beforeName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string item_name
+		{
+			get
+			{
+				return this._item_name;
+			}
+			set
+			{
+				if ((this._item_name != value))
+				{
+					this._item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distribution_count", DbType="Int NOT NULL")]
+		public int Distribution_count
+		{
+			get
+			{
+				return this._Distribution_count;
+			}
+			set
+			{
+				if ((this._Distribution_count != value))
+				{
+					this._Distribution_count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_standard", DbType="NVarChar(20)")]
+		public string item_standard
+		{
+			get
+			{
+				return this._item_standard;
+			}
+			set
+			{
+				if ((this._item_standard != value))
+				{
+					this._item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_MANUFACTURE_PLANResult
+	{
+		
+		private string _Item_code;
+		
+		private string _Item_name;
+		
+		private System.Nullable<int> _M;
+		
+		private string _Item_standard;
+		
+		private int _Item_wrote_fee;
+		
+		public GET_MANUFACTURE_PLANResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Item_code
+		{
+			get
+			{
+				return this._Item_code;
+			}
+			set
+			{
+				if ((this._Item_code != value))
+				{
+					this._Item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_name
+		{
+			get
+			{
+				return this._Item_name;
+			}
+			set
+			{
+				if ((this._Item_name != value))
+				{
+					this._Item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M", DbType="Int")]
+		public System.Nullable<int> M
+		{
+			get
+			{
+				return this._M;
+			}
+			set
+			{
+				if ((this._M != value))
+				{
+					this._M = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
+		public string Item_standard
+		{
+			get
+			{
+				return this._Item_standard;
+			}
+			set
+			{
+				if ((this._Item_standard != value))
+				{
+					this._Item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_wrote_fee", DbType="Int NOT NULL")]
+		public int Item_wrote_fee
+		{
+			get
+			{
+				return this._Item_wrote_fee;
+			}
+			set
+			{
+				if ((this._Item_wrote_fee != value))
+				{
+					this._Item_wrote_fee = value;
 				}
 			}
 		}

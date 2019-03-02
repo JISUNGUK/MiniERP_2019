@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Runtime.InteropServices;
+using MiniERP.Model.DAO;
 
 
 
@@ -33,6 +34,7 @@ namespace MiniERP.View.LogisticsManagement
             produceGrid.Columns.Add("item_name", "품목명");
             produceGrid.Columns.Add("item_standard", "품목규격");
             produceGrid.Columns.Add("M", "수량");
+            produceGrid.Columns.Add("Item_wrote_fee", "단가");
 
         }
 
@@ -43,16 +45,20 @@ namespace MiniERP.View.LogisticsManagement
         private void searchPlan_Click(object sender, EventArgs e)
         {
             int i = 0;
-            produceGrid.DataSource = null;
+            produceGrid.Rows.Clear();
             foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
-            { 
-
+            {
+                order_code = ordercode.Text;
+                produceGrid.Rows.Add();
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
                 produceGrid.Rows[i].Cells[2].Value = item.Item_standard;
                 produceGrid.Rows[i].Cells[3].Value = item.M;
+                produceGrid.Rows[i].Cells[4].Value = item.Item_wrote_fee;
                 i++;
             }
+            if(i==0)
+                MessageBox.Show("찾으시는 주문에 대한 생산계획이 없습니다");
 
         }
 
@@ -61,78 +67,21 @@ namespace MiniERP.View.LogisticsManagement
 
             if (produceGrid.Rows.Count > 0)
             {
-                SaveFileDialog savefile = new SaveFileDialog();
-                DialogResult dr = savefile.ShowDialog();
-                savefile.FileName = "생산계획서.xls";
-                if (dr == DialogResult.OK)
-                {
-                    Application excelApp = null;
-                    Workbook wb = null;
-                    Worksheet ws = null;
-
-                    try
-                    {
-                        // Excel 첫번째 워크시트 가져오기                
-                        excelApp = new Application();
-                        MessageBox.Show(System.Environment.CurrentDirectory);
-                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources" + "\\구매 계획서.xlsx");
-                        ws = wb.Worksheets.get_Item(1) as Worksheet;
-
-                        // 데이타 넣기
-                        int r = 13;
-                        ws.Cells[10, 4] = order_code.Remove(order_code.IndexOf("_"));
-                        ws.Cells[10, 19] = order_code;
-                        foreach (DataGridViewRow data in produceGrid.Rows)
-                        {
-                            ws.Cells[r, 2] = data.Cells[0].Value;
-                            ws.Cells[r, 6] = data.Cells[1].Value;
-                            ws.Cells[r, 14] = data.Cells[2].Value;
-                            ws.Cells[r, 20] = data.Cells[3].Value;
-                            r++;
-                        }
-
-                        // 엑셀파일 저장
-                        wb.SaveAs(savefile.FileName, XlFileFormat.xlWorkbookNormal);
-                        wb.Close(true);
-                        excelApp.Quit();
-                    }
-                    finally
-                    {
-                        // Clean up
-                        Marshal.ReleaseComObject(ws);
-                        Marshal.ReleaseComObject(wb);
-                        Marshal.ReleaseComObject(excelApp);
-                    }
-                }
-
-
+                new PrintExcelDAO().outputExcel("생산 계획서", order_code, produceGrid);              
             }
         }
 
-        private void Frm_productionList_Resize(object sender, EventArgs e)
-        {
-          
-
-        }
-
-        private void Frm_productionList_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnFind_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void orderSearch_Click(object sender, EventArgs e)
         {
-
+            Frm_OrderSelect order = new Frm_OrderSelect();
+            if (order.ShowDialog() == DialogResult.OK)
+            {
+                ordercode.Text = order.SelectOrder.Order_Code;
+            }
         }
 
-        private void itemSearch_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

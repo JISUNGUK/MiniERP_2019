@@ -86,6 +86,7 @@
     <Compile Include="Model\DAO\Message\MessageDAO.cs" />
     <Compile Include="Model\DAO\OrderedDAO.cs" />
     <Compile Include="Model\DAO\Message\PostedData.cs" />
+    <Compile Include="Model\DAO\PrintExcelDAO.cs" />
     <Compile Include="Model\DAO\StockDAO.cs" />
     <Compile Include="Model\DAO\TradeDAO.cs" />
     <Compile Include="Model\DAO\WarehouseDAO.cs" />
@@ -424,17 +425,17 @@
     <Content Include="Resources\출하 증명서.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Excel\거래 원가 명세서.xlsx" />
-    <None Include="Excel\견적서.xlsx" />
-    <None Include="Excel\구매 계획서.xlsx" />
-    <None Include="Excel\납품 요청서.xlsx" />
-    <None Include="Excel\매입전표.xlsx" />
-    <None Include="Excel\생산 계획서.xlsx" />
-    <None Include="Excel\입고 확인서.xlsx" />
-    <None Include="Excel\자재 계획서.xlsx" />
-    <None Include="Excel\자재 투입서.xlsx" />
-    <None Include="Excel\제품 생산서.xlsx" />
-    <None Include="Excel\출하 증명서.xlsx" />
+    <Content Include="Excel\거래 원가 명세서.xlsx" />
+    <Content Include="Excel\견적서.xlsx" />
+    <Content Include="Excel\구매 계획서.xlsx" />
+    <Content Include="Excel\납품 요청서.xlsx" />
+    <Content Include="Excel\매입전표.xlsx" />
+    <Content Include="Excel\생산 계획서.xlsx" />
+    <Content Include="Excel\입고 확인서.xlsx" />
+    <Content Include="Excel\자재 계획서.xlsx" />
+    <Content Include="Excel\자재 투입서.xlsx" />
+    <Content Include="Excel\제품 생산서.xlsx" />
+    <Content Include="Excel\출하 증명서.xlsx" />
     <None Include="Model\MiniErpDB.dbml.layout">
       <DependentUpon>MiniErpDB.dbml</DependentUpon>
       <SubType>Designer</SubType>
