@@ -31,7 +31,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_serch = new System.Windows.Forms.Button();
             this.txtCodeOrName = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
@@ -91,17 +90,6 @@
             this.txtCodeOrName.Text = "창고명을 입력하세요.";
             this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
             this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(216, 583);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 23);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Excel로 내보내기";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
@@ -265,7 +253,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_serch);
             this.Controls.Add(this.txtCodeOrName);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
             this.Name = "Frm_StockList";
@@ -284,7 +271,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_serch;
         private System.Windows.Forms.TextBox txtCodeOrName;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Panel pnl_serchbox;

@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -45,7 +40,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtCodeOrName = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,55 +47,6 @@
             this.pnl_serchbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("굴림", 10F);
-            this.button2.Location = new System.Drawing.Point(150, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(19, 23);
-            this.button2.TabIndex = 115;
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("굴림", 10F);
-            this.button6.Location = new System.Drawing.Point(12, 44);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(19, 23);
-            this.button6.TabIndex = 114;
-            this.button6.Text = "<";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 10F);
-            this.label3.Location = new System.Drawing.Point(37, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 14);
-            this.label3.TabIndex = 113;
-            this.label3.Text = "페이지 / 페이지";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("굴림", 10F);
-            this.textBox2.Location = new System.Drawing.Point(206, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(76, 23);
-            this.textBox2.TabIndex = 112;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(216, 585);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 23);
-            this.button4.TabIndex = 109;
-            this.button4.Text = "Excel로 내보내기";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
@@ -246,16 +191,6 @@
             this.txtCodeOrName.Click += new System.EventHandler(this.txtCodeOrName_Click);
             this.txtCodeOrName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeOrName_KeyDown);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 10F);
-            this.label8.Location = new System.Drawing.Point(288, 49);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 14);
-            this.label8.TabIndex = 111;
-            this.label8.Text = "/ 전체 페이지 수";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -307,16 +242,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 618);
             this.Controls.Add(this.pnl_serchbox);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtCodeOrName);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Frm_BomList";
             this.Text = "BOM 조회";
@@ -331,12 +260,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnSelect;
@@ -347,7 +270,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtCodeOrName;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnItemSearch;
         private System.Windows.Forms.TextBox txtItemCode;

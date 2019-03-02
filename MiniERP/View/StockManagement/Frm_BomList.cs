@@ -54,10 +54,13 @@ namespace MiniERP.View.StockManagement
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["Column3"].Index)
+            if (e.RowIndex >= 0)
             {
-                Frm_BomDetail fbd = new Frm_BomDetail(dataGridView1.Rows[e.RowIndex].Cells["Column1"].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells["Column2"].Value.ToString());
-                fbd.ShowDialog();
+                if (e.ColumnIndex == dataGridView1.Columns["Column3"].Index)
+                {
+                    Frm_BomDetail fbd = new Frm_BomDetail(dataGridView1.Rows[e.RowIndex].Cells["Column1"].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells["Column2"].Value.ToString());
+                    fbd.ShowDialog();
+                } 
             }
         }
 
@@ -151,15 +154,18 @@ namespace MiniERP.View.StockManagement
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Frm_BomUpdate fbu = new Frm_BomUpdate(new BOM()
+            if (e.RowIndex >= 0)
             {
-                Item_code = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
-                Item_name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString()
-            });
-            fbu.ShowDialog();
-            if (fbu.DialogResult1 == DialogResult.Yes)
-            {
-                Display(new BOM());
+                Frm_BomUpdate fbu = new Frm_BomUpdate(new BOM()
+                {
+                    Item_code = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    Item_name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString()
+                });
+                fbu.ShowDialog();
+                if (fbu.DialogResult1 == DialogResult.Yes)
+                {
+                    Display(new BOM());
+                } 
             }
         }
     }
