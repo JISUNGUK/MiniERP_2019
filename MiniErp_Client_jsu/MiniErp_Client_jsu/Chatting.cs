@@ -94,8 +94,11 @@ namespace MiniErp_Client_jsu
                 stream.Read(byteFrom, 0, client.SendBufferSize);
                 readData = Encoding.UTF8.GetString(byteFrom);
 
+
                 readData = readData.Replace("\0", "");      //  바이트배열에 빈값(쓰레기값 제거)
-                CommandChacker(readData);                   //  올바른커맨드 판별
+                CommandChacker(readData);//  올바른커맨드 판별
+                if (readData.Contains("exit"))
+                    break;
             }
         }
 
@@ -127,6 +130,7 @@ namespace MiniErp_Client_jsu
         /// </summary>
         public void SendMsg(string msg)
         {
+            stream = client.GetStream();
             Byte[] byteFrom = Encoding.UTF8.GetBytes(msg);
             stream.Write(byteFrom, 0, byteFrom.Length);
             stream.Flush();
