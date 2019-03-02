@@ -17,28 +17,6 @@
       <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.Get_Export" Method="Get_Export">
-    <Parameter Name="move_date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="after_warehouse" Type="System.String" DbType="NVarChar(20)" />
-    <ElementType Name="Get_ExportResult">
-      <Column Name="before_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="after_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.Get_Import" Method="Get_Import">
-    <Parameter Name="move_date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="before_warehouse" Type="System.String" DbType="NVarChar(20)" />
-    <ElementType Name="Get_ImportResult">
-      <Column Name="after_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="before_warehouse" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GET_RESOURCES_PLAN" Method="GET_RESOURCES_PLAN">
     <Parameter Name="ordere_code" Type="System.String" DbType="NVarChar(20)" />
     <ElementType Name="GET_RESOURCES_PLANResult">
@@ -95,8 +73,6 @@
       <Column Name="Stock_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-
-
   <Function Name="dbo.GET_DISTRIBUTION" Method="GET_DISTRIBUTION">
     <Parameter Name="low_date" Type="System.DateTime" DbType="Date" />
     <Parameter Name="max_date" Type="System.DateTime" DbType="Date" />
@@ -116,5 +92,24 @@
       <Column Name="Distribution_status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-
+  <Function Name="dbo.Get_Export" Method="Get_Export">
+    <Parameter Name="move_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="before_warehouse" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="Get_ExportResult">
+      <Column Name="afterName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Import" Method="Get_Import">
+    <Parameter Name="move_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="after_warehouse" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="Get_ImportResult">
+      <Column Name="beforeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

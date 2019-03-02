@@ -50,7 +50,7 @@ namespace MiniERP.View.LogisticsManagement
             {
                
                 DataGridViewRow dr = new DataGridViewRow();
-                dr.CreateCells(exportGrid, item.before_warehouse, item.Distribution_count, item.item_name, item.item_standard);
+                dr.CreateCells(exportGrid, item.afterName, item.Distribution_count, item.item_name, item.item_standard);
                 exportGrid.Rows.Add(dr);
             } 
         }
@@ -78,15 +78,15 @@ namespace MiniERP.View.LogisticsManagement
 
                         // 데이타 넣기
 
-                        ws.Cells[10, 4] = DateTime.ParseExact(warehouseCode.Text.Remove(warehouseCode.Text.IndexOf("_")), "yyyyMMdd", null);//string을 날짜형태로 바꿔줌
+                        ws.Cells[10, 4] = move_date.Value;//string을 날짜형태로 바꿔줌
                         ws.Cells[10, 13] = warehouseName;
-                        ws.Cells[10, 19] = warehousecode;
+                        ws.Cells[10, 19] = DateTime.Now;
                         foreach (DataGridViewRow data in exportGrid.Rows)
                         {
-                            ws.Cells[r, 2] = data.Cells[1].Value;
-                            ws.Cells[r, 8] = data.Cells[0].Value;
-                            ws.Cells[r, 14] = data.Cells[5].Value;
-                            ws.Cells[r, 20] = data.Cells[2].Value;
+                            ws.Cells[r, 2] = data.Cells[0].Value;
+                            ws.Cells[r, 7] = data.Cells[2].Value;
+                            ws.Cells[r, 12] = data.Cells[1].Value;
+                            ws.Cells[r, 17] = data.Cells[3].Value;
                             r++;
                         }
 
