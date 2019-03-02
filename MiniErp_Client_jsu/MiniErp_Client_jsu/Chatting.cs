@@ -48,7 +48,7 @@ namespace MiniErp_Client_jsu
                 if (client == null)
                 {
                     access = client.BeginConnect(this.ip, 4444, null, null);
-                    var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(0.5));
+                    var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
                     stream = client.GetStream();
 
                     SendMsg(this.name);          //  접속클라이언트 이름 보냄
@@ -56,7 +56,7 @@ namespace MiniErp_Client_jsu
                 else if (client.Connected == false)
                 {
                     access = client.BeginConnect(this.ip, 4444, null, null);
-                    var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(0.5));
+                    var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
                     stream = client.GetStream();
                 }
 

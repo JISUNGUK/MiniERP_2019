@@ -25,6 +25,8 @@ namespace MiniERP.View
         public Frm_message()
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;                                 //  작업표시줄X
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;   //  Alt+Tab 전환기 숨기기
         }
 
         //메시지 구현 필요 변수 부분  
@@ -36,7 +38,7 @@ namespace MiniERP.View
         private string currentfileName;
         string readData = "";
         private string nickname;
-        private string serverip = "192.168.0.8";
+        private string serverip = "192.168.0.2";
         Frm_MakeRoom makeRoom;//방속성 정하는 창
         private Form1 form;
         private RealTimeMonitor monitor;

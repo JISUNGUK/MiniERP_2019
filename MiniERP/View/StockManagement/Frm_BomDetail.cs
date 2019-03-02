@@ -45,9 +45,12 @@ namespace MiniERP.View.StockManagement
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            if (!String.IsNullOrEmpty(mTxtNum.Text))
             {
-                dataGridView1.Rows[i].Cells["Column3"].Value = boms[i].Part_count * Int32.Parse(mTxtNum.Text);
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].Cells["Column3"].Value = boms[i].Part_count * Int32.Parse(mTxtNum.Text);
+                } 
             }
         }
 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txt_Log = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.pc5 = new System.Windows.Forms.PictureBox();
@@ -44,8 +46,6 @@
             this.btn_reBoot = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_inputCountRequest = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.txt_Log = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +78,24 @@
             this.splitContainer1.Size = new System.Drawing.Size(1168, 211);
             this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 20;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(665, 39);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(491, 102);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // txt_Log
+            // 
+            this.txt_Log.Enabled = false;
+            this.txt_Log.Location = new System.Drawing.Point(665, 12);
+            this.txt_Log.Name = "txt_Log";
+            this.txt_Log.Size = new System.Drawing.Size(491, 21);
+            this.txt_Log.TabIndex = 0;
+            this.txt_Log.TextChanged += new System.EventHandler(this.txt_Log_TextChanged);
             // 
             // panel1
             // 
@@ -190,6 +208,7 @@
             // 
             this.pc2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pc2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pc2.Enabled = false;
             this.pc2.Image = global::MiniERP.Properties.Resources.icon_client;
             this.pc2.Location = new System.Drawing.Point(162, 10);
             this.pc2.Name = "pc2";
@@ -266,31 +285,14 @@
             this.btn_inputCountRequest.UseVisualStyleBackColor = true;
             this.btn_inputCountRequest.Click += new System.EventHandler(this.btn_inputCountRequest_Click);
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(665, 39);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(491, 102);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
-            // txt_Log
-            // 
-            this.txt_Log.Enabled = false;
-            this.txt_Log.Location = new System.Drawing.Point(665, 12);
-            this.txt_Log.Name = "txt_Log";
-            this.txt_Log.Size = new System.Drawing.Size(491, 21);
-            this.txt_Log.TabIndex = 0;
-            this.txt_Log.TextChanged += new System.EventHandler(this.txt_Log_TextChanged);
-            // 
             // RealTimeMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 211);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RealTimeMonitor";
             this.Text = "RealTimeMonitor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RealTimeMonitor_FormClosing);

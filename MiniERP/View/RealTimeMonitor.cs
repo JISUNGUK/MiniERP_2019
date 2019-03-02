@@ -18,6 +18,8 @@ namespace MiniERP.View
         public RealTimeMonitor()
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;                                 //  작업표시줄X
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;   //  프로그램 전환기 숨기기
         }
 
         private void RealTimeMonitor_Load(object sender, EventArgs e)

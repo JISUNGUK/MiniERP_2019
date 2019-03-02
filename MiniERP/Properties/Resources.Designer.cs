@@ -103,6 +103,16 @@ namespace MiniERP.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        public static System.Drawing.Bitmap pin_icon {
+            get {
+                object obj = ResourceManager.GetObject("pin_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         public static System.Drawing.Bitmap SerchIcon {
             get {
                 object obj = ResourceManager.GetObject("SerchIcon", resourceCulture);
