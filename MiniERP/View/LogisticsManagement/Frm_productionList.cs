@@ -135,11 +135,6 @@ namespace MiniERP.View.LogisticsManagement
             }
         }
 
-        private void itemSearch_Click(object sender, EventArgs e)
-        {
-            Frm_ItemSelect item = new Frm_ItemSelect();
-            if (item.ShowDialog() == DialogResult.OK)
-                itemcode.Text = item.SelectItem.Item_code;
-        }
+       
     }
 }
