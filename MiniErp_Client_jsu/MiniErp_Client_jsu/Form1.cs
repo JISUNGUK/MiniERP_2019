@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,21 +30,21 @@ namespace MiniErp_Client_jsu
             this.TopMost = true;
             chatting = new Chatting(machine.Ip, machine.Name, codes);
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("---------[투입 현황]");
-            sb.AppendLine("---------[2019-03-02 6:44:50]");
-            sb.AppendLine("*[1234]	1");
-            sb.AppendLine("*[1235]	1");
-            sb.AppendLine("----------------------------");
+            //StringBuilder sb = new StringBuilder();
+            //sb.AppendLine("---------[투입 현황]");
+            //sb.AppendLine("---------[2019-03-02 6:44:50]");
+            //sb.AppendLine("*[1234]	1");
+            //sb.AppendLine("*[1235]	1");
+            //sb.AppendLine("----------------------------");
 
-            //  바코드 문자열잘라줄때쓰자
-            string temp = sb.ToString().Remove(0, sb.ToString().IndexOf('*')).Replace("-", "").Trim();
-            string[] temp2 = temp.Split('*');
-            MessageBox.Show(temp);
-            foreach (var item in temp2)
-            {
-                MessageBox.Show(item);
-            }
+            ////  바코드 문자열잘라줄때쓰자
+            //string temp = sb.ToString().Remove(0, sb.ToString().IndexOf('*')).Replace("-", "").Trim();
+            //string[] temp2 = temp.Split('*');
+            //MessageBox.Show(temp);
+            //foreach (var item in temp2)
+            //{
+            //    MessageBox.Show(item);
+            //}
         }
 
 
@@ -79,13 +80,15 @@ namespace MiniErp_Client_jsu
 
             if (chatting.Start())
                 chk_Server.Checked = true;
-            
+
+            toolStripTextBox1.Text = AppConfiguration.GetAppConfig("name");
+            toolStripTextBox2.Text = AppConfiguration.GetAppConfig("ip");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("---------[투입 현황]");
+            sb.AppendLine("---------[투입 현황]"+machine.Name);
             sb.AppendLine(NowTime());
             foreach (var item in codes)
             {
@@ -127,6 +130,40 @@ namespace MiniErp_Client_jsu
                 default:
                     break;
             }
+        }
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {   //name 변경
+            if (e.KeyCode == Keys.Enter)
+            {
+                AppConfiguration.SetAppConfig("name", toolStripTextBox1.Text);
+                MessageBox.Show("변경되었습니다.");
+            }
+        }
+
+        private void toolStripTextBox2_KeyDown(object sender, KeyEventArgs e)
+        {   //  ip  변경
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (IsValidIp(toolStripTextBox2.Text))
+                {
+                    AppConfiguration.SetAppConfig("ip", toolStripTextBox2.Text);
+                    MessageBox.Show("변경되었습니다.");
+                }
+                else
+                {
+                    toolStripTextBox2.Text = AppConfiguration.GetAppConfig("ip");
+                    MessageBox.Show("올바른 IP 주소가 아닙니다.");
+                    return;
+                }
+                
+            }
+        }
+        public bool IsValidIp(string addr)
+        {
+            IPAddress ip;
+            bool valid = !string.IsNullOrEmpty(addr) && IPAddress.TryParse(addr, out ip);
+            return valid;
         }
     }
 }

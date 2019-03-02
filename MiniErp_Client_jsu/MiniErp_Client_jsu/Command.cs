@@ -66,6 +66,24 @@ namespace MiniErp_Client_jsu
             chatinfo.SendMsg(temp.ToString());
         }
 
+        public void ChangeIp()
+        {
+            if (new Form1().IsValidIp(this.command_Value))
+            {
+                AppConfiguration.SetAppConfig("ip", this.command_Value);
+                chatinfo.SendMsg(this.name + "ip change ok");
+            }
+            else
+            {
+                chatinfo.SendMsg(this.name + "ip change not ok");
+            }
+            
+        }
+        public void ChangeName()
+        {
+            AppConfiguration.SetAppConfig("name", "[" + this.command_Value + "]");
+        }
+
         public  void CommandRunning()
         {
             switch (this.command_Value)
@@ -74,6 +92,8 @@ namespace MiniErp_Client_jsu
                 case "exit": Application.Exit(); break;
                 case "restart": Application.Restart();  break;
                 case "barcode": BarcodeMsgMaker(barcodes); break;
+                case "changeip": ChangeIp(); break;
+                case "changename": ChangeName(); break;
 
                 default:
                     break;

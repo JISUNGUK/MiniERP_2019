@@ -17,7 +17,7 @@ namespace MiniERP.Model.DAO.Message
         object txtBox;
         
         
-        string ip = "192.168.0.6";
+        string ip = "192.168.0.2";
 
         string readData = null;
 

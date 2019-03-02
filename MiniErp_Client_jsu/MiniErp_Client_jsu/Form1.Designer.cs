@@ -39,8 +39,12 @@
             this.sssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.프로그램종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.재시작ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.자재투입현황ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.ipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -154,17 +158,48 @@
             this.재시작ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.재시작ToolStripMenuItem.Text = "재시작";
             // 
-            // 설정ToolStripMenuItem
-            // 
-            this.설정ToolStripMenuItem.Name = "설정ToolStripMenuItem";
-            this.설정ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.설정ToolStripMenuItem.Text = "설정";
-            // 
             // 자재투입현황ToolStripMenuItem
             // 
             this.자재투입현황ToolStripMenuItem.Name = "자재투입현황ToolStripMenuItem";
             this.자재투입현황ToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.자재투입현황ToolStripMenuItem.Text = "자재투입현황";
+            // 
+            // 설정ToolStripMenuItem
+            // 
+            this.설정ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nameToolStripMenuItem,
+            this.ipToolStripMenuItem});
+            this.설정ToolStripMenuItem.Name = "설정ToolStripMenuItem";
+            this.설정ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.설정ToolStripMenuItem.Text = "설정";
+            // 
+            // nameToolStripMenuItem
+            // 
+            this.nameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1});
+            this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nameToolStripMenuItem.Text = "Name";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
+            // 
+            // ipToolStripMenuItem
+            // 
+            this.ipToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox2});
+            this.ipToolStripMenuItem.Name = "ipToolStripMenuItem";
+            this.ipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ipToolStripMenuItem.Text = "Ip";
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox2_KeyDown);
             // 
             // Form1
             // 
@@ -211,6 +246,10 @@
         private System.Windows.Forms.ToolStripMenuItem 재시작ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 설정ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 자재투입현황ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem ipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
     }
 }
 
