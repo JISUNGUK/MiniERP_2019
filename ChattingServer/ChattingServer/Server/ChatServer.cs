@@ -91,7 +91,7 @@ namespace ChattingServer
 
                 }
             }
-            catch (Exception ee)
+            catch (Exception)
             {
                 throw;
                

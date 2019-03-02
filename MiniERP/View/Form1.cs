@@ -28,9 +28,9 @@ namespace MiniERP.View
     {
 
 
-        public static bool notify = false;//알림이 오는지 선택            
-        Frm_message frm_message;//메시지창          
-        RealTimeMonitor monitoring;     //  머신 모니터링 클라이언트
+        public static bool notify = false;      //  알림이 오는지 선택            
+        Frm_message frm_message;                //  메시지창          
+        RealTimeMonitor monitoring;             //  머신 모니터링 클라이언트
 
 
         /// <summary>
@@ -70,9 +70,6 @@ namespace MiniERP.View
             {
                 this.Close();
             }
-
-            
-
             InitializeComponent();
         }
 
@@ -101,7 +98,6 @@ namespace MiniERP.View
                         OpenForm(menuName);
                         tabControl1.SelectedTab = tabControl1.TabPages[menuName.ToString()]; // 중복된 탭이 있으면 중복탭 선택
                     }
-
                 }
                 else
                 {
@@ -381,31 +377,7 @@ namespace MiniERP.View
                     frm_Print.ShowDialog();
                     break;
 
-                case "품목 등록":
-                    {
-                        Frm_ItemInsert itemInsert = new Frm_ItemInsert();
-                        itemInsert.Show();  // 폼 실행
-                        break;
-                    }
-                case "창고 등록":
-                    {
-                        StockManagement.Frm_StockInsert stockInsert = new StockManagement.Frm_StockInsert();
-                        stockInsert.Show();  // 폼 실행
-                        break;
-                    }
-                case "거래처 등록":
-                    {
-                        Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
-                        businessInsert.Show();                        
-                        break;
-                    }
-
-                case "사원 등록":
-                    
-                    Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert();
-                    clerkInsert.Show();  // 폼 실행
-                    tabChk = true;
-                    break;
+                
 
                 case "재고 조회":
                     #region 판넬생성 -> 탭페이지생성 -> 탭페이지.컨트롤.넣기(판넬)
@@ -668,25 +640,13 @@ namespace MiniERP.View
         private void fileButton_Click(object sender, EventArgs e)
         {
 
-
-
-
         }
-
-
-
-
-
-
-
 
 
         private void Server_posted(string fileName)
         {
             MessageBox.Show("서버에 파일:" + fileName + "을 모두 전송완료 하였습니다");
         }
-
-
 
 
         #region 탭페이지 선택 이벤트
@@ -723,8 +683,38 @@ namespace MiniERP.View
 
         private void MenuClickEvent(object sender, EventArgs e)
         {
+            #region 특정메뉴 호출시 빈화면 없도록 분기함
+            switch (sender.ToString())
+            {
+                case "품목 등록":
+                    {
+                        Frm_ItemInsert itemInsert = new Frm_ItemInsert();
+                        itemInsert.Show();  // 폼 실행
+                        return;
+                    }
+                case "창고 등록":
+                    {
+                        Frm_StockInsert stockInsert = new StockManagement.Frm_StockInsert();
+                        stockInsert.Show();  // 폼 실행
+                        return;
+                    }
+                case "거래처 등록":
+                    {
+                        Frm_BusinessInsert businessInsert = new Frm_BusinessInsert();
+                        businessInsert.Show();
+                        return;
+                    }
+                case "사원 등록":
+                    {
+                        Frm_ClerkInsert clerkInsert = new Frm_ClerkInsert();
+                        clerkInsert.Show();  // 폼 실행
+                        return;
+                    }
+                default:
+                    break;
+            } 
+            #endregion
             OpenForm(sender);
-            //tabControl1.SelectedTab = tabControl1.TabPages[tabSelcted_Index];
         }
 
         private void Form1_LocationChanged(object sender, EventArgs e)

@@ -71,7 +71,7 @@ namespace MiniERP.View
         public Form1 Form { get => form; set => form = value; }
         public RealTimeMonitor Monitor { get => monitor; set => monitor = value; }
 
-        internal DialogResult logIn;          //  로그인 체커부
+        //internal DialogResult logIn;          //  로그인 체커부
 
 
         //메시지 구현부분 by 종완
@@ -296,9 +296,6 @@ namespace MiniERP.View
                         Server.Upload(MachineInfo.GetJustIP(), upload, folderName);
                         MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, "성공적으로 파일을 업로드 했습니다", "FTP파일전송", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshList();
-
-
-
                     }
 
 
@@ -378,7 +375,7 @@ namespace MiniERP.View
 
         private void rmRoom_Click(object sender, EventArgs e)
         {
-            if (roomList.SelectedIndex != -1 && roomList.SelectedItem != "전체")
+            if (roomList.SelectedIndex != -1 && (string)roomList.SelectedItem != "전체")
             {
                 DialogResult result = MessageBox.Show("제거하시겠습니까?", "방제거창", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)

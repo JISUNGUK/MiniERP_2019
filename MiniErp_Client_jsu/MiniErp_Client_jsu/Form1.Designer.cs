@@ -31,7 +31,7 @@
             this.txt_Barcode = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chk_Server = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_Log = new System.Windows.Forms.RichTextBox();
@@ -65,28 +65,28 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.chk_Server);
             this.groupBox2.Location = new System.Drawing.Point(12, 91);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(319, 100);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Err";
+            this.groupBox2.Text = "Status";
             // 
-            // checkBox1
+            // chk_Server
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(6, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 16);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "sever";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chk_Server.AutoSize = true;
+            this.chk_Server.Enabled = false;
+            this.chk_Server.Location = new System.Drawing.Point(6, 20);
+            this.chk_Server.Name = "chk_Server";
+            this.chk_Server.Size = new System.Drawing.Size(59, 16);
+            this.chk_Server.TabIndex = 0;
+            this.chk_Server.Text = "server";
+            this.chk_Server.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.txt_Log);
             this.groupBox3.Location = new System.Drawing.Point(12, 197);
             this.groupBox3.Name = "groupBox3";
@@ -97,7 +97,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(238, 20);
+            this.button1.Location = new System.Drawing.Point(244, 77);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -143,7 +143,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox txt_Log;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chk_Server;
     }
 }
 

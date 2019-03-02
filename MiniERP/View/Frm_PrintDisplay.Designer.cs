@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_Search = new System.Windows.Forms.Button();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.first_panel = new System.Windows.Forms.Panel();
+            this.combo_Count = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_Print = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_Print = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.first_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,9 +61,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Panel2.Controls.Add(this.btn_Print);
-            this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.first_panel);
             this.splitContainer1.Size = new System.Drawing.Size(658, 450);
             this.splitContainer1.SplitterDistance = 297;
             this.splitContainer1.TabIndex = 0;
@@ -72,7 +72,7 @@
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(75, 23);
             this.btn_Search.TabIndex = 2;
-            this.btn_Search.Text = "button1";
+            this.btn_Search.Text = "검색";
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
@@ -100,18 +100,49 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
+            // first_panel
+            // 
+            this.first_panel.Controls.Add(this.combo_Count);
+            this.first_panel.Controls.Add(this.label1);
+            this.first_panel.Controls.Add(this.pictureBox1);
+            this.first_panel.Controls.Add(this.btn_Print);
+            this.first_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.first_panel.Location = new System.Drawing.Point(0, 0);
+            this.first_panel.Name = "first_panel";
+            this.first_panel.Size = new System.Drawing.Size(357, 450);
+            this.first_panel.TabIndex = 3;
+            // 
+            // combo_Count
+            // 
+            this.combo_Count.FormattingEnabled = true;
+            this.combo_Count.Location = new System.Drawing.Point(66, 169);
+            this.combo_Count.Name = "combo_Count";
+            this.combo_Count.Size = new System.Drawing.Size(70, 20);
+            this.combo_Count.TabIndex = 3;
+            this.combo_Count.Text = "1";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 26);
+            this.label1.Location = new System.Drawing.Point(16, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 12);
+            this.label1.Size = new System.Drawing.Size(173, 12);
             this.label1.TabIndex = 2;
-            this.label1.Text = "이미지 더블클릭 시 저장합니다.";
+            this.label1.Text = "이미지 더블클릭시 출력합니다.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 87);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(320, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // btn_Print
             // 
-            this.btn_Print.Location = new System.Drawing.Point(145, 121);
+            this.btn_Print.Location = new System.Drawing.Point(142, 167);
             this.btn_Print.Name = "btn_Print";
             this.btn_Print.Size = new System.Drawing.Size(75, 23);
             this.btn_Print.TabIndex = 1;
@@ -119,22 +150,11 @@
             this.btn_Print.UseVisualStyleBackColor = true;
             this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
             // 
-            // pictureBox1
+            // saveFileDialog1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 41);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(320, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.saveFileDialog1.DefaultExt = "png";
+            this.saveFileDialog1.Filter = "이미지|*.png";
+            this.saveFileDialog1.Title = "저장";
             // 
             // Frm_PrintDisplay
             // 
@@ -148,10 +168,11 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.first_panel.ResumeLayout(false);
+            this.first_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -163,9 +184,11 @@
         private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel first_panel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_Print;
+        private System.Windows.Forms.ComboBox combo_Count;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

@@ -83,7 +83,26 @@ namespace MiniERP.Model
             {
                 throw;
             }
-        }      
+        }
+        /// <summary>
+        /// 매개변수 없이 select합니다.
+        /// </summary>
+        /// <param name="storeProcedureName"></param>
+        /// <returns></returns>
+        public SqlDataReader ExecuteSelect(string storeProcedureName)
+        {
+            SqlConnection sqlConnection = OpenSqlConnection();
+            SqlCommand sqlCommand = GetSqlCommand(sqlConnection, storeProcedureName, null);
+
+            try
+            {
+                return sqlCommand.ExecuteReader();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         /// <summary>
         /// 저장된 프로시저를 실행합니다. 영향받은 행의 갯수만 반환합니다.

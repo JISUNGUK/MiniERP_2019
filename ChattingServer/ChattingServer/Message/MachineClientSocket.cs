@@ -48,7 +48,7 @@ namespace ChattingServer.Message
                         ns.Read(messageByte, 0, machineSockets.ReceiveBufferSize);
                     }
                 }
-                catch (Exception ee)
+                catch (Exception)
                 {
                     MachineServer.machineTable.Remove(machineName);
                     MachineServer.machineList.Remove(this);                  

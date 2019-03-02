@@ -11,7 +11,7 @@ namespace MiniERP.Model.DAO.Message
 {
     class Machine_Monitoring
     {
-        TcpClient client;
+        TcpClient client = null;
         NetworkStream stream = default(NetworkStream);
         Thread thread;
         object txtBox;
@@ -31,7 +31,7 @@ namespace MiniERP.Model.DAO.Message
             IAsyncResult access = null;
             try
             {
-                access = client.BeginConnect("192.168.0.8", 4444, null, null);
+                access = client.BeginConnect(ip, 4444, null, null);
                 var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
 
                 stream = client.GetStream();
