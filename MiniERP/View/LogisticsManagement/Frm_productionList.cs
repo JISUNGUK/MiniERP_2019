@@ -45,8 +45,8 @@ namespace MiniERP.View.LogisticsManagement
             int i = 0;
             produceGrid.DataSource = null;
             foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
-            { 
-
+            {
+                order_code = ordercode.Text;
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
                 produceGrid.Rows[i].Cells[2].Value = item.Item_standard;
@@ -86,8 +86,8 @@ namespace MiniERP.View.LogisticsManagement
                         {
                             ws.Cells[r, 2] = data.Cells[0].Value;
                             ws.Cells[r, 6] = data.Cells[1].Value;
-                            ws.Cells[r, 14] = data.Cells[2].Value;
-                            ws.Cells[r, 20] = data.Cells[3].Value;
+                            ws.Cells[r, 11] = data.Cells[2].Value;
+                            ws.Cells[r, 14] = data.Cells[3].Value;
                             r++;
                         }
 
@@ -127,12 +127,18 @@ namespace MiniERP.View.LogisticsManagement
 
         private void orderSearch_Click(object sender, EventArgs e)
         {
-
+            Frm_OrderSelect order = new Frm_OrderSelect();
+            if (order.ShowDialog() == DialogResult.OK)
+            {
+                ordercode.Text = order.SelectOrder.Order_Code;
+            }
         }
 
         private void itemSearch_Click(object sender, EventArgs e)
         {
-
+            Frm_ItemSelect item = new Frm_ItemSelect();
+            if (item.ShowDialog() == DialogResult.OK)
+                itemcode.Text = item.SelectItem.Item_code;
         }
     }
 }
