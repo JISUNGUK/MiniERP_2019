@@ -26,8 +26,6 @@ namespace MiniERP.View
 {
     public partial class Form1 : Form
     {
-
-
         public static bool notify = false;      //  알림이 오는지 선택            
         Frm_message frm_message;                //  메시지창          
         RealTimeMonitor monitoring;             //  머신 모니터링 클라이언트
@@ -725,6 +723,26 @@ namespace MiniERP.View
             }
             
         }
-       
+
+        /// <summary>
+        /// 프로그램을 최상단에 고정합니다.
+        /// </summary>
+        private void btn_TopMost_Click(object sender, EventArgs e)
+        {
+            if (this.TopMost != true)
+            {
+                this.TopMost = true;
+                frm_message.TopMost = true;
+                monitoring.TopMost = true;
+                btn_TopMost.BackColor = Color.Coral;
+            }
+            else
+            {
+                this.TopMost = false;
+                frm_message.TopMost = false;
+                monitoring.TopMost = false;
+                btn_TopMost.BackColor = Color.Snow;
+            }
+        }
     }
 }

@@ -25,6 +25,8 @@ namespace MiniERP.View
         public Frm_message()
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;                                 //  작업표시줄X
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;   //  Alt+Tab 전환기 숨기기
         }
 
         //메시지 구현 필요 변수 부분  

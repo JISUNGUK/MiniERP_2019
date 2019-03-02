@@ -66,12 +66,14 @@ namespace MiniERP.View
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btn_TopMost = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_TopMost)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -303,7 +305,7 @@ namespace MiniERP.View
             // 품목ToolStripMenuItem
             // 
             this.품목ToolStripMenuItem.Name = "품목ToolStripMenuItem";
-            this.품목ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.품목ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.품목ToolStripMenuItem.Text = "품목 출력";
             this.품목ToolStripMenuItem.Click += new System.EventHandler(this.MenuClickEvent);
             // 
@@ -312,7 +314,7 @@ namespace MiniERP.View
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(150, 161);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(150, 150);
             this.toolStripContainer1.Location = new System.Drawing.Point(640, 398);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(150, 175);
@@ -337,6 +339,7 @@ namespace MiniERP.View
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btn_TopMost);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
             // 
             // splitContainer1.Panel2
@@ -345,6 +348,20 @@ namespace MiniERP.View
             this.splitContainer1.Size = new System.Drawing.Size(1168, 629);
             this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 8;
+            // 
+            // btn_TopMost
+            // 
+            this.btn_TopMost.BackColor = System.Drawing.Color.Snow;
+            this.btn_TopMost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_TopMost.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.btn_TopMost.Image = global::MiniERP.Properties.Resources.pin_icon;
+            this.btn_TopMost.Location = new System.Drawing.Point(1095, 0);
+            this.btn_TopMost.Name = "btn_TopMost";
+            this.btn_TopMost.Size = new System.Drawing.Size(73, 24);
+            this.btn_TopMost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_TopMost.TabIndex = 4;
+            this.btn_TopMost.TabStop = false;
+            this.btn_TopMost.Click += new System.EventHandler(this.btn_TopMost_Click);
             // 
             // Form1
             // 
@@ -373,6 +390,7 @@ namespace MiniERP.View
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_TopMost)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,6 +430,7 @@ namespace MiniERP.View
         private ToolStripMenuItem 재고ToolStripMenuItem;
         private ToolStripMenuItem 물류조회ToolStripMenuItem;
         private ToolStripMenuItem 출고확인서조회ToolStripMenuItem;
+        private PictureBox btn_TopMost;
     }
 }
 

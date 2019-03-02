@@ -290,8 +290,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 211);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RealTimeMonitor";
             this.Text = "RealTimeMonitor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RealTimeMonitor_FormClosing);

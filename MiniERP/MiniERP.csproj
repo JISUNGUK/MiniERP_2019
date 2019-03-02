@@ -392,6 +392,7 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
+    <None Include="Resources\pin_icon.ico" />
     <Content Include="Resources\거래 원가 명세서.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
