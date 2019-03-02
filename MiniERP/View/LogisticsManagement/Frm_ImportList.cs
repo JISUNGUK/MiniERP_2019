@@ -25,6 +25,8 @@ namespace MiniERP.View.LogisticsManagement
 
         private void Frm_ImportList_Load(object sender, EventArgs e)
         {
+            importGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            importGrid.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             importGrid.Columns.Add("before_warehouse", "보낸창고");
             importGrid.Columns.Add("item_name", "품목명");
             importGrid.Columns.Add("item_standard", "규격");

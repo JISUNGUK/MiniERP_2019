@@ -31,39 +31,7 @@ namespace MiniERP.View.LogisticsManagement
 
 
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (orderedCode.Text != "")
-            {
-                sampleList.Clear();
-               
-                foreach (var item in Outputorder())
-                {
-                    SampleOrder so = new SampleOrder();
-                    orderCode = orderedCode.Text;
-                    so.Item_Code = item.item_code;
-                    so.Item_Count = item.Item_count;
-                    so.Item_Name = item.Item_name;
-                    so.Item_Wrote_Fee = item.Item_wrote_fee;
-                    so.Item_unit = item.Item_unit;
-                    so.Item_standard = item.Item_standard;
-                    sampleList.Add(so);
-                }
-                sampleOrder.DataSource = sampleList;
-                sampleOrder.Columns.RemoveAt(0);
-                sampleOrder.Columns[0].HeaderText = "품목코드";
-                sampleOrder.Columns[1].HeaderText = "품목이름";
-                sampleOrder.Columns[2].HeaderText = "품목수량";
-                sampleOrder.Columns[3].HeaderText = "단가";
-                sampleOrder.Columns[4].HeaderText = "단위";
-                sampleOrder.Columns[5].HeaderText = "규격";
-            }
-            else
-            {
-                MessageBox.Show("주문코드를 입력해주세요");
-            }
-
-        }
+       
 
         /// <summary>
         /// 저장프로시저를 실행시킨후 폼에서 넣은 조건들과 일치하는 결과들을 컬렉션으로 반환
@@ -145,6 +113,7 @@ namespace MiniERP.View.LogisticsManagement
                 sampleOrder.Columns[3].HeaderText = "단가";
                 sampleOrder.Columns[4].HeaderText = "단위";
                 sampleOrder.Columns[5].HeaderText = "규격";
+                rowcount++;
             }
             else
             {
@@ -155,7 +124,7 @@ namespace MiniERP.View.LogisticsManagement
         private void exportExcel_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(System.Environment.CurrentDirectory);
-            if (sampleOrder.Rows.Count > 0)
+            if (rowcount > 0)
             {
                 SaveFileDialog savefile = new SaveFileDialog();
                 savefile.FileName = "견적서.xls";
@@ -204,6 +173,12 @@ namespace MiniERP.View.LogisticsManagement
 
 
             }
+        }
+
+        private void Frm_EstimateList_Load(object sender, EventArgs e)
+        {
+            sampleOrder.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            sampleOrder.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
     }
 }

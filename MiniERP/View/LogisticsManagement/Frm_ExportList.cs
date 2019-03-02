@@ -110,9 +110,8 @@ namespace MiniERP.View.LogisticsManagement
         }
 
         private void Frm_ExportList_Load(object sender, EventArgs e)
-        {
-            exportGrid.Columns.Add("after_warehouse", "도착창고");
-            
+        {            
+            exportGrid.Columns.Add("after_warehouse", "도착창고");            
             exportGrid.Columns.Add("item_name", "품목명");
             exportGrid.Columns.Add("Distribution_count", "수량");
             exportGrid.Columns.Add("item_standard", "규격");

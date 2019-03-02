@@ -18,6 +18,7 @@ namespace MiniERP.View.LogisticsManagement
         public Frm_DistributionList()
         {
             InitializeComponent();
+            distributionGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             distributionGrid.Columns.Add("Distribution_code", "물류코드");
             distributionGrid.Columns.Add("Before_warehouse", "출발창고");
             distributionGrid.Columns.Add("After_warehouse", "도착창고");
@@ -82,6 +83,10 @@ namespace MiniERP.View.LogisticsManagement
 
                 i++;
             }
+            if (i == 0) { 
+                MessageBox.Show("찾으시는 물류 데이터가 없습니다");
+                distributionGrid.Rows.Clear();
+            }
         }
 
         private void waitRdo_CheckedChanged(object sender, EventArgs e)
@@ -109,6 +114,12 @@ namespace MiniERP.View.LogisticsManagement
             if (completeRdo.Checked)
                 status = "완료";
 
+        }
+
+        private void Frm_DistributionList_Load(object sender, EventArgs e)
+        {
+            distributionGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            distributionGrid.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
     }
 }

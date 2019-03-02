@@ -121,7 +121,7 @@ namespace MiniERP.View.LogisticsManagement
 
         private void Frm_productionList_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btnFind_Click(object sender, EventArgs e)
