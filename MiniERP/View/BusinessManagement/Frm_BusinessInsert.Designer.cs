@@ -36,7 +36,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -109,17 +108,6 @@
             this.txtEmail.Size = new System.Drawing.Size(202, 21);
             this.txtEmail.TabIndex = 104;
             // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(647, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
-            this.button1.TabIndex = 103;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -172,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(697, 156);
+            this.ClientSize = new System.Drawing.Size(668, 156);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPresenter);
@@ -183,7 +171,6 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -208,7 +195,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
