@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.move_date = new System.Windows.Forms.DateTimePicker();
             this.warehouseBtn = new System.Windows.Forms.Button();
             this.warehouseCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.importGrid)).BeginInit();
@@ -86,12 +86,12 @@
             this.label1.TabIndex = 141;
             this.label1.Text = "이동날짜";
             // 
-            // dateTimePicker1
+            // move_date
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(116, 126);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 32);
-            this.dateTimePicker1.TabIndex = 140;
+            this.move_date.Location = new System.Drawing.Point(116, 126);
+            this.move_date.Name = "move_date";
+            this.move_date.Size = new System.Drawing.Size(200, 32);
+            this.move_date.TabIndex = 140;
             // 
             // warehouseBtn
             // 
@@ -123,7 +123,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.move_date);
             this.Controls.Add(this.warehouseBtn);
             this.Controls.Add(this.warehouseCode);
             this.Name = "Frm_ImportList";
@@ -142,7 +142,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker move_date;
         private System.Windows.Forms.Button warehouseBtn;
         private System.Windows.Forms.TextBox warehouseCode;
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniERP.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace MiniERP.View.LogisticsManagement
 {
     public partial class Frm_DistributionList : Form
     {
+        MiniErpDB minierp = new MiniErpDB();
         public Frm_DistributionList()
         {
             InitializeComponent();
@@ -55,6 +57,16 @@ namespace MiniERP.View.LogisticsManagement
         }
 
         private void exportExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
         {
 
         }

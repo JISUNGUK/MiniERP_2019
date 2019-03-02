@@ -569,6 +569,7 @@ namespace MiniERP.View
 
             savelogin();
             //e.Cancel = false; // 폼 닫음  
+            closeBackground(@"taskkill /im  excel.exe /f");
             closeBackground(@"taskkill /im  Minierp.exe /f");
 
             this.Dispose();

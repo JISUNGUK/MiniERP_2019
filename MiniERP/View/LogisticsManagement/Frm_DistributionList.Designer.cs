@@ -30,30 +30,27 @@
         {
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.beforeWarehouse = new System.Windows.Forms.TextBox();
             this.afterWarehouse = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.itemCode = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.statusTabs = new System.Windows.Forms.TabControl();
-            this.status = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.distributionGrid = new System.Windows.Forms.DataGridView();
             this.awButton = new System.Windows.Forms.Button();
             this.bwButton = new System.Windows.Forms.Button();
             this.itemBtn = new System.Windows.Forms.Button();
             this.exportExcel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.statusTabs.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.distributionGrid)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -71,22 +68,6 @@
             this.label1.Size = new System.Drawing.Size(52, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "기간";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(386, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "~";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(462, 64);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 32);
-            this.dateTimePicker2.TabIndex = 3;
             // 
             // label3
             // 
@@ -135,77 +116,6 @@
             this.itemCode.Name = "itemCode";
             this.itemCode.Size = new System.Drawing.Size(200, 32);
             this.itemCode.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(458, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 21);
-            this.label6.TabIndex = 131;
-            this.label6.Text = "상태";
-            // 
-            // statusTabs
-            // 
-            this.statusTabs.Controls.Add(this.status);
-            this.statusTabs.Controls.Add(this.tabPage2);
-            this.statusTabs.Controls.Add(this.tabPage3);
-            this.statusTabs.Controls.Add(this.tabPage4);
-            this.statusTabs.Location = new System.Drawing.Point(540, 157);
-            this.statusTabs.Name = "statusTabs";
-            this.statusTabs.SelectedIndex = 0;
-            this.statusTabs.Size = new System.Drawing.Size(322, 209);
-            this.statusTabs.TabIndex = 1;
-            // 
-            // status
-            // 
-            this.status.Location = new System.Drawing.Point(4, 31);
-            this.status.Name = "status";
-            this.status.Padding = new System.Windows.Forms.Padding(3);
-            this.status.Size = new System.Drawing.Size(314, 174);
-            this.status.TabIndex = 0;
-            this.status.Text = "구매";
-            this.status.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(314, 174);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "판매";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 31);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(314, 174);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "물류";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.listBox1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 31);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(314, 174);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "출고";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(7, 17);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(301, 151);
-            this.listBox1.TabIndex = 0;
             // 
             // distributionGrid
             // 
@@ -270,25 +180,97 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1230, 72);
+            this.btnSearch.Location = new System.Drawing.Point(1501, 292);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 40);
             this.btnSearch.TabIndex = 136;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(386, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "~";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(462, 64);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 32);
+            this.dateTimePicker2.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton4);
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Location = new System.Drawing.Point(526, 157);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(316, 141);
+            this.groupBox1.TabIndex = 137;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "상태";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(17, 23);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(77, 25);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "대기";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(17, 79);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(77, 25);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "출고";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(172, 23);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(77, 25);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "취소";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(172, 79);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(77, 25);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "완료";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
             // Frm_DistributionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 1091);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.exportExcel);
             this.Controls.Add(this.distributionGrid);
             this.Controls.Add(this.awButton);
             this.Controls.Add(this.bwButton);
-            this.Controls.Add(this.statusTabs);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.itemBtn);
             this.Controls.Add(this.itemCode);
             this.Controls.Add(this.label5);
@@ -303,9 +285,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frm_DistributionList";
             this.Text = "물류조회";
-            this.statusTabs.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.distributionGrid)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,8 +297,6 @@
 
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox beforeWarehouse;
         private System.Windows.Forms.TextBox afterWarehouse;
@@ -324,17 +304,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox itemCode;
         private System.Windows.Forms.Button itemBtn;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TabControl statusTabs;
-        private System.Windows.Forms.TabPage status;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button bwButton;
         private System.Windows.Forms.Button awButton;
         private System.Windows.Forms.DataGridView distributionGrid;
         private System.Windows.Forms.Button exportExcel;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }

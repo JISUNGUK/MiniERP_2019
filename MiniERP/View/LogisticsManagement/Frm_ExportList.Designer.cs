@@ -56,7 +56,7 @@
             this.btnExport.TabIndex = 153;
             this.btnExport.Text = "Excel로 내보내기";
             this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click_1);
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label2
             // 
@@ -104,7 +104,7 @@
             this.warehouseBtn.Size = new System.Drawing.Size(39, 37);
             this.warehouseBtn.TabIndex = 152;
             this.warehouseBtn.UseVisualStyleBackColor = true;
-            this.warehouseBtn.Click += new System.EventHandler(this.warehouseBtn_Click_1);
+            this.warehouseBtn.Click += new System.EventHandler(this.warehouseBtn_Click);
             // 
             // warehouseCode
             // 
@@ -129,7 +129,6 @@
             this.Name = "Frm_ExportList";
             this.Text = "출고확인서 조회";
             this.Load += new System.EventHandler(this.Frm_ExportList_Load);
-            this.Resize += new System.EventHandler(this.Frm_ExportList_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.exportGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

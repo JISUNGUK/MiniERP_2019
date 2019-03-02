@@ -16,48 +16,28 @@ namespace MiniERP.View.LogisticsManagement
     public partial class Frm_ExportList : Form
     {
         MiniErpDB mini = new MiniErpDB();
-        private string warehousecode;
+        private string warehousecode;//창고 번호
+        private string warehouseName;//검색하는 창고이름
         public Frm_ExportList()
         {
             InitializeComponent();
             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void warehouseBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Frm_ExportList_Resize(object sender, EventArgs e)
-        {
-            
-        }
-
+       
         private void exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void warehouseBtn_Click_1(object sender, EventArgs e)
+        private void warehouseBtn_Click(object sender, EventArgs e)
         {
             Frm_WarehouseSelect warehouse = new Frm_WarehouseSelect();
             if (warehouse.ShowDialog() == DialogResult.OK)
+            { 
                warehouseCode.Text = warehouse.Warehouse.Warehouse_code;
+                warehouseName = warehouse.Warehouse.Warehouse_name;
+            }
         }
 
         private void btnSearch_Click_1(object sender, EventArgs e)
@@ -75,7 +55,7 @@ namespace MiniERP.View.LogisticsManagement
             } 
         }
 
-        private void btnExport_Click_1(object sender, EventArgs e)
+        private void btnExport_Click(object sender, EventArgs e)
         {
             if (exportGrid.Rows.Count > 0)
             {
@@ -99,6 +79,7 @@ namespace MiniERP.View.LogisticsManagement
                         // 데이타 넣기
 
                         ws.Cells[10, 4] = DateTime.ParseExact(warehouseCode.Text.Remove(warehouseCode.Text.IndexOf("_")), "yyyyMMdd", null);//string을 날짜형태로 바꿔줌
+                        ws.Cells[10, 13] = warehouseName;
                         ws.Cells[10, 19] = warehousecode;
                         foreach (DataGridViewRow data in exportGrid.Rows)
                         {
