@@ -158,23 +158,21 @@ namespace MiniERP.View.BusinessManagement
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Clerk clerk = new Clerk()
+            if (e.RowIndex >= 0)
             {
-                Clerk_code = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
-                Clerk_name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),
-                Clerk_job = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()
-            };
-            Frm_ClerkUpdate fcu = new Frm_ClerkUpdate(clerk);
-            fcu.ShowDialog();
-            if (fcu.DialogResult1 == DialogResult.Yes)
-            {
-                ReflashData();
+                Clerk clerk = new Clerk()
+                {
+                    Clerk_code = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    Clerk_name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                    Clerk_job = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()
+                };
+                Frm_ClerkUpdate fcu = new Frm_ClerkUpdate(clerk);
+                fcu.ShowDialog();
+                if (fcu.DialogResult1 == DialogResult.Yes)
+                {
+                    ReflashData();
+                } 
             }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
