@@ -32,7 +32,7 @@ namespace MiniErp_Client_jsu
         
 
         private void txt_Barcode_KeyDown(object sender, KeyEventArgs e)
-        {
+       {
             if (e.KeyCode == Keys.Enter)
             {
                 string temp = txt_Barcode.Text;

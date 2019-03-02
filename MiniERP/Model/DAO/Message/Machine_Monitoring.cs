@@ -11,13 +11,14 @@ namespace MiniERP.Model.DAO.Message
 {
     class Machine_Monitoring
     {
-        TcpClient client = null;
+
+        TcpClient client = new TcpClient();//tcpclient를 미리 초기화해놓음
         NetworkStream stream = default(NetworkStream);
         Thread thread;
         object txtBox;
         
         
-        string ip = "192.168.0.6";
+        string ip = "192.168.0.8";
 
         string readData = null;
 

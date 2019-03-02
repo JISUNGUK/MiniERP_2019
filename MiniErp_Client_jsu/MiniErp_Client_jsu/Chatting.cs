@@ -12,7 +12,8 @@ namespace MiniErp_Client_jsu
     class Chatting
     {
         #region 멤버 변수
-        TcpClient client;
+
+        TcpClient client = new TcpClient();//tcpclient를 미리 널참조가 안되게 초기화해놓음
         NetworkStream stream = default(NetworkStream);              //  기본값 할당(해당 객체의 기본값 참조형은 null)
         Thread thread;                                              //  서버 쓰레드
         string readData = null;                                     //  서버의 메시지
@@ -138,6 +139,7 @@ namespace MiniErp_Client_jsu
             if (client != null)
             {
                 byte[] msgTemp = Encoding.UTF8.GetBytes("[command]" + this.name + "is endconnecting");
+                stream = client.GetStream();
                 stream.Write(msgTemp, 0, msgTemp.Length);
                 stream.Flush();
                 client.Close();

@@ -18,7 +18,7 @@ namespace MiniErp_Client_jsu
             set { name = value; }
         }
 
-        private string ip = "192.168.0.6";
+        private string ip = "192.168.0.8";
 
         public string Ip
         {
