@@ -57,7 +57,7 @@ namespace MiniERP.View.LogisticsManagement
                 produceGrid.Rows[i].Cells[4].Value = item.Item_wrote_fee;
                 i++;
             }
-            if(i==0)
+            if (i == 0)
                 MessageBox.Show("찾으시는 주문에 대한 생산계획이 없습니다");
 
         }

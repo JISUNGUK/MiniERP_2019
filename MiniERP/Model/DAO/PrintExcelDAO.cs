@@ -51,7 +51,10 @@ namespace MiniERP.Model.DAO
                         ws.Cells[r, 11] = data.Cells[2].Value;
                         ws.Cells[r, 14] = data.Cells[3].Value;
                         if(outputFileName == "생산 계획서")
+                        { 
                             ws.Cells[r,17]= data.Cells[4].Value;
+                            ws.Cells[r, 20] = Int32.Parse(data.Cells[3].Value.ToString()) * Int32.Parse(data.Cells[4].Value.ToString());
+                        }
                         r++;
                     }
 
