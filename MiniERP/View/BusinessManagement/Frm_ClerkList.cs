@@ -171,5 +171,10 @@ namespace MiniERP.View.BusinessManagement
                 ReflashData();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

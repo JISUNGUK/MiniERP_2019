@@ -84,7 +84,7 @@
             // 
             this.exportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.exportExcel.Font = new System.Drawing.Font("굴림", 10F);
-            this.exportExcel.Location = new System.Drawing.Point(1456, 36);
+            this.exportExcel.Location = new System.Drawing.Point(1577, 34);
             this.exportExcel.Margin = new System.Windows.Forms.Padding(5);
             this.exportExcel.Name = "exportExcel";
             this.exportExcel.Size = new System.Drawing.Size(220, 40);
@@ -150,8 +150,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Frm_productionList";
             this.Text = "생산계획 조회";
-            this.Load += new System.EventHandler(this.Frm_productionList_Load);
-            this.Resize += new System.EventHandler(this.Frm_productionList_Resize);
+           
             ((System.ComponentModel.ISupportInitialize)(this.produceGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

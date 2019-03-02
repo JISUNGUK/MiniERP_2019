@@ -35,15 +35,6 @@
       <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GET_MANUFACTURE_PLAN" Method="GET_MANUFACTURE_PLAN">
-    <Parameter Name="order_code" Type="System.String" DbType="NVarChar(20)" />
-    <ElementType Name="GET_MANUFACTURE_PLANResult">
-      <Column Name="Item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="M" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GET_ORDER" Method="GET_ORDER">
     <Parameter Name="Order_code" Parameter="order_code" Type="System.String" DbType="NVarChar(20)" />
     <ElementType Name="GET_ORDERResult">
@@ -110,6 +101,16 @@
       <Column Name="item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Distribution_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_MANUFACTURE_PLAN" Method="GET_MANUFACTURE_PLAN">
+    <Parameter Name="order_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="GET_MANUFACTURE_PLANResult">
+      <Column Name="Item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Item_wrote_fee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

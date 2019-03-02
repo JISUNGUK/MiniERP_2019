@@ -611,7 +611,7 @@ namespace MiniERP.View
         }
 
 
-    public void closeBackground(string command)
+    public static void closeBackground(string command)
         {
             ProcessStartInfo cmd = new ProcessStartInfo();
             Process process = new Process();

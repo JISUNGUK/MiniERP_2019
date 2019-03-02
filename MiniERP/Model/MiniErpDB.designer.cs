@@ -90,13 +90,6 @@ namespace MiniERP.Model
 			return ((ISingleResult<GET_PURCHASE_PLANResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_MANUFACTURE_PLAN")]
-		public ISingleResult<GET_MANUFACTURE_PLANResult> GET_MANUFACTURE_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string order_code)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
-			return ((ISingleResult<GET_MANUFACTURE_PLANResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_ORDER")]
 		public ISingleResult<GET_ORDERResult> GET_ORDER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_code", DbType="NVarChar(20)")] string order_code)
 		{
@@ -137,6 +130,13 @@ namespace MiniERP.Model
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), move_date, after_warehouse);
 			return ((ISingleResult<Get_ImportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_MANUFACTURE_PLAN")]
+		public ISingleResult<GET_MANUFACTURE_PLANResult> GET_MANUFACTURE_PLAN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string order_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
+			return ((ISingleResult<GET_MANUFACTURE_PLANResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -375,86 +375,6 @@ namespace MiniERP.Model
 				if ((this._item_standard != value))
 				{
 					this._item_standard = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GET_MANUFACTURE_PLANResult
-	{
-		
-		private string _Item_code;
-		
-		private string _Item_name;
-		
-		private System.Nullable<int> _M;
-		
-		private string _Item_standard;
-		
-		public GET_MANUFACTURE_PLANResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Item_code
-		{
-			get
-			{
-				return this._Item_code;
-			}
-			set
-			{
-				if ((this._Item_code != value))
-				{
-					this._Item_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Item_name
-		{
-			get
-			{
-				return this._Item_name;
-			}
-			set
-			{
-				if ((this._Item_name != value))
-				{
-					this._Item_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M", DbType="Int")]
-		public System.Nullable<int> M
-		{
-			get
-			{
-				return this._M;
-			}
-			set
-			{
-				if ((this._M != value))
-				{
-					this._M = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
-		public string Item_standard
-		{
-			get
-			{
-				return this._Item_standard;
-			}
-			set
-			{
-				if ((this._Item_standard != value))
-				{
-					this._Item_standard = value;
 				}
 			}
 		}
@@ -981,6 +901,104 @@ namespace MiniERP.Model
 				if ((this._item_standard != value))
 				{
 					this._item_standard = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_MANUFACTURE_PLANResult
+	{
+		
+		private string _Item_code;
+		
+		private string _Item_name;
+		
+		private System.Nullable<int> _M;
+		
+		private string _Item_standard;
+		
+		private int _Item_wrote_fee;
+		
+		public GET_MANUFACTURE_PLANResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Item_code
+		{
+			get
+			{
+				return this._Item_code;
+			}
+			set
+			{
+				if ((this._Item_code != value))
+				{
+					this._Item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_name
+		{
+			get
+			{
+				return this._Item_name;
+			}
+			set
+			{
+				if ((this._Item_name != value))
+				{
+					this._Item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M", DbType="Int")]
+		public System.Nullable<int> M
+		{
+			get
+			{
+				return this._M;
+			}
+			set
+			{
+				if ((this._M != value))
+				{
+					this._M = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
+		public string Item_standard
+		{
+			get
+			{
+				return this._Item_standard;
+			}
+			set
+			{
+				if ((this._Item_standard != value))
+				{
+					this._Item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_wrote_fee", DbType="Int NOT NULL")]
+		public int Item_wrote_fee
+		{
+			get
+			{
+				return this._Item_wrote_fee;
+			}
+			set
+			{
+				if ((this._Item_wrote_fee != value))
+				{
+					this._Item_wrote_fee = value;
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using MiniERP.Model;
+using MiniERP.Model.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,51 +60,7 @@ namespace MiniERP.View.LogisticsManagement
         {
             if (exportGrid.Rows.Count > 0)
             {
-                SaveFileDialog savefile = new SaveFileDialog();
-                savefile.FileName = "출하 증명서.xls";
-                DialogResult dr = savefile.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    Microsoft.Office.Interop.Excel.Application excelApp = null;
-                    Workbook wb = null;
-                    Worksheet ws = null;
-
-                    try
-                    {
-                        int r = 13;//열번호
-                        // Excel 첫번째 워크시트 가져오기                
-                        excelApp = new Microsoft.Office.Interop.Excel.Application();
-                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources\\출하 증명서.xlsx");
-                        ws = wb.Worksheets.get_Item(1) as Worksheet;
-
-                        // 데이타 넣기
-
-                        ws.Cells[10, 4] = move_date.Value;//string을 날짜형태로 바꿔줌
-                        ws.Cells[10, 13] = warehouseName;
-                        ws.Cells[10, 19] = DateTime.Now;
-                        foreach (DataGridViewRow data in exportGrid.Rows)
-                        {
-                            ws.Cells[r, 2] = data.Cells[0].Value;
-                            ws.Cells[r, 7] = data.Cells[1].Value;
-                            ws.Cells[r, 12] = data.Cells[3].Value;
-                            ws.Cells[r, 17] = data.Cells[2].Value;
-                            r++;
-                        }
-
-                        // 엑셀파일 저장
-                        wb.SaveAs(savefile.FileName, XlFileFormat.xlWorkbookNormal);
-                        wb.Close(true);
-                        excelApp.Quit();
-                    }
-                    finally
-                    {
-                        // Clean up
-                        Marshal.ReleaseComObject(ws);
-                        Marshal.ReleaseComObject(wb);
-                        Marshal.ReleaseComObject(excelApp);
-                        MessageBox.Show("엑셀 파일로 모두 출력했습니다");
-                    }
-                }
+                new PrintExcelDAO().outputExcel("출하 증명서", warehouseName, move_date.Value, exportGrid);
 
 
             }

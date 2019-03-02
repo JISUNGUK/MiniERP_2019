@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using MiniERP.Model;
+using MiniERP.Model.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,7 +79,9 @@ namespace MiniERP.View.LogisticsManagement
         {
             if (importGrid.Rows.Count > 0)
             {
-                SaveFileDialog savefile = new SaveFileDialog();
+
+                new PrintExcelDAO().outputExcel("입고 확인서", warehouseName, move_date.Value, importGrid);
+              /*  SaveFileDialog savefile = new SaveFileDialog();
                 savefile.FileName = "입고 증명서.xls";
                 DialogResult dr = savefile.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -122,7 +125,7 @@ namespace MiniERP.View.LogisticsManagement
                         Marshal.ReleaseComObject(excelApp);
                         MessageBox.Show("엑셀 파일로 모두 출력했습니다");
                     }
-                }
+                }*/
             }
         }
     }
