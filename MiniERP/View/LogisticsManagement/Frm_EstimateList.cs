@@ -90,10 +90,7 @@ namespace MiniERP.View.LogisticsManagement
 
        
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-           
-        }
+        
 
        
         private void Frm_EstimateList_Resize(object sender, EventArgs e)
@@ -125,6 +122,7 @@ namespace MiniERP.View.LogisticsManagement
             rowcount = 0;
             if (orderedCode.Text != "")
             {
+                sampleOrder.DataSource = null;
                 sampleList.Clear();
 
                 foreach (var item in Outputorder())

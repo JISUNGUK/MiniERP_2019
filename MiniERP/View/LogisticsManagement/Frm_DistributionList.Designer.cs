@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lowdate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.beforeWarehouse = new System.Windows.Forms.TextBox();
@@ -40,25 +40,24 @@
             this.awButton = new System.Windows.Forms.Button();
             this.bwButton = new System.Windows.Forms.Button();
             this.itemBtn = new System.Windows.Forms.Button();
-            this.exportExcel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.highdate = new System.Windows.Forms.DateTimePicker();
+            this.statusGruoup = new System.Windows.Forms.GroupBox();
+            this.completeRdo = new System.Windows.Forms.RadioButton();
+            this.cancelRdo = new System.Windows.Forms.RadioButton();
+            this.exportRdo = new System.Windows.Forms.RadioButton();
+            this.waitRdo = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.distributionGrid)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.statusGruoup.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // lowdate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 64);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 32);
-            this.dateTimePicker1.TabIndex = 0;
+            this.lowdate.Location = new System.Drawing.Point(133, 64);
+            this.lowdate.Name = "lowdate";
+            this.lowdate.Size = new System.Drawing.Size(200, 32);
+            this.lowdate.TabIndex = 0;
             // 
             // label1
             // 
@@ -165,19 +164,6 @@
             this.itemBtn.UseVisualStyleBackColor = true;
             this.itemBtn.Click += new System.EventHandler(this.itemBtn_Click);
             // 
-            // exportExcel
-            // 
-            this.exportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.exportExcel.Font = new System.Drawing.Font("굴림", 10F);
-            this.exportExcel.Location = new System.Drawing.Point(1425, 72);
-            this.exportExcel.Margin = new System.Windows.Forms.Padding(5);
-            this.exportExcel.Name = "exportExcel";
-            this.exportExcel.Size = new System.Drawing.Size(220, 40);
-            this.exportExcel.TabIndex = 135;
-            this.exportExcel.Text = "Excel로 내보내기";
-            this.exportExcel.UseVisualStyleBackColor = true;
-            this.exportExcel.Click += new System.EventHandler(this.exportExcel_Click);
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(1501, 292);
@@ -186,6 +172,7 @@
             this.btnSearch.TabIndex = 136;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label2
             // 
@@ -196,78 +183,81 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "~";
             // 
-            // dateTimePicker2
+            // highdate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(462, 64);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 32);
-            this.dateTimePicker2.TabIndex = 3;
+            this.highdate.Location = new System.Drawing.Point(462, 64);
+            this.highdate.Name = "highdate";
+            this.highdate.Size = new System.Drawing.Size(200, 32);
+            this.highdate.TabIndex = 3;
             // 
-            // groupBox1
+            // statusGruoup
             // 
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(526, 157);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(316, 141);
-            this.groupBox1.TabIndex = 137;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "상태";
+            this.statusGruoup.Controls.Add(this.completeRdo);
+            this.statusGruoup.Controls.Add(this.cancelRdo);
+            this.statusGruoup.Controls.Add(this.exportRdo);
+            this.statusGruoup.Controls.Add(this.waitRdo);
+            this.statusGruoup.Location = new System.Drawing.Point(526, 157);
+            this.statusGruoup.Name = "statusGruoup";
+            this.statusGruoup.Size = new System.Drawing.Size(316, 141);
+            this.statusGruoup.TabIndex = 137;
+            this.statusGruoup.TabStop = false;
+            this.statusGruoup.Text = "상태";
             // 
-            // radioButton1
+            // completeRdo
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(17, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(77, 25);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "대기";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.completeRdo.AutoSize = true;
+            this.completeRdo.Location = new System.Drawing.Point(172, 79);
+            this.completeRdo.Name = "completeRdo";
+            this.completeRdo.Size = new System.Drawing.Size(77, 25);
+            this.completeRdo.TabIndex = 3;
+            this.completeRdo.TabStop = true;
+            this.completeRdo.Text = "완료";
+            this.completeRdo.UseVisualStyleBackColor = true;
+            this.completeRdo.CheckedChanged += new System.EventHandler(this.completeRdo_CheckedChanged);
             // 
-            // radioButton2
+            // cancelRdo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(17, 79);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 25);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "출고";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.cancelRdo.AutoSize = true;
+            this.cancelRdo.Location = new System.Drawing.Point(172, 23);
+            this.cancelRdo.Name = "cancelRdo";
+            this.cancelRdo.Size = new System.Drawing.Size(77, 25);
+            this.cancelRdo.TabIndex = 2;
+            this.cancelRdo.TabStop = true;
+            this.cancelRdo.Text = "취소";
+            this.cancelRdo.UseVisualStyleBackColor = true;
+            this.cancelRdo.CheckedChanged += new System.EventHandler(this.cancelRdo_CheckedChanged);
             // 
-            // radioButton3
+            // exportRdo
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(172, 23);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(77, 25);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "취소";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.exportRdo.AutoSize = true;
+            this.exportRdo.Location = new System.Drawing.Point(17, 79);
+            this.exportRdo.Name = "exportRdo";
+            this.exportRdo.Size = new System.Drawing.Size(77, 25);
+            this.exportRdo.TabIndex = 1;
+            this.exportRdo.TabStop = true;
+            this.exportRdo.Text = "출고";
+            this.exportRdo.UseVisualStyleBackColor = true;
+            this.exportRdo.CheckedChanged += new System.EventHandler(this.exportRdo_CheckedChanged);
             // 
-            // radioButton4
+            // waitRdo
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(172, 79);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(77, 25);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "완료";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.waitRdo.AutoSize = true;
+            this.waitRdo.Location = new System.Drawing.Point(17, 23);
+            this.waitRdo.Name = "waitRdo";
+            this.waitRdo.Size = new System.Drawing.Size(77, 25);
+            this.waitRdo.TabIndex = 0;
+            this.waitRdo.TabStop = true;
+            this.waitRdo.Text = "대기";
+            this.waitRdo.UseVisualStyleBackColor = true;
+            this.waitRdo.CheckedChanged += new System.EventHandler(this.waitRdo_CheckedChanged);
             // 
             // Frm_DistributionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 1091);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.statusGruoup);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.exportExcel);
             this.Controls.Add(this.distributionGrid);
             this.Controls.Add(this.awButton);
             this.Controls.Add(this.bwButton);
@@ -278,16 +268,16 @@
             this.Controls.Add(this.afterWarehouse);
             this.Controls.Add(this.beforeWarehouse);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.highdate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.lowdate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frm_DistributionList";
             this.Text = "물류조회";
             ((System.ComponentModel.ISupportInitialize)(this.distributionGrid)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.statusGruoup.ResumeLayout(false);
+            this.statusGruoup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,7 +285,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker lowdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox beforeWarehouse;
@@ -307,14 +297,13 @@
         private System.Windows.Forms.Button bwButton;
         private System.Windows.Forms.Button awButton;
         private System.Windows.Forms.DataGridView distributionGrid;
-        private System.Windows.Forms.Button exportExcel;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.DateTimePicker highdate;
+        private System.Windows.Forms.GroupBox statusGruoup;
+        private System.Windows.Forms.RadioButton cancelRdo;
+        private System.Windows.Forms.RadioButton exportRdo;
+        private System.Windows.Forms.RadioButton waitRdo;
+        private System.Windows.Forms.RadioButton completeRdo;
     }
 }

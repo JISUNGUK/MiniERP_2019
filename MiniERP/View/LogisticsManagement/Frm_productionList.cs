@@ -43,10 +43,11 @@ namespace MiniERP.View.LogisticsManagement
         private void searchPlan_Click(object sender, EventArgs e)
         {
             int i = 0;
-            produceGrid.DataSource = null;
+            produceGrid.Rows.Clear();
             foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
             {
                 order_code = ordercode.Text;
+                produceGrid.Rows.Add();
                 produceGrid.Rows[i].Cells[0].Value = item.Item_code;
                 produceGrid.Rows[i].Cells[1].Value = item.Item_name;
                 produceGrid.Rows[i].Cells[2].Value = item.Item_standard;
@@ -75,12 +76,12 @@ namespace MiniERP.View.LogisticsManagement
                         // Excel 첫번째 워크시트 가져오기                
                         excelApp = new Application();
                         MessageBox.Show(System.Environment.CurrentDirectory);
-                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources" + "\\구매 계획서.xlsx");
+                        wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources" + "\\생산 계획서.xlsx");
                         ws = wb.Worksheets.get_Item(1) as Worksheet;
 
                         // 데이타 넣기
                         int r = 13;
-                        ws.Cells[10, 4] = order_code.Remove(order_code.IndexOf("_"));
+                        ws.Cells[10, 4] = DateTime.ParseExact(order_code.Remove(order_code.IndexOf("_")), "yyyyMMdd", null);//string을 날짜형
                         ws.Cells[10, 19] = order_code;
                         foreach (DataGridViewRow data in produceGrid.Rows)
                         {
