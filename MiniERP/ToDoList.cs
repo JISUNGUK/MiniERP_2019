@@ -14,23 +14,26 @@ namespace MiniERP.View
     public partial class ToDoList : UserControl
     {
         private Trade trade;
-        private SplitterPanel panel2;
+        Panel detail_Panel;
+        private FrmDashBoard frmDashBoard;
 
-        public ToDoList(Trade item, SplitterPanel panel2)
+        //  애가진짜
+        public ToDoList(Trade trade, Panel detail_Panel, FrmDashBoard frmDashBoard)
         {
             InitializeComponent();
-            this.trade = item;
-            this.panel2 = panel2;
+            this.trade = trade;
+            this.detail_Panel = detail_Panel;
+            this.frmDashBoard = frmDashBoard;
             this.trade.Trade_standard = "판매";           //  Detail 의 콤보박스리스트를 위한 값초기화
         }
 
         private void btn_Layer_Click(object sender, EventArgs e)
         {
-            ToDoList_Detail detail = new ToDoList_Detail(trade);
+            ToDoList_Detail detail = new ToDoList_Detail(trade, detail_Panel, frmDashBoard);
             detail.Dock = DockStyle.Fill;
 
-            panel2.Controls.Clear();
-            panel2.Controls.Add(detail);
+            detail_Panel.Controls.Clear();
+            detail_Panel.Controls.Add(detail);
             detail.Show();
         }
 
