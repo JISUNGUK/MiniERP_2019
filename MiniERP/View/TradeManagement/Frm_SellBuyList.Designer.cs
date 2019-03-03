@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btn_Insert = new System.Windows.Forms.Button();
@@ -48,36 +45,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gViewTrade)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("굴림", 10F);
-            this.button5.Location = new System.Drawing.Point(161, 43);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(19, 23);
-            this.button5.TabIndex = 35;
-            this.button5.Text = ">";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("굴림", 10F);
-            this.button6.Location = new System.Drawing.Point(23, 43);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(19, 23);
-            this.button6.TabIndex = 34;
-            this.button6.Text = "<";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 10F);
-            this.label4.Location = new System.Drawing.Point(48, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 14);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "페이지 / 페이지";
             // 
             // button4
             // 
@@ -212,9 +179,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 618);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_Insert);
@@ -227,15 +191,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_Insert;

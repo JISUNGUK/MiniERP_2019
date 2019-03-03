@@ -13,10 +13,8 @@ namespace MiniERP.View.BusinessManagement
 {
     public partial class Frm_OrderList : Form
     {
-        private bool boxchk = true;
-
         OrderedDAO ordered = new OrderedDAO();
-
+        
         public Frm_OrderList()
         {
             InitializeComponent();
@@ -24,47 +22,13 @@ namespace MiniERP.View.BusinessManagement
 
         private void Frm_OrderList_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            DataColumn[] dataColumns = new DataColumn[3]{
-                new DataColumn("주문번호"),
-                new DataColumn("거래처코드"),
-                new DataColumn("거래처")
-            };
-            dt.Columns.AddRange(dataColumns);
-
-            foreach (VO.Ordered order in ordered.SelectAllOrdered())
-            {
-                DataRow dataRow = dt.NewRow();
-                dataRow["주문번호"] = order.Order_Code;
-                dataRow["거래처코드"] = order.Business_Code;
-                dataRow["거래처"] = order.Business_name;
-                dt.Rows.Add(dataRow);
-            }
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = DataTaleMaker(ordered.SelectAllOrdered());
         }
 
-        private void button9_Click_1(object sender, EventArgs e)
-        {
-            if (boxchk)
-            {
-                pnl_serchbox.Visible = true;
-                boxchk = false;
-            }
-            else
-            {
-                pnl_serchbox.Visible = false;
-                boxchk = true;
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBox10_Click(object sender, EventArgs e)
         {
-            textBox10.Clear();
+            txt_KeyWord.Clear();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -102,6 +66,50 @@ namespace MiniERP.View.BusinessManagement
 
             dataGridView2.DataSource = dt;
             lbl_totalFee.Text = "총 금액 : " + totalFee;
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            List<VO.Ordered> searchTemp = new List<VO.Ordered>();
+
+            foreach (VO.Ordered order in ordered.SelectAllOrdered())
+            {
+                if (order.Business_name.Contains(txt_KeyWord.Text))
+                {
+                    VO.Ordered temp = new VO.Ordered();
+                    temp.Order_Code = order.Order_Code;
+                    temp.Business_Code = order.Business_Code;
+                    temp.Business_name = order.Business_name;
+
+                    searchTemp.Add(temp);
+                }
+            }
+            
+            dataGridView1.DataSource = DataTaleMaker(searchTemp);
+        }
+
+        /// <summary>
+        /// 입력된 값으로 데이터테이블을 만들어 반환합니다.
+        /// </summary>
+        private DataTable DataTaleMaker(List<VO.Ordered> ordered)
+        {
+            DataTable dt = new DataTable();
+            DataColumn[] dataColumns = new DataColumn[3]{
+                new DataColumn("주문번호"),
+                new DataColumn("거래처코드"),
+                new DataColumn("거래처")
+            };
+            dt.Columns.AddRange(dataColumns);
+
+            foreach (VO.Ordered order in ordered)
+            {
+                DataRow dataRow = dt.NewRow();
+                dataRow["주문번호"] = order.Order_Code;
+                dataRow["거래처코드"] = order.Business_Code;
+                dataRow["거래처"] = order.Business_name;
+                dt.Rows.Add(dataRow);
+            }
+            return dt;
         }
     }
 }
