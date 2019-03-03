@@ -25,12 +25,6 @@ namespace MiniERP.View.BusinessManagement
             dataGridView1.DataSource = DataTaleMaker(ordered.SelectAllOrdered());
         }
 
-
-        private void textBox10_Click(object sender, EventArgs e)
-        {
-            txt_KeyWord.Clear();
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView2.DataBindings.Clear();
@@ -110,6 +104,19 @@ namespace MiniERP.View.BusinessManagement
                 dt.Rows.Add(dataRow);
             }
             return dt;
+        }
+
+        private void txt_KeyWord_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_Search_Click(null, null);
+            }
+        }
+
+        private void txt_KeyWord_Click(object sender, EventArgs e)
+        {
+            txt_KeyWord.Clear();
         }
     }
 }

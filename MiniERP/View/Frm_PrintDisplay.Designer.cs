@@ -38,6 +38,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Print = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,6 +57,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.btn_Search);
             this.splitContainer1.Panel1.Controls.Add(this.txt_Search);
             this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
@@ -90,18 +93,19 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 72);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(274, 397);
+            this.dataGridView1.Size = new System.Drawing.Size(274, 366);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // first_panel
             // 
+            this.first_panel.Controls.Add(this.label2);
             this.first_panel.Controls.Add(this.combo_Count);
             this.first_panel.Controls.Add(this.label1);
             this.first_panel.Controls.Add(this.pictureBox1);
@@ -115,7 +119,7 @@
             // combo_Count
             // 
             this.combo_Count.FormattingEnabled = true;
-            this.combo_Count.Location = new System.Drawing.Point(66, 169);
+            this.combo_Count.Location = new System.Drawing.Point(194, 179);
             this.combo_Count.Name = "combo_Count";
             this.combo_Count.Size = new System.Drawing.Size(70, 20);
             this.combo_Count.TabIndex = 3;
@@ -128,7 +132,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 12);
             this.label1.TabIndex = 2;
-            this.label1.Text = "이미지 더블클릭시 출력합니다.";
+            this.label1.Text = "출력할 개수를 선택후 버튼클릭";
             // 
             // pictureBox1
             // 
@@ -142,7 +146,7 @@
             // 
             // btn_Print
             // 
-            this.btn_Print.Location = new System.Drawing.Point(142, 167);
+            this.btn_Print.Location = new System.Drawing.Point(270, 177);
             this.btn_Print.Name = "btn_Print";
             this.btn_Print.Size = new System.Drawing.Size(75, 23);
             this.btn_Print.TabIndex = 1;
@@ -155,6 +159,24 @@
             this.saveFileDialog1.DefaultExt = "png";
             this.saveFileDialog1.Filter = "이미지|*.png";
             this.saveFileDialog1.Title = "저장";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(192, 164);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "A4: 최대 42개";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 12);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "원하는 품목을 더블클릭";
             // 
             // Frm_PrintDisplay
             // 
@@ -191,5 +213,7 @@
         private System.Windows.Forms.Button btn_Print;
         private System.Windows.Forms.ComboBox combo_Count;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

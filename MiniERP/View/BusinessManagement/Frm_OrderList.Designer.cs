@@ -71,7 +71,8 @@
             this.txt_KeyWord.Size = new System.Drawing.Size(405, 23);
             this.txt_KeyWord.TabIndex = 83;
             this.txt_KeyWord.Text = "거래처명으로 검색";
-            this.txt_KeyWord.Click += new System.EventHandler(this.textBox10_Click);
+            this.txt_KeyWord.Click += new System.EventHandler(this.txt_KeyWord_Click);
+            this.txt_KeyWord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyWord_KeyDown);
             // 
             // dataGridView2
             // 
