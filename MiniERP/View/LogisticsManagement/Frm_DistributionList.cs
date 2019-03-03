@@ -1,4 +1,5 @@
 ﻿using MiniERP.Model;
+using MiniERP.View.StockManagement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -133,7 +134,11 @@ namespace MiniERP.View.LogisticsManagement
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            Frm_WarehouseMovement frm = new Frm_WarehouseMovement();
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                // 재 조회? 아니면 뭘넣을까?
+            }
         }
     }
 }

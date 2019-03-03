@@ -483,6 +483,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_SellBuyInsert";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "주문 등록";
             ((System.ComponentModel.ISupportInitialize)(this.gView_Order)).EndInit();
             this.ResumeLayout(false);

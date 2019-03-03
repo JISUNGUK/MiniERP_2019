@@ -113,7 +113,7 @@ namespace MiniERP.View.LogisticsManagement
                     sampleOrder.Rows[rowcount].Cells[5].Value = item.Item_unit;
                     rowcount++;
                 }
-                if (rowcount > 0)
+                if (rowcount ==0)
                 {
                     MessageBox.Show("찾으시는 결과가 없습니다");
                 }

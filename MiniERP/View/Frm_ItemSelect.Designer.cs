@@ -176,6 +176,7 @@
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_ItemSelect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "품목 검색";
             this.Load += new System.EventHandler(this.Frm_ItemSelect_Load);
             this.toolStrip1.ResumeLayout(false);
