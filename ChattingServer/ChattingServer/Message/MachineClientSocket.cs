@@ -51,7 +51,6 @@ namespace ChattingServer.Message
                 catch (Exception)
                 {
                     MachineServer.machineTable.Remove(machineName);
-                    MachineServer.machineList.Remove(this);                  
                    
                     break;
                 }
@@ -60,23 +59,17 @@ namespace ChattingServer.Message
                     if (Encoding.UTF8.GetString(messageByte).Replace("\0", "") != "")
                     {
                         string receivestr = Encoding.UTF8.GetString(messageByte).Replace("\0", "");
-                        string date = "보낸시간:" + DateTime.Now + "\n";                
-                        MachineServer.machineTable[0] += date + "기계명:" + machineName + Environment.NewLine + "메시지:" + receivestr + "\n";
-                        FTPServer.Logger.Text += receivestr+"\n";
+                        string date = "작업시간:" + DateTime.Now + "\n";                                       
+                       // FTPServer.Logger.Text += receivestr+"\n";
                         MachineServer.Broadcast(receivestr, machineName);
+                        MachineServer.machineLog[machineName] += date+ "\n" + receivestr;
+                        ServerForm.machinCount++;
 
                         if (receivestr.Contains("endconnecting"))
                         {
                             MachineServer.machineTable.Remove(machineName);
-                            for (int i = 0; i < MachineServer.machineList.Count; i++)
-                            {
-                                if (MachineServer.machineList[i].MachineName == machineName)
-                                {
-                                    MachineServer.machineList.RemoveAt(i);
-                                    break;
-                                }
-                            }
-                            FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
+                            MachineServer.machineLog.Remove(machineName);
+                           // FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
                             break;
                         }
 

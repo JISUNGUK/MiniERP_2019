@@ -12,8 +12,9 @@ namespace ChattingServer.Server
 {
     class MachineServer
     {
-        public static Hashtable machineTable = new Hashtable();  
-        public static List<MachineClientSocket> machineList = new List<MachineClientSocket>();
+        public static Hashtable machineTable = new Hashtable();//해당 기계의 이름과 ip를 저장
+        public static Hashtable machineLog = new Hashtable();//해당 기계의 이름과 작동내역을 저장
+        //public static List<MachineClientSocket> machineList = new List<MachineClientSocket>();
         private string ipaddress = "192.168.0.8";
         public void StartMessage()
         {
@@ -42,17 +43,17 @@ namespace ChattingServer.Server
 
                         int index = machineName.IndexOf("\0");
                         machineName = machineName.Remove(index, machineName.Length - index);
-                           FTPServer.Logger.Text += "기계접속을 감지했습니다\n";
+                           //FTPServer.Logger.Text += "기계접속을 감지했습니다\n";
                         if (!machineTable.Contains(machineName))
                         {
 
-                            machineTable.Add(machineName, machineSocket);//머신 관리
-                            FTPServer.Logger.Text += "\n" + machineName+ "\n";                           
+                            
+                           // FTPServer.Logger.Text += "\n" + machineName+ "\n";                           
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
 
                          
                             MachineClientSocket client = new MachineClientSocket(machineSocket, machineName, machineTable);
-                            machineList.Add(client);
+                            machineTable.Add(machineName, client);//머신 관리
                         }
                         else
                         {
@@ -94,11 +95,11 @@ namespace ChattingServer.Server
 
         public static void Broadcast(string msg, string machinename)
         {
-            //throw new NotImplementedException();//지금 구현 부분 아니면 남겨둔다!!
-            string message = "";
-            foreach (var key in machineList)
+            //throw new NotImplementedException();//지금 구현 부분 아니면 남겨둔다!!;
+            foreach (DictionaryEntry key in machineTable)
             {
-                TcpClient tcp = key.MachineSockets;
+                MachineClientSocket machine =(MachineClientSocket)key.Value;
+                TcpClient tcp = machine.MachineSockets;
                 if (tcp.Connected)
                 {
                     NetworkStream ns = tcp.GetStream();

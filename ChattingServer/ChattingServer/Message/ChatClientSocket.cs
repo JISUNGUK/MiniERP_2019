@@ -102,7 +102,7 @@ namespace ChattingServer
                                 item.NicNames += ","+ClientNickName;                                
                             else
                                 item.NicNames +=ClientNickName;
-                                ChatServer.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
+                               ChatServer.Multicast(roomname + "에 참가했습니다", ClientNickName, item, true);
                                 //FTPServer.Logger.Text += "\n" + ClientNickName +"님이 방에 참여 했습니다"+roomname+"\n";
                         }
                     }
@@ -120,7 +120,7 @@ namespace ChattingServer
                     {
                         if(ChatServer.chattingList[i].RoomName==roomname)
                         {
-                            ChatServer.Unicast("해당 방은 있습니다", this, true);
+                           // ChatServer.Unicast("해당 방은 있습니다", this, true);
                               //  FTPServer.Logger.Text += "\n" + "해당 방은 있습니다\n";
                             duplicateCount++;
                             break;

@@ -25,6 +25,7 @@ namespace ChattingServer
         public static Hashtable machineList = new Hashtable();//머신들의 이름과 IP를 저장
         //private string ipaddress = "192.168.0.6";
         public static int chattcount = 0;//사원들이 들어왔었는지 유무,,( 폼을 끝낼때 없으면 채팅방을 안 내보냄)
+        public static int machinCount = 0;
 
         public ServerForm()
         {
@@ -144,6 +145,8 @@ namespace ChattingServer
             {
             if(chattcount>0)
                 exportChatting_Click(null,null);
+                if (machinCount > 0)
+                    outPutMachineLog();
 
             e.Cancel = false; // 폼 닫음  
                 closeBackground(@"taskkill /im ChattingServer.exe /f");
@@ -207,14 +210,33 @@ namespace ChattingServer
             
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void outPutMachineLog()
         {
+           
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = DateTime.Now.ToShortDateString() + "머신작업내역.txt";
+                DialogResult dr = savefile.ShowDialog();
+                if (dr != DialogResult.OK)
+                    return;
+                else
+                {
+                    FileStream fs = new FileStream(savefile.FileName, FileMode.Create, FileAccess.Write);
+                    foreach (DictionaryEntry item in MachineServer.machineLog)
+                    {
+                        byte[] roomNameByte = Encoding.Default.GetBytes("기계명:" + item.Key + "\n");
+                        fs.Write(roomNameByte, 0, roomNameByte.Length);
+                        fs.Flush();
+                        byte[] messageByte = Encoding.Default.GetBytes("작업 내역:\n" + item.Value + "\n");
+                        fs.Write(messageByte, 0, messageByte.Length);
+                        fs.Flush();
+                    }
+                    fs.Close();
+                }
+                savefile.Dispose();
 
         }
 
-        private void machine_Click(object sender, EventArgs e)
-        {
-            MachineServer.machineList[0].sendMessage("안녕안녕");
-        }
+
+       
     }
 }

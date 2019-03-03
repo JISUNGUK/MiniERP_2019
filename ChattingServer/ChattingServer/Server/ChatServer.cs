@@ -47,7 +47,7 @@ namespace ChattingServer
                         {
 
                             clientList.Add(clientNickName, chatClientSocket);//채팅참여자 관리
-                            FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
+                          //  FTPServer.Logger.Text += "\n" + clientNickName + "님이 접속했습니다\n";
                             Broadcast(clientNickName + "님 접속했습니다", clientNickName, true);
 
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
@@ -163,7 +163,6 @@ namespace ChattingServer
         /// <param name="isServerMsg">true:서버 메시지 /false:일반 대화 메시지</param>
         public static void Multicast(string msg, string clientNickName, ChattingElement chattingElement, bool isServerMsg)
         {
-            string message = "";
             //throw new NotImplementedException();//지금 구현 부분 아니면 남겨둔다!!            
             foreach (DictionaryEntry item in clientList)
             {
@@ -240,7 +239,7 @@ namespace ChattingServer
                     foreach (ChattingElement chatting in chattingList)
                         chattingRooms += chatting.RoomName;
                     bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
-                    FTPServer.Logger.Text += "서버 메시지:" + msg + " 현재 접속인원:" + GetMember() + "\n";
+                   // FTPServer.Logger.Text += "서버 메시지:" + msg + " 현재 접속인원:" + GetMember() + "\n";
                 }
                 ns.Write(bytemsg, 0, bytemsg.Length);
                 ns.Flush();

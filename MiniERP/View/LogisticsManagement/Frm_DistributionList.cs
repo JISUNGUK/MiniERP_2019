@@ -121,5 +121,10 @@ namespace MiniERP.View.LogisticsManagement
             distributionGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             distributionGrid.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
