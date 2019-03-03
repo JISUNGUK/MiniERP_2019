@@ -48,7 +48,6 @@
             this.cmbClass = new System.Windows.Forms.ComboBox();
             this.txtGroup = new System.Windows.Forms.TextBox();
             this.mTxtFee = new System.Windows.Forms.MaskedTextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.pbxImage = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImage)).BeginInit();
@@ -225,16 +224,6 @@
             this.mTxtFee.TabIndex = 25;
             this.mTxtFee.ValidatingType = typeof(int);
             // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(436, 195);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 25);
-            this.button3.TabIndex = 17;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // pbxImage
             // 
             this.pbxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -268,7 +257,6 @@
             this.Controls.Add(this.txtStandard);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtCode);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.txtGroup);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegister);
@@ -309,7 +297,6 @@
         private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtStandard;
