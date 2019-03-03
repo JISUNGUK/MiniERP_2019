@@ -108,6 +108,12 @@ namespace MiniERP.View
                     MessageBox.Show("42개 이상불가능합니다.");
                     return;
                 }      //  카운트 예외분기
+                else if (Int32.Parse(combo_Count.Text) == 0)
+                {
+                    MessageBox.Show("0은 입력이 불가능합니다.");
+                    combo_Count.Text = "1";
+                    return;
+                }
                 if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                 {
                     return;
