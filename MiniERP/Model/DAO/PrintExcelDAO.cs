@@ -76,7 +76,7 @@ namespace MiniERP.Model.DAO
 
         }
         /// <summary>
-        /// 문서에 창고가 포함되어있는 산출물
+        /// 문서에 창고가 포함되어있는 산출물 입고 확인서,
         /// </summary>
         /// <param name="outputFileName">출력할 산출물 이름 excel폴더에 있는 파일들과 이름이 똑같아야한다</param>
         /// <param name="orderCode">주문코드</param>
