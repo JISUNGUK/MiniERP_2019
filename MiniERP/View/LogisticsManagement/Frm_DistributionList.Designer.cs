@@ -159,7 +159,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.distributionGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.distributionGrid.RowTemplate.Height = 34;
-            this.distributionGrid.Size = new System.Drawing.Size(1784, 691);
+            this.distributionGrid.Size = new System.Drawing.Size(1784, 626);
             this.distributionGrid.TabIndex = 134;
             // 
             // btnSearch
@@ -301,7 +301,7 @@
             // btnNew
             // 
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Location = new System.Drawing.Point(17, 1037);
+            this.btnNew.Location = new System.Drawing.Point(12, 953);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(145, 40);
