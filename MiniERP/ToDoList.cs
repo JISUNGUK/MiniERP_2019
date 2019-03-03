@@ -22,6 +22,7 @@ namespace MiniERP.View
             InitializeComponent();
             this.trade = item;
             this.panel2 = panel2;
+            this.trade.Trade_standard = "판매";
         }
 
         private void btn_Layer_Click(object sender, EventArgs e)
