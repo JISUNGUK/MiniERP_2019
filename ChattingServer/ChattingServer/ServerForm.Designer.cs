@@ -42,10 +42,10 @@
             // 
             this.ServerIPValue.AutoSize = true;
             this.ServerIPValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServerIPValue.Location = new System.Drawing.Point(159, 23);
-            this.ServerIPValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.ServerIPValue.Location = new System.Drawing.Point(101, 13);
+            this.ServerIPValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServerIPValue.Name = "ServerIPValue";
-            this.ServerIPValue.Size = new System.Drawing.Size(143, 31);
+            this.ServerIPValue.Size = new System.Drawing.Size(76, 18);
             this.ServerIPValue.TabIndex = 6;
             this.ServerIPValue.Text = "[Server IP]";
             // 
@@ -53,30 +53,30 @@
             // 
             this.ServerIP.AutoSize = true;
             this.ServerIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServerIP.Location = new System.Drawing.Point(16, 23);
-            this.ServerIP.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.ServerIP.Location = new System.Drawing.Point(10, 13);
+            this.ServerIP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServerIP.Name = "ServerIP";
-            this.ServerIP.Size = new System.Drawing.Size(135, 31);
+            this.ServerIP.Size = new System.Drawing.Size(72, 18);
             this.ServerIP.TabIndex = 5;
             this.ServerIP.Text = "Server IP:";
             // 
             // Logger
             // 
             this.Logger.BackColor = System.Drawing.Color.White;
-            this.Logger.Location = new System.Drawing.Point(2, 105);
-            this.Logger.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Logger.Location = new System.Drawing.Point(1, 60);
+            this.Logger.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Logger.Multiline = true;
             this.Logger.Name = "Logger";
             this.Logger.ReadOnly = true;
-            this.Logger.Size = new System.Drawing.Size(794, 240);
+            this.Logger.Size = new System.Drawing.Size(507, 139);
             this.Logger.TabIndex = 11;
             // 
             // StartServer
             // 
-            this.StartServer.Location = new System.Drawing.Point(587, 23);
-            this.StartServer.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.StartServer.Location = new System.Drawing.Point(374, 13);
+            this.StartServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.StartServer.Name = "StartServer";
-            this.StartServer.Size = new System.Drawing.Size(138, 37);
+            this.StartServer.Size = new System.Drawing.Size(88, 21);
             this.StartServer.TabIndex = 12;
             this.StartServer.Text = "서버시작";
             this.StartServer.UseVisualStyleBackColor = true;
@@ -87,25 +87,24 @@
             this.ServerStatus.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.ServerStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ServerStatusMessage});
-            this.ServerStatus.Location = new System.Drawing.Point(0, 349);
+            this.ServerStatus.Location = new System.Drawing.Point(0, 212);
             this.ServerStatus.Name = "ServerStatus";
-            this.ServerStatus.Padding = new System.Windows.Forms.Padding(2, 0, 27, 0);
-            this.ServerStatus.Size = new System.Drawing.Size(900, 35);
+            this.ServerStatus.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
+            this.ServerStatus.Size = new System.Drawing.Size(587, 22);
             this.ServerStatus.SizingGrip = false;
             this.ServerStatus.TabIndex = 15;
             // 
             // ServerStatusMessage
             // 
             this.ServerStatusMessage.Name = "ServerStatusMessage";
-            this.ServerStatusMessage.Size = new System.Drawing.Size(82, 30);
+            this.ServerStatusMessage.Size = new System.Drawing.Size(48, 17);
             this.ServerStatusMessage.Text = "[Status]";
             // 
             // exportChatting
             // 
-            this.exportChatting.Location = new System.Drawing.Point(749, 23);
-            this.exportChatting.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.exportChatting.Location = new System.Drawing.Point(477, 13);
             this.exportChatting.Name = "exportChatting";
-            this.exportChatting.Size = new System.Drawing.Size(151, 40);
+            this.exportChatting.Size = new System.Drawing.Size(96, 23);
             this.exportChatting.TabIndex = 16;
             this.exportChatting.Text = "채팅내보내기";
             this.exportChatting.UseVisualStyleBackColor = true;
@@ -113,16 +112,16 @@
             // 
             // ServerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 384);
+            this.ClientSize = new System.Drawing.Size(587, 234);
             this.Controls.Add(this.exportChatting);
             this.Controls.Add(this.ServerStatus);
             this.Controls.Add(this.StartServer);
             this.Controls.Add(this.Logger);
             this.Controls.Add(this.ServerIPValue);
             this.Controls.Add(this.ServerIP);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ServerForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Server_FormClosing_1);

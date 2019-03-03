@@ -247,6 +247,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtCodeOrName);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_BomList";
             this.Text = "BOM 조회";
             this.Load += new System.EventHandler(this.Frm_BomList_Load);

@@ -178,6 +178,7 @@ namespace MiniERP.View
             catch (Exception)
             {
                 MessageBox.Show("서버가 열려있지않습니다 채팅프로그램을 사용하시려면 프로그램을 재시작 해주세요");
+                nicknamel.Visible = false;
                 //reacess.Enabled = true;
             }
 

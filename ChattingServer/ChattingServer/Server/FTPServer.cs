@@ -35,7 +35,7 @@ namespace ChattingServer
             }
             else
             {
-                Logger.Text +=Environment.NewLine + text;
+                Logger.Text +=Environment.NewLine + text+"\n";
             }
         }
 

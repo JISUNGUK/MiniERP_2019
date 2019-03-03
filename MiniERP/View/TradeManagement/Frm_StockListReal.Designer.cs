@@ -189,6 +189,7 @@
             this.Controls.Add(this.gVIewStock);
             this.Controls.Add(this.btn_serch);
             this.Controls.Add(this.btnInsert);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_StockListReal";
             ((System.ComponentModel.ISupportInitialize)(this.gVIewStock)).EndInit();
             this.ResumeLayout(false);

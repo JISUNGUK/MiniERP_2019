@@ -97,7 +97,6 @@ namespace MiniErp_Client_jsu
             }
             sb.AppendLine("----------------------------");
             txt_Log.Text = sb.ToString();
-
             this.txt_Barcode.Focus();
         }
 

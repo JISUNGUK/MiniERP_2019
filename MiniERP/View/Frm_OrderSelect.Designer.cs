@@ -43,19 +43,17 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 979);
+            this.panel1.Size = new System.Drawing.Size(509, 559);
             this.panel1.TabIndex = 2;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnClose.Font = new System.Drawing.Font("굴림", 10F);
-            this.btnClose.Location = new System.Drawing.Point(176, 918);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(5);
+            this.btnClose.Location = new System.Drawing.Point(112, 525);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(118, 40);
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 17;
             this.btnClose.Text = "닫기";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -66,10 +64,9 @@
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnApply.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnApply.Font = new System.Drawing.Font("굴림", 10F);
-            this.btnApply.Location = new System.Drawing.Point(19, 918);
-            this.btnApply.Margin = new System.Windows.Forms.Padding(5);
+            this.btnApply.Location = new System.Drawing.Point(12, 525);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(118, 40);
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 16;
             this.btnApply.Text = "적용";
             this.btnApply.UseVisualStyleBackColor = true;
@@ -81,23 +78,24 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 38);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(761, 858);
+            this.dataGridView1.Size = new System.Drawing.Size(484, 490);
             this.dataGridView1.TabIndex = 0;
             // 
             // Frm_OrderSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 979);
+            this.ClientSize = new System.Drawing.Size(509, 559);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Frm_OrderSelect";
             this.Text = "주문선택";
             this.Load += new System.EventHandler(this.Frm_OrderSelect_Load);

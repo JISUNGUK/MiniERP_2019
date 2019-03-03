@@ -136,6 +136,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_ClerkUpdate";
             this.Text = "사원정보 수정";
             this.Load += new System.EventHandler(this.Frm_ClerkUpdate_Load);

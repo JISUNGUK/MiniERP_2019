@@ -162,8 +162,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 450);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_PrintDisplay";
-            this.Text = "Frm_PrintDisplay";
+            this.Text = "품목바코드인쇄";
             this.Load += new System.EventHandler(this.Frm_PrintDisplay_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

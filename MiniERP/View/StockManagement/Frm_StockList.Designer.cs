@@ -255,6 +255,7 @@
             this.Controls.Add(this.txtCodeOrName);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_StockList";
             this.Text = "창고 조회";
             this.Load += new System.EventHandler(this.Frm_StockList_Load);

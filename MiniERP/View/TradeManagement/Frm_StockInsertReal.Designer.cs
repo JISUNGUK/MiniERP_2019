@@ -168,7 +168,7 @@
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // Frm_StockInsert
+            // Frm_StockInsertReal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -184,7 +184,8 @@
             this.Controls.Add(this.btn_Warehouse);
             this.Controls.Add(this.txt_WareCode);
             this.Controls.Add(this.lab_Warehouse);
-            this.Name = "Frm_StockInsert";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "Frm_StockInsertReal";
             this.Text = "재고 추가";
             ((System.ComponentModel.ISupportInitialize)(this.num_count)).EndInit();
             this.ResumeLayout(false);

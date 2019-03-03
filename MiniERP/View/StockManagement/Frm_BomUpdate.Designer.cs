@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.btnItemDelete = new System.Windows.Forms.Button();
@@ -134,8 +134,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle3.NullValue = "0";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "필요수량";
             this.Column3.Name = "Column3";
             // 
@@ -150,6 +150,7 @@
             this.Controls.Add(this.btn_ItemAdd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_BomUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bom 수정";

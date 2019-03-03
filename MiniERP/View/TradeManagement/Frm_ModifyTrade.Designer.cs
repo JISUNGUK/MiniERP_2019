@@ -169,6 +169,7 @@
             this.Controls.Add(this.btn_Clerk);
             this.Controls.Add(this.txt_ClerkCode);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_ModifyTrade";
             this.Text = "거래수정";
             this.Load += new System.EventHandler(this.Frm_ModifyTrade_Load);

@@ -166,6 +166,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtCodeName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_BomDetail";
             this.Text = "Bom 상세정보";
             this.Load += new System.EventHandler(this.Frm_BomDetail_Load);

@@ -240,7 +240,7 @@ namespace ChattingServer
                     foreach (ChattingElement chatting in chattingList)
                         chattingRooms += chatting.RoomName;
                     bytemsg = Encoding.UTF8.GetBytes("서버 메시지:" + msg + " 현재 접속인원:" + GetMember());
-                   // FTPServer.Logger.Text += "서버 메시지:" + msg + " 현재 접속인원:" + GetMember() + "\n";
+                    FTPServer.Logger.Text += "서버 메시지:" + msg + " 현재 접속인원:" + GetMember() + "\n";
                 }
                 ns.Write(bytemsg, 0, bytemsg.Length);
                 ns.Flush();

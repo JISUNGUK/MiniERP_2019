@@ -23,7 +23,7 @@ namespace ChattingServer.Server
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 4444);
                 serverListener.Start();
-                  FTPServer.Logger.Text += "머신서버 가동>>>>\n";
+                  //FTPServer.Logger.Text += "머신서버 가동>>>>\n";
                 
 
                 for (; ; )

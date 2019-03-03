@@ -175,6 +175,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_WarehouseMovement";
             this.Text = "창고 이동";
             this.ResumeLayout(false);

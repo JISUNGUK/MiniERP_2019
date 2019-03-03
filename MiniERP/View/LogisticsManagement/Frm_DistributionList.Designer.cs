@@ -59,7 +59,7 @@
             // lowdate
             // 
             this.lowdate.Location = new System.Drawing.Point(85, 37);
-            this.lowdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lowdate.Margin = new System.Windows.Forms.Padding(2);
             this.lowdate.Name = "lowdate";
             this.lowdate.Size = new System.Drawing.Size(129, 21);
             this.lowdate.TabIndex = 0;
@@ -87,7 +87,7 @@
             // beforeWarehouse
             // 
             this.beforeWarehouse.Location = new System.Drawing.Point(650, 91);
-            this.beforeWarehouse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.beforeWarehouse.Margin = new System.Windows.Forms.Padding(2);
             this.beforeWarehouse.Name = "beforeWarehouse";
             this.beforeWarehouse.Size = new System.Drawing.Size(129, 21);
             this.beforeWarehouse.TabIndex = 5;
@@ -95,7 +95,7 @@
             // afterWarehouse
             // 
             this.afterWarehouse.Location = new System.Drawing.Point(890, 91);
-            this.afterWarehouse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.afterWarehouse.Margin = new System.Windows.Forms.Padding(2);
             this.afterWarehouse.Name = "afterWarehouse";
             this.afterWarehouse.Size = new System.Drawing.Size(129, 21);
             this.afterWarehouse.TabIndex = 6;
@@ -123,7 +123,7 @@
             // itemCode
             // 
             this.itemCode.Location = new System.Drawing.Point(85, 88);
-            this.itemCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.itemCode.Margin = new System.Windows.Forms.Padding(2);
             this.itemCode.Name = "itemCode";
             this.itemCode.Size = new System.Drawing.Size(129, 21);
             this.itemCode.TabIndex = 9;
@@ -149,7 +149,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.distributionGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.distributionGrid.Location = new System.Drawing.Point(10, 213);
-            this.distributionGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.distributionGrid.Margin = new System.Windows.Forms.Padding(2);
             this.distributionGrid.Name = "distributionGrid";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -205,7 +205,7 @@
             // 
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Location = new System.Drawing.Point(955, 169);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 23);
             this.btnSearch.TabIndex = 136;
@@ -226,7 +226,7 @@
             // highdate
             // 
             this.highdate.Location = new System.Drawing.Point(294, 37);
-            this.highdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.highdate.Margin = new System.Windows.Forms.Padding(2);
             this.highdate.Name = "highdate";
             this.highdate.Size = new System.Drawing.Size(129, 21);
             this.highdate.TabIndex = 3;
@@ -239,9 +239,9 @@
             this.statusGruoup.Controls.Add(this.waitRdo);
             this.statusGruoup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.statusGruoup.Location = new System.Drawing.Point(335, 90);
-            this.statusGruoup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusGruoup.Margin = new System.Windows.Forms.Padding(2);
             this.statusGruoup.Name = "statusGruoup";
-            this.statusGruoup.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusGruoup.Padding = new System.Windows.Forms.Padding(2);
             this.statusGruoup.Size = new System.Drawing.Size(201, 81);
             this.statusGruoup.TabIndex = 137;
             this.statusGruoup.TabStop = false;
@@ -251,7 +251,7 @@
             // 
             this.completeRdo.AutoSize = true;
             this.completeRdo.Location = new System.Drawing.Point(109, 45);
-            this.completeRdo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.completeRdo.Margin = new System.Windows.Forms.Padding(2);
             this.completeRdo.Name = "completeRdo";
             this.completeRdo.Size = new System.Drawing.Size(47, 16);
             this.completeRdo.TabIndex = 3;
@@ -264,7 +264,7 @@
             // 
             this.cancelRdo.AutoSize = true;
             this.cancelRdo.Location = new System.Drawing.Point(109, 13);
-            this.cancelRdo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelRdo.Margin = new System.Windows.Forms.Padding(2);
             this.cancelRdo.Name = "cancelRdo";
             this.cancelRdo.Size = new System.Drawing.Size(47, 16);
             this.cancelRdo.TabIndex = 2;
@@ -277,7 +277,7 @@
             // 
             this.exportRdo.AutoSize = true;
             this.exportRdo.Location = new System.Drawing.Point(11, 45);
-            this.exportRdo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exportRdo.Margin = new System.Windows.Forms.Padding(2);
             this.exportRdo.Name = "exportRdo";
             this.exportRdo.Size = new System.Drawing.Size(47, 16);
             this.exportRdo.TabIndex = 1;
@@ -290,7 +290,7 @@
             // 
             this.waitRdo.AutoSize = true;
             this.waitRdo.Location = new System.Drawing.Point(11, 13);
-            this.waitRdo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.waitRdo.Margin = new System.Windows.Forms.Padding(2);
             this.waitRdo.Name = "waitRdo";
             this.waitRdo.Size = new System.Drawing.Size(47, 16);
             this.waitRdo.TabIndex = 0;
@@ -320,8 +320,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lowdate);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_DistributionList";
             this.Text = "물류조회";
             this.Load += new System.EventHandler(this.Frm_DistributionList_Load);

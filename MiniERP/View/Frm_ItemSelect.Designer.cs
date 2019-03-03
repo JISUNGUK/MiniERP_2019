@@ -117,7 +117,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.Font = new System.Drawing.Font("굴림", 10F);
             this.btnDelete.Location = new System.Drawing.Point(119, 491);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 18;
@@ -174,6 +174,7 @@
             this.ClientSize = new System.Drawing.Size(484, 561);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_ItemSelect";
             this.Text = "품목 검색";
             this.Load += new System.EventHandler(this.Frm_ItemSelect_Load);

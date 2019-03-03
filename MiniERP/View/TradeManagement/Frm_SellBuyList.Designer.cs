@@ -219,6 +219,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_Insert);
             this.Controls.Add(this.gViewTrade);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_SellBuyList";
             this.Text = "판매/구매조회";
             this.Load += new System.EventHandler(this.Frm_SellBuyList_Load);

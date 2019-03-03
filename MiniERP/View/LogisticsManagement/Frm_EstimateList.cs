@@ -20,7 +20,6 @@ namespace MiniERP.View.LogisticsManagement
     {
         //private bool chkbox = false;
         MiniErpDB erpdb = new MiniErpDB();
-        string orderCode = "";
         private int rowcount;//엑셀을 출력할지를 결정함 0보다 커야 출력
         List<SampleOrder> sampleList = new List<SampleOrder>();      
         public Frm_EstimateList()

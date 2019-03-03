@@ -76,7 +76,7 @@ namespace ChattingServer.Message
                                     break;
                                 }
                             }
-                            //FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
+                            FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
                             break;
                         }
 

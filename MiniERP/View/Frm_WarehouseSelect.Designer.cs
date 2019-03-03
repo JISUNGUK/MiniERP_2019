@@ -155,6 +155,7 @@
             this.ClientSize = new System.Drawing.Size(484, 561);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_WarehouseSelect";
             this.Text = "창고 검색";
             this.Load += new System.EventHandler(this.Frm_WarehouseSelect_Load);

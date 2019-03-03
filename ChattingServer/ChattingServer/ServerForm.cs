@@ -180,6 +180,7 @@ namespace ChattingServer
             if(chattcount>0)
             { 
             SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = DateTime.Now.ToShortDateString()+ "대화록.txt";
            DialogResult dr= savefile.ShowDialog();
             if (dr != DialogResult.OK)
                 return;

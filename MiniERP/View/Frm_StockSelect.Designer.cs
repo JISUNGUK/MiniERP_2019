@@ -215,6 +215,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_StockSelect";
             this.Text = "창고 검색";
             this.toolStrip1.ResumeLayout(false);

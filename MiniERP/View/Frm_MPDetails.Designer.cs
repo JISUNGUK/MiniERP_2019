@@ -48,7 +48,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(715, 553);
-            this.splitContainer1.SplitterDistance = 238;
+            this.splitContainer1.SplitterDistance = 237;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -57,7 +57,7 @@
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer2.Size = new System.Drawing.Size(715, 311);
+            this.splitContainer2.Size = new System.Drawing.Size(715, 312);
             this.splitContainer2.SplitterDistance = 238;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -67,6 +67,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 553);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_MPDetails";
             this.Text = "주문서 상세정보";
             this.splitContainer1.Panel2.ResumeLayout(false);

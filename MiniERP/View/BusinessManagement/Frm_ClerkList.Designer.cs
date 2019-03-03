@@ -209,6 +209,7 @@
             this.Controls.Add(this.button9);
             this.Controls.Add(this.txtCodeOrName);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_ClerkList";
             this.Text = "사원 조회";
             this.Load += new System.EventHandler(this.Frm_ClerkList_Load);

@@ -317,6 +317,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.gViewTrade);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_TradeList";
             this.Text = "거래 조회";
             this.Load += new System.EventHandler(this.Frm_TradeList_Load);
