@@ -138,6 +138,13 @@ namespace MiniERP.Model
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
 			return ((ISingleResult<GET_MANUFACTURE_PLANResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SET_DISTRIBUTION")]
+		public int SET_DISTRIBUTION([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string order_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string before_warehouse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string after_warehouse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string item_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string distribution_count, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> move_date)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code, before_warehouse, after_warehouse, item_code, distribution_count, move_date);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GET_MANUFACTURE_DOCResult
