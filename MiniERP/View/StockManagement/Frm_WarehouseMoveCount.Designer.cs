@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.num_updown = new System.Windows.Forms.NumericUpDown();
+            this.btn_OK = new System.Windows.Forms.Button();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.num_updown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -44,55 +44,59 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "개수 :";
             // 
-            // numericUpDown1
+            // num_updown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(55, 7);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.num_updown.Location = new System.Drawing.Point(55, 7);
+            this.num_updown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 21);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.num_updown.Name = "num_updown";
+            this.num_updown.Size = new System.Drawing.Size(120, 21);
+            this.num_updown.TabIndex = 1;
+            this.num_updown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // button1
+            // btn_OK
             // 
-            this.button1.Location = new System.Drawing.Point(14, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "확인";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btn_OK.Location = new System.Drawing.Point(14, 34);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(75, 23);
+            this.btn_OK.TabIndex = 3;
+            this.btn_OK.Text = "확인";
+            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
-            // button2
+            // btn_Cancel
             // 
-            this.button2.Location = new System.Drawing.Point(103, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "취소";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_Cancel.Location = new System.Drawing.Point(103, 34);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancel.TabIndex = 4;
+            this.btn_Cancel.Text = "취소";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // Frm_WarehouseMoveCount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(190, 65);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.btn_Cancel);
+            this.Controls.Add(this.btn_OK);
+            this.Controls.Add(this.num_updown);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_WarehouseMoveCount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "개수 선택";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_updown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,8 +105,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.NumericUpDown num_updown;
+        private System.Windows.Forms.Button btn_OK;
+        private System.Windows.Forms.Button btn_Cancel;
     }
 }

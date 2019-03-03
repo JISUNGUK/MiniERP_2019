@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.lv_beforeStock = new System.Windows.Forms.ListView();
+            this.before_code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.before_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.before_count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmb_before = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,16 +39,13 @@
             this.cmb_after = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lv_afterStock = new System.Windows.Forms.ListView();
+            this.after_code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.after_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.after_count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_move = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
             this.btn_moving = new System.Windows.Forms.Button();
-            this.before_code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.before_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.before_count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.item_code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.item_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.item_count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dt_moveDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -64,6 +64,23 @@
             this.lv_beforeStock.TabIndex = 0;
             this.lv_beforeStock.UseCompatibleStateImageBehavior = false;
             this.lv_beforeStock.View = System.Windows.Forms.View.Details;
+            // 
+            // before_code
+            // 
+            this.before_code.Text = "품목번호";
+            this.before_code.Width = 87;
+            // 
+            // before_name
+            // 
+            this.before_name.Text = "품목이름";
+            this.before_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.before_name.Width = 121;
+            // 
+            // before_count
+            // 
+            this.before_count.Text = "갯수";
+            this.before_count.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.before_count.Width = 77;
             // 
             // cmb_before
             // 
@@ -108,7 +125,6 @@
             // cmb_after
             // 
             this.cmb_after.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.cmb_after.Enabled = false;
             this.cmb_after.FormattingEnabled = true;
             this.cmb_after.Location = new System.Drawing.Point(532, 22);
             this.cmb_after.Name = "cmb_after";
@@ -130,9 +146,9 @@
             // 
             this.lv_afterStock.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lv_afterStock.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.item_code,
-            this.item_name,
-            this.item_count});
+            this.after_code,
+            this.after_name,
+            this.after_count});
             this.lv_afterStock.Location = new System.Drawing.Point(471, 71);
             this.lv_afterStock.Name = "lv_afterStock";
             this.lv_afterStock.Size = new System.Drawing.Size(289, 302);
@@ -140,25 +156,44 @@
             this.lv_afterStock.UseCompatibleStateImageBehavior = false;
             this.lv_afterStock.View = System.Windows.Forms.View.Details;
             // 
+            // after_code
+            // 
+            this.after_code.Text = "품목번호";
+            this.after_code.Width = 87;
+            // 
+            // after_name
+            // 
+            this.after_name.Text = "품목이름";
+            this.after_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.after_name.Width = 121;
+            // 
+            // after_count
+            // 
+            this.after_count.Text = "갯수";
+            this.after_count.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.after_count.Width = 77;
+            // 
             // btn_move
             // 
             this.btn_move.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_move.Location = new System.Drawing.Point(377, 165);
+            this.btn_move.Location = new System.Drawing.Point(377, 157);
             this.btn_move.Name = "btn_move";
             this.btn_move.Size = new System.Drawing.Size(51, 35);
             this.btn_move.TabIndex = 12;
             this.btn_move.Text = ">>";
             this.btn_move.UseVisualStyleBackColor = true;
+            this.btn_move.Click += new System.EventHandler(this.btn_move_Click);
             // 
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancel.Location = new System.Drawing.Point(377, 266);
+            this.btn_cancel.Location = new System.Drawing.Point(377, 254);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(51, 35);
             this.btn_cancel.TabIndex = 13;
             this.btn_cancel.Text = "<<";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_clear
             // 
@@ -169,6 +204,7 @@
             this.btn_clear.TabIndex = 14;
             this.btn_clear.Text = "비우기";
             this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_moving
             // 
@@ -179,40 +215,7 @@
             this.btn_moving.TabIndex = 15;
             this.btn_moving.Text = "이동";
             this.btn_moving.UseVisualStyleBackColor = true;
-            // 
-            // before_code
-            // 
-            this.before_code.Text = "품목번호";
-            this.before_code.Width = 87;
-            // 
-            // before_name
-            // 
-            this.before_name.Text = "품목이름";
-            this.before_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.before_name.Width = 121;
-            // 
-            // before_count
-            // 
-            this.before_count.Text = "갯수";
-            this.before_count.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.before_count.Width = 77;
-            // 
-            // item_code
-            // 
-            this.item_code.Text = "품목번호";
-            this.item_code.Width = 87;
-            // 
-            // item_name
-            // 
-            this.item_name.Text = "품목이름";
-            this.item_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.item_name.Width = 121;
-            // 
-            // item_count
-            // 
-            this.item_count.Text = "갯수";
-            this.item_count.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.item_count.Width = 77;
+            this.btn_moving.Click += new System.EventHandler(this.btn_moving_Click);
             // 
             // dt_moveDate
             // 
@@ -277,9 +280,9 @@
         private System.Windows.Forms.ColumnHeader before_code;
         private System.Windows.Forms.ColumnHeader before_name;
         private System.Windows.Forms.ColumnHeader before_count;
-        private System.Windows.Forms.ColumnHeader item_code;
-        private System.Windows.Forms.ColumnHeader item_name;
-        private System.Windows.Forms.ColumnHeader item_count;
+        private System.Windows.Forms.ColumnHeader after_code;
+        private System.Windows.Forms.ColumnHeader after_name;
+        private System.Windows.Forms.ColumnHeader after_count;
         private System.Windows.Forms.DateTimePicker dt_moveDate;
         private System.Windows.Forms.Label label5;
     }
