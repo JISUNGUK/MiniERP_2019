@@ -46,6 +46,7 @@
             this.txt_ItemCode = new System.Windows.Forms.TextBox();
             this.btn_Item = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gVIewStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,10 +175,18 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
+            // btn_Clear
+            // 
+            resources.ApplyResources(this.btn_Clear, "btn_Clear");
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
+            // 
             // Frm_StockListReal
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.txt_ItemName);
             this.Controls.Add(this.txt_ItemCode);
             this.Controls.Add(this.btn_Item);
@@ -215,5 +224,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn item_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_standard;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_count;
+        private System.Windows.Forms.Button btn_Clear;
     }
 }

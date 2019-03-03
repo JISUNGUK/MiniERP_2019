@@ -19,6 +19,13 @@ namespace MiniERP.View.TradeManagement
             InitializeComponent();
         }
         List<Stock> stocks;
+
+        /// <summary>
+        /// 창고,품목선택버튼클릭이벤트,
+        /// 선택한 버튼에 따라 알맞는 검색폼을 띄워준다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Text_Click(object sender, EventArgs e)
         {
             Form frm;
@@ -42,22 +49,48 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 신규버튼이벤트,
+        /// 신규 재고등록 폼을 띄워준다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnInsert_Click(object sender, EventArgs e)
         {
             Frm_StockInsertReal frm = new Frm_StockInsertReal();
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// 검색버튼 클릭이벤트,
+        /// 재고테이블을 검색하여 결과를 데이터그리드뷰에 띄워준다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_serch_Click(object sender, EventArgs e)
         {
             StockDAO stockDAO = new StockDAO();
-            stocks = stockDAO.Get_Stock(txt_WareCode.Text, txt_WareName.Text);
+            stocks = stockDAO.Get_Stock(txt_WareCode.Text, txt_ItemCode.Text);
             foreach (var item in stocks)
             {
                 gVIewStock.Rows.Clear();
                 gVIewStock.Rows.Add(item.Warehouse_code,item.Warehouse_name, item.Item_code, item.Stock_name, item.Stock_standard, item.Stock_count);
             }
             
+        }
+
+        /// <summary>
+        /// 다시쓰기버튼 클릭이벤트,
+        /// 텍스트박스의 텍스트문자열을 지운다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            txt_ItemCode.Clear();
+            txt_ItemName.Clear();
+            txt_WareCode.Clear();
+            txt_WareName.Clear();
         }
     }
 }
