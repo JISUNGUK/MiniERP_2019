@@ -186,6 +186,7 @@
             this.Controls.Add(this.lab_Warehouse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_StockInsertReal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "재고 추가";
             ((System.ComponentModel.ISupportInitialize)(this.num_count)).EndInit();
             this.ResumeLayout(false);
