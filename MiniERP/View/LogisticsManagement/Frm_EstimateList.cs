@@ -88,6 +88,15 @@ namespace MiniERP.View.LogisticsManagement
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            DisplayEstimate();
+
+        }
+
+        /// <summary>
+        /// 생산계획서의 결과를 데이터그리드뷰에 출력시킴
+        /// </summary>
+        private void DisplayEstimate()
+        {
             rowcount = 0;
             if (orderedCode.Text != "")
             {
@@ -114,7 +123,6 @@ namespace MiniERP.View.LogisticsManagement
             {
                 MessageBox.Show("주문코드를 입력해주세요");
             }
-           
         }
 
         private void exportExcel_Click(object sender, EventArgs e)

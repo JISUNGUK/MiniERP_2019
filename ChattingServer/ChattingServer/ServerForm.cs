@@ -33,6 +33,12 @@ namespace ChattingServer
             ServerIPValue.Text = MachineInfo.GetJustIP();
         }
 
+
+        /// <summary>
+        /// FTP서버를 클릭후 시작시킴
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartServer_Click(object sender, EventArgs e)
         {
             FTPServer.Logger = this.Logger;
@@ -46,8 +52,10 @@ namespace ChattingServer
             ServerStatusMessage.Text = "FTP서버 시작...";
         }
         /// <summary>
-        /// It Establishs the remote object through the network
+        /// TCP채널을 만들어 FTP서버를 작동시킴
         /// </summary>
+        /// 
+        
         private void EstablishRemote()
         {
             SoapServerFormatterSinkProvider soap = new SoapServerFormatterSinkProvider();
@@ -85,7 +93,7 @@ namespace ChattingServer
      
 
         /// <summary>
-        /// It handles the formclosing event
+        /// 폼을 닫을지 체크
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -104,6 +112,9 @@ namespace ChattingServer
 
         }
 
+        /// <summary>
+        /// 채팅서버를 시작시킴
+        /// </summary>
         private void StartMessage()
         {
 
@@ -120,6 +131,9 @@ namespace ChattingServer
          
         }
 
+        /// <summary>
+        /// 머신서버를 시작시킴
+        /// </summary>
         private void StartMachine()
         {
             try
@@ -135,6 +149,7 @@ namespace ChattingServer
 
         }
 
+       
         private void Server_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("종료하십니까 ? ", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
@@ -159,6 +174,11 @@ namespace ChattingServer
         {
 
         }
+
+        /// <summary>
+        /// CMD에 해당 command명령어를 실행시킴
+        /// </summary>
+        /// <param name="command"></param>
         private void closeBackground(string command)
         {
             ProcessStartInfo cmd = new ProcessStartInfo();
@@ -178,6 +198,11 @@ namespace ChattingServer
             process.StandardInput.Close();
         }
 
+        /// <summary>
+        /// 채팅내용을 로컬파일로 내보냄
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exportChatting_Click(object sender, EventArgs e)
         {
             if(chattcount>0)
@@ -210,6 +235,10 @@ namespace ChattingServer
             
         }
 
+
+        /// <summary>
+        /// 머신서버에 있는 작업 내역을 로컬파일로 내보냄
+        /// </summary>
         private void outPutMachineLog()
         {
            

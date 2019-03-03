@@ -15,6 +15,7 @@ namespace MiniERP.Model.DAO
         public const uint SHGFI_SMALLICON = 0x1;
 
         [DllImport("shell32.dll")]
+       
         public static extern IntPtr SHGetFileInfo(string pszPath,
                uint dwFileAttributes,
                ref View.Frm_message.SHFILEINFO psfi,

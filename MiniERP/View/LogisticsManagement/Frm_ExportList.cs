@@ -43,25 +43,32 @@ namespace MiniERP.View.LogisticsManagement
 
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
-        if(warehouseCode.Text!="")
-            { 
-            int rowcount = 0;
-            warehousecode = warehouseCode.Text;
-            exportGrid.Rows.Clear();
-            foreach (var item in mini.Get_Export(move_date
-                .Value,warehouseCode.Text))
-
+            DisplayExport();
+        }
+        /// <summary>
+        /// 출고확인서 결과를 데이터그리드뷰에 출력시킴
+        /// </summary>
+        private void DisplayExport()
+        {
+            if (warehouseCode.Text != "")
             {
-               
-                DataGridViewRow dr = new DataGridViewRow();
-                dr.CreateCells(exportGrid, item.afterName, item.item_name, item.Distribution_count,  item.item_standard);
-                exportGrid.Rows.Add(dr);
-                rowcount++;
-            } 
-            if(rowcount==0)
-                MessageBox.Show("찾으시는 결과가 없습니다");
+                int rowcount = 0;
+                warehousecode = warehouseCode.Text;
+                exportGrid.Rows.Clear();
+                foreach (var item in mini.Get_Export(move_date
+                    .Value, warehouseCode.Text))
+
+                {
+
+                    DataGridViewRow dr = new DataGridViewRow();
+                    dr.CreateCells(exportGrid, item.afterName, item.item_name, item.Distribution_count, item.item_standard);
+                    exportGrid.Rows.Add(dr);
+                    rowcount++;
+                }
+                if (rowcount == 0)
+                    MessageBox.Show("찾으시는 결과가 없습니다");
             }
-        else
+            else
                 MessageBox.Show("창고 코드를 입력해주세요");
         }
 

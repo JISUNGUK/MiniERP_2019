@@ -44,31 +44,35 @@ namespace MiniERP.View.LogisticsManagement
 
         private void searchPlan_Click(object sender, EventArgs e)
         {
+            DisplayProduction();
+
+        }
+        /// <summary>
+        /// 생산계획 결과를 입력받아 데이터그리드뷰에 내용을 출력
+        /// </summary>
+        private void DisplayProduction()
+        {
             int i = 0;
-            if (ordercode.Text!="")
-            { 
-            
-            produceGrid.Rows.Clear();
-            foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
+            if (ordercode.Text != "")
             {
-                order_code = ordercode.Text;
-                produceGrid.Rows.Add();
-                produceGrid.Rows[i].Cells[0].Value = item.Item_code;
-                produceGrid.Rows[i].Cells[1].Value = item.Item_name;
-                produceGrid.Rows[i].Cells[2].Value = item.Item_standard;
-                produceGrid.Rows[i].Cells[3].Value = item.M;
-                produceGrid.Rows[i].Cells[4].Value = item.Item_wrote_fee;
-                i++;
-            }
+
+                produceGrid.Rows.Clear();
+                foreach (var item in miniErp.GET_MANUFACTURE_PLAN(ordercode.Text))
+                {
+                    order_code = ordercode.Text;
+                    produceGrid.Rows.Add();
+                    produceGrid.Rows[i].Cells[0].Value = item.Item_code;
+                    produceGrid.Rows[i].Cells[1].Value = item.Item_name;
+                    produceGrid.Rows[i].Cells[2].Value = item.Item_standard;
+                    produceGrid.Rows[i].Cells[3].Value = item.M;
+                    produceGrid.Rows[i].Cells[4].Value = item.Item_wrote_fee;
+                    i++;
+                }
                 if (i == 0)
                     MessageBox.Show("찾으시는 주문에 대한 생산계획이 없습니다");
             }
             else
                 MessageBox.Show("주문코드를 입력해주세요");
-
-
-
-
         }
 
         private void exportExcel_Click(object sender, EventArgs e)
