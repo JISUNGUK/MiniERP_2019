@@ -67,25 +67,16 @@ namespace MiniERP.View
             panel1.AutoScroll = true;
         }
 
-        private void Hide_btn(object sender, EventArgs e)
-        {
-            if (menu_OpenChk)
-            {
-                split.Panel1Collapsed = false;
-                menu_OpenChk = false;
-                btn_hideR.Visible = false;
-            }
-            else
-            {
-                split.Panel1Collapsed = true;
-                menu_OpenChk = true;
-                btn_hideR.Visible = true;
-            }
-        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbl_Time.Text = "현재시간 : " + DateTime.Now.ToLongTimeString();
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            TradeListShow();
         }
     }
 }
