@@ -136,5 +136,11 @@ namespace MiniERP.View.LogisticsManagement
             Frm_WarehouseMovement frm = new Frm_WarehouseMovement();
             frm.ShowDialog();
         }
+
+        private void rdoAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoAll.Checked)
+                status = "전체";
+        }
     }
 }

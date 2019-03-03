@@ -14,8 +14,7 @@ namespace ChattingServer.Server
     {
         public static Hashtable machineTable = new Hashtable();//해당 기계의 이름과 ip를 저장
         public static Hashtable machineLog = new Hashtable();//해당 기계의 이름과 작동내역을 저장
-        //public static List<MachineClientSocket> machineList = new List<MachineClientSocket>();
-        private string ipaddress = "192.168.0.8";
+        private string ipaddress = "192.168.0.6";
         public void StartMessage()
         {
 
@@ -24,7 +23,7 @@ namespace ChattingServer.Server
             {
                 System.Net.Sockets.TcpListener serverListener = new System.Net.Sockets.TcpListener(ipaddr, 4444);
                 serverListener.Start();
-                  //FTPServer.Logger.Text += "머신서버 가동>>>>\n";
+                  FTPServer.Logger.Text += "머신서버 가동>>>>\n";
                 
 
                 for (; ; )
@@ -43,12 +42,12 @@ namespace ChattingServer.Server
 
                         int index = machineName.IndexOf("\0");
                         machineName = machineName.Remove(index, machineName.Length - index);
-                           //FTPServer.Logger.Text += "기계접속을 감지했습니다\n";
+                           FTPServer.Logger.Text += "기계접속을 감지했습니다\n";
                         if (!machineTable.Contains(machineName))
                         {
 
                             
-                           // FTPServer.Logger.Text += "\n" + machineName+ "\n";                           
+                            FTPServer.Logger.Text += "\n" + machineName+ "\n";                           
                             //참여자 목록(clientList)을 클라이언트 접속한 클라이언트에 접속
 
                          

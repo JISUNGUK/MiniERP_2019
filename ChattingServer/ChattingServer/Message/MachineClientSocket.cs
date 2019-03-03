@@ -63,7 +63,7 @@ namespace ChattingServer.Message
                     {
                         string receivestr = Encoding.UTF8.GetString(messageByte).Replace("\0", "");
                         string date = "작업시간:" + DateTime.Now + "\n";                                       
-                       // FTPServer.Logger.Text += receivestr+"\n";
+                        FTPServer.Logger.Text += receivestr+"\n";
                         MachineServer.Broadcast(receivestr, machineName);
                         MachineServer.machineLog[machineName] += date+ "\n" + receivestr;
                         ServerForm.machinCount++;
@@ -72,7 +72,7 @@ namespace ChattingServer.Message
                         {
                             MachineServer.machineTable.Remove(machineName);
                             MachineServer.machineLog.Remove(machineName);
-                           // FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
+                            FTPServer.Logger.Text += "\n" + MachineName + "기계가 중지되었습니다\n";                     
                             break;
                         }
 
