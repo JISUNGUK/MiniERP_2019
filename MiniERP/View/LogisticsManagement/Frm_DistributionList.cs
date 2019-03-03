@@ -1,5 +1,6 @@
 ﻿using MiniERP.Model;
 using MiniERP.View.StockManagement;
+using MiniERP.VO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace MiniERP.View.LogisticsManagement
     public partial class Frm_DistributionList : Form
     {
         MiniErpDB minierp = new MiniErpDB();
-        private string status = "";//물류조회할때 쓰는 상태
+        private string status = "전체";//물류조회할때 쓰는 상태
         public Frm_DistributionList()
         {
             InitializeComponent();
@@ -26,8 +27,6 @@ namespace MiniERP.View.LogisticsManagement
             distributionGrid.Columns.Add("Item_name", "품목명");
             distributionGrid.Columns.Add("Distribution_count", "물류갯수");
             distributionGrid.Columns.Add("Distribution_status","물류상태");
-            
-
         }
         /// <summary>
         /// 품목번호를 선택해서 갖고옴
@@ -135,10 +134,7 @@ namespace MiniERP.View.LogisticsManagement
         private void btnNew_Click(object sender, EventArgs e)
         {
             Frm_WarehouseMovement frm = new Frm_WarehouseMovement();
-            if(frm.ShowDialog() == DialogResult.OK)
-            {
-                // 재 조회? 아니면 뭘넣을까?
-            }
+            frm.ShowDialog();
         }
     }
 }

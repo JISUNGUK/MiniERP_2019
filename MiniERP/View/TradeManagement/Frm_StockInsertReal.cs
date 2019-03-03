@@ -9,8 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/* 구현: 조성호
+ * 재고등록 폼
+ * 완료일: 2019-03-01
+ */
 namespace MiniERP.View.TradeManagement
 {
+    /// <summary>
+    /// 재고 등록을 하는 폼클래스, 
+    /// 작성자: 조성호
+    /// </summary>
     public partial class Frm_StockInsertReal : Form
     {
         public Frm_StockInsertReal()
@@ -44,6 +52,11 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 저장버튼 클릭이벤트, 입력된 데이터를 DB에 저장한다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Save_Click(object sender, EventArgs e)
         {
             if (Validate())
@@ -64,6 +77,10 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 데이터 유효성검사 함수
+        /// </summary>
+        /// <returns></returns>
         private bool Validation()
         {
             if (String.IsNullOrWhiteSpace(txt_ItemCode.Text))

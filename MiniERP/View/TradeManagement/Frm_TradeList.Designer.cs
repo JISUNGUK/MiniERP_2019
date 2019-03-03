@@ -30,17 +30,14 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.txt_Business = new System.Windows.Forms.TextBox();
-            this.txt_Item = new System.Windows.Forms.TextBox();
+            this.btn_detailSearch = new System.Windows.Forms.Button();
+            this.txt_bussiness = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.max_date = new System.Windows.Forms.DateTimePicker();
             this.low_date = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_Detail = new System.Windows.Forms.Button();
@@ -61,10 +58,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 28);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Location = new System.Drawing.Point(15, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 21);
+            this.label6.Size = new System.Drawing.Size(57, 12);
             this.label6.TabIndex = 1;
             this.label6.Text = "거래 날짜";
             // 
@@ -73,81 +69,67 @@
             this.pnl_serchbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_serchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_serchbox.Controls.Add(this.button7);
-            this.pnl_serchbox.Controls.Add(this.txt_Business);
-            this.pnl_serchbox.Controls.Add(this.txt_Item);
-            this.pnl_serchbox.Location = new System.Drawing.Point(27, 68);
-            this.pnl_serchbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnl_serchbox.Controls.Add(this.btn_detailSearch);
+            this.pnl_serchbox.Controls.Add(this.txt_bussiness);
+            this.pnl_serchbox.Location = new System.Drawing.Point(17, 39);
             this.pnl_serchbox.Name = "pnl_serchbox";
-            this.pnl_serchbox.Size = new System.Drawing.Size(1405, 67);
+            this.pnl_serchbox.Size = new System.Drawing.Size(895, 39);
             this.pnl_serchbox.TabIndex = 49;
             this.pnl_serchbox.Visible = false;
             // 
-            // button7
+            // btn_detailSearch
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Font = new System.Drawing.Font("굴림", 10F);
-            this.button7.Location = new System.Drawing.Point(1254, 14);
-            this.button7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(129, 40);
-            this.button7.TabIndex = 50;
-            this.button7.Text = "검색";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_detailSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_detailSearch.Font = new System.Drawing.Font("굴림", 10F);
+            this.btn_detailSearch.Location = new System.Drawing.Point(798, 8);
+            this.btn_detailSearch.Name = "btn_detailSearch";
+            this.btn_detailSearch.Size = new System.Drawing.Size(82, 23);
+            this.btn_detailSearch.TabIndex = 50;
+            this.btn_detailSearch.Text = "검색";
+            this.btn_detailSearch.UseVisualStyleBackColor = true;
+            this.btn_detailSearch.Click += new System.EventHandler(this.btn_detailSearch_Click);
             // 
-            // txt_Business
+            // txt_bussiness
             // 
-            this.txt_Business.Font = new System.Drawing.Font("굴림", 10F);
-            this.txt_Business.Location = new System.Drawing.Point(383, 14);
-            this.txt_Business.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txt_Business.Name = "txt_Business";
-            this.txt_Business.Size = new System.Drawing.Size(358, 34);
-            this.txt_Business.TabIndex = 42;
-            // 
-            // txt_Item
-            // 
-            this.txt_Item.Font = new System.Drawing.Font("굴림", 10F);
-            this.txt_Item.Location = new System.Drawing.Point(14, 14);
-            this.txt_Item.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txt_Item.Name = "txt_Item";
-            this.txt_Item.Size = new System.Drawing.Size(358, 34);
-            this.txt_Item.TabIndex = 50;
+            this.txt_bussiness.Font = new System.Drawing.Font("굴림", 10F);
+            this.txt_bussiness.Location = new System.Drawing.Point(9, 8);
+            this.txt_bussiness.Name = "txt_bussiness";
+            this.txt_bussiness.Size = new System.Drawing.Size(255, 23);
+            this.txt_bussiness.TabIndex = 50;
+            this.txt_bussiness.Text = "거래처이름 혹은 번호를 입력해주세요";
+            this.txt_bussiness.Enter += new System.EventHandler(this.txt_bussiness_Enter);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(184, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 21);
+            this.label1.Size = new System.Drawing.Size(14, 12);
             this.label1.TabIndex = 129;
             this.label1.Text = "~";
             // 
             // max_date
             // 
             this.max_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.max_date.Location = new System.Drawing.Point(321, 21);
-            this.max_date.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.max_date.Location = new System.Drawing.Point(204, 12);
             this.max_date.Name = "max_date";
-            this.max_date.Size = new System.Drawing.Size(155, 32);
+            this.max_date.Size = new System.Drawing.Size(100, 21);
             this.max_date.TabIndex = 128;
             // 
             // low_date
             // 
             this.low_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.low_date.Location = new System.Drawing.Point(123, 21);
-            this.low_date.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.low_date.Location = new System.Drawing.Point(78, 12);
             this.low_date.Name = "low_date";
-            this.low_date.Size = new System.Drawing.Size(155, 32);
+            this.low_date.Size = new System.Drawing.Size(100, 21);
             this.low_date.TabIndex = 127;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("굴림", 10F);
-            this.button5.Location = new System.Drawing.Point(244, 75);
-            this.button5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button5.Location = new System.Drawing.Point(155, 43);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(30, 40);
+            this.button5.Size = new System.Drawing.Size(19, 23);
             this.button5.TabIndex = 48;
             this.button5.Text = ">";
             this.button5.UseVisualStyleBackColor = true;
@@ -155,10 +137,9 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("굴림", 10F);
-            this.button6.Location = new System.Drawing.Point(27, 75);
-            this.button6.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button6.Location = new System.Drawing.Point(17, 43);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(30, 40);
+            this.button6.Size = new System.Drawing.Size(19, 23);
             this.button6.TabIndex = 47;
             this.button6.Text = "<";
             this.button6.UseVisualStyleBackColor = true;
@@ -167,45 +148,19 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 10F);
-            this.label4.Location = new System.Drawing.Point(66, 84);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(42, 48);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 24);
+            this.label4.Size = new System.Drawing.Size(107, 14);
             this.label4.TabIndex = 46;
             this.label4.Text = "페이지 / 페이지";
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(347, 1020);
-            this.button4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(220, 40);
-            this.button4.TabIndex = 40;
-            this.button4.Text = "Excel로 내보내기";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Font = new System.Drawing.Font("굴림", 10F);
-            this.button3.Location = new System.Drawing.Point(187, 1020);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 40);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "선택삭제";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // btn_Save
             // 
             this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Save.Font = new System.Drawing.Font("굴림", 10F);
-            this.btn_Save.Location = new System.Drawing.Point(27, 1020);
-            this.btn_Save.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_Save.Location = new System.Drawing.Point(17, 583);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(118, 40);
+            this.btn_Save.Size = new System.Drawing.Size(75, 23);
             this.btn_Save.TabIndex = 38;
             this.btn_Save.Text = "신규";
             this.btn_Save.UseVisualStyleBackColor = true;
@@ -213,10 +168,9 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(487, 19);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_Search.Location = new System.Drawing.Point(310, 11);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(118, 40);
+            this.btn_Search.Size = new System.Drawing.Size(75, 23);
             this.btn_Search.TabIndex = 130;
             this.btn_Search.Text = "검색";
             this.btn_Search.UseVisualStyleBackColor = true;
@@ -224,10 +178,9 @@
             // 
             // btn_Detail
             // 
-            this.btn_Detail.Location = new System.Drawing.Point(614, 19);
-            this.btn_Detail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_Detail.Location = new System.Drawing.Point(391, 11);
             this.btn_Detail.Name = "btn_Detail";
-            this.btn_Detail.Size = new System.Drawing.Size(118, 40);
+            this.btn_Detail.Size = new System.Drawing.Size(75, 23);
             this.btn_Detail.TabIndex = 131;
             this.btn_Detail.Text = "상세검색";
             this.btn_Detail.UseVisualStyleBackColor = true;
@@ -240,6 +193,7 @@
             this.gViewTrade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gViewTrade.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gViewTrade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewTrade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.trade_standard,
@@ -251,13 +205,12 @@
             this.trade_status,
             this.end_date,
             this.btnOutput});
-            this.gViewTrade.Location = new System.Drawing.Point(27, 150);
-            this.gViewTrade.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gViewTrade.Location = new System.Drawing.Point(17, 86);
             this.gViewTrade.Name = "gViewTrade";
             this.gViewTrade.RowHeadersVisible = false;
             this.gViewTrade.RowTemplate.Height = 23;
             this.gViewTrade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gViewTrade.Size = new System.Drawing.Size(1406, 859);
+            this.gViewTrade.Size = new System.Drawing.Size(895, 491);
             this.gViewTrade.TabIndex = 37;
             this.gViewTrade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellClick);
             this.gViewTrade.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellDoubleClick);
@@ -317,9 +270,9 @@
             // 
             // Frm_TradeList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1461, 1082);
+            this.ClientSize = new System.Drawing.Size(930, 606);
             this.Controls.Add(this.btn_Detail);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.max_date);
@@ -330,15 +283,11 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.gViewTrade);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Frm_TradeList";
             this.Text = "거래 조회";
-            this.Load += new System.EventHandler(this.Frm_TradeList_Load);
             this.pnl_serchbox.ResumeLayout(false);
             this.pnl_serchbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gViewTrade)).EndInit();
@@ -353,17 +302,14 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_Business;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker max_date;
         private System.Windows.Forms.DateTimePicker low_date;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btn_detailSearch;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.Button btn_Detail;
-        private System.Windows.Forms.TextBox txt_Item;
+        private System.Windows.Forms.TextBox txt_bussiness;
         private System.Windows.Forms.DataGridView gViewTrade;
         private System.Windows.Forms.DataGridViewTextBoxColumn trade_standard;
         private System.Windows.Forms.DataGridViewTextBoxColumn trade_code;

@@ -39,6 +39,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_status = new System.Windows.Forms.ComboBox();
             this.btn_Update = new System.Windows.Forms.Button();
+            this.lv_Item = new System.Windows.Forms.ListView();
+            this.code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.fee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_WareName
@@ -153,11 +159,58 @@
             this.btn_Update.UseVisualStyleBackColor = true;
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
+            // lv_Item
+            // 
+            this.lv_Item.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.code,
+            this.name,
+            this.count,
+            this.fee});
+            this.lv_Item.Location = new System.Drawing.Point(21, 134);
+            this.lv_Item.Name = "lv_Item";
+            this.lv_Item.Size = new System.Drawing.Size(351, 218);
+            this.lv_Item.TabIndex = 154;
+            this.lv_Item.UseCompatibleStateImageBehavior = false;
+            this.lv_Item.View = System.Windows.Forms.View.Details;
+            this.lv_Item.SelectedIndexChanged += new System.EventHandler(this.lv_Item_SelectedIndexChanged);
+            // 
+            // code
+            // 
+            this.code.Text = "품목코드";
+            this.code.Width = 89;
+            // 
+            // name
+            // 
+            this.name.Text = "품목이름";
+            this.name.Width = 104;
+            // 
+            // count
+            // 
+            this.count.Text = "갯수";
+            this.count.Width = 70;
+            // 
+            // fee
+            // 
+            this.fee.Text = "가격";
+            this.fee.Width = 81;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("굴림", 10F);
+            this.label3.Location = new System.Drawing.Point(18, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 14);
+            this.label3.TabIndex = 155;
+            this.label3.Text = "주문 품목";
+            // 
             // Frm_ModifyTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 110);
+            this.ClientSize = new System.Drawing.Size(387, 364);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lv_Item);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.cmb_status);
             this.Controls.Add(this.label1);
@@ -192,5 +245,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmb_status;
         private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.ListView lv_Item;
+        private System.Windows.Forms.ColumnHeader code;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader count;
+        private System.Windows.Forms.ColumnHeader fee;
+        private System.Windows.Forms.Label label3;
     }
 }

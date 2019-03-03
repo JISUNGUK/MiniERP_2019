@@ -79,30 +79,35 @@
             // 
             // warehouse_name
             // 
+            this.warehouse_name.FillWeight = 55.67929F;
             resources.ApplyResources(this.warehouse_name, "warehouse_name");
             this.warehouse_name.Name = "warehouse_name";
             this.warehouse_name.ReadOnly = true;
             // 
             // item_code
             // 
+            this.item_code.FillWeight = 80.44766F;
             resources.ApplyResources(this.item_code, "item_code");
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
             // 
             // item_name
             // 
+            this.item_name.FillWeight = 102.4579F;
             resources.ApplyResources(this.item_name, "item_name");
             this.item_name.Name = "item_name";
             this.item_name.ReadOnly = true;
             // 
             // item_standard
             // 
+            this.item_standard.FillWeight = 122.017F;
             resources.ApplyResources(this.item_standard, "item_standard");
             this.item_standard.Name = "item_standard";
             this.item_standard.ReadOnly = true;
             // 
             // item_count
             // 
+            this.item_count.FillWeight = 139.3981F;
             resources.ApplyResources(this.item_count, "item_count");
             this.item_count.Name = "item_count";
             this.item_count.ReadOnly = true;

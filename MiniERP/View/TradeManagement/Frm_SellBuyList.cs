@@ -10,8 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/* 구현: 조성호
+ * 진행중인 거래 조회 폼
+ * 완료일: 2019-02-28
+ */
 namespace MiniERP.View.TradeManagement
 {
+    /// <summary>
+    /// 진행중인 거래를 판매/구매로 나누어 조회할수있는 폼클래스,
+    /// 작성자: 조성호
+    /// </summary>
     public partial class Frm_SellBuyList : Form
     {
         List<Trade> trades = new List<Trade>();
@@ -21,6 +29,11 @@ namespace MiniERP.View.TradeManagement
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 신규 버튼이벤트 , 거래등록 폼을 띄운다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Insert_Click(object sender, EventArgs e)
         {
             Frm_SellBuyInsert frm = new Frm_SellBuyInsert();
@@ -32,6 +45,9 @@ namespace MiniERP.View.TradeManagement
             GViewSetData();
         }
 
+        /// <summary>
+        /// 그리드뷰에 데이터를 입력하는 함수
+        /// </summary>
         private void GViewSetData()
         {
             gViewTrade.Rows.Clear();
@@ -53,6 +69,11 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 라디오버튼 체크이벤트, 그리드뷰를 갱신한다
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdo_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
@@ -61,27 +82,35 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 그리드뷰 셀 더블클릭 이벤트, 해당 ROW의 수정폼을 띄운다
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gViewTrade_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (var item in trades)
+            if (e.ColumnIndex > -1)
             {
-                if (item.Trade_code == gViewTrade.Rows[e.RowIndex].Cells["code"].Value.ToString())
+                foreach (var item in trades)
                 {
-                    if (rdo_sell.Checked)
+                    if (item.Trade_code == gViewTrade.Rows[e.RowIndex].Cells["code"].Value.ToString())
                     {
-                        item.Trade_standard = rdo_sell.Text;
-                    }
-                    else
-                    {
-                        item.Trade_standard = rdo_buy.Text;
-                    }
+                        if (rdo_sell.Checked)
+                        {
+                            item.Trade_standard = rdo_sell.Text;
+                        }
+                        else
+                        {
+                            item.Trade_standard = rdo_buy.Text;
+                        }
 
-                    Frm_ModifyTrade frm = new Frm_ModifyTrade(item);
-                    if (frm.ShowDialog() != DialogResult.Cancel)
-                    {
-                        GViewSetData();
+                        Frm_ModifyTrade frm = new Frm_ModifyTrade(item);
+                        if (frm.ShowDialog() != DialogResult.Cancel)
+                        {
+                            GViewSetData();
+                        }
+                        break;
                     }
-                    break;
                 }
             }
         }

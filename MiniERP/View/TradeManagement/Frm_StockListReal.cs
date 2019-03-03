@@ -10,8 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/* 구현: 조성호
+ * 재고 조회 폼클래스
+ * 완료일: 2019-03-02
+ */
 namespace MiniERP.View.TradeManagement
 {
+    /// <summary>
+    /// 재고조회를 할수있는 폼클래스,
+    /// 작성자: 조성호
+    /// </summary>
     public partial class Frm_StockListReal : Form
     {
         public Frm_StockListReal()

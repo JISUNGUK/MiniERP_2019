@@ -12,7 +12,6 @@ using MiniERP.VO;
 /* 구현: 조성호
  * 주문등록폼
  * 완료일: 2019-02-22
- * 수정필요한 내용: 예외처리,디자인(폼띄워지는 위치, 그리드뷰 데이터컬럼크기,그리드뷰 기본설정 등)
  */
 namespace MiniERP.View.TradeManagement
 {

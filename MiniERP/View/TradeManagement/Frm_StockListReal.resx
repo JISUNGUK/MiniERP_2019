@@ -143,11 +143,17 @@
   <data name="item_code.HeaderText" xml:space="preserve">
     <value>품목번호</value>
   </data>
+  <data name="item_code.Width" type="System.Int32, mscorlib">
+    <value>144</value>
+  </data>
   <metadata name="item_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="item_name.HeaderText" xml:space="preserve">
     <value>품목이름</value>
+  </data>
+  <data name="item_name.Width" type="System.Int32, mscorlib">
+    <value>184</value>
   </data>
   <metadata name="item_standard.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -155,11 +161,17 @@
   <data name="item_standard.HeaderText" xml:space="preserve">
     <value>규격</value>
   </data>
+  <data name="item_standard.Width" type="System.Int32, mscorlib">
+    <value>220</value>
+  </data>
   <metadata name="item_count.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="item_count.HeaderText" xml:space="preserve">
     <value>재고갯수</value>
+  </data>
+  <data name="item_count.Width" type="System.Int32, mscorlib">
+    <value>250</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="gVIewStock.Location" type="System.Drawing.Point, System.Drawing">

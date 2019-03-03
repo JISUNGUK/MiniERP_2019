@@ -17,6 +17,7 @@ namespace MiniERP.VO
         private string trade_status;
         private string trade_standard;
         private DateTime end_date;
+        private string end_date_str;
         private string clerk_code;
         private string clerk_name;
         private string item_summary;
@@ -33,6 +34,7 @@ namespace MiniERP.VO
         public string Clerk_code { get => clerk_code; set => clerk_code = value; }
         public string Clerk_name { get => clerk_name; set => clerk_name = value; }
         public string Item_summary { get => item_summary; set => item_summary = value; }
+        public string End_date_str { get => end_date_str; set => end_date_str = value; }
     }
     
 }

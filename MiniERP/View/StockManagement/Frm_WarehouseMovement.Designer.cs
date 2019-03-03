@@ -57,6 +57,7 @@
             this.before_code,
             this.before_name,
             this.before_count});
+            this.lv_beforeStock.FullRowSelect = true;
             this.lv_beforeStock.Location = new System.Drawing.Point(54, 71);
             this.lv_beforeStock.MultiSelect = false;
             this.lv_beforeStock.Name = "lv_beforeStock";
@@ -149,6 +150,7 @@
             this.after_code,
             this.after_name,
             this.after_count});
+            this.lv_afterStock.FullRowSelect = true;
             this.lv_afterStock.Location = new System.Drawing.Point(471, 71);
             this.lv_afterStock.Name = "lv_afterStock";
             this.lv_afterStock.Size = new System.Drawing.Size(289, 302);

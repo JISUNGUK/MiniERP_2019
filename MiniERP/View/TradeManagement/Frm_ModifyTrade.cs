@@ -10,8 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/* 구현: 조성호
+ * 거래 수정 폼
+ * 완료일: 2019-03-01
+ */
 namespace MiniERP.View.TradeManagement
 {
+    /// <summary>
+    /// 거래 데이터 수정 폼클래스, 
+    /// 작성자: 조성호
+    /// </summary>
     public partial class Frm_ModifyTrade : Form
     {
         private Trade trade;
@@ -30,8 +38,27 @@ namespace MiniERP.View.TradeManagement
             txt_WareCode.Text = trade.Warehouse_code;
             txt_WareName.Text = trade.Warehouse_name;
             SetComboItems();
+            SetListView();
         }
 
+        /// <summary>
+        /// 해당 거래의 거래품목을 리스트뷰에 보여주기위한 함수
+        /// </summary>
+        private void SetListView()
+        {
+            OrderedDAO orderedDAO = new OrderedDAO();
+            List<SampleOrder> sample = orderedDAO.SelectSampleOrdered(trade.Trade_code);
+            foreach (var item in sample)
+            {
+                string[] str = { item.Item_Code, item.Item_Name, item.Item_Count.ToString(), item.Item_Wrote_Fee.ToString() };
+                ListViewItem list = new ListViewItem(str);
+                lv_Item.Items.Add(list);                
+            }
+        }
+
+        /// <summary>
+        /// 상태정보를 담고있는 콤보박스의 아이템을 세팅하기위한 함수
+        /// </summary>
         private void SetComboItems()
         {
             StatusList status = new StatusList(trade.Trade_standard);
@@ -44,6 +71,11 @@ namespace MiniERP.View.TradeManagement
             cmb_status.SelectedItem = trade.Trade_status;
         }
 
+        /// <summary>
+        /// 사원/거래처를 수정하기위한 폼을 띄우는 버튼클릭이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Search_Click(object sender, EventArgs e)
         {
             Form frm;
@@ -82,6 +114,11 @@ namespace MiniERP.View.TradeManagement
             }
         }
 
+        /// <summary>
+        /// 수정버튼 클릭이벤트, 입력된 데이터로 거래데이터를 수정
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Update_Click(object sender, EventArgs e)
         {
             trade.Clerk_code = txt_ClerkCode.Text;
@@ -102,6 +139,22 @@ namespace MiniERP.View.TradeManagement
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        /// <summary>
+        /// 리스트뷰 ROW 선택이 안되는것처럼 보이게 하기위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lv_Item_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lv_Item.SelectedItems.Count != 0)
+            {
+                foreach (ListViewItem item in lv_Item.SelectedItems)
+                {
+                    item.Selected = false;
+                }
+            }
         }
     }
 }

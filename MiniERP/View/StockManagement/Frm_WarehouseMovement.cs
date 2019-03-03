@@ -11,8 +11,16 @@ using MiniERP.Model;
 using MiniERP.Model.DAO;
 using MiniERP.VO;
 
+/* 구현: 조성호
+ * 물류이동 폼
+ * 완료일: 2019-03-01
+ */
 namespace MiniERP.View.StockManagement
 {
+    /// <summary>
+    /// 물류이동 등록을 위한 폼클래스
+    /// 작성자: 조성호
+    /// </summary>
     public partial class Frm_WarehouseMovement : Form
     {
         public Frm_WarehouseMovement()
@@ -159,6 +167,7 @@ namespace MiniERP.View.StockManagement
         /// <param name="e"></param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            // 출고 창고 리스트뷰에 선택된게 있다면
             if (lv_afterStock.SelectedItems.Count != 0)
             {
                 for (int i = lv_afterStock.SelectedItems.Count; i > 0; i--)
@@ -266,8 +275,8 @@ namespace MiniERP.View.StockManagement
                 // 품목번호,갯수 입력 (반복입력)
                 foreach (ListViewItem item in lv_afterStock.Items)
                 {
-                    dist.Item_code += item.SubItems[0].ToString() + "|";
-                    dist.Dist_count += item.SubItems[2].ToString() + "|";
+                    dist.Item_code += item.SubItems[0].Text.ToString() + "|";
+                    dist.Dist_count += item.SubItems[2].Text.ToString() + "|";
                     break;
                 }
                 dist.Item_code = dist.Item_code.Substring(0, dist.Item_code.Length - 1);
@@ -278,10 +287,14 @@ namespace MiniERP.View.StockManagement
                 try
                 {
                     distributionDAO.SET_DISTRIBUTION(dist);
+                    MessageBox.Show("등록 완료");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("DB 오류발생! \r\n" + ex.Message);
+                    return;
                 }
             }
         }

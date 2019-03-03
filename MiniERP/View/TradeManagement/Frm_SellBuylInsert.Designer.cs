@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_SellBuyInsert));
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -113,6 +114,14 @@
             this.count,
             this.fee,
             this.totalfee});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gView_Order.DefaultCellStyle = dataGridViewCellStyle1;
             this.gView_Order.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gView_Order.Location = new System.Drawing.Point(21, 107);
             this.gView_Order.Name = "gView_Order";
@@ -127,6 +136,7 @@
             // 
             // select
             // 
+            this.select.FillWeight = 42.89544F;
             this.select.HeaderText = "선택";
             this.select.Name = "select";
             this.select.ReadOnly = true;
@@ -136,44 +146,57 @@
             // 
             // code
             // 
+            this.code.FillWeight = 114.2723F;
             this.code.HeaderText = "품목코드";
             this.code.Name = "code";
             this.code.ReadOnly = true;
+            this.code.Width = 107;
             // 
             // name
             // 
+            this.name.FillWeight = 111.738F;
             this.name.HeaderText = "품목명";
             this.name.Name = "name";
             this.name.ReadOnly = true;
+            this.name.Width = 104;
             // 
             // unit
             // 
+            this.unit.FillWeight = 109.5434F;
             this.unit.HeaderText = "단위";
             this.unit.Name = "unit";
             this.unit.ReadOnly = true;
+            this.unit.Width = 102;
             // 
             // standard
             // 
+            this.standard.FillWeight = 107.643F;
             this.standard.HeaderText = "규격";
             this.standard.Name = "standard";
             this.standard.ReadOnly = true;
             // 
             // count
             // 
+            this.count.FillWeight = 105.9974F;
             this.count.HeaderText = "수량";
             this.count.Name = "count";
+            this.count.Width = 99;
             // 
             // fee
             // 
+            this.fee.FillWeight = 104.5723F;
             this.fee.HeaderText = "단가";
             this.fee.Name = "fee";
             this.fee.ReadOnly = true;
+            this.fee.Width = 98;
             // 
             // totalfee
             // 
+            this.totalfee.FillWeight = 103.3383F;
             this.totalfee.HeaderText = "총액";
             this.totalfee.Name = "totalfee";
             this.totalfee.ReadOnly = true;
+            this.totalfee.Width = 96;
             // 
             // btn_Cleaner
             // 

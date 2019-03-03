@@ -6,12 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* 구현: 조성호
+ * 재고 관련 DAO클래스
+ * 완료일: 2019-02-22
+ */
 namespace MiniERP.Model.DAO
 {
     class StockDAO
     {
         List<Stock> stocks = new List<Stock>();
 
+        /// <summary>
+        /// 재고등록 함수
+        /// </summary>
+        /// <param name="item_code">재고등록 프로시저 매개변수 - 품목번호</param>
+        /// <param name="warehouse_code">재고등록 프로시저 매개변수 - 창고번호</param>
+        /// <param name="stock_count">재고등록 프로시저 매개변수 - 품목갯수</param>
         public void Set_Stock_Item(string item_code, string warehouse_code, int stock_count)
         {
             MiniErpDB miniErp = new MiniErpDB();
@@ -25,6 +35,12 @@ namespace MiniERP.Model.DAO
             }
         }
 
+        /// <summary>
+        /// 재고 데이터 조회 함수
+        /// </summary>
+        /// <param name="warehouse_code">재고조회 프로시저 매개변수 - 창고번호</param>
+        /// <param name="item_code">재고조회 프로시저 매개변수 - 품목번호</param>
+        /// <returns></returns>
         public List<Stock> Get_Stock(string warehouse_code,string item_code)
         {
             MiniErpDB miniErp = new MiniErpDB();
