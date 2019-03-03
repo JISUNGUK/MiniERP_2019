@@ -22,10 +22,18 @@ namespace MiniERP.View
         {
             InitializeComponent();
             lbl_ToDay.Text = "오늘은 " + DateTime.Today.ToShortDateString() + " 입니다.";
+            TradeListShow();
+        }
+
+        /// <summary>
+        /// 트레이드 리스트 다시그립니다.
+        /// </summary>
+        public void TradeListShow()
+        {
+            trades.Clear();
             trades = GetTreade();
             ControlAdd(trades);
         }
-        
          /// <summary>
         /// '판매' 거래에대한 정보를 리스트에 초기화
         /// </summary>
@@ -40,14 +48,16 @@ namespace MiniERP.View
         /// </summary>
         private void ControlAdd(List<Trade> list)
         {
+            panel_TradeList.Controls.Clear();
+
             int x = 11; int y = 5;
             foreach (var item in list)
             {
-                ToDoList temp = new ToDoList(item,split.Panel2);
+                ToDoList temp = new ToDoList(item,split.Panel2,this);
                 temp.Location = new Point(x, y);
                 y += 48;
 
-                panel4.Controls.Add(temp);
+                panel_TradeList.Controls.Add(temp);
                 temp.Show();
             }
         }

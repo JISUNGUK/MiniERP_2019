@@ -8,17 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiniERP.VO;
+using MiniERP.View;
 
 namespace MiniERP
 {
     public partial class ToDoList_Detail : UserControl
     {
         private Trade trade;
+        Panel detail_Panel;
+        private FrmDashBoard frmDashBoard;
 
-        public ToDoList_Detail(Trade trade)
+        //  진짜
+        public ToDoList_Detail(Trade trade, Panel detail_Panel, FrmDashBoard frmDashBoard)
         {
             InitializeComponent();
             this.trade = trade;
+            this.detail_Panel = detail_Panel;
+            this.frmDashBoard = frmDashBoard;
+
             Setting();
             PrintItemList();
         }
@@ -31,7 +38,6 @@ namespace MiniERP
             lbl_Master.Text = "담당자 : " + trade.Clerk_name;
             lbl_EndDate.Text = "마감일 : " + trade.End_date.ToString();
             lbl_Client.Text = trade.Business_name;
-            //lbl_TotalFee  해당 라벨은 오더리스트 구하고나서
         }
 
         private void txt_State_Click(object sender, EventArgs e)
@@ -39,6 +45,7 @@ namespace MiniERP
             View.TradeManagement.Frm_ModifyTrade form = new View.TradeManagement.Frm_ModifyTrade(trade);
             form.ShowDialog();
             Setting();
+            frmDashBoard.TradeListShow();
         }
 
         /// <summary>
