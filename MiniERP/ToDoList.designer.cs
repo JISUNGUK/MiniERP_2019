@@ -38,11 +38,11 @@
             this.lbl_Ordcode.AutoSize = true;
             this.lbl_Ordcode.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_Ordcode.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_Ordcode.Location = new System.Drawing.Point(3, 11);
+            this.lbl_Ordcode.Location = new System.Drawing.Point(3, 12);
             this.lbl_Ordcode.Name = "lbl_Ordcode";
             this.lbl_Ordcode.Size = new System.Drawing.Size(67, 14);
             this.lbl_Ordcode.TabIndex = 0;
-            this.lbl_Ordcode.Text = "주문번호";
+            this.lbl_Ordcode.Text = "거래코드";
             // 
             // btn_Layer
             // 
@@ -50,9 +50,9 @@
             this.btn_Layer.BackColor = System.Drawing.Color.DodgerBlue;
             this.btn_Layer.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
             this.btn_Layer.ForeColor = System.Drawing.Color.White;
-            this.btn_Layer.Location = new System.Drawing.Point(81, 3);
+            this.btn_Layer.Location = new System.Drawing.Point(158, -1);
             this.btn_Layer.Name = "btn_Layer";
-            this.btn_Layer.Size = new System.Drawing.Size(106, 30);
+            this.btn_Layer.Size = new System.Drawing.Size(110, 40);
             this.btn_Layer.TabIndex = 1;
             this.btn_Layer.Text = "창고이동단계";
             this.btn_Layer.UseVisualStyleBackColor = false;
@@ -68,7 +68,8 @@
             this.Controls.Add(this.btn_Layer);
             this.Controls.Add(this.lbl_Ordcode);
             this.Name = "ToDoList";
-            this.Size = new System.Drawing.Size(190, 38);
+            this.Size = new System.Drawing.Size(267, 38);
+            this.Load += new System.EventHandler(this.ToDoList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
