@@ -14,6 +14,10 @@ namespace ChattingServer
         public static Hashtable clientList = new Hashtable();
         public static List<ChattingElement> chattingList = new List<ChattingElement>();
         private string ipaddress = "192.168.0.8";
+
+        /// <summary>
+        /// 해당 채팅서버를 실행하고 접속을 대기시킴
+        /// </summary>
         public void StartMessage()
         {
 

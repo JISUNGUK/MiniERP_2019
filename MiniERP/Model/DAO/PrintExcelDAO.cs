@@ -17,7 +17,7 @@ namespace MiniERP.Model.DAO
 
         }
         /// <summary>
-        /// 견적서와 생산계획서를 뽑는 문서
+        /// 데이터 그리드뷰의 내용을 엑셀로 출력시킴 ex)견적서와 생산계획서가 가능함
         /// </summary>
         /// <param name="outputFileName"></param>
         /// <param name="orderCode"></param>
@@ -76,7 +76,7 @@ namespace MiniERP.Model.DAO
 
         }
         /// <summary>
-        /// 문서에 창고가 포함되어있는 산출물 입고 확인서,
+        /// 문서에 창고가 포함되어있는 데이터 그리드뷰를 엑셀로 출력,ex)입고 확인서,출고 확인서
         /// </summary>
         /// <param name="outputFileName">출력할 산출물 이름 excel폴더에 있는 파일들과 이름이 똑같아야한다</param>
         /// <param name="orderCode">주문코드</param>

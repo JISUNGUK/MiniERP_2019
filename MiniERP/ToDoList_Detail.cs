@@ -8,37 +8,46 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiniERP.VO;
+using MiniERP.View;
 
 namespace MiniERP
 {
     public partial class ToDoList_Detail : UserControl
     {
         private Trade trade;
+        Panel detail_Panel;
+        private FrmDashBoard frmDashBoard;
 
-        public ToDoList_Detail(Trade trade)
+        //  진짜
+        public ToDoList_Detail(Trade trade, Panel detail_Panel, FrmDashBoard frmDashBoard)
         {
             InitializeComponent();
             this.trade = trade;
+            this.detail_Panel = detail_Panel;
+            this.frmDashBoard = frmDashBoard;
+
             Setting();
             PrintItemList();
         }
 
         private void Setting()
         {
-            lbl_TradeCode.Text += trade.Trade_code;
-            lbl_WareHouse.Text += trade.Warehouse_name;
+            lbl_TradeCode.Text = "주문번호 : " + trade.Trade_code;
+            lbl_WareHouse.Text = "출고창고 : " + trade.Warehouse_name;
             txt_State.Text = trade.Trade_status;
-            lbl_Master.Text += trade.Clerk_name;
-            lbl_EndDate.Text += trade.End_date.ToString();
-            lbl_Client.Text += trade.Business_name;
-            //lbl_TotalFee  해당 라벨은 오더리스트 구하고나서
+            lbl_Master.Text = "담당자 : " + trade.Clerk_name;
+            lbl_EndDate.Text = "마감일 : " + trade.End_date.ToString();
+            lbl_Client.Text = trade.Business_name;
         }
 
         private void txt_State_Click(object sender, EventArgs e)
         {
             View.TradeManagement.Frm_ModifyTrade form = new View.TradeManagement.Frm_ModifyTrade(trade);
-            form.Show();
+            form.ShowDialog();
+            Setting();
+            frmDashBoard.TradeListShow();
         }
+
         /// <summary>
         /// 그리드뷰에 아이템 품목을 호출합니다.
         /// </summary>

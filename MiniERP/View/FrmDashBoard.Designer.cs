@@ -37,11 +37,11 @@
             this.btn_hideL = new System.Windows.Forms.Button();
             this.lbl_ToDay = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel_TradeList = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbl_Time = new System.Windows.Forms.Label();
             this.btn_hideR = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbl_Time = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.split)).BeginInit();
             this.split.Panel1.SuspendLayout();
             this.split.Panel2.SuspendLayout();
@@ -53,7 +53,7 @@
             this.splitContainer1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel_TradeList.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,22 +138,22 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.panel_TradeList);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(242, 587);
             this.panel3.TabIndex = 0;
             // 
-            // panel4
+            // panel_TradeList
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(242, 587);
-            this.panel4.TabIndex = 12;
+            this.panel_TradeList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_TradeList.Controls.Add(this.panel5);
+            this.panel_TradeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_TradeList.Location = new System.Drawing.Point(0, 0);
+            this.panel_TradeList.Name = "panel_TradeList";
+            this.panel_TradeList.Size = new System.Drawing.Size(242, 587);
+            this.panel_TradeList.TabIndex = 12;
             // 
             // panel5
             // 
@@ -165,6 +165,15 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(253, 35);
             this.panel5.TabIndex = 4;
+            // 
+            // lbl_Time
+            // 
+            this.lbl_Time.AutoSize = true;
+            this.lbl_Time.Location = new System.Drawing.Point(22, 12);
+            this.lbl_Time.Name = "lbl_Time";
+            this.lbl_Time.Size = new System.Drawing.Size(69, 12);
+            this.lbl_Time.TabIndex = 0;
+            this.lbl_Time.Text = "현재 시간 : ";
             // 
             // btn_hideR
             // 
@@ -183,15 +192,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lbl_Time
-            // 
-            this.lbl_Time.AutoSize = true;
-            this.lbl_Time.Location = new System.Drawing.Point(22, 12);
-            this.lbl_Time.Name = "lbl_Time";
-            this.lbl_Time.Size = new System.Drawing.Size(69, 12);
-            this.lbl_Time.TabIndex = 0;
-            this.lbl_Time.Text = "현재 시간 : ";
             // 
             // FrmDashBoard
             // 
@@ -214,7 +214,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.panel_TradeList.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -230,7 +230,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_hideL;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel_TradeList;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btn_hideR;
         private System.Windows.Forms.Label lbl_Time;

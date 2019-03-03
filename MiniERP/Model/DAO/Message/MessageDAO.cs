@@ -32,6 +32,13 @@ namespace MiniERP.Model.DAO
 
         }
 
+        /// <summary>
+        /// 서버로부터 받은 메시지 따라 폼의 상태를 변화시킴
+        /// </summary>
+        /// <param name="readData"></param>
+        /// <param name="memberList"></param>
+        /// <param name="roomList"></param>
+        /// <param name="roomtable"></param>
         public void DisplayContent(string readData, ListBox memberList, ComboBox roomList, Hashtable roomtable)
         {
             if (readData.Contains("접속 인원:"))
@@ -83,6 +90,11 @@ namespace MiniERP.Model.DAO
             }
         }
 
+        /// <summary>
+        /// 서버에 채팅메시지를 전송시킴 combo박스의 선택이름에 따라 다른 서버의 채팅 방에 메시지를 전달
+        /// </summary>
+        /// <param name="sendMsg"></param>
+        /// <param name="combo"></param>
         public void SendChatMessage(string sendMsg, ComboBox combo)
         {
             try
@@ -115,6 +127,14 @@ namespace MiniERP.Model.DAO
             }
         }
 
+        /// <summary>
+        /// 서버로 부터 받은 메시지 내용을 받음
+        /// </summary>
+        /// <param name="readData"></param>
+        /// <param name="roomtable"></param>
+        /// <param name="roomList"></param>
+        /// <param name="ChatContent"></param>
+        /// <param name="windowstate"></param>
         public void GetMsg(string readData, Hashtable roomtable, ComboBox roomList, RichTextBox ChatContent, string windowstate)
         {
             this.roomList = roomList;
@@ -206,7 +226,11 @@ namespace MiniERP.Model.DAO
             }
 
         }
-
+        /// <summary>
+        /// 채팅 알림을 클릭했을때 해당 방으로 이동시킴
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Popup_Click(object sender, EventArgs e)
         {
             roomList.SelectedItem = popup.TitleText.Remove(popup.TitleText.IndexOf("메시지")).Substring(2);
@@ -214,6 +238,10 @@ namespace MiniERP.Model.DAO
 
         }
 
+        /// <summary>
+        /// 메시지 내용을 입력받아 서버에 해당 메시지를 전달
+        /// </summary>
+        /// <param name="message"></param>
         public void SendMessage(string message)
         {
             try
@@ -234,7 +262,11 @@ namespace MiniERP.Model.DAO
         }
 
 
-
+        /// <summary>
+        /// 해당 메시지가 금지된 단어로 쓰이지 않았나 확인시킴 쓰지 않으면 true를 반환
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public bool checkmessage(string message)
         {
             foreach (var v in bannWord)

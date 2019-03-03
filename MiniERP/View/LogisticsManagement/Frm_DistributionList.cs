@@ -70,12 +70,20 @@ namespace MiniERP.View.LogisticsManagement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            DisplayDistribution();
+        }
+
+        /// <summary>
+        /// 데이터그리드뷰에 물류조회 데이터결과를 출력시킴
+        /// </summary>
+        private void DisplayDistribution()
+        {
             int i = 0;
             distributionGrid.Rows.Clear();
-            foreach (var item in minierp.GET_DISTRIBUTION(lowdate.Value,highdate.Value,beforeWarehouse.Text,afterWarehouse.Text,itemCode.Text,status,1,500))
+            foreach (var item in minierp.GET_DISTRIBUTION(lowdate.Value, highdate.Value, beforeWarehouse.Text, afterWarehouse.Text, itemCode.Text, status, 1, 500))
             {
                 distributionGrid.Rows.Add();
-                distributionGrid.Rows[i].Cells["Distribution_code"].Value=item.Distribution_code;
+                distributionGrid.Rows[i].Cells["Distribution_code"].Value = item.Distribution_code;
                 distributionGrid.Rows[i].Cells["Before_warehouse"].Value = item.Before_warehouse;
                 distributionGrid.Rows[i].Cells["After_warehouse"].Value = item.After_warehouse;
                 distributionGrid.Rows[i].Cells["Distribution_count"].Value = item.Distribution_count;
@@ -84,7 +92,8 @@ namespace MiniERP.View.LogisticsManagement
 
                 i++;
             }
-            if (i == 0) { 
+            if (i == 0)
+            {
                 MessageBox.Show("찾으시는 물류 데이터가 없습니다");
                 distributionGrid.Rows.Clear();
             }
