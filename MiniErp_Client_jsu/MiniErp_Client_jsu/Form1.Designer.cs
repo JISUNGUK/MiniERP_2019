@@ -31,7 +31,7 @@
             this.txt_Barcode = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.test_btn = new System.Windows.Forms.Button();
             this.chk_Server = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txt_Log = new System.Windows.Forms.RichTextBox();
@@ -45,6 +45,8 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.ipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -76,7 +78,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.checkBox2);
+            this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.chk_Server);
             this.groupBox2.Location = new System.Drawing.Point(12, 91);
             this.groupBox2.Name = "groupBox2";
@@ -85,15 +88,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Status";
             // 
-            // button1
+            // test_btn
             // 
-            this.button1.Location = new System.Drawing.Point(244, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.test_btn.Location = new System.Drawing.Point(244, 20);
+            this.test_btn.Name = "test_btn";
+            this.test_btn.Size = new System.Drawing.Size(75, 23);
+            this.test_btn.TabIndex = 0;
+            this.test_btn.Text = "button1";
+            this.test_btn.UseVisualStyleBackColor = true;
+            this.test_btn.Visible = false;
+            this.test_btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // chk_Server
             // 
@@ -109,6 +113,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txt_Log);
+            this.groupBox3.Controls.Add(this.test_btn);
             this.groupBox3.Location = new System.Drawing.Point(12, 197);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(319, 241);
@@ -178,7 +183,7 @@
             this.nameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1});
             this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
-            this.nameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.nameToolStripMenuItem.Text = "Name";
             // 
             // toolStripTextBox1
@@ -192,7 +197,7 @@
             this.ipToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox2});
             this.ipToolStripMenuItem.Name = "ipToolStripMenuItem";
-            this.ipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ipToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.ipToolStripMenuItem.Text = "Ip";
             // 
             // toolStripTextBox2
@@ -200,6 +205,28 @@
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox2_KeyDown);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(7, 78);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(51, 16);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "err_1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(99, 77);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(51, 16);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.Text = "err_2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Form1
             // 
@@ -238,7 +265,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox txt_Log;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button test_btn;
         private System.Windows.Forms.CheckBox chk_Server;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sssToolStripMenuItem;
@@ -250,6 +277,8 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem ipToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

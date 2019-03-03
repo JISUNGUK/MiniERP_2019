@@ -482,11 +482,6 @@ namespace MiniERP.View
 
         }
 
-        private void tsm_Accountregistration_Click(object sender, EventArgs e)
-        {
-            Frm_MaxSizeGrp frm_MaxSizeGrp = new Frm_MaxSizeGrp();
-            frm_MaxSizeGrp.Show();
-        }
 
         #region 탭페이지 닫기버튼 생성 메서드
         private void Add_CloseBtn(Form formtest) // !! 주의 조회 폼에서만 사용할것
@@ -629,11 +624,6 @@ namespace MiniERP.View
         }
         #endregion
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            Frm_MaxSizeGrp frm_MaxSizeGrp = new Frm_MaxSizeGrp();
-            frm_MaxSizeGrp.Show();
-        }
 
         private void fileButton_Click(object sender, EventArgs e)
         {

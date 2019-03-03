@@ -13,7 +13,7 @@ namespace MiniErp_Client_jsu
     {
         #region 멤버 변수
 
-        TcpClient client = new TcpClient();//tcpclient를 미리 널참조가 안되게 초기화해놓음
+        TcpClient client;
         NetworkStream stream = default(NetworkStream);              //  기본값 할당(해당 객체의 기본값 참조형은 null)
         Thread thread;                                              //  서버 쓰레드
         string readData = null;                                     //  서버의 메시지
@@ -26,6 +26,7 @@ namespace MiniErp_Client_jsu
         List<string> erro = new List<string>();                     //  에러 리스트
         public List<Command> Command { get { return command; } }
         public List<string> Erro { get { return erro; } }
+        public TcpClient Client { get { return client; } }
         #endregion
 
         public Chatting(string ipAddr, string name, object barcodelist)
@@ -133,7 +134,7 @@ namespace MiniErp_Client_jsu
         }
 
         //  서버종료
-        public void CloseSeverTest()
+        public void CloseServer()
         {
             // ex) [command][pc1]is endconnecting
             if (client != null)

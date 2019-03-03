@@ -10,7 +10,7 @@ namespace MiniErp_Client_jsu
 {
     class Machine
     {
-        private string name = "[pc1]";
+        private string name = AppConfiguration.GetAppConfig("name");
 
         public string Name
         {
@@ -18,7 +18,7 @@ namespace MiniErp_Client_jsu
             set { name = value; }
         }
 
-        private string ip = "192.168.0.8";
+        private string ip = AppConfiguration.GetAppConfig("ip");
 
         public string Ip
         {

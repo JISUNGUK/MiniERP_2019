@@ -219,12 +219,6 @@
     <Compile Include="View\Frm_MakeRoom.Designer.cs">
       <DependentUpon>Frm_MakeRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Frm_MaxSizeGrp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Frm_MaxSizeGrp.Designer.cs">
-      <DependentUpon>Frm_MaxSizeGrp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\DBConnection.cs" />
     <Compile Include="View\StockManagement\Frm_BomInesrt.cs">
       <SubType>Form</SubType>
@@ -503,9 +497,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Frm_MakeRoom.resx">
       <DependentUpon>Frm_MakeRoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Frm_MaxSizeGrp.resx">
-      <DependentUpon>Frm_MaxSizeGrp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockManagement\Frm_BomInesrt.resx">
       <DependentUpon>Frm_BomInesrt.cs</DependentUpon>
