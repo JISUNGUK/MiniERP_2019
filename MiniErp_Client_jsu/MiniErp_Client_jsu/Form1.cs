@@ -108,7 +108,7 @@ namespace MiniErp_Client_jsu
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            chatting.CloseSeverTest();
+            chatting.CloseServer();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -163,6 +163,29 @@ namespace MiniErp_Client_jsu
             IPAddress ip;
             bool valid = !string.IsNullOrEmpty(addr) && IPAddress.TryParse(addr, out ip);
             return valid;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chatting.Client == null)
+            {
+                txt_Log.Text += "erro server is not connected.\n";
+                return;
+            }
+            if (((CheckBox)sender).Text == "err_1")
+            {
+                Erro tempErro = new Erro(1);
+                erros.Add(tempErro);
+                chatting.SendMsg(tempErro.Erro_String);
+                txt_Log.Text += "erro_1 Exeption\n";
+            }else if (((CheckBox)sender).Text == "err_2")
+            {
+                Erro tempErro = new Erro(2);
+                erros.Add(tempErro);
+                chatting.SendMsg(tempErro.Erro_String);
+                txt_Log.Text += "erro_2 Exeption\n";
+            }
+            
         }
     }
 }

@@ -42,7 +42,8 @@ namespace MiniErp_Client_jsu
         {
             switch (this.erro_Code)
             {
-                case 1: this.erro_String = "DB is lost"; break;
+                case 1: this.erro_String = "[erro]" + AppConfiguration.GetAppConfig("name") + "작업자 일시정지";break;
+                case 2: this.erro_String = "[erro]" + AppConfiguration.GetAppConfig("name") + "라인 에러 발생";break;
                 default:
                     break;
             }
