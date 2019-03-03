@@ -231,11 +231,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_hideL;
         private System.Windows.Forms.Panel panel4;
-        private ToDoList toDoList1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btn_hideR;
-        private ToDoList toDoList3;
-        private ToDoList toDoList2;
         private System.Windows.Forms.Label lbl_Time;
         private System.Windows.Forms.Timer timer1;
     }

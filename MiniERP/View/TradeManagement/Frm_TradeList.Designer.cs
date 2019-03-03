@@ -94,7 +94,6 @@
             this.button7.TabIndex = 50;
             this.button7.Text = "검색";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // txt_Business
             // 
