@@ -12,6 +12,11 @@ namespace MiniERP.Model.DAO.Message
     {
         List<Clerk> clerks;
 
+        /// <summary>
+        /// 사원 id,비밀번호를 입력받아 해당 사원의 이름과 직책을 출력받음
+        /// </summary>
+        /// <param name="clerk"></param>
+        /// <returns></returns>
         public List<Clerk> GetClerk(Clerk clerk)
         {
             clerks = new List<Clerk>();

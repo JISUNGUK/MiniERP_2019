@@ -32,6 +32,9 @@ namespace ChattingServer.Message
 
         
 
+        /// <summary>
+        /// 머신 클라이언트가 접속후 보내온 메시지를 읽어들임
+        /// </summary>
         private void Doread()
         {
            
