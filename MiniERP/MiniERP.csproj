@@ -393,7 +393,8 @@
     <Compile Include="VO\Stock.cs" />
     <Compile Include="VO\Trade.cs" />
     <Compile Include="VO\Warehouse.cs" />
-    <None Include="Resources\pin_icon.ico" />
+    <EmbeddedResource Include="Resources\pin_icon.ico" />
+    <EmbeddedResource Include="Resources\minierp_icon_uej_icon.ico" />
     <Content Include="Resources\거래 원가 명세서.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -623,9 +624,9 @@
     <Content Include="Image\닫기버튼.jpg" />
     <Content Include="Image\최대화 버튼.jpg" />
     <EmbeddedResource Include="Resources\message.png" />
-    <None Include="Resources\MaxSizeIcon.png" />
-    <None Include="Resources\CloseIcon.png" />
-    <None Include="Resources\SerchIcon.png" />
+    <EmbeddedResource Include="Resources\MaxSizeIcon.png" />
+    <EmbeddedResource Include="Resources\CloseIcon.png" />
+    <EmbeddedResource Include="Resources\SerchIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChattingServer\ChattingServer\ChattingServer.csproj">
