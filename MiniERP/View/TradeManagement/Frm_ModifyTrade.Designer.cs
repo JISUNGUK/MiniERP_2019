@@ -148,6 +148,7 @@
             this.cmb_status.Name = "cmb_status";
             this.cmb_status.Size = new System.Drawing.Size(121, 20);
             this.cmb_status.TabIndex = 152;
+            this.cmb_status.Leave += new System.EventHandler(this.cmb_status_Leave);
             // 
             // btn_Update
             // 

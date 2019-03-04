@@ -156,5 +156,15 @@ namespace MiniERP.View.TradeManagement
                 }
             }
         }
+
+        /// <summary>
+        /// 콤보박스를 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmb_status_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

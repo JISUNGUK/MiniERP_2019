@@ -79,9 +79,10 @@ namespace MiniERP.View.TradeManagement
         {
             StockDAO stockDAO = new StockDAO();
             stocks = stockDAO.Get_Stock(txt_WareCode.Text, txt_ItemCode.Text);
+            gVIewStock.Rows.Clear();
+
             foreach (var item in stocks)
             {
-                gVIewStock.Rows.Clear();
                 gVIewStock.Rows.Add(item.Warehouse_code,item.Warehouse_name, item.Item_code, item.Stock_name, item.Stock_standard, item.Stock_count);
             }
             

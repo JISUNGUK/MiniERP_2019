@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiniERP.VO;
@@ -187,8 +188,17 @@ namespace MiniERP.View.TradeManagement
         {
             if (gView_Order.Columns[e.ColumnIndex].Name.Contains("count"))
             {
-                gView_Order.Rows[e.RowIndex].Cells["totalfee"].Value = Convert.ToInt32(gView_Order.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) * Convert.ToInt32(gView_Order.Rows[e.RowIndex].Cells["fee"].Value);
-                lab_TotalPrice.Text = string.Format("{0:n0}", Get_TotalFee());
+                if (NumRex(gView_Order.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                {
+                    gView_Order.Rows[e.RowIndex].Cells["totalfee"].Value = Convert.ToInt32(gView_Order.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) * Convert.ToInt32(gView_Order.Rows[e.RowIndex].Cells["fee"].Value);
+                    lab_TotalPrice.Text = string.Format("{0:n0}", Get_TotalFee());
+                }
+                else
+                {
+                    MessageBox.Show("숫자만 입력이 가능합니다");
+                    gView_Order.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+                    btn_ItemAdd.Select();
+                }
             }
         }
 
@@ -233,12 +243,13 @@ namespace MiniERP.View.TradeManagement
                     MessageBox.Show(x.Message);
                     MessageBox.Show("DB오류발생");
                 }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
-            this.Close();
         }
 
         /// <summary>
-        ///  입력 데이터 유효성검사(널유무만 확인됨, 품목갯수 숫자만 들어오게 만들기)
+        ///  입력 데이터 유효성검사 함수
         /// </summary>
         /// <returns>통과:true , 실패:false</returns>
         private bool Valiable_Check()
@@ -261,22 +272,42 @@ namespace MiniERP.View.TradeManagement
                 btn_Warehouse.Focus();
                 return false;
             }
-            else if (gView_Order.Rows.Count < 1)
+
+            if (gView_Order.Rows.Count > 0)
             {
                 foreach (DataGridViewRow item in gView_Order.Rows)
                 {
-                    if (Convert.ToInt32(item.Cells["count"].Value) < 1)
+                    if (!NumRex(item.Cells["count"].Value.ToString()))
+                    {
+                        MessageBox.Show("품목의 갯수는 숫자만 입력이 가능합니다.");
+                        return false;
+                    }
+                    else if (Convert.ToInt32(item.Cells["count"].Value) < 1)
                     {
                         MessageBox.Show("품목의 갯수는 0개 이상이어야 합니다");
                         item.Cells["count"].Selected = true;
                         return false;
                     }
                 }
+            }
+            else
+            {
                 MessageBox.Show("품목이 하나 이상 필요합니다");
                 btn_ItemAdd.Focus();
                 return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// 정규식을 통해 문자열에 숫자만 들어가있는지 확인하는 함수
+        /// </summary>
+        /// <param name="numStr"></param>
+        /// <returns></returns>
+        private bool NumRex(string numStr)
+        {
+            int number;
+            return Int32.TryParse(numStr, out number);
         }
     }
 }
