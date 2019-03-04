@@ -62,6 +62,7 @@
             // 
             // btn_Refresh
             // 
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Refresh.Location = new System.Drawing.Point(316, 683);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(87, 23);
@@ -74,7 +75,7 @@
             // 
             this.additionFile.AutoSize = true;
             this.additionFile.Location = new System.Drawing.Point(316, 644);
-            this.additionFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.additionFile.Margin = new System.Windows.Forms.Padding(2);
             this.additionFile.Name = "additionFile";
             this.additionFile.Size = new System.Drawing.Size(96, 16);
             this.additionFile.TabIndex = 43;
@@ -140,6 +141,7 @@
             // 
             // particiRoom
             // 
+            this.particiRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.particiRoom.Location = new System.Drawing.Point(277, 68);
             this.particiRoom.Name = "particiRoom";
             this.particiRoom.Size = new System.Drawing.Size(75, 23);
@@ -168,6 +170,7 @@
             // 
             // sendMsg
             // 
+            this.sendMsg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendMsg.Location = new System.Drawing.Point(317, 598);
             this.sendMsg.Name = "sendMsg";
             this.sendMsg.Size = new System.Drawing.Size(77, 23);
@@ -195,6 +198,7 @@
             // rmRoom
             // 
             this.rmRoom.Enabled = false;
+            this.rmRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rmRoom.Location = new System.Drawing.Point(181, 68);
             this.rmRoom.Name = "rmRoom";
             this.rmRoom.Size = new System.Drawing.Size(90, 23);
@@ -206,6 +210,7 @@
             // 
             // mkRoom
             // 
+            this.mkRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mkRoom.Location = new System.Drawing.Point(108, 68);
             this.mkRoom.Name = "mkRoom";
             this.mkRoom.Size = new System.Drawing.Size(67, 23);
@@ -319,7 +324,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(549, 604);
+            this.ClientSize = new System.Drawing.Size(566, 604);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);

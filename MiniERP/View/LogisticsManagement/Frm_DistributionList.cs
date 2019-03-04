@@ -27,6 +27,7 @@ namespace MiniERP.View.LogisticsManagement
             distributionGrid.Columns.Add("Item_name", "품목명");
             distributionGrid.Columns.Add("Distribution_count", "물류갯수");
             distributionGrid.Columns.Add("Distribution_status","물류상태");
+            DisplayDistribution();
         }
         /// <summary>
         /// 품목번호를 선택해서 갖고옴

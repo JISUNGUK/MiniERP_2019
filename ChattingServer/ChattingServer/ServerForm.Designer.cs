@@ -73,6 +73,7 @@
             // 
             // StartServer
             // 
+            this.StartServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartServer.Location = new System.Drawing.Point(374, 13);
             this.StartServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.StartServer.Name = "StartServer";
@@ -102,6 +103,7 @@
             // 
             // exportChatting
             // 
+            this.exportChatting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exportChatting.Location = new System.Drawing.Point(477, 13);
             this.exportChatting.Name = "exportChatting";
             this.exportChatting.Size = new System.Drawing.Size(96, 23);
@@ -121,7 +123,8 @@
             this.Controls.Add(this.Logger);
             this.Controls.Add(this.ServerIPValue);
             this.Controls.Add(this.ServerIP);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ServerForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Server_FormClosing_1);

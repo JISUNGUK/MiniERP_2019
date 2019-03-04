@@ -33,13 +33,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.lbl_ToDay = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel_TradeList = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbl_Time = new System.Windows.Forms.Label();
+            this.panel_TradeList = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_Refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.split)).BeginInit();
             this.split.Panel1.SuspendLayout();
             this.split.SuspendLayout();
@@ -106,6 +106,18 @@
             this.panel2.Size = new System.Drawing.Size(373, 25);
             this.panel2.TabIndex = 0;
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Refresh.Location = new System.Drawing.Point(259, 0);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_Refresh.TabIndex = 3;
+            this.btn_Refresh.Text = "새로고침";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // lbl_ToDay
             // 
             this.lbl_ToDay.AutoSize = true;
@@ -125,14 +137,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(373, 587);
             this.panel3.TabIndex = 0;
-            // 
-            // panel_TradeList
-            // 
-            this.panel_TradeList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_TradeList.Location = new System.Drawing.Point(0, 0);
-            this.panel_TradeList.Name = "panel_TradeList";
-            this.panel_TradeList.Size = new System.Drawing.Size(370, 564);
-            this.panel_TradeList.TabIndex = 12;
             // 
             // panel5
             // 
@@ -154,23 +158,19 @@
             this.lbl_Time.TabIndex = 0;
             this.lbl_Time.Text = "현재 시간 : ";
             // 
+            // panel_TradeList
+            // 
+            this.panel_TradeList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_TradeList.Location = new System.Drawing.Point(0, 0);
+            this.panel_TradeList.Name = "panel_TradeList";
+            this.panel_TradeList.Size = new System.Drawing.Size(370, 564);
+            this.panel_TradeList.TabIndex = 12;
+            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Refresh.Location = new System.Drawing.Point(259, 0);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(75, 23);
-            this.btn_Refresh.TabIndex = 3;
-            this.btn_Refresh.Text = "새로고침";
-            this.btn_Refresh.UseVisualStyleBackColor = false;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // FrmDashBoard
             // 
@@ -178,6 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1266, 618);
             this.Controls.Add(this.split);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmDashBoard";
             this.Text = "FrmDashBoard";
             this.Load += new System.EventHandler(this.FrmDashBoard_Load);
