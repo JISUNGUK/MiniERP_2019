@@ -56,6 +56,7 @@ namespace MiniERP.View.TradeManagement
                     business1.Addr = business.Business_addr;
                     business1.Email = business.Business_email;
                     business1.Presenter = business.Business_presenter;
+                    business1.Tel = business.Business_tel;
                     business1.Name = business.Business_name;
                     businessList.Add(business1);
                 }   
@@ -89,6 +90,7 @@ namespace MiniERP.View.TradeManagement
                     business1.Email = business.Business_email;
                     business1.Presenter = business.Business_presenter;
                     business1.Name = business.Business_name;
+                    business1.Tel = business.Business_tel;
                     businessList.Add(business1);
                 }
 

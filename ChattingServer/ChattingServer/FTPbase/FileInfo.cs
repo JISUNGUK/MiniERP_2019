@@ -9,10 +9,10 @@ namespace ChattingServer.FTPbase
     public class FileInfo
     {
         /// <summary>
-        /// Default Constructor
+        ///기본 생성자
         /// </summary>
-        /// <param name="filename">It is filename value</param>
-        /// <param name="size">It is file size value</param>
+        /// <param name="filename">파일명</param>
+        /// <param name="size">파일사이즈</param>
         public FileInfo(string filename, long size)
         {
             this.Filename = filename;
@@ -20,12 +20,12 @@ namespace ChattingServer.FTPbase
         }
 
         /// <summary>
-        /// It holds the filename value
+        ///파일이름
         /// </summary>
         public string Filename = string.Empty;
 
         /// <summary>
-        /// It holds the file size value
+        /// 파일의 크기를 갖고옴
         /// </summary>
         public long Size = long.MinValue;
     }

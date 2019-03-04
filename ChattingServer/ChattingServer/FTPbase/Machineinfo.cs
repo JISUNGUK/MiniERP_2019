@@ -16,7 +16,7 @@ namespace ChattingServer.FTPbase
         public static List<FileInfo> Files = new List<FileInfo>();
         
         /// <summary>
-        /// It gets the current share folder file list
+        /// 해당 이름의 폴더의 파일리스트를 보여줄 리스트에 추가함
         /// </summary>
         /// <param name="folder"></param>
         public static void GetFiles(string folder)
@@ -32,7 +32,7 @@ namespace ChattingServer.FTPbase
         }
 
         /// <summary>
-        /// It gets the current machine IP address
+        /// 현재 작동중인 기기의 ipendpoint를 반환
         /// </summary>
         /// <returns></returns>
         public static IPEndPoint GetMachineIP()

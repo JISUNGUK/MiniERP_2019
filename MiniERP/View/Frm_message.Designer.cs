@@ -91,11 +91,12 @@
             this.form_Size});
             this.ServerFileListView.FullRowSelect = true;
             this.ServerFileListView.GridLines = true;
-            this.ServerFileListView.Location = new System.Drawing.Point(44, 717);
+            this.ServerFileListView.Location = new System.Drawing.Point(44, 712);
             this.ServerFileListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ServerFileListView.MultiSelect = false;
             this.ServerFileListView.Name = "ServerFileListView";
-            this.ServerFileListView.Size = new System.Drawing.Size(428, 160);
+            this.ServerFileListView.Scrollable = false;
+            this.ServerFileListView.Size = new System.Drawing.Size(339, 160);
             this.ServerFileListView.TabIndex = 42;
             this.ServerFileListView.UseCompatibleStateImageBehavior = false;
             this.ServerFileListView.View = System.Windows.Forms.View.Details;
@@ -108,17 +109,17 @@
             // ComputerName
             // 
             this.ComputerName.Text = "기기";
-            this.ComputerName.Width = 209;
+            this.ComputerName.Width = 81;
             // 
             // Filename
             // 
             this.Filename.Text = "파일명";
-            this.Filename.Width = 248;
+            this.Filename.Width = 96;
             // 
             // form_Size
             // 
             this.form_Size.Text = "용량 (KB)";
-            this.form_Size.Width = 124;
+            this.form_Size.Width = 96;
             // 
             // label4
             // 
@@ -133,7 +134,7 @@
             // 
             this.lbl_RoomName.AutoSize = true;
             this.lbl_RoomName.Font = new System.Drawing.Font("굴림", 12F);
-            this.lbl_RoomName.Location = new System.Drawing.Point(112, 91);
+            this.lbl_RoomName.Location = new System.Drawing.Point(108, 105);
             this.lbl_RoomName.Name = "lbl_RoomName";
             this.lbl_RoomName.Size = new System.Drawing.Size(130, 16);
             this.lbl_RoomName.TabIndex = 39;
@@ -250,17 +251,17 @@
             // 
             this.memberList.FormattingEnabled = true;
             this.memberList.ItemHeight = 12;
-            this.memberList.Location = new System.Drawing.Point(110, 124);
+            this.memberList.Location = new System.Drawing.Point(44, 148);
             this.memberList.Name = "memberList";
             this.memberList.ScrollAlwaysVisible = true;
-            this.memberList.Size = new System.Drawing.Size(127, 76);
+            this.memberList.Size = new System.Drawing.Size(212, 52);
             this.memberList.TabIndex = 25;
             // 
             // roomName
             // 
             this.roomName.AutoSize = true;
             this.roomName.Font = new System.Drawing.Font("굴림", 12F);
-            this.roomName.Location = new System.Drawing.Point(41, 91);
+            this.roomName.Location = new System.Drawing.Point(41, 105);
             this.roomName.Name = "roomName";
             this.roomName.Size = new System.Drawing.Size(61, 16);
             this.roomName.TabIndex = 24;
@@ -295,7 +296,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 124);
+            this.label8.Location = new System.Drawing.Point(42, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 48;
@@ -324,7 +325,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(434, 604);
+            this.ClientSize = new System.Drawing.Size(428, 604);
             this.Controls.Add(this.nicknamel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
