@@ -56,9 +56,9 @@
             this.ServerIP.Location = new System.Drawing.Point(10, 13);
             this.ServerIP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServerIP.Name = "ServerIP";
-            this.ServerIP.Size = new System.Drawing.Size(72, 18);
+            this.ServerIP.Size = new System.Drawing.Size(55, 18);
             this.ServerIP.TabIndex = 5;
-            this.ServerIP.Text = "Server IP:";
+            this.ServerIP.Text = "서버 IP:";
             // 
             // Logger
             // 
@@ -126,7 +126,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ServerForm";
-            this.Text = "Form1";
+            this.Text = "ERP서버";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Server_FormClosing_1);
             this.Load += new System.EventHandler(this.Server_Load);
             this.ServerStatus.ResumeLayout(false);

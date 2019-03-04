@@ -42,6 +42,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("굴림", 10F);
             this.btnCancel.Location = new System.Drawing.Point(240, 127);
             this.btnCancel.Name = "btnCancel";
@@ -53,6 +54,7 @@
             // 
             // btnReset
             // 
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("굴림", 10F);
             this.btnReset.Location = new System.Drawing.Point(126, 127);
             this.btnReset.Name = "btnReset";
@@ -64,6 +66,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("굴림", 10F);
             this.btnSave.Location = new System.Drawing.Point(12, 127);
             this.btnSave.Name = "btnSave";
