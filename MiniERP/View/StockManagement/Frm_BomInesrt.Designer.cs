@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_ItemSelect = new System.Windows.Forms.Button();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,6 +78,7 @@
             // 
             // btnInsert
             // 
+            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsert.Font = new System.Drawing.Font("굴림", 9F);
             this.btnInsert.Location = new System.Drawing.Point(665, 383);
             this.btnInsert.Name = "btnInsert";
@@ -128,13 +129,14 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle2.NullValue = "0";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "필요수량";
             this.Column3.Name = "Column3";
             // 
             // btn_ItemAdd
             // 
+            this.btn_ItemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ItemAdd.Location = new System.Drawing.Point(611, 40);
             this.btn_ItemAdd.Name = "btn_ItemAdd";
             this.btn_ItemAdd.Size = new System.Drawing.Size(75, 23);
@@ -145,6 +147,7 @@
             // 
             // btnItemDelete
             // 
+            this.btnItemDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnItemDelete.Location = new System.Drawing.Point(692, 40);
             this.btnItemDelete.Name = "btnItemDelete";
             this.btnItemDelete.Size = new System.Drawing.Size(75, 23);

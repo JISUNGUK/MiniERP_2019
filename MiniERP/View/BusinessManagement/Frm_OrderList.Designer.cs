@@ -54,6 +54,7 @@
             // 
             // btn_Search
             // 
+            this.btn_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Search.Font = new System.Drawing.Font("굴림", 10F);
             this.btn_Search.Location = new System.Drawing.Point(423, 12);
             this.btn_Search.Name = "btn_Search";

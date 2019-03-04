@@ -103,6 +103,7 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("굴림", 10F);
             this.btnUpdate.Location = new System.Drawing.Point(59, 154);
             this.btnUpdate.Name = "btnUpdate";
@@ -114,6 +115,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("굴림", 10F);
             this.btnClose.Location = new System.Drawing.Point(192, 154);
             this.btnClose.Name = "btnClose";

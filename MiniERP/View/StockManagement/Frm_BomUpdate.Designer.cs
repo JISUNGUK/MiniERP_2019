@@ -65,6 +65,7 @@
             // 
             // btnItemDelete
             // 
+            this.btnItemDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnItemDelete.Location = new System.Drawing.Point(691, 40);
             this.btnItemDelete.Name = "btnItemDelete";
             this.btnItemDelete.Size = new System.Drawing.Size(75, 23);
@@ -75,6 +76,7 @@
             // 
             // btn_ItemAdd
             // 
+            this.btn_ItemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ItemAdd.Location = new System.Drawing.Point(610, 40);
             this.btn_ItemAdd.Name = "btn_ItemAdd";
             this.btn_ItemAdd.Size = new System.Drawing.Size(75, 23);
@@ -85,6 +87,7 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Location = new System.Drawing.Point(691, 383);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);

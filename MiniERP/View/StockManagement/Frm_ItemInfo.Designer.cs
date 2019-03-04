@@ -207,6 +207,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("굴림", 10F);
             this.btnClose.Location = new System.Drawing.Point(356, 322);
             this.btnClose.Name = "btnClose";
