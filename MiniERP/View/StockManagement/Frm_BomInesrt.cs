@@ -42,7 +42,14 @@ namespace MiniERP.View.StockManagement
 
             if (check)
             {
-                dataGridView1.Rows.Add(false, item.Item_code, item.Item_name, 0);
+                if (txtCode.Text == item.Item_code)
+                {
+                    MessageBox.Show("자기 자신은 Bom에 등록할 수 없습니다.", "선택 오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    dataGridView1.Rows.Add(false, item.Item_code, item.Item_name, 0); 
+                }
             }
         }
 
