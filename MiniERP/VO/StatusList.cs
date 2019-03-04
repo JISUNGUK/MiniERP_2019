@@ -23,8 +23,10 @@ namespace MiniERP.VO
                 int no = 0;
                 if(status == "생산")
                 {
+                    returnStatus.Add(new Status(3, "생산"));
                     returnStatus.Add(new Status(3, "출하대기"));
                     returnStatus.Add(new Status(3, "취소"));
+                    return returnStatus;
                 }
 
                 foreach (var item in statusList)
@@ -73,8 +75,7 @@ namespace MiniERP.VO
                     new Status(2,"취소"),
                     new Status(3,"입고대기"),
                     new Status(3,"취소"),
-                    new Status(4,"입고완료"),
-                    new Status(5,"완료")
+                    new Status(4,"완료")
                 });
             }
             else if(standard_menu == "물류")

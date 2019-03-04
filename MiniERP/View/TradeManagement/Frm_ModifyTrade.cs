@@ -135,7 +135,14 @@ namespace MiniERP.View.TradeManagement
             trade.Trade_status = cmb_status.SelectedItem.ToString();
 
             TradeDAO tradeDAO = new TradeDAO();
-            tradeDAO.UpdateTrade(trade);
+            try
+            {
+                tradeDAO.UpdateTrade(trade);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("DB오류 발생. \r\n" + ex.Message);
+            }
 
             this.DialogResult = DialogResult.OK;
             this.Close();
