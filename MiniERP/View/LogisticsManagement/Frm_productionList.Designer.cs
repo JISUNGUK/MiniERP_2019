@@ -79,6 +79,7 @@
             this.produceGrid.RowTemplate.Height = 23;
             this.produceGrid.Size = new System.Drawing.Size(1128, 503);
             this.produceGrid.TabIndex = 78;
+            this.produceGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.produceGrid_CellContentClick);
             // 
             // exportExcel
             // 

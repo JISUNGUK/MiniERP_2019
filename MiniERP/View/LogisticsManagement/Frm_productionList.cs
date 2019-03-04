@@ -95,6 +95,9 @@ namespace MiniERP.View.LogisticsManagement
             }
         }
 
-       
+        private void produceGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -620,7 +620,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
