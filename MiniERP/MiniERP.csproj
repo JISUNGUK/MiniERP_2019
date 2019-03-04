@@ -184,6 +184,12 @@
     <Compile Include="View\LogisticsManagement\Frm_ImportList.Designer.cs">
       <DependentUpon>Frm_ImportList.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Machine_Info_Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Machine_Info_Change.Designer.cs">
+      <DependentUpon>Machine_Info_Change.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RealTimeMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -484,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LogisticsManagement\Frm_ImportList.resx">
       <DependentUpon>Frm_ImportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Machine_Info_Change.resx">
+      <DependentUpon>Machine_Info_Change.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RealTimeMonitor.resx">
       <DependentUpon>RealTimeMonitor.cs</DependentUpon>

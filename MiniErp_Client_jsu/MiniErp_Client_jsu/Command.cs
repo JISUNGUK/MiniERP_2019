@@ -81,6 +81,7 @@ namespace MiniErp_Client_jsu
 
         public void ChangeIp()
         {
+            //  [command][this.name][ip]192.168.0.8
             if (new Form1().IsValidIp(this.command_Value))
             {
                 AppConfiguration.SetAppConfig("ip", this.command_Value);
@@ -90,23 +91,35 @@ namespace MiniErp_Client_jsu
             {
                 chatinfo.SendMsg(this.name + "ip change not ok");
             }
-            
         }
         public void ChangeName()
         {
-            AppConfiguration.SetAppConfig("name", "[" + this.command_Value + "]");
+            //  [command][this.name][name]pc2
+            AppConfiguration.SetAppConfig("name", this.command_Value);
         }
 
         public  void CommandRunning()
         {
-            switch (this.command_Value)
+            if (this.command_Value.Contains("[ip]"))                            //  ip변경 커맨드
+            {
+                this.command_Value = Command_Value.Replace("[ip]", "");
+                ChangeIp();
+                return;
+            }
+            else if (this.command_Value.Contains("[name]"))                     //  이름변경 커맨드
+            {
+                this.command_Value = Command_Value.Replace("[name]", "");
+                ChangeName();
+                Application.Restart();                                          //  이름변경후 재시작
+                return;
+            }
+
+            switch (this.command_Value)                                         //  커맨드 선택부
             {
                 case "test_module": System.Windows.Forms.MessageBox.Show("Test"); break;
                 case "exit": Application.Exit(); break;
-                case "restart": Application.Restart();  break;
+                case "restart": Application.Restart(); break;
                 case "barcode": BarcodeMsgMaker(barcodes); break;
-                case "changeip": ChangeIp(); break;
-                case "changename": ChangeName(); break;
 
                 default:
                     break;
