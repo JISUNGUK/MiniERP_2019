@@ -151,5 +151,15 @@ namespace MiniERP.View
                     ((PictureBox)item).Enabled = false;
             }
         }
+
+        //  테스트 위한 메서드
+        private void btn_Tester_Click(object sender, EventArgs e)
+        {
+            pc1.Enabled = true;
+            pc2.Enabled = true;
+            pc3.Enabled = true;
+            pc4.Enabled = true;
+            pc5.Enabled = true;
+        }
     }
 }

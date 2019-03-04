@@ -47,6 +47,7 @@
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_inputCountRequest = new System.Windows.Forms.Button();
             this.btn_ChangeInfo = new System.Windows.Forms.Button();
+            this.btn_Tester = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -247,6 +248,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_Tester);
             this.groupBox1.Controls.Add(this.btn_ChangeInfo);
             this.groupBox1.Controls.Add(this.btn_reBoot);
             this.groupBox1.Controls.Add(this.btn_Exit);
@@ -296,6 +298,15 @@
             this.btn_ChangeInfo.Text = "머신 설정 변경";
             this.btn_ChangeInfo.UseVisualStyleBackColor = true;
             this.btn_ChangeInfo.Click += new System.EventHandler(this.btn_inputCountRequest_Click);
+            // 
+            // btn_Tester
+            // 
+            this.btn_Tester.Location = new System.Drawing.Point(1118, 9);
+            this.btn_Tester.Name = "btn_Tester";
+            this.btn_Tester.Size = new System.Drawing.Size(26, 35);
+            this.btn_Tester.TabIndex = 4;
+            this.btn_Tester.UseVisualStyleBackColor = true;
+            this.btn_Tester.Click += new System.EventHandler(this.btn_Tester_Click);
             // 
             // RealTimeMonitor
             // 
@@ -347,5 +358,6 @@
         private System.Windows.Forms.CheckBox check_pc1;
         private System.Windows.Forms.PictureBox pc1;
         private System.Windows.Forms.Button btn_ChangeInfo;
+        private System.Windows.Forms.Button btn_Tester;
     }
 }
