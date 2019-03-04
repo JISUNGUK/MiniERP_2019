@@ -145,6 +145,20 @@ namespace MiniERP.Model
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code, before_warehouse, after_warehouse, item_code, distribution_count, move_date);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Get_Specific_Business")]
+		public ISingleResult<Get_Specific_BusinessResult> Get_Specific_Business([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Business_code", DbType="NVarChar(20)")] string business_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), business_code);
+			return ((ISingleResult<Get_Specific_BusinessResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PROC_STATEMENT")]
+		public ISingleResult<PROC_STATEMENTResult> PROC_STATEMENT([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string order_code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_code);
+			return ((ISingleResult<PROC_STATEMENTResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GET_MANUFACTURE_DOCResult
@@ -990,6 +1004,220 @@ namespace MiniERP.Model
 				if ((this._Item_standard != value))
 				{
 					this._Item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_wrote_fee", DbType="Int NOT NULL")]
+		public int Item_wrote_fee
+		{
+			get
+			{
+				return this._Item_wrote_fee;
+			}
+			set
+			{
+				if ((this._Item_wrote_fee != value))
+				{
+					this._Item_wrote_fee = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Get_Specific_BusinessResult
+	{
+		
+		private string _Business_code;
+		
+		private string _Business_name;
+		
+		private string _Business_tel;
+		
+		private string _Business_addr;
+		
+		private string _Business_email;
+		
+		private string _Business_presenter;
+		
+		public Get_Specific_BusinessResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Business_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Business_code
+		{
+			get
+			{
+				return this._Business_code;
+			}
+			set
+			{
+				if ((this._Business_code != value))
+				{
+					this._Business_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Business_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Business_name
+		{
+			get
+			{
+				return this._Business_name;
+			}
+			set
+			{
+				if ((this._Business_name != value))
+				{
+					this._Business_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Business_tel", DbType="NVarChar(13) NOT NULL", CanBeNull=false)]
+		public string Business_tel
+		{
+			get
+			{
+				return this._Business_tel;
+			}
+			set
+			{
+				if ((this._Business_tel != value))
+				{
+					this._Business_tel = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Business_addr", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Business_addr
+		{
+			get
+			{
+				return this._Business_addr;
+			}
+			set
+			{
+				if ((this._Business_addr != value))
+				{
+					this._Business_addr = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Business_email", DbType="NVarChar(50)")]
+		public string Business_email
+		{
+			get
+			{
+				return this._Business_email;
+			}
+			set
+			{
+				if ((this._Business_email != value))
+				{
+					this._Business_email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Business_presenter", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Business_presenter
+		{
+			get
+			{
+				return this._Business_presenter;
+			}
+			set
+			{
+				if ((this._Business_presenter != value))
+				{
+					this._Business_presenter = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PROC_STATEMENTResult
+	{
+		
+		private string _Item_code;
+		
+		private string _Item_name;
+		
+		private string _Item_standard;
+		
+		private int _Item_count;
+		
+		private int _Item_wrote_fee;
+		
+		public PROC_STATEMENTResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_code", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Item_code
+		{
+			get
+			{
+				return this._Item_code;
+			}
+			set
+			{
+				if ((this._Item_code != value))
+				{
+					this._Item_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_name
+		{
+			get
+			{
+				return this._Item_name;
+			}
+			set
+			{
+				if ((this._Item_name != value))
+				{
+					this._Item_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_standard", DbType="NVarChar(20)")]
+		public string Item_standard
+		{
+			get
+			{
+				return this._Item_standard;
+			}
+			set
+			{
+				if ((this._Item_standard != value))
+				{
+					this._Item_standard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_count", DbType="Int NOT NULL")]
+		public int Item_count
+		{
+			get
+			{
+				return this._Item_count;
+			}
+			set
+			{
+				if ((this._Item_count != value))
+				{
+					this._Item_count = value;
 				}
 			}
 		}

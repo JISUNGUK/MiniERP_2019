@@ -133,6 +133,74 @@ namespace MiniERP.Model.DAO
             }
 
         }
+        /// <summary>
+        /// 프로시저내용과 데이터그리드뷰에 있는 내용을 엑셀문으로 출력
+        /// </summary>
+        /// <param name="outputFileName">출력할 산출물 이름 excel폴더에 있는 파일들과 이름이 똑같아야한다</param>
+        /// <param name="orderCode">주문코드</param>
+        /// <param name="warehouse">창고코드</param>
+        /// <param name = "move_date">언제 이동했는지</param>
+        /// <param name="dv">자신이 엑셀로 뽑을 데이터그리드뷰</param>
+        public void outputExcel(string outputFileName,string ordercode,Business business,DataGridViewRow row)
+        {
+
+       
+            SaveFileDialog savefile = new SaveFileDialog();
+            savefile.FileName = outputFileName;
+            DialogResult dr = savefile.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel.Application excelApp = null;
+                Workbook wb = null;
+                Worksheet ws = null;
+
+                try
+                {
+                    
+                               // Excel 첫번째 워크시트 가져오기                
+                    excelApp = new Microsoft.Office.Interop.Excel.Application();
+                    wb = excelApp.Workbooks.Open(System.Environment.CurrentDirectory + "\\resources\\" + outputFileName);
+                    ws = wb.Worksheets.get_Item(1) as Worksheet;
+
+                    // 데이타 넣기
+                    ws.Cells[11, 4] = DateTime.ParseExact(ordercode.Remove(ordercode.IndexOf("_")), "yyyyMMdd", null);//string을 날짜형
+                    ws.Cells[11, 31] = ordercode;//주문번호입력
+
+
+                   
+                    ws.Cells[14, 2] = row.Cells[7].Value;
+                    ws.Cells[14, 3] = business.Name;
+                    ws.Cells[14, 4] = business.Presenter;
+                    ws.Cells[14, 5] = business.Addr;
+                    int r = 20;//열번호
+                    foreach (var data in new MiniErpDB().PROC_STATEMENT(ordercode))
+                    {
+                        ws.Cells[r, 2] = data.Item_code;
+                        ws.Cells[r, 7] = data.Item_name;
+                        ws.Cells[r, 12] = data.Item_standard;
+                        ws.Cells[r, 17] = data.Item_count;
+                        ws.Cells[r, 23] = data.Item_wrote_fee;
+                        ws.Cells[r, 29] = data.Item_count * data.Item_wrote_fee;
+                        r++;
+                    }
+
+                    // 엑셀파일 저장
+                    wb.SaveAs(savefile.FileName, XlFileFormat.xlWorkbookNormal);
+                    wb.Close(true);
+                    excelApp.Quit();
+                }
+                finally
+                {
+                    // Clean up
+                    Marshal.ReleaseComObject(ws);
+                    Marshal.ReleaseComObject(wb);
+                    Marshal.ReleaseComObject(excelApp);
+                    MessageBox.Show("엑셀 파일로 모두 출력했습니다");
+
+                }
+            }
+
+        }
 
     }
 }

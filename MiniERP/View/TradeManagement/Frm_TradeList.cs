@@ -1,4 +1,5 @@
-﻿using MiniERP.Model.DAO;
+﻿using MiniERP.Model;
+using MiniERP.Model.DAO;
 using MiniERP.VO;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace MiniERP.View.TradeManagement
     /// </summary>
     public partial class Frm_TradeList : Form
     {
+        List<Business> businessList = new List<Business>();
+
         public Frm_TradeList()
         {
             InitializeComponent();
@@ -38,13 +41,24 @@ namespace MiniERP.View.TradeManagement
         /// 일반 검색함수
         /// </summary>
         private void GViewSetData()
-        {
+        {            
             TradeDAO tradeDAO = new TradeDAO();
             trades = tradeDAO.GetTrade(low_date.Value, max_date.Value, null);
             gViewTrade.Rows.Clear();
             string button = "";
+            businessList.Clear();
             foreach (var item in trades)
-            {
+            {              
+                foreach (var business in new MiniErpDB().Get_Specific_Business(item.Business_code))
+                {
+                    Business business1 = new Business();
+                    business1.Code = business.Business_code;
+                    business1.Addr = business.Business_addr;
+                    business1.Email = business.Business_email;
+                    business1.Presenter = business.Business_presenter;
+                    business1.Name = business.Business_name;
+                    businessList.Add(business1);
+                }   
                 if (item.Trade_standard == "판매")
                     button = "매출전표";
                 else
@@ -64,8 +78,20 @@ namespace MiniERP.View.TradeManagement
             trades = tradeDAO.GetTrade(low_date.Value, max_date.Value, txt_bussiness.Text);
             gViewTrade.Rows.Clear();
             string button = "";
+            businessList.Clear();
             foreach (var item in trades)
             {
+                foreach (var business in new MiniErpDB().Get_Specific_Business(item.Business_code))
+                {
+                    Business business1 = new Business();
+                    business1.Code = business.Business_code;
+                    business1.Addr = business.Business_addr;
+                    business1.Email = business.Business_email;
+                    business1.Presenter = business.Business_presenter;
+                    business1.Name = business.Business_name;
+                    businessList.Add(business1);
+                }
+
                 if (item.Trade_standard == "판매")
                     button = "매출전표";
                 else
@@ -77,10 +103,10 @@ namespace MiniERP.View.TradeManagement
 
         private void gViewTrade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           if(gViewTrade.CurrentCell.ColumnIndex==8)
+           if(gViewTrade.CurrentCell.ColumnIndex==8 && gViewTrade.CurrentRow.Cells[6].Value.ToString()=="완료")
             {
-                SaveFileDialog savefile = new SaveFileDialog();
-                savefile.ShowDialog();
+               PrintExcelDAO excel=new PrintExcelDAO();
+                excel.outputExcel(gViewTrade.CurrentCell.Value.ToString(), gViewTrade.CurrentRow.Cells[1].Value.ToString(), businessList[gViewTrade.CurrentRow.Index],gViewTrade.CurrentRow);
             }
         }
 
