@@ -135,6 +135,7 @@
             // 
             // btnRegister
             // 
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Location = new System.Drawing.Point(63, 320);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
@@ -145,6 +146,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(310, 320);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -183,6 +185,7 @@
             // 
             // btnImageSearch
             // 
+            this.btnImageSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImageSearch.Location = new System.Drawing.Point(31, 196);
             this.btnImageSearch.Name = "btnImageSearch";
             this.btnImageSearch.Size = new System.Drawing.Size(107, 23);

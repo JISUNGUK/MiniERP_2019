@@ -57,17 +57,31 @@ namespace MiniErp_Client_jsu
         //  바코드 리스트를 보내는 메소드
         public void BarcodeMsgMaker(List<Barcode> barcodes)
         {
-            StringBuilder temp = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("---------[투입 현황]" + this.Name);
+            sb.AppendLine(NowTime());
             foreach (var item in barcodes)
             {
-                temp.AppendLine(item.Barcode_Code + "\t" + item.Barcode_Count);
+                sb.AppendLine("*[" + item.Barcode_Code + "]" + "\t" + item.Barcode_Count);
             }
+            sb.AppendLine("----------------------------");
 
-            chatinfo.SendMsg(temp.ToString());
+            chatinfo.SendMsg(sb.ToString());
+        }
+
+        /// <summary>
+        /// 현재 시간의 스트링을 만드는 메서드
+        /// </summary>
+        private string NowTime()
+        {
+            DateTime dt = DateTime.Now;
+            return
+                "---------[" + dt.ToShortDateString() + " " + dt.Hour + ":" + dt.Minute + ":" + dt.Second + "]";
         }
 
         public void ChangeIp()
         {
+            //  [command][this.name][ip]192.168.0.8
             if (new Form1().IsValidIp(this.command_Value))
             {
                 AppConfiguration.SetAppConfig("ip", this.command_Value);
@@ -77,23 +91,35 @@ namespace MiniErp_Client_jsu
             {
                 chatinfo.SendMsg(this.name + "ip change not ok");
             }
-            
         }
         public void ChangeName()
         {
-            AppConfiguration.SetAppConfig("name", "[" + this.command_Value + "]");
+            //  [command][this.name][name]pc2
+            AppConfiguration.SetAppConfig("name", this.command_Value);
         }
 
         public  void CommandRunning()
         {
-            switch (this.command_Value)
+            if (this.command_Value.Contains("[ip]"))                            //  ip변경 커맨드
+            {
+                this.command_Value = Command_Value.Replace("[ip]", "");
+                ChangeIp();
+                return;
+            }
+            else if (this.command_Value.Contains("[name]"))                     //  이름변경 커맨드
+            {
+                this.command_Value = Command_Value.Replace("[name]", "");
+                ChangeName();
+                Application.Restart();                                          //  이름변경후 재시작
+                return;
+            }
+
+            switch (this.command_Value)                                         //  커맨드 선택부
             {
                 case "test_module": System.Windows.Forms.MessageBox.Show("Test"); break;
                 case "exit": Application.Exit(); break;
-                case "restart": Application.Restart();  break;
+                case "restart": Application.Restart(); break;
                 case "barcode": BarcodeMsgMaker(barcodes); break;
-                case "changeip": ChangeIp(); break;
-                case "changename": ChangeName(); break;
 
                 default:
                     break;

@@ -85,7 +85,7 @@ namespace MiniErp_Client_jsu
             toolStripTextBox2.Text = AppConfiguration.GetAppConfig("ip");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BarcodeMonitor()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("---------[투입 현황]"+machine.Name);
@@ -106,6 +106,7 @@ namespace MiniErp_Client_jsu
             return
                 "---------[" + dt.ToShortDateString() + " " + dt.Hour + ":" + dt.Minute + ":" + dt.Second + "]";
         }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             chatting.CloseServer();
@@ -124,7 +125,7 @@ namespace MiniErp_Client_jsu
 
                 case "종료":  this.Close();   break;
                 case "재시작":  Application.Restart();   break;
-                case "자재투입현황":  button1_Click(null, null);   break;
+                case "자재투입현황": BarcodeMonitor();   break;
 
                 default:
                     break;
@@ -185,6 +186,11 @@ namespace MiniErp_Client_jsu
                 chatting.SendMsg(tempErro.Erro_String);
                 txt_Log.Text += "erro_2 Exeption\n";
             }
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             
         }
     }

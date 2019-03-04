@@ -138,5 +138,10 @@ namespace MiniERP.View.TradeManagement
         {
             txt_bussiness.Clear();
         }
+
+        private void gViewTrade_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

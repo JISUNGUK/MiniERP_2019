@@ -61,13 +61,12 @@ namespace MiniERP.View
         private void btn_inputCountRequest_Click(object sender, EventArgs e)
         {
             string command = "[command]";
-            MessageBox.Show(((Button)sender).Text);
             switch (((Button)sender).Text)
             {
-                case "종료": command += selectPc + "exit"; MessageBox.Show(command); machine_Server.SendMsg(command); break;
+                case "종료": command += selectPc + "exit"; machine_Server.SendMsg(command); break;
                 case "재부팅": command += selectPc + "restart"; machine_Server.SendMsg(command); break;
                 case "투입 자재 개수": command += selectPc + "barcode"; machine_Server.SendMsg(command); break;
-                case "테스트": machine_Server.SendMsg("테스트메시지");   break;
+                case "머신 설정 변경": Machine_Info_Change change = new Machine_Info_Change(machine_Server, selectPc); change.ShowDialog(); break;                    
                 default:
                     break;
             }
@@ -135,7 +134,6 @@ namespace MiniERP.View
                 }
             }
         }
-
         /// <summary>
         /// 텍스트박스의 서버 상태를 체크하고, 버튼의 enable속성을 변경해줍니다.
         /// </summary>

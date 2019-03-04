@@ -71,6 +71,7 @@
             // 
             // btn_serch
             // 
+            this.btn_serch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_serch.Font = new System.Drawing.Font("굴림", 10F);
             this.btn_serch.Location = new System.Drawing.Point(423, 7);
             this.btn_serch.Name = "btn_serch";
@@ -94,6 +95,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("굴림", 10F);
             this.btnDelete.Location = new System.Drawing.Point(114, 583);
             this.btnDelete.Name = "btnDelete";
@@ -106,6 +108,7 @@
             // btnInsert
             // 
             this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsert.Font = new System.Drawing.Font("굴림", 10F);
             this.btnInsert.Location = new System.Drawing.Point(12, 583);
             this.btnInsert.Name = "btnInsert";
@@ -174,6 +177,7 @@
             // 
             this.btnSearchWarehouse.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.btnSearchWarehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchWarehouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchWarehouse.Location = new System.Drawing.Point(315, 23);
             this.btnSearchWarehouse.Name = "btnSearchWarehouse";
             this.btnSearchWarehouse.Size = new System.Drawing.Size(25, 25);
@@ -199,6 +203,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Location = new System.Drawing.Point(721, 76);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);

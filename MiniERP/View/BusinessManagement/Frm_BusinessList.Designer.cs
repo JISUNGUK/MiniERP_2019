@@ -70,6 +70,7 @@
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("굴림", 10F);
             this.button2.Location = new System.Drawing.Point(424, 12);
             this.button2.Name = "button2";
@@ -124,6 +125,7 @@
             // 
             this.btnSearchBusiness.BackgroundImage = global::MiniERP.Properties.Resources.SerchIcon;
             this.btnSearchBusiness.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchBusiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchBusiness.Font = new System.Drawing.Font("굴림", 10F);
             this.btnSearchBusiness.Location = new System.Drawing.Point(320, 24);
             this.btnSearchBusiness.Name = "btnSearchBusiness";
@@ -193,6 +195,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Location = new System.Drawing.Point(712, 90);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);

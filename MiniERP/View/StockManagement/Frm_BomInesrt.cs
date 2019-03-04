@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiniERP.Model.DAO;
@@ -88,12 +89,21 @@ namespace MiniERP.View.StockManagement
             else
             {
                 bool result = true; // 파츠의 개수가 0으로 된 행이 있는지 판별하기 위한 bool변수입니다.
+                int i = 0;
                 foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
-                    if (Convert.ToInt32(item.Cells[3].Value) == 0)
+                    if (int.TryParse(item.Cells[3].Value.ToString(), out i) == true)
                     {
-                        MessageBox.Show("필요수량이 0인 항목이 있습니다.\n확인하시고 필요없다면 삭제해주세요.", "필요수량 확인", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        result = false;
+                        if (Convert.ToInt32(item.Cells[3].Value) == 0)
+                        {
+                            MessageBox.Show("필요수량이 0인 항목이 있습니다.\n확인하시고 필요없다면 삭제해주세요.", "필요수량 확인", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            result = false;
+                            return;
+                        } 
+                    }
+                    else
+                    {
+                        MessageBox.Show("필요수량에는 숫자만 입력가능합니다.", "입력값을 확인해주세요.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }

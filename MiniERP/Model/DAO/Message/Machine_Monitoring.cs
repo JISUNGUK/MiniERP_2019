@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace MiniERP.Model.DAO.Message
 {
-    class Machine_Monitoring
+    public class Machine_Monitoring
     {
 
         TcpClient client = new TcpClient();//tcpclient를 미리 초기화해놓음
@@ -19,8 +19,8 @@ namespace MiniERP.Model.DAO.Message
         
         
 
-        string ip = "192.168.0.8";
-
+        string ip = "192.168.0.6";
+        public string Ip { get { return ip; } set { this.ip = value; } }
 
         string readData = null;
 

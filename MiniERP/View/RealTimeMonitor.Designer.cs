@@ -46,6 +46,7 @@
             this.btn_reBoot = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_inputCountRequest = new System.Windows.Forms.Button();
+            this.btn_ChangeInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -246,6 +247,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_ChangeInfo);
             this.groupBox1.Controls.Add(this.btn_reBoot);
             this.groupBox1.Controls.Add(this.btn_Exit);
             this.groupBox1.Controls.Add(this.btn_inputCountRequest);
@@ -257,7 +259,7 @@
             // 
             // btn_reBoot
             // 
-            this.btn_reBoot.Location = new System.Drawing.Point(274, 15);
+            this.btn_reBoot.Location = new System.Drawing.Point(269, 15);
             this.btn_reBoot.Name = "btn_reBoot";
             this.btn_reBoot.Size = new System.Drawing.Size(113, 23);
             this.btn_reBoot.TabIndex = 2;
@@ -267,7 +269,7 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(146, 15);
+            this.btn_Exit.Location = new System.Drawing.Point(388, 15);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(113, 23);
             this.btn_Exit.TabIndex = 1;
@@ -284,6 +286,16 @@
             this.btn_inputCountRequest.Text = "투입 자재 개수";
             this.btn_inputCountRequest.UseVisualStyleBackColor = true;
             this.btn_inputCountRequest.Click += new System.EventHandler(this.btn_inputCountRequest_Click);
+            // 
+            // btn_ChangeInfo
+            // 
+            this.btn_ChangeInfo.Location = new System.Drawing.Point(143, 15);
+            this.btn_ChangeInfo.Name = "btn_ChangeInfo";
+            this.btn_ChangeInfo.Size = new System.Drawing.Size(113, 23);
+            this.btn_ChangeInfo.TabIndex = 3;
+            this.btn_ChangeInfo.Text = "머신 설정 변경";
+            this.btn_ChangeInfo.UseVisualStyleBackColor = true;
+            this.btn_ChangeInfo.Click += new System.EventHandler(this.btn_inputCountRequest_Click);
             // 
             // RealTimeMonitor
             // 
@@ -334,5 +346,6 @@
         private System.Windows.Forms.PictureBox pc2;
         private System.Windows.Forms.CheckBox check_pc1;
         private System.Windows.Forms.PictureBox pc1;
+        private System.Windows.Forms.Button btn_ChangeInfo;
     }
 }

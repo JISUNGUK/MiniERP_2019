@@ -225,6 +225,7 @@
             this.gViewTrade.Size = new System.Drawing.Size(895, 491);
             this.gViewTrade.TabIndex = 37;
             this.gViewTrade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellClick);
+            this.gViewTrade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellContentClick);
             this.gViewTrade.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewTrade_CellDoubleClick);
             // 
             // trade_standard
