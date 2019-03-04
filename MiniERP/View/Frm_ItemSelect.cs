@@ -123,7 +123,7 @@ namespace MiniERP.View
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("선택된 아이템은 재고가 있거나,\nBom에 등록되어있습니다.\n삭제할 수 없습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("선택된 아이템은 사용중입니다.\n삭제할 수 없습니다.", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
