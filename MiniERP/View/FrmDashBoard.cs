@@ -14,7 +14,7 @@ namespace MiniERP.View
 {
     public partial class FrmDashBoard : Form
     {
-        private bool menu_OpenChk = false;
+        //private bool menu_OpenChk = false;
 
         List<Trade> trades = new List<Trade>();
 

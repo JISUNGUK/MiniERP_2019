@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.btnItemDelete = new System.Windows.Forms.Button();
@@ -137,8 +136,6 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "필요수량";
             this.Column3.Name = "Column3";
             // 

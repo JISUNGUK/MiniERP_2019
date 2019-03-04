@@ -107,8 +107,7 @@ namespace MiniErp_Client_jsu
         /// <param name="readData">서버에서 msg</param>
         private void CommandChacker(string readData)
         {
-            //string testMsg = "[command][pc1] 서버종료";
-            if (readData.Contains("[command]") != true || readData.Contains("[pc1]") != true)
+            if (readData.Contains("[command]") != true || readData.Contains(this.name) != true)
                 return;
             else if (readData.Contains("접속") == true)   //  서버접속시 접속이라고 보내기에 이를 무시
                 return;
@@ -138,7 +137,7 @@ namespace MiniErp_Client_jsu
         public void CloseServer()
         {
             // ex) [command][pc1]is endconnecting
-            if (client != null)
+            if (client.Connected != false)
             {
                 byte[] msgTemp = Encoding.UTF8.GetBytes("[command]" + this.name + "is endconnecting");
                 stream = client.GetStream();

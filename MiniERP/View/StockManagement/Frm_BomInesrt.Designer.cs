@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_ItemSelect = new System.Windows.Forms.Button();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_ItemAdd = new System.Windows.Forms.Button();
+            this.btnItemDelete = new System.Windows.Forms.Button();
             this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_ItemAdd = new System.Windows.Forms.Button();
-            this.btnItemDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,6 +106,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(742, 308);
             this.dataGridView1.TabIndex = 117;
             // 
+            // btn_ItemAdd
+            // 
+            this.btn_ItemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ItemAdd.Location = new System.Drawing.Point(611, 40);
+            this.btn_ItemAdd.Name = "btn_ItemAdd";
+            this.btn_ItemAdd.Size = new System.Drawing.Size(75, 23);
+            this.btn_ItemAdd.TabIndex = 135;
+            this.btn_ItemAdd.Text = "파츠 추가";
+            this.btn_ItemAdd.UseVisualStyleBackColor = true;
+            this.btn_ItemAdd.Click += new System.EventHandler(this.btn_ItemAdd_Click);
+            // 
+            // btnItemDelete
+            // 
+            this.btnItemDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnItemDelete.Location = new System.Drawing.Point(692, 40);
+            this.btnItemDelete.Name = "btnItemDelete";
+            this.btnItemDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnItemDelete.TabIndex = 136;
+            this.btnItemDelete.Text = "파츠 삭제";
+            this.btnItemDelete.UseVisualStyleBackColor = true;
+            this.btnItemDelete.Click += new System.EventHandler(this.btnItemDelete_Click);
+            // 
             // Column4
             // 
             this.Column4.HeaderText = "";
@@ -129,32 +150,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "필요수량";
             this.Column3.Name = "Column3";
-            // 
-            // btn_ItemAdd
-            // 
-            this.btn_ItemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ItemAdd.Location = new System.Drawing.Point(611, 40);
-            this.btn_ItemAdd.Name = "btn_ItemAdd";
-            this.btn_ItemAdd.Size = new System.Drawing.Size(75, 23);
-            this.btn_ItemAdd.TabIndex = 135;
-            this.btn_ItemAdd.Text = "파츠 추가";
-            this.btn_ItemAdd.UseVisualStyleBackColor = true;
-            this.btn_ItemAdd.Click += new System.EventHandler(this.btn_ItemAdd_Click);
-            // 
-            // btnItemDelete
-            // 
-            this.btnItemDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnItemDelete.Location = new System.Drawing.Point(692, 40);
-            this.btnItemDelete.Name = "btnItemDelete";
-            this.btnItemDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnItemDelete.TabIndex = 136;
-            this.btnItemDelete.Text = "파츠 삭제";
-            this.btnItemDelete.UseVisualStyleBackColor = true;
-            this.btnItemDelete.Click += new System.EventHandler(this.btnItemDelete_Click);
             // 
             // Frm_BomInesrt
             // 

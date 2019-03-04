@@ -132,7 +132,6 @@
             this.test_btn.Text = "button1";
             this.test_btn.UseVisualStyleBackColor = true;
             this.test_btn.Visible = false;
-            this.test_btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 

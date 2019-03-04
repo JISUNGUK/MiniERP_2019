@@ -36,8 +36,8 @@ namespace MiniERP
             lbl_WareHouse.Text = "출고창고 : " + trade.Warehouse_name;
             txt_State.Text = trade.Trade_status;
             lbl_Master.Text = "담당자 : " + trade.Clerk_name;
-            lbl_EndDate.Text = "마감일 : " + trade.End_date.ToString();
-            lbl_Client.Text = trade.Business_name;
+            lbl_EndDate.Text = "마감일 : " + trade.End_date_str;
+            lbl_Client.Text = "거래처 : " + trade.Business_name;
         }
 
         private void txt_State_Click(object sender, EventArgs e)
