@@ -21,6 +21,11 @@ namespace MiniERP.VO
             if (status != "취소")
             {
                 int no = 0;
+                if(status == "생산")
+                {
+                    returnStatus.Add(new Status(3, "출하대기"));
+                    returnStatus.Add(new Status(3, "취소"));
+                }
 
                 foreach (var item in statusList)
                 {
