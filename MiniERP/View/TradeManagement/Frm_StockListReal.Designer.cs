@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_StockListReal));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gVIewStock = new System.Windows.Forms.DataGridView();
-            this.warehouse_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouse_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_serch = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txt_WareName = new System.Windows.Forms.TextBox();
@@ -47,6 +44,12 @@
             this.btn_Item = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Clear = new System.Windows.Forms.Button();
+            this.warehouse_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouse_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gVIewStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +59,15 @@
             this.gVIewStock.AllowUserToDeleteRows = false;
             this.gVIewStock.AllowUserToResizeRows = false;
             resources.ApplyResources(this.gVIewStock, "gVIewStock");
+            this.gVIewStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gVIewStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gVIewStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gVIewStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.warehouse_code,
@@ -67,50 +79,18 @@
             this.gVIewStock.MultiSelect = false;
             this.gVIewStock.Name = "gVIewStock";
             this.gVIewStock.ReadOnly = true;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gVIewStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gVIewStock.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.gVIewStock.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gVIewStock.RowTemplate.Height = 23;
             this.gVIewStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            // 
-            // warehouse_code
-            // 
-            resources.ApplyResources(this.warehouse_code, "warehouse_code");
-            this.warehouse_code.Name = "warehouse_code";
-            this.warehouse_code.ReadOnly = true;
-            // 
-            // warehouse_name
-            // 
-            this.warehouse_name.FillWeight = 55.67929F;
-            resources.ApplyResources(this.warehouse_name, "warehouse_name");
-            this.warehouse_name.Name = "warehouse_name";
-            this.warehouse_name.ReadOnly = true;
-            // 
-            // item_code
-            // 
-            this.item_code.FillWeight = 80.44766F;
-            resources.ApplyResources(this.item_code, "item_code");
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            // 
-            // item_name
-            // 
-            this.item_name.FillWeight = 102.4579F;
-            resources.ApplyResources(this.item_name, "item_name");
-            this.item_name.Name = "item_name";
-            this.item_name.ReadOnly = true;
-            // 
-            // item_standard
-            // 
-            this.item_standard.FillWeight = 122.017F;
-            resources.ApplyResources(this.item_standard, "item_standard");
-            this.item_standard.Name = "item_standard";
-            this.item_standard.ReadOnly = true;
-            // 
-            // item_count
-            // 
-            this.item_count.FillWeight = 139.3981F;
-            resources.ApplyResources(this.item_count, "item_count");
-            this.item_count.Name = "item_count";
-            this.item_count.ReadOnly = true;
             // 
             // btn_serch
             // 
@@ -187,6 +167,45 @@
             this.btn_Clear.UseVisualStyleBackColor = true;
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
+            // warehouse_code
+            // 
+            resources.ApplyResources(this.warehouse_code, "warehouse_code");
+            this.warehouse_code.Name = "warehouse_code";
+            this.warehouse_code.ReadOnly = true;
+            // 
+            // warehouse_name
+            // 
+            resources.ApplyResources(this.warehouse_name, "warehouse_name");
+            this.warehouse_name.Name = "warehouse_name";
+            this.warehouse_name.ReadOnly = true;
+            // 
+            // item_code
+            // 
+            resources.ApplyResources(this.item_code, "item_code");
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // item_name
+            // 
+            this.item_name.FillWeight = 110F;
+            resources.ApplyResources(this.item_name, "item_name");
+            this.item_name.Name = "item_name";
+            this.item_name.ReadOnly = true;
+            // 
+            // item_standard
+            // 
+            this.item_standard.FillWeight = 80F;
+            resources.ApplyResources(this.item_standard, "item_standard");
+            this.item_standard.Name = "item_standard";
+            this.item_standard.ReadOnly = true;
+            // 
+            // item_count
+            // 
+            this.item_count.FillWeight = 80F;
+            resources.ApplyResources(this.item_count, "item_count");
+            this.item_count.Name = "item_count";
+            this.item_count.ReadOnly = true;
+            // 
             // Frm_StockListReal
             // 
             resources.ApplyResources(this, "$this");
@@ -223,12 +242,12 @@
         private System.Windows.Forms.TextBox txt_ItemCode;
         private System.Windows.Forms.Button btn_Item;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouse_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouse_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_standard;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_count;
-        private System.Windows.Forms.Button btn_Clear;
     }
 }

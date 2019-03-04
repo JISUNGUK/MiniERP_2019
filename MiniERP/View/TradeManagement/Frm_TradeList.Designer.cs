@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_serchbox = new System.Windows.Forms.Panel();
             this.btn_detailSearch = new System.Windows.Forms.Button();
@@ -96,7 +98,7 @@
             this.txt_bussiness.Name = "txt_bussiness";
             this.txt_bussiness.Size = new System.Drawing.Size(255, 23);
             this.txt_bussiness.TabIndex = 50;
-            this.txt_bussiness.Text = "거래처이름 혹은 번호를 입력해주세요";
+            this.txt_bussiness.Text = "거래처번호 혹은 이름을 입력해주세요";
             this.txt_bussiness.Enter += new System.EventHandler(this.txt_bussiness_Enter);
             // 
             // label1
@@ -194,6 +196,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gViewTrade.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gViewTrade.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gViewTrade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewTrade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.trade_standard,
@@ -208,6 +218,8 @@
             this.gViewTrade.Location = new System.Drawing.Point(17, 86);
             this.gViewTrade.Name = "gViewTrade";
             this.gViewTrade.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.gViewTrade.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.gViewTrade.RowTemplate.Height = 23;
             this.gViewTrade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gViewTrade.Size = new System.Drawing.Size(895, 491);
@@ -217,6 +229,7 @@
             // 
             // trade_standard
             // 
+            this.trade_standard.FillWeight = 80F;
             this.trade_standard.HeaderText = "거래구분";
             this.trade_standard.Name = "trade_standard";
             this.trade_standard.ReadOnly = true;
@@ -229,6 +242,7 @@
             // 
             // clerk_name
             // 
+            this.clerk_name.FillWeight = 80F;
             this.clerk_name.HeaderText = "담당자";
             this.clerk_name.Name = "clerk_name";
             this.clerk_name.ReadOnly = true;
@@ -241,30 +255,35 @@
             // 
             // item_summary
             // 
+            this.item_summary.FillWeight = 150F;
             this.item_summary.HeaderText = "품목";
             this.item_summary.Name = "item_summary";
             this.item_summary.ReadOnly = true;
             // 
             // total_fee
             // 
+            this.total_fee.FillWeight = 80F;
             this.total_fee.HeaderText = "총액";
             this.total_fee.Name = "total_fee";
             this.total_fee.ReadOnly = true;
             // 
             // trade_status
             // 
+            this.trade_status.FillWeight = 80F;
             this.trade_status.HeaderText = "거래상태";
             this.trade_status.Name = "trade_status";
             this.trade_status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // end_date
             // 
+            this.end_date.FillWeight = 120F;
             this.end_date.HeaderText = "종료일";
             this.end_date.Name = "end_date";
             this.end_date.ReadOnly = true;
             // 
             // btnOutput
             // 
+            this.btnOutput.FillWeight = 60F;
             this.btnOutput.HeaderText = "전표출력";
             this.btnOutput.Name = "btnOutput";
             // 
