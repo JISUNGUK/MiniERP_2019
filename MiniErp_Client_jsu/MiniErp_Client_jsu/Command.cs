@@ -57,13 +57,26 @@ namespace MiniErp_Client_jsu
         //  바코드 리스트를 보내는 메소드
         public void BarcodeMsgMaker(List<Barcode> barcodes)
         {
-            StringBuilder temp = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("---------[투입 현황]" + this.Name);
+            sb.AppendLine(NowTime());
             foreach (var item in barcodes)
             {
-                temp.AppendLine(item.Barcode_Code + "\t" + item.Barcode_Count);
+                sb.AppendLine("*[" + item.Barcode_Code + "]" + "\t" + item.Barcode_Count);
             }
+            sb.AppendLine("----------------------------");
 
-            chatinfo.SendMsg(temp.ToString());
+            chatinfo.SendMsg(sb.ToString());
+        }
+
+        /// <summary>
+        /// 현재 시간의 스트링을 만드는 메서드
+        /// </summary>
+        private string NowTime()
+        {
+            DateTime dt = DateTime.Now;
+            return
+                "---------[" + dt.ToShortDateString() + " " + dt.Hour + ":" + dt.Minute + ":" + dt.Second + "]";
         }
 
         public void ChangeIp()

@@ -108,7 +108,7 @@ namespace MiniErp_Client_jsu
         private void CommandChacker(string readData)
         {
             //string testMsg = "[command][pc1] 서버종료";
-            if (readData.Contains("[command]") != true || readData.Contains("[pc1]") != true)
+            if (readData.Contains("[command]") != true || readData.Contains(this.name) != true)
                 return;
             else if (readData.Contains("접속") == true)   //  서버접속시 접속이라고 보내기에 이를 무시
                 return;

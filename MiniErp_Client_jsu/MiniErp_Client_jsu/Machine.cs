@@ -28,11 +28,6 @@ namespace MiniErp_Client_jsu
 
         public Machine()
         {
-            //Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            //KeyValueConfigurationCollection keyValue = config.AppSettings.Settings;
-
-            //keyValue.Add("name", name);
-            //config.Save();
         }
         
     }
