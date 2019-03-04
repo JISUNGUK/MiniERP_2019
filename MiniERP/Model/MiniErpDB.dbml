@@ -122,4 +122,25 @@
     <Parameter Name="move_date" Type="System.DateTime" DbType="Date" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.Get_Specific_Business" Method="Get_Specific_Business">
+    <Parameter Name="Business_code" Parameter="business_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="Get_Specific_BusinessResult">
+      <Column Name="Business_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Business_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Business_tel" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Business_addr" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Business_email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Business_presenter" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PROC_STATEMENT" Method="PROC_STATEMENT">
+    <Parameter Name="order_code" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="PROC_STATEMENTResult">
+      <Column Name="Item_code" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_standard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Item_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item_wrote_fee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
