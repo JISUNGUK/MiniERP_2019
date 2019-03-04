@@ -19,7 +19,7 @@ namespace MiniERP.Model.DAO.Message
         
         
 
-        string ip = "192.168.0.8";
+        string ip = "192.168.0.6";
 
 
         string readData = null;

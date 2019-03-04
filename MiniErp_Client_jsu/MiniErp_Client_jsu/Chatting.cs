@@ -48,6 +48,7 @@ namespace MiniErp_Client_jsu
             {
                 if (client == null)
                 {
+                    client = new TcpClient();
                     access = client.BeginConnect(this.ip, 4444, null, null);
                     var result = access.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
                     stream = client.GetStream();
