@@ -169,9 +169,10 @@ namespace MiniERP.Model.DAO
 
                    
                     ws.Cells[14, 2] = row.Cells[7].Value;
-                    ws.Cells[14, 3] = business.Name;
-                    ws.Cells[14, 4] = business.Presenter;
-                    ws.Cells[14, 5] = business.Addr;
+                    ws.Cells[14, 7] = business.Name;
+                    ws.Cells[14, 12] = business.Presenter;
+                    ws.Cells[14, 17] = business.Tel;
+                    ws.Cells[14, 26] = business.Addr;
                     int r = 20;//열번호
                     foreach (var data in new MiniErpDB().PROC_STATEMENT(ordercode))
                     {
